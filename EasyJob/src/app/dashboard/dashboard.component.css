@@ -14,9 +14,30 @@ img {
 
 .item {
   font-weight: lighter;
-  font-size: 13px;
+  font-size: 20px;
   font-family: "Quicksand", sans-serif;
   list-style-type: none;
   flex-basis: 150px;
   text-align: center;
 }
+
+.job-search{
+  border: solid 1px black;
+  display: flex;
+  justify-content: center;
+}
+
+.search-job-form{
+  width: 60%;
+  font-size: 30px;
+  font-family: 'Open Sans', sans-serif;
+  border: solid 1px red;
+  text-align: center;
+}
+
+.search-job-form input{
+  box-sizing: border-box;
+  width: 50%;
+  padding: 10px;
+}
+
