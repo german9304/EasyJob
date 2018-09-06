@@ -1,0 +1,22 @@
+.menu {
+  border-bottom: solid 1px #517BAB;
+}
+#menu-list {
+  margin: 0;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 2px;
+}
+
+img {
+  width: 100%;
+}
+
+.item {
+  font-weight: lighter;
+  font-size: 13px;
+  font-family: "Quicksand", sans-serif;
+  list-style-type: none;
+  flex-basis: 150px;
+  text-align: center;
+}
