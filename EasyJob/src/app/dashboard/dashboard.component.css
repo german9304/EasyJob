@@ -1,5 +1,5 @@
 .menu {
-  border-bottom: solid 1px #517bab;
+  /*border-bottom: solid 1px #517bab;*/
   margin-bottom: 50px;
 }
 #menu-list {
@@ -16,10 +16,20 @@
   list-style-type: none;
   flex-basis: 150px;
   text-align: center;
+  /*border: solid 1px red;*/
+}
+.item a{
+  display: block;
+  color: black;
+  text-decoration: none;
+  /*border: solid 1px green;*/
+}
+
+.item a:hover{
+color: #517bab;
 }
 
 .job-search {
-  /* border: solid 1px black;*/
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
@@ -30,24 +40,27 @@
   flex-basis: 60%;
   font-family: "Open Sans", sans-serif;
   text-align: center;
-
-  background-color: #0a264240;
+  color:white;
+  background: linear-gradient(180deg,#477A9D, #d5d7e7);
 }
 .search-job-form .search-forms {
   display: flex;
   flex-wrap: wrap;
+
 }
 
 .search-job-form input {
   box-sizing: border-box;
-  flex: 5 2 100px;
-  padding: 0 2px 0 5px;
+  flex: 5 2 150px;
+  padding: 5px;
   font-size: 15px;
+  outline-style: none;
+
+  border: solid 2px #e2e5e7;
 }
 .search-job-form .material-icons {
   box-sizing: border-box;
-  flex: 1 1 50px;
-  padding: 10px;
+  flex: 2 1 50px;
   background-color: #477a9d;
   color: white;
   cursor: pointer;
@@ -59,42 +72,49 @@
 
 .job-footer {
   height: 100px;
-  background-color: gray;
+  background-color:#556A7B;
 }
 
 .text-history {
   color: white;
   padding: 10px;
   text-align: center;
-  border-bottom: solid 1px royalblue;
 }
 
-.search-forms input {
-  outline-style: none;
-  outline-style: none;
-  border: solid 2px #e2e5e7;
-}
 #search-input {
   border-radius: 10px 0 0 10px;
 }
 
-
 .job-site {
-  display:flex;
-  flex-wrap:wrap;
-  justify-content: center;
-}
-.job-site .inner {
-  flex-basis: 50%;
-  border: solid 1px blue;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  /*border: solid 1px black;*/
 }
-.inner > *{
-  flex:1 2 150px;
-  border: solid 1px red;
+.job-site .inner {
+  flex-basis: 80%;
+  /*border: solid 1px blue;*/
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  font-family: 'Quicksand', sans-serif;
+  margin-bottom: 20px;
 }
+.inner > * {
+  flex-basis: 300px;
+  /*border: solid 1px red;*/
+  
+}
+
 img {
   width: 300px;
-  height:200px;
+  height: 200px;
+}
+
+.explanation{
+  border: solid gray 1px;
+}
+.reviews-section{
+  border: solid gray 1px;
 }
