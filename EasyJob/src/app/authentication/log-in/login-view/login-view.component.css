@@ -1,0 +1,46 @@
+.container {
+  border: solid 1px black;
+  padding: 10px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  background-color: #cfd1d032;
+}
+
+#login-form {
+  width: 300px;
+  border: solid 1px rgb(236, 230, 230);
+  background-color: white;
+  padding: 10px;
+  height: 250px;
+}
+
+.form {
+  /*border: solid 1px royalblue;*/
+  margin-bottom: 10px;
+  padding: 10px;
+  font-weight: bold;
+  font-family: "Arimo", sans-serif;
+}
+.form > * {
+  width: 100%;
+}
+.form label {
+  display: block;
+  margin-bottom: 10px;
+}
+.form input {
+  padding: 10px;
+  font-size: 13px;
+  display: block;
+  box-sizing: border-box;
+}
+
+.form button {
+  padding: 5px;
+  color: white;
+  font-size: 20px;
+  background-color: #1db544;
+  width: 100%;
+  box-sizing: border-box;
+}

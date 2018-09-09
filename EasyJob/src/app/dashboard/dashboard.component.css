@@ -1,33 +1,4 @@
-.menu {
-  /*border-bottom: solid 1px #517bab;*/
-  margin-bottom: 50px;
-}
-#menu-list {
-  margin: 0;
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 2px;
-}
 
-.item {
-  font-weight: lighter;
-  font-size: 20px;
-  font-family: "Quicksand", sans-serif;
-  list-style-type: none;
-  flex-basis: 150px;
-  text-align: center;
-  /*border: solid 1px red;*/
-}
-.item a{
-  display: block;
-  color: black;
-  text-decoration: none;
-  /*border: solid 1px green;*/
-}
-
-.item a:hover{
-color: #517bab;
-}
 
 .job-search {
   display: flex;
@@ -37,7 +8,7 @@ color: #517bab;
 
 .search-job-form {
   font-size: 30px;
-  flex-basis: 60%;
+  flex-basis: 80%;
   font-family: "Open Sans", sans-serif;
   text-align: center;
   color:white;
@@ -64,6 +35,7 @@ color: #517bab;
   background-color: #477a9d;
   color: white;
   cursor: pointer;
+  font-size: 30px;
 }
 .search-job-form .material-icons:hover {
   background-color: #477a9d32;
