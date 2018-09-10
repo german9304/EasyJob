@@ -11,5 +11,9 @@
     </div>
   </form>
   -->
-  <app-login-view></app-login-view>
+  <app-login-view
+   (isSubmited)="onSubmit($event)"
+   [groupForm]="loginForm" >
+   </app-login-view>
+
 </div>

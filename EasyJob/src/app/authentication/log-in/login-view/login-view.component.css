@@ -1,23 +1,15 @@
-.container {
-  border: solid 1px black;
-  padding: 10px;
-  height: 300px;
-  display: flex;
-  justify-content: center;
-  background-color: #cfd1d032;
-}
-
 #login-form {
   width: 300px;
   border: solid 1px rgb(236, 230, 230);
   background-color: white;
-  padding: 10px;
-  height: 250px;
+  padding: 15px 10px 10px 10px;
+  height: 300px;
+  /*border: solid 1px red;*/
 }
 
 .form {
   /*border: solid 1px royalblue;*/
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   padding: 10px;
   font-weight: bold;
   font-family: "Arimo", sans-serif;
@@ -35,12 +27,21 @@
   display: block;
   box-sizing: border-box;
 }
+.form input:focus{
+  outline-style: solid;
+  outline-color: #808B9632;
+}
 
-.form button {
-  padding: 5px;
+.form #btn-submit {
+  padding: 10px;
+  border-radius: 5px;
   color: white;
-  font-size: 20px;
+  font-size: 15px;
   background-color: #1db544;
   width: 100%;
   box-sizing: border-box;
+}
+.form #btn-submit:hover{
+  background-color: #0E6F09;
+  cursor: pointer;
 }

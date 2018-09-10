@@ -1,5 +1,7 @@
-
-
+.container-menu {
+  background-color: #cfd1d032;
+  padding-top: 30px;
+}
 .job-search {
   display: flex;
   justify-content: center;
@@ -11,13 +13,13 @@
   flex-basis: 80%;
   font-family: "Open Sans", sans-serif;
   text-align: center;
-  color:white;
-  background: linear-gradient(180deg,#477A9D, #d5d7e7);
+  font-weight: bold;
+  color: white;
+  background: #a7b4c6;
 }
 .search-job-form .search-forms {
   display: flex;
   flex-wrap: wrap;
-
 }
 
 .search-job-form input {
@@ -39,12 +41,12 @@
 }
 .search-job-form .material-icons:hover {
   background-color: #477a9d32;
-  color: #477a9d;
+  color: white;
 }
 
 .job-footer {
   height: 100px;
-  background-color:#556A7B;
+  background-color: #556a7b;
 }
 
 .text-history {
@@ -70,13 +72,12 @@
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
   margin-bottom: 20px;
 }
 .inner > * {
   flex-basis: 300px;
   /*border: solid 1px red;*/
-  
 }
 
 img {
@@ -84,9 +85,9 @@ img {
   height: 200px;
 }
 
-.explanation{
+.explanation {
   border: solid gray 1px;
 }
-.reviews-section{
+.reviews-section {
   border: solid gray 1px;
 }
