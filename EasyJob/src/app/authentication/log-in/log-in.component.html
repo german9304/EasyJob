@@ -1,19 +1,4 @@
 <div class="container">
-  <!--
-  <form id="login-form" action="" class="login">
-    <div class="form form-group">
-      <label for="name">Name:</label>
-      <input type="text" id="name" placeholder="name">
-    </div>
-    <div class="form form-group">
-      <label for="" id="lastName">LastName</label>
-      <input type="text" for="last_name">LastName
-    </div>
-  </form>
-  -->
-  <app-login-view
-   (isSubmited)="onSubmit($event)"
-   [groupForm]="loginForm" >
-   </app-login-view>
-
+  <app-login-view (isSubmited)="onSubmit($event)" [groupForm]="loginForm">
+  </app-login-view>
 </div>

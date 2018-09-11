@@ -21,11 +21,15 @@ import { FormGroup, FormControl } from '@angular/forms';
             </div>
           <div class="form form-btn">
             <button id="btn-submit" type="submit" [disabled]="!groupForm.valid"> sign in </button>
+            <p> no an account? 
+             <a routerLink="../create" routerLinkActive="active"> Sign up</a>
+            </p>
           </div>
         </form>
   `,
   styleUrls: ["./login-view.component.css"]
 })
+
 export class LoginViewComponent implements OnInit {
   @Input() groupForm: FormGroup;
   @Output() isSubmited = new EventEmitter<boolean>();

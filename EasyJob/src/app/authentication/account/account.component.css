@@ -1,7 +1,5 @@
-
-/*
-.container {
-  border: solid 1px black;
+.container.account{
+  /*border: solid 1px black;*/
   padding: 10px;
   height: 500px;
   display: flex;
@@ -9,4 +7,3 @@
   background-color: #cfd1d032;
   align-items: center;
 }
-*/

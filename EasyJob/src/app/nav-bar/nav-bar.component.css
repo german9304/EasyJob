@@ -1,6 +1,6 @@
 .menu {
-  /*border-bottom: solid 1px #517bab;*/
-  margin-bottom: 10px;
+  /*border: solid 1px #517bab;*/
+  background-color:white;
 }
 #menu-list {
   margin: 0;

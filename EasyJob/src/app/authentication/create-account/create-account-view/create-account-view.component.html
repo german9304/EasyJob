@@ -1,0 +1,16 @@
+<form  [formGroup]="createaccount"  id="account-form"  >
+	<div class="form formgroup">
+	<label for="username" formControlName="username" >username:</label>
+		<input id="username"type="text">
+	</div>
+	<div class="form formgroup">
+		<label for="email" formControlName="email" > email: </label>
+		<input id="email" type="text">
+	</div>
+	 <div class="form form-btn">
+            <button id="btn-submit" type="submit" [disabled]="!groupForm.valid"> sign in </button>
+            <!-- <p> no an account? 
+             <a routerLink="../create" routerLinkActive="active"> Sign up</a>
+            </p> -->
+      </div>
+</form>
