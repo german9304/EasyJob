@@ -12,20 +12,20 @@ import { FormGroup, FormControl } from '@angular/forms';
       --->
         <form [formGroup]="groupForm" (ngSubmit)="onSubmit()" id="login-form" class="login">
             <div class="form form-group">
-              <label for="name">username:</label>
-              <input type="text" id="name" formControlName="username" placeholder="Name" required>
+              <label for="name">Username:</label>
+              <input type="text" id="name" formControlName="username" placeholder="username" required>
             </div>
             <div class="form form-group">
               <label for="password" id="password">Password:</label>
               <input type="password" placeholder="Password" formControlName="password" id="password" required>
             </div>
           <div class="form form-btn">
-            <button id="btn-submit" type="submit" [disabled]="!groupForm.valid"> sign in </button>
-            <p> no an account? 
-             <a routerLink="../create" routerLinkActive="active"> Sign up</a>
-            </p>
+            <button id="btn-submit" type="submit" [disabled]="!groupForm.valid"> Sign in </button>
           </div>
         </form>
+         <p> Not A Member? 
+             <a routerLink="../create" routerLinkActive="active"> Sign Up</a>
+         </p>
   `,
   styleUrls: ["./login-view.component.css"]
 })

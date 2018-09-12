@@ -8,8 +8,9 @@ import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
 })
 export class CreateAccountComponent implements OnInit {
  createAccountForm = this.fb.group({
-    username: [""],
-    email: [""]
+    username: [''],
+    email: [''],
+    password:['']
   });
 
   constructor(private fb: FormBuilder) { }

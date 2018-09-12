@@ -1,16 +1,20 @@
+
+<!-- <p> {{ createaccount.value | json }} </p> -->
 <form  [formGroup]="createaccount"  id="account-form"  >
+	<!-- <p> name </p> -->
 	<div class="form formgroup">
-	<label for="username" formControlName="username" >username:</label>
-		<input id="username"type="text">
+	<label for="username"  >Username:</label>
+		<input id="username" formControlName="username" placeholder="username" type="text" required>
 	</div>
 	<div class="form formgroup">
-		<label for="email" formControlName="email" > email: </label>
-		<input id="email" type="text">
+		<label for="email"  > Email: </label>
+		<input id="email" formControlName="email" placeholder="email"  type="text" required="">
+	</div>
+	<div class="form formgroup">
+		<label for="password"  > Password: </label>
+		<input id="password" formControlName="password" placeholder="password"  type="password" required="">
 	</div>
 	 <div class="form form-btn">
-            <button id="btn-submit" type="submit" [disabled]="!groupForm.valid"> sign in </button>
-            <!-- <p> no an account? 
-             <a routerLink="../create" routerLinkActive="active"> Sign up</a>
-            </p> -->
+            <button id="btn-submit" type="submit" [disabled]="!createaccount.valid"> Create Account </button>
       </div>
 </form>

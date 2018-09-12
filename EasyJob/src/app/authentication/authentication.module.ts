@@ -16,6 +16,12 @@ import { AccountComponent } from './account/account.component';
 
 @NgModule({
   imports: [CommonModule, ReactiveFormsModule, AuthRoutingModule],
-  declarations: [LogInComponent, LoginViewComponent, CreateAccountComponent, CreateAccountViewComponent, AccountComponent]
+  declarations: [
+   LogInComponent, 
+   LoginViewComponent,
+   CreateAccountComponent, 
+   CreateAccountViewComponent, 
+   AccountComponent
+   ],
 })
 export class AuthenticationModule {}

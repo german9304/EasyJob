@@ -3,9 +3,10 @@
   border: solid 1px rgb(236, 230, 230);
   background-color: white;
   padding: 15px 10px 10px 10px;
-  height: 300px;
+ 
   /*border: solid 1px red;*/
 }
+
 
 .form {
   /*border: solid 1px royalblue;*/
@@ -45,3 +46,4 @@
   background-color: #0E6F09;
   cursor: pointer;
 }
+
