@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
-
+const { DATABASE_URL } = require("./client-auth");
 
 mongoose.connect(
-  "mongodb://localhost/test",
+  DATABASE_URL,
   { useNewUrlParser: true }
 );
 

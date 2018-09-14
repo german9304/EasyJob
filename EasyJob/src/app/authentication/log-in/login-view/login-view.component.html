@@ -1,3 +1,30 @@
-<p>
-  login-view works!
-</p>
+<div class="form-container">
+  <!-- <div>
+    <p> {{groupForm.value | json}} </p>
+    <p> {{groupForm.status | json}} </p>
+  </div> -->
+  <div class="container jobseeker">
+    <p>Employee </p>
+    <p> JobSeeker </p>
+  </div>
+  <p id="google-sigin">
+    <a routerLink="#" routerLinkActive="active"> LOGIN WITH GOOGLE</a>
+  </p>
+  <p> OR </p>
+  <form [formGroup]="groupForm" (ngSubmit)="onSubmit()" id="login-form" class="login">
+    <div class="form form-group">
+      <label for="name">Username:</label>
+      <input type="text" id="name" formControlName="username" placeholder="username" required>
+    </div>
+    <div class="form form-group">
+      <label for="password" id="password">Password:</label>
+      <input type="password" placeholder="Password" formControlName="password" id="password" required>
+    </div>
+    <div class="form form-btn">
+      <button id="btn-submit" type="submit" [disabled]="!groupForm.valid"> Sign in </button>
+    </div>
+  </form>
+  <p> Not A Member?
+    <a routerLink="../create" routerLinkActive="active"> Sign Up</a>
+  </p>
+</div>
