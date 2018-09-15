@@ -11,10 +11,16 @@ export class LoginViewComponent implements OnInit {
   groupForm: FormGroup;
   @Output()
   isSubmited = new EventEmitter<boolean>();
+  @Output()
+  googleAuth = new EventEmitter<any>();
 
   constructor() {}
   ngOnInit() {}
   onSubmit() {
     this.isSubmited.emit(true);
+  }
+ 
+  onSubmitGoogle(){
+    this.googleAuth.emit('submit')
   }
 }

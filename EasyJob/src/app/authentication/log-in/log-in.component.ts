@@ -15,7 +15,9 @@ export class LogInComponent implements OnInit {
   });
 
   constructor(private fb: FormBuilder, private auth: AuthService) {}
-  ngOnInit() {}
+  ngOnInit() {
+    console.log('sucess login');
+  }
   onSubmit(isSubmited: boolean) {
     console.log("submited");
     /*
@@ -28,6 +30,7 @@ export class LogInComponent implements OnInit {
       )
       */
   }
+ 
 
   get userName(): FormControl {
     return this.loginForm.get("username") as FormControl;

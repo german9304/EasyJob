@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  ngOnInit(){
+  	console.log('on init');
+  	fetch('/user')
+  	.then(user => user.json())
+  	.then(final => console.log(final))
+  }
 }

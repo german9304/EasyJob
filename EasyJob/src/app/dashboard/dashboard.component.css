@@ -54,11 +54,11 @@
   padding: 10px;
   text-align: center;
 }
-
+/*
 #search-input {
   border-radius: 10px 0 0 10px;
 }
-
+*/
 .job-site {
   display: flex;
   flex-wrap: wrap;

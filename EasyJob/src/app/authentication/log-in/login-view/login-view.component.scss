@@ -1,104 +1,43 @@
+
+$back-ground-color: white;
+
 #login-form {
   width: 300px;
-  border: solid 1px rgb(236, 230, 230);
-  background-color: white;
+  border: solid 5px rgb(236, 230, 230);
+  background-color: $back-ground-color;
   padding: 15px 10px 10px 10px;
   /*height: 300px;*/
   /*border: solid 1px red;*/
-  .form {
-    /* border: solid 1px royalblue;*/
-    margin-bottom: 5px;
-    padding: 10px;
-    font-weight: bold;
-    font-family: "Arimo", sans-serif;
-    label {
-      display: block;
-      margin-bottom: 10px;
-    }
-    input {
-      padding: 10px;
-      font-size: 13px;
-      display: block;
-      box-sizing: border-box;
-    }
-    input:focus {
-      outline-style: solid;
-      outline-color: #808b9632;
-    }
-    #btn-submit {
-      padding: 10px;
-      border-radius: 5px;
-      color: white;
-      font-size: 15px;
-      background-color: #1db544;
-      width: 100%;
-      box-sizing: border-box;
-    }
-    #btn-submit:hover {
-      background-color: #0e6f09;
-      cursor: pointer;
-    }
-  }
 }
+
 #google-sigin {
-  padding: 10px;
+  padding: 20px;
   background-color: #3a7db2;
   border: solid 1px black;
-  border-radius: 5px;
-  a {
+  border-radius: 10px;
+  font-size: 15px;
+  a{
+
     color: white;
   }
 }
 
-.form > * {
-  width: 100%;
-}
-/*
-.form label {
-  display: block;
-  margin-bottom: 10px;
-}
 
-.form input {
-  padding: 10px;
-  font-size: 13px;
-  display: block;
-  box-sizing: border-box;
-}
-*/
-
-/*
-.form #btn-submit {
-  padding: 10px;
-  border-radius: 5px;
-  color: white;
-  font-size: 15px;
-  background-color: #1db544;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.form #btn-submit:hover{
-  background-color: #0E6F09;
-  cursor: pointer;
-}
-*/
 
 p {
   text-align: center;
   color: #556a7b;
 }
-a {
+ a {
   font-family: "Quicksand", sans-serif;
   text-decoration: none;
   color: #556a7b;
   cursor: pointer;
 }
-
-a:hover {
-  color: #517bab;
-  border-bottom: solid 1px #517bab;
-}
+  #not-member a:hover {
+    color: #517bab;
+    border-bottom: solid 1px #517bab;
+  }
 /*
 .form-container {
   border: solid 1px black;
@@ -110,7 +49,7 @@ a:hover {
   padding: 0;
   /* border: solid 1px blue;*/
   p {
-    margin: 0;
+    margin-right: 5px;
     flex: 1;
     padding: 10px;
     border: solid 1px royalblue;

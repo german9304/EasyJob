@@ -1,4 +1,7 @@
+
 .container {
-  background-color: #cfd1d032;
-  height: 100vh;
+ background-color: white;
+/* border: solid 1px red;*/
+  /*height: 100vh;*/
+  margin: 0;
 }

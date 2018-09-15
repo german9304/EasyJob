@@ -1,15 +1,12 @@
 .container.account {
   /*border: solid 1px black;*/
   padding: 10px;
-
   display: flex;
   flex-wrap: wrap;
+  /*height: 100vh;*/
   justify-content: center;
-  /*background-color: #cfd1d032;*/
-  align-items: center;
+  background-color: #cfd1d032;
+  align-content: center;
 }
 
-.container.jobseeker {
-  width: 100%;
-  border: solid 1px red;
-}
+
