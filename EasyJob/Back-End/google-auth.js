@@ -29,8 +29,9 @@ passport.use(
               id,
               value
             };
-            console.log("user");
-            createUserGoogle(user);
+            // console.log("user");
+            const addedUser = createUserGoogle(user);
+            addedUser.save(function(err, user) {});
           }
           //console.log(id);
         })

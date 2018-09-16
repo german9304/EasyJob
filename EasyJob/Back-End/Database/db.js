@@ -21,14 +21,10 @@ const findUser = async id => {
 };
 
 const createUserGoogle = ({ value, id }) => {
-  const userNew = new userModel({
+  return new userModel({
     email: value,
     googleId: id
   });
-  console.log("function ");
-  let newUser;
-  userNew.save();
-  console.log("new user: ", newUser);
 };
 
 module.exports = {
