@@ -50,8 +50,8 @@ app.get("/user", (req, res) => {
     const { email } = req.user;
     const user = {
       email,
-      auth: true 
-    }
+      auth: true
+    };
     res.json(user);
   } else {
     res.json({ auth: false });
@@ -60,7 +60,7 @@ app.get("/user", (req, res) => {
 
 app.get("/logout", (req, res) => {
   req.logout();
-  res.redirect("/");
+  res.redirect("http://localhost:4200");
 });
 app.post("/api", (req, res) => {
   const { body: user } = req;
