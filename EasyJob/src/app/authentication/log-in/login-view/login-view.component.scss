@@ -1,9 +1,12 @@
-
 $back-ground-color: white;
-
+/*
+.form-container {
+  border: solid 1px rgb(206, 24, 24);
+}
+*/
 #login-form {
   width: 300px;
-  border: solid 5px rgb(236, 230, 230);
+  border: solid 1px rgb(236, 230, 230);
   background-color: $back-ground-color;
   padding: 15px 10px 10px 10px;
   /*height: 300px;*/
@@ -11,33 +14,47 @@ $back-ground-color: white;
 }
 
 #google-sigin {
-  padding: 20px;
-  background-color: #3a7db2;
+  padding: 10px;
+  background-color: white;
   border: solid 1px black;
   border-radius: 10px;
   font-size: 15px;
-  a{
+  display: flex;
 
-    color: white;
+  p {
+    margin: 0;
+    /*  border: solid 1px black;*/
+  }
+  #loginGoogle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+  }
+  #logo {
+    width: 50px;
+    text-align: center;
+    // border: solid 1px black;
+  }
+  img {
+    width: 50%;
   }
 }
-
-
 
 p {
   text-align: center;
   color: #556a7b;
 }
- a {
+a {
   font-family: "Quicksand", sans-serif;
   text-decoration: none;
   color: #556a7b;
   cursor: pointer;
 }
-  #not-member a:hover {
-    color: #517bab;
-    border-bottom: solid 1px #517bab;
-  }
+#not-member a:hover {
+  color: #517bab;
+  border-bottom: solid 1px #517bab;
+}
 /*
 .form-container {
   border: solid 1px black;

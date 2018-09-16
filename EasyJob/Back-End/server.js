@@ -42,19 +42,25 @@ app.get("/google/auth/redirect", passport.authenticate("google"), function(
   res,
   next
 ) {
-  res.redirect("/user");
+  res.redirect("http://localhost:4200");
 });
 
 app.get("/user", (req, res) => {
-  //console.log("session: ", req.session);
-  //console.log(user)
-  //const { session: {passport: } } = req;
-  res.send(req.session);
+  if (req.user) {
+    const { email } = req.user;
+    const user = {
+      email,
+      auth: true 
+    }
+    res.json(user);
+  } else {
+    res.json({ auth: false });
+  }
 });
 
 app.get("/logout", (req, res) => {
   req.logout();
-  res.redirect("/test");
+  res.redirect("/");
 });
 app.post("/api", (req, res) => {
   const { body: user } = req;

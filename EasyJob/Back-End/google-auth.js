@@ -1,14 +1,20 @@
 const { GOOGLE_CLIENT } = require("./client-auth");
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
-const { userModel, findUser, createUserGoogle } = require("./Database/db");
+const {
+  userModel,
+  findGoogleUser,
+  createUserGoogle
+} = require("./Database/db");
 
-passport.serializeUser(function(user, done) {
-  done(null, user);
+passport.serializeUser(function(userId, done) {
+  done(null, userId);
 });
 
-passport.deserializeUser(function(user, done) {
-  done(null, user);
+passport.deserializeUser(function(id, done) {
+  userModel.findById(id).then(user => {
+    done(null, user);
+  });
 });
 
 passport.use(
@@ -22,22 +28,21 @@ passport.use(
       //console.log("profile: ", profile);
       const { id, displayName, emails } = profile;
       const { value } = emails[0];
-      findUser(id)
-        .then(googleId => {
-          if (!googleId) {
+      findGoogleUser(id)
+        .then(googleUser => {
+          if (!googleUser) {
             const user = {
               id,
               value
             };
-            // console.log("user");
             const addedUser = createUserGoogle(user);
-            addedUser.save(function(err, user) {});
+            addedUser.save(function(err, user) {
+              done(null, user);
+            });
           }
-          //console.log(id);
+          done(null, googleUser);
         })
         .catch(error => console.log(error));
-
-      done(null, value);
     }
   )
 );

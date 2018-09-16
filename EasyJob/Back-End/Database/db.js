@@ -15,8 +15,13 @@ db.once("open", function() {
 
 const userModel = mongoose.model("user", userSchema);
 
-const findUser = async id => {
+const findGoogleUser = async id => {
   const user = await userModel.findOne({ googleId: id });
+  if (user) {
+    const { _id } = user;
+    console.log(_id);
+    return _id;
+  }
   return user;
 };
 
@@ -30,5 +35,5 @@ const createUserGoogle = ({ value, id }) => {
 module.exports = {
   createUserGoogle,
   userModel,
-  findUser
+  findGoogleUser
 };

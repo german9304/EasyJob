@@ -11,7 +11,8 @@ import { DashboardComponent } from "./dashboard/dashboard.component";
 import { NavBarComponent } from "./nav-bar/nav-bar.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { Router } from "@angular/router";
-import {AuthService} from "./authentication/auth.service"
+import {AuthService} from "./authentication/auth.service";
+import { NavBarViewComponent } from './nav-bar/nav-bar-view/nav-bar-view.component'
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import {AuthService} from "./authentication/auth.service"
     DashboardComponent,
     NavBarComponent,
     PageNotFoundComponent,
+    NavBarViewComponent,
   ],
   imports: [BrowserModule, HttpClientModule, FormsModule, ReactiveFormsModule , AuthenticationModule, AppRoutingModule],
   providers: [AuthService],
