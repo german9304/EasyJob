@@ -19,7 +19,8 @@ export class NavBarComponent implements OnInit {
       const { auth } = user;
       if (auth) {
         // console.log(auth);
-        this.auth.isLoggedin = true;
+        //this.auth.isLoggedin = true;
+        this.auth.logUser();
         this.user = user;
         this.login = this.auth.isLoggedin;
         //console.log(this.login);

@@ -4,15 +4,16 @@ import { AppRoutingModule } from "./app-routing/app-routing.module";
 import { AuthenticationModule } from "../app/authentication/authentication.module";
 import { FormsModule } from "@angular/forms";
 import { ReactiveFormsModule } from "@angular/forms";
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from "@angular/common/http";
+import { JobseekerDashboardModule } from "./jobseeker-dashboard/jobseeker-dashboard.module";
 
 import { AppComponent } from "./app.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { NavBarComponent } from "./nav-bar/nav-bar.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { Router } from "@angular/router";
-import {AuthService} from "./authentication/auth.service";
-import { NavBarViewComponent } from './nav-bar/nav-bar-view/nav-bar-view.component'
+import { AuthService } from "./authentication/auth.service";
+import { NavBarViewComponent } from "./nav-bar/nav-bar-view/nav-bar-view.component";
 
 @NgModule({
   declarations: [
@@ -20,9 +21,17 @@ import { NavBarViewComponent } from './nav-bar/nav-bar-view/nav-bar-view.compone
     DashboardComponent,
     NavBarComponent,
     PageNotFoundComponent,
-    NavBarViewComponent,
+    NavBarViewComponent
   ],
-  imports: [BrowserModule, HttpClientModule, FormsModule, ReactiveFormsModule , AuthenticationModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AuthenticationModule,
+    JobseekerDashboardModule,
+    AppRoutingModule
+  ],
   providers: [AuthService],
   bootstrap: [AppComponent]
 })

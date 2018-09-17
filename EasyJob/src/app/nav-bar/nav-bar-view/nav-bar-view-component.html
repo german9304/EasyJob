@@ -1,32 +1,38 @@
 <nav class="menu">
     <ul id="menu-list">
         <li class="item item1">
-            <a routerLink="/" routerLinkActive="active"> Search Jobs </a>
+            <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"> Search Jobs </a>
         </li>
-        <li class="item item2">
-            <a routerLink="/" routerLinkActive="active"> Post Jobs</a>
+        <li class=" item item2 ">
+            <a routerLink="#" routerLinkActive="active "> Post Jobs</a>
         </li>
         <li class="item item3">
             <!-- <p> {{user | json}} </p> -->
             <!-- <p> {{Profile | json}} </p> -->
-            <a routerLink="/account/login" *ngIf="!auth" routerLinkActive="active"> Sign in</a>
-            <div class="icons" *ngIf="auth">
+            <a routerLink="/account/login" *ngIf="!auth " routerLinkActive="active "> Sign in</a>
+            <div class="arrow" *ngIf="auth && clicked">
+
+            </div>
+            <div class="icons" (click)="clickedIcon()" *ngIf="auth ">
                 <span> Me: </span>
-                <i (click)="clickedIcon()" class="material-icons">
+                <i class="material-icons ">
                     expand_more
                 </i>
             </div>
             <div class="userProfile" *ngIf="auth && clicked">
-                <ul class="items-profile">
+                <ul class="items-profile ">
                     <li>
                         <p id="signin"> Signed in as: </p>
-                        <p class="email" *ngIf="user"> {{user.email}}</p>
+                        <p class="email " *ngIf="user "> {{user.email}}</p>
                     </li>
                     <li>
-                        <a> Your Profile </a>
+                        <a routerLink="#"> Your Profile </a>
                     </li>
                     <li>
-                        <a href="/logout"> Sign Out </a>
+                        <a routerLink="/user/dashboard"> Your Dashboard </a>
+                    </li>
+                    <li>
+                        <a href="/logout "> Sign Out </a>
                     </li>
                 </ul>
             </div>

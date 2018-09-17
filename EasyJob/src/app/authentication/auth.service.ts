@@ -28,4 +28,7 @@ export class AuthService {
       tap(val => console.log(val))
     );
   }
+  logUser() {
+    this.isLoggedin = true;
+  }
 }
