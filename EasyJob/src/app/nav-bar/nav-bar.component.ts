@@ -11,18 +11,20 @@ export class NavBarComponent implements OnInit {
   login: boolean = false;
   isClicked: boolean = false;
   user: USER;
+  success: boolean = false;
   constructor(private auth: AuthService) {}
 
   ngOnInit() {
     this.auth.getUSER().subscribe(user => {
       const { auth } = user;
       if (auth) {
-       // console.log(auth);
+        // console.log(auth);
         this.auth.isLoggedin = true;
         this.user = user;
         this.login = this.auth.isLoggedin;
         //console.log(this.login);
       }
+      this.success = true;
     });
   }
 }

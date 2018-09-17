@@ -19,7 +19,7 @@
   text-align: center;
   margin: 0;
   box-sizing: border-box;
- /* border: solid 1px black;*/
+  /* border: solid 1px black;*/
   /* border: solid 1px red;*/
   a {
     display: block;
@@ -37,10 +37,10 @@
   }
 }
 
-.icons > *{
+.icons > * {
   display: flex;
   align-items: center;
- /* border: solid 1px red;*/
+  /* border: solid 1px red;*/
   heigth: 5px;
 }
 .item.item3 {
@@ -52,16 +52,16 @@
     /*border: solid 1px blue;*/
     display: flex;
     justify-content: center;
-    aign-items: center;
+    align-items: center;
     span {
       font-size: 15px;
       margin: 0;
-     
+
       /*border: solid 1px black;*/
     }
     .material-icons {
       cursor: pointer;
-     /* border: solid 1px black;*/
+      /* border: solid 1px black;*/
     }
   }
   .email {

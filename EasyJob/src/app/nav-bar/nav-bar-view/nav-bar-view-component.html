@@ -10,12 +10,12 @@
             <!-- <p> {{user | json}} </p> -->
             <!-- <p> {{Profile | json}} </p> -->
             <a routerLink="/account/login" *ngIf="!auth" routerLinkActive="active"> Sign in</a>
-           <div class="icons">
+            <div class="icons" *ngIf="auth">
                 <span> Me: </span>
-                <i (click)="clickedIcon()" class="material-icons" *ngIf="auth">
+                <i (click)="clickedIcon()" class="material-icons">
                     expand_more
                 </i>
-           </div>
+            </div>
             <div class="userProfile" *ngIf="auth && clicked">
                 <ul class="items-profile">
                     <li>
