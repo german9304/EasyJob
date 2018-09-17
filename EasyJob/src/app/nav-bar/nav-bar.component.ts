@@ -9,6 +9,7 @@ import { AuthService } from "../authentication/auth.service";
 })
 export class NavBarComponent implements OnInit {
   login: boolean = false;
+  isClicked: boolean = false;
   user: USER;
   constructor(private auth: AuthService) {}
 
@@ -16,11 +17,11 @@ export class NavBarComponent implements OnInit {
     this.auth.getUSER().subscribe(user => {
       const { auth } = user;
       if (auth) {
-        console.log(auth);
+       // console.log(auth);
         this.auth.isLoggedin = true;
         this.user = user;
         this.login = this.auth.isLoggedin;
-        console.log(this.login);
+        //console.log(this.login);
       }
     });
   }

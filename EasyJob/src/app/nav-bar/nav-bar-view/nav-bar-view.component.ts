@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { Observable, of } from "rxjs";
 import { USER } from "../../authentication/user";
 
@@ -14,9 +14,13 @@ export class NavBarViewComponent implements OnInit {
   user: USER;
   @Input()
   auth: boolean;
+  selectedClasses: any;
+  clicked: boolean = false;
 
   constructor() {}
-
+  clickedIcon(){
+   this.clicked = !this.clicked;
+  }
   ngOnInit() {
     //console.log('login: ',this.auth)
     /*
