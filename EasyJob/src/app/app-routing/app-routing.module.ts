@@ -5,7 +5,10 @@ import { PageNotFoundComponent } from "../page-not-found/page-not-found.componen
 import { DashboardComponent } from "../dashboard/dashboard.component";
 
 const appRoutes: Routes = [
-  { path: "", component: DashboardComponent },
+  {
+    path: "",
+    component: DashboardComponent
+  },
   {
     path: "",
     redirectTo: "/",
@@ -17,7 +20,7 @@ const appRoutes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forRoot(appRoutes,/* { enableTracing: true }*/)
+    RouterModule.forRoot(appRoutes /* { enableTracing: true }*/)
   ],
   exports: [RouterModule],
   declarations: []

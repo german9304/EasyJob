@@ -1,5 +1,4 @@
 <div class="container login">
-  <app-login-view (isSubmited)="onSubmit($event)" 
-  (googleAuth)="googleAuthSubmit($event)" [groupForm]="loginForm">
+  <app-login-view (isSubmited)="onSubmit($event)" (fieldSelected)="storeField($event)" [groupForm]="loginForm">
   </app-login-view>
 </div>

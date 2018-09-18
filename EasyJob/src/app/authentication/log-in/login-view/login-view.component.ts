@@ -1,4 +1,11 @@
-import { Component, OnInit, Input, EventEmitter, Output } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  Input,
+  EventEmitter,
+  Output,
+  Optional
+} from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 
 @Component({
@@ -12,15 +19,17 @@ export class LoginViewComponent implements OnInit {
   @Output()
   isSubmited = new EventEmitter<boolean>();
   @Output()
-  googleAuth = new EventEmitter<any>();
+  fieldSelected = new EventEmitter<string>();
+  i: number;
 
   constructor() {}
   ngOnInit() {}
   onSubmit() {
     this.isSubmited.emit(true);
   }
- 
-  onSubmitGoogle(){
-    this.googleAuth.emit('submit')
+
+  clicked(number: number, option: string) {
+    this.i = number;
+    this.fieldSelected.emit(option);
   }
 }

@@ -14,7 +14,6 @@ const httpOptions = {
 @Injectable()
 export class AuthService {
   isLoggedin: boolean = false;
-
   url: string = `/api`;
   userUrl: string = `/user`;
   constructor(private http: HttpClient) {}

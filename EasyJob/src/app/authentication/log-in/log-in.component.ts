@@ -31,7 +31,9 @@ export class LogInComponent implements OnInit {
       )
       */
   }
-
+  storeField(option: string) {
+    localStorage.setItem("option", option);
+  }
   get userName(): FormControl {
     return this.loginForm.get("username") as FormControl;
   }

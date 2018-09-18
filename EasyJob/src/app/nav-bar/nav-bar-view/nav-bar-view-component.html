@@ -4,12 +4,12 @@
             <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"> Search Jobs </a>
         </li>
         <li class=" item item2 ">
-            <a routerLink="#" routerLinkActive="active "> Post Jobs</a>
+            <a routerLink="/employer/dashboard" routerLinkActive="active "> Post Jobs</a>
         </li>
         <li class="item item3">
             <!-- <p> {{user | json}} </p> -->
             <!-- <p> {{Profile | json}} </p> -->
-            <a routerLink="/account/login" *ngIf="!auth " routerLinkActive="active "> Sign in</a>
+            <a routerLink="/account/login" [hidden]="auth " routerLinkActive="active "> Sign in</a>
             <div class="arrow" *ngIf="auth && clicked">
 
             </div>
@@ -30,6 +30,9 @@
                     </li>
                     <li>
                         <a routerLink="/user/dashboard"> Your Dashboard </a>
+                    </li>
+                    <li>
+                        <a routerLink="/user/dashboard"> Upload Resume </a>
                     </li>
                     <li>
                         <a href="/logout "> Sign Out </a>

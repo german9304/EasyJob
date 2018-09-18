@@ -6,6 +6,7 @@ import { FormsModule } from "@angular/forms";
 import { ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { JobseekerDashboardModule } from "./jobseeker-dashboard/jobseeker-dashboard.module";
+import { EmployerDashboardModule } from "./employer-dashboard/employer-dashboard.module";
 
 import { AppComponent } from "./app.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
@@ -30,6 +31,7 @@ import { NavBarViewComponent } from "./nav-bar/nav-bar-view/nav-bar-view.compone
     ReactiveFormsModule,
     AuthenticationModule,
     JobseekerDashboardModule,
+    EmployerDashboardModule,
     AppRoutingModule
   ],
   providers: [AuthService],

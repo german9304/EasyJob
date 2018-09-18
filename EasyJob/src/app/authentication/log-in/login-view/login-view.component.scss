@@ -64,11 +64,29 @@ a {
 .container.jobseeker {
   display: flex;
   padding: 0;
-  /* border: solid 1px blue;*/
-  p {
-    margin-right: 5px;
+  /*border: solid 1px blue;*/
+  margin: 0 0 20px 0;
+  button {
+    font-size: 15px;
+    /* margin-right: 5px;*/
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
     flex: 1;
     padding: 10px;
+    background-color: #517bab;
     border: solid 1px royalblue;
+    outline: none;
+  }
+  button:hover {
+    color: #517bab;
+    background-color: white;
+  }
+  .selected {
+    color: #517bab;
+    background-color: white;
+  }
+  #employer {
+    margin-right: 5px;
   }
 }
