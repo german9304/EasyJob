@@ -7,6 +7,13 @@ body {
   margin: 0;
 }
 .container.account {
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  /*height: 100vh;*/
+  justify-content: center;
+  background-color: #cfd1d032;
+  align-content: center;
   .form {
     /* border: solid 1px royalblue;*/
     margin-bottom: 5px;

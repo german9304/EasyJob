@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 //import {Observable, of } from "rxjs";
-import { USER } from "../authentication/user";
-import { AuthService } from "../authentication/auth.service";
+import { USER } from "../../user";
+import { AuthService } from "../../auth.service";
 @Component({
   selector: "app-nav-bar",
   templateUrl: "./nav-bar.component.html",

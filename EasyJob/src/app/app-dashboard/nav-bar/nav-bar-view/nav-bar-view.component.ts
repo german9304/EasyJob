@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { Observable, of } from "rxjs";
-import { USER } from "../../authentication/user";
+import { USER } from "../../../user";
 
-import { LoginViewComponent } from "../../authentication/log-in/login-view/login-view.component";
+//import { LoginViewComponent } from "../../authentication/log-in/login-view/login-view.component";
 
 @Component({
   selector: "app-nav-bar-view",
@@ -18,8 +18,8 @@ export class NavBarViewComponent implements OnInit {
   clicked: boolean = false;
 
   constructor() {}
-  clickedIcon(){
-   this.clicked = !this.clicked;
+  clickedIcon() {
+    this.clicked = !this.clicked;
   }
   ngOnInit() {
     //console.log('login: ',this.auth)

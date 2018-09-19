@@ -1,11 +1,12 @@
-/* .container.account {
+/*
+.container {
   border: solid 1px black;
 
   padding: 10px;
+  height: 500px;
   display: flex;
-  flex-wrap: wrap;
-  height: 100vh;
   justify-content: center;
   background-color: #cfd1d032;
-  align-content: center;
-} */
+  align-items: center;
+}
+*/

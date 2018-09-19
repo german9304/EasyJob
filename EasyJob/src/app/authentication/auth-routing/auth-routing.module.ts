@@ -7,18 +7,12 @@ import { AccountComponent } from "../account/account.component";
 
 const appRoutes: Routes = [
   {
-    path: "account",
-    component: AccountComponent,
-    children: [
-      {
-        path: "login",
-        component: LogInComponent
-      },
-      {
-        path: "create",
-        component: CreateAccountComponent
-      }
-    ]
+    path: "login",
+    component: LogInComponent
+  },
+  {
+    path: "create",
+    component: CreateAccountComponent
   }
 ];
 
