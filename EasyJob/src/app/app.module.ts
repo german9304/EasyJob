@@ -13,6 +13,7 @@ import { AppComponent } from "./app.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { Router } from "@angular/router";
 import { AuthService } from "./auth.service";
+import { DataResolverService } from "./data-resolver.service";
 
 @NgModule({
   declarations: [AppComponent, PageNotFoundComponent],
@@ -26,7 +27,7 @@ import { AuthService } from "./auth.service";
     EmployerDashboardModule,
     AppRoutingModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, DataResolverService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

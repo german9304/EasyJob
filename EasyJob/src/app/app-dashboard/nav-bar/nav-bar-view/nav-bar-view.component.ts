@@ -10,17 +10,8 @@ import { USER } from "../../../user";
   styleUrls: ["./nav-bar-view.component.scss"]
 })
 export class NavBarViewComponent implements OnInit {
-  @Input()
-  user: USER;
-  @Input()
-  auth: boolean;
-  selectedClasses: any;
-  clicked: boolean = false;
-
   constructor() {}
-  clickedIcon() {
-    this.clicked = !this.clicked;
-  }
+  clickedIcon() {}
   ngOnInit() {
     //console.log('login: ',this.auth)
     /*

@@ -6,20 +6,24 @@ import { DashboardComponent } from "../dashboard/dashboard.component";
 import { NavBarComponent } from "../nav-bar/nav-bar.component";
 import { LogInComponent } from "../log-in/log-in.component";
 import { CreateAccountComponent } from "../create-account/create-account.component";
-import {PostjobComponent } from "../postjob/postjob.component"
+import { PostjobComponent } from "../postjob/postjob.component";
+import { DataResolverService } from "../../data-resolver.service";
 
 const appRoutes: Routes = [
   {
     path: "",
     component: NavBarComponent,
+    resolve: {
+      userData: DataResolverService
+    },
     children: [
       {
         path: "",
         component: DashboardComponent
       },
       {
-         path:"post/job",
-         component: PostjobComponent
+        path: "post/job",
+        component: PostjobComponent
       },
       {
         path: "account",

@@ -2,30 +2,32 @@ import { Component, OnInit } from "@angular/core";
 //import {Observable, of } from "rxjs";
 import { USER } from "../../user";
 import { AuthService } from "../../auth.service";
+import { RouterModule, Routes, Router, ActivatedRoute } from "@angular/router";
 @Component({
   selector: "app-nav-bar",
   templateUrl: "./nav-bar.component.html",
   styleUrls: ["./nav-bar.component.css"]
 })
 export class NavBarComponent implements OnInit {
-  login: boolean = false;
-  isClicked: boolean = false;
-  user: USER;
-  success: boolean = false;
-  constructor(private auth: AuthService) {}
+  constructor(
+    private auth: AuthService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
-    this.auth.getUSER().subscribe(user => {
-      const { auth } = user;
+    this.route.data.subscribe((data: { userData: USER }) => {
+      //console.log(data);
+      const { userData } = data;
+      const {
+        userData: { auth }
+      } = data;
+      // console.log(auth);
       if (auth) {
-        // console.log(auth);
-        //this.auth.isLoggedin = true;
+        this.router.navigate(["/jobseeker"]);
         this.auth.logUser();
-        this.user = user;
-        this.login = this.auth.isLoggedin;
-        //console.log(this.login);
       }
-      this.success = true;
+      //this.router.navigate(["/user"]);
     });
   }
 }
