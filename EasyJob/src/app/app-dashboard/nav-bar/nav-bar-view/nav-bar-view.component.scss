@@ -41,111 +41,19 @@
   }
 }
 
-.icons > * {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /*border: solid 1px red;*/
-  /*flex: 1;*/
-  /* heigth: 5px;*/
-}
+
 .item.item3 {
   cursor: pointer;
   /*margin-left: 20px;*/
   /*border: solid 1px black;*/
   position: relative;
   padding: 0;
-  .arrow {
-    border: solid 1px black;
-    height: 30px;
-    width: 30px;
-    transform: rotate(45deg);
-    position: absolute;
-    background-color: white;
-    right: 45px;
-    top: 30px;
-  }
-  .icons {
-    position: relative;
-    /*border: solid 1px blue;*/
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    span {
-      font-size: 15px;
-      margin: 0;
-
-      /*border: solid 1px black;*/
-    }
-    /*
-    .material-icons {
-      cursor: pointer;
-       border: solid 1px black;
-    }
-    */
-  }
-  .email {
-    box-sizing: border-box;
-    /* border: solid 1px blue;*/
-    color: black;
-    font-family: "Quicksand", sans-serif;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 0 0 10px 0;
-    text-align: center;
-    margin: 0;
-  }
   /*
   .profile{
     display: block;
     border: solid 5px red;
   }
  */
-  .userProfile {
-    border: solid 1px #948f8e;
-    width: 100%; /* calc(100% - 5px);*/
-    padding: 0;
-    text-align: left;
-    /*
-    display: flex;
-    justify-content: center;
-    */
-    top: 38px;
-    background-color: white;
-    position: absolute;
-    .items-profile {
-      margin: 0;
-      padding: 0;
-      /*border: solid 1px royalblue;*/
-      text-align: center;
-      #signin {
-        text-align: center;
-        margin: 0;
-        font-size: 15px;
-        /*border: solid 1px black;*/
-      }
-      a {
-        color: black;
-      }
-    }
-    li {
-      padding: 5px 0 5px 0;
-      box-sizing: border-box;
-      list-style: none;
-      border-bottom: solid 1px #948f8e;
-      a {
-        font-weight: lighter;
-        padding: 5px;
-        font-size: 15px;
-        font-family: "Roboto", sans-serif;
-      }
-      a:hover {
-        color: white;
-        background-color: #517bab;
-      }
-    }
-  }
 }
 .remove {
   display: none;

@@ -7,16 +7,46 @@
 			</li>
 			<li class="item item2">
 				<a routerLink="#" routerLinkActive="active">
-					Recommended Jobs </a>
+					Jobs For You </a>
 			</li>
 			<li class="item item3">
 				<a routerLink="#" routerLinkActive="active"> Applied Jobs</a>
 			</li>
 		</ul>
 		<div class="container profile">
-			<div class="item">
+			<!--  <div class="arrow">
+
+            </div> -->
+            
+             <div class="icons">
+             	<div class="item">
 				ME
+			   </div>
+                <i class="material-icons ">
+                    expand_more
+                </i>
+            </div> 
+			<div class="profile-menu">
+					<ul class="items-profile ">
+						<li>
+							<p id="signin"> Signed in as: </p>
+							<p class="email " *ngIf="user "> {{user.email}}</p>
+						</li>
+						<li>
+							<a routerLink="#"> Your Profile </a>
+						</li>
+						<li>
+							<a routerLink="/user/dashboard"> Your Dashboard </a>
+						</li>
+						<li>
+							<a routerLink="/user/dashboard"> Upload Resume </a>
+						</li>
+						<li>
+							<a href="/logout "> Sign Out </a>
+						</li>
+					</ul>
 			</div>
+
 		</div>
 	</nav>
 </div>

@@ -10,7 +10,7 @@ const appRoutes: Routes = [
    component: JobseekerNavbarComponent,
    children:[
      {
-   	 path:"dashboard",
+   	 path:"",
      component: DashboardComponent
      }
     ]
