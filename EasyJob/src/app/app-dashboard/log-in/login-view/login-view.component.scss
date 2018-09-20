@@ -16,7 +16,7 @@ $back-ground-color: white;
 #google-sigin {
   padding: 10px;
   background-color: white;
-  border: solid 1px black;
+  // border: solid 1px black;
   border-radius: 10px;
   font-size: 15px;
   display: flex;
@@ -31,6 +31,7 @@ $back-ground-color: white;
     justify-content: center;
     flex: 1;
   }
+
   #logo {
     width: 50px;
     text-align: center;
@@ -80,7 +81,7 @@ a {
     flex: 1;
     padding: 10px;
     background-color: #517bab;
-    border: solid 1px royalblue;
+    // border: solid 1px royalblue;
     outline: none;
   }
   button:hover {

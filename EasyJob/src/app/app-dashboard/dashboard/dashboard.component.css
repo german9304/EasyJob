@@ -15,7 +15,7 @@
   text-align: center;
   font-weight: bold;
   color: white;
-  background: #a7b4c6;
+  background: #3d9970;
 }
 /* .search-job-form p{
   border:  solid 1px black;
@@ -42,10 +42,10 @@
   cursor: pointer;
   font-size: 30px;
 }
-.search-job-form .material-icons:hover {
+/* .search-job-form .material-icons:hover {
   background-color: #477a9d32;
   color: white;
-}
+} */
 
 .job-footer {
   height: 100px;
