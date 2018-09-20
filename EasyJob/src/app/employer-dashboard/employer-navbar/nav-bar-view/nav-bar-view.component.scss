@@ -1,0 +1,100 @@
+.navbarview.container {
+  // border: solid 2px white;
+  display: flex;
+  padding: 20px;
+  flex-wrap: wrap;
+  background-color: #285679;
+  .search.nav {
+    display: flex;
+    // border: solid 1px white;
+    // box-sizing: border-box;
+    flex: 1;
+    .material-icons {
+      display: flex;
+
+      font-weight: lighter;
+      justify-content: center;
+      align-items: center;
+      background-color: #5082b7;
+      color: #b5cae0;
+      width: 50px;
+    }
+    input {
+      box-sizing: border-box;
+      padding: 5px;
+      font-size: 15px;
+      width: 300px;
+    }
+  }
+  .profile .icons {
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    /*border: solid 1px red;*/
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+    // .material-icons {
+    //   border: solid 1px red;
+    // }
+    // .item {
+    //   border: solid 1px red;
+    // }
+  }
+  .menu {
+    // border: solid 1px white;
+    display: flex;
+    margin: 0;
+    flex: 2;
+    // justify-content: flex-end;
+    align-items: center;
+    .items {
+      margin: 0;
+      display: flex;
+      flex: 2;
+
+      // border: solid 3px royalblue;
+      li {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        font-weight: lighter;
+        flex-wrap: wrap;
+        font-family: "Raleway", sans-serif;
+        // border: solid 2px rosybrown;
+        padding: 5px;
+
+        list-style: none;
+        flex: 1;
+        font-size: 15px;
+        a {
+          color: white;
+          text-decoration: none;
+          display: block;
+          padding: 10px;
+        }
+        a:hover {
+          color: #bac3cb;
+        }
+        .active {
+          background-color: #65789c;
+          // color: #b9c7d5;
+        }
+      }
+    }
+  }
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  // border: solid 1px gray;
+  font-weight: lighter;
+  .icons .item {
+    font-size: 15px;
+    font-family: "Raleway", sans-serif;
+  }
+  flex: 1;
+}
