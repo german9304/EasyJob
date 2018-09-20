@@ -19,10 +19,6 @@ export class DataResolverService implements Resolve<USER> {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<USER> {
-    return this.auth.getUSER() /*.pipe(
-      map(data => {
-        return data;
-      })
-    )*/;
+    return this.auth.getUSER();
   }
 }

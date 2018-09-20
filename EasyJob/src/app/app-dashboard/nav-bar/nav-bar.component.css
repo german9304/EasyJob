@@ -2,3 +2,15 @@
   /*border: solid 1px black;*/
   padding: 0;
 }
+.job-footer {
+  height: 80px;
+  margin: 0;
+  border:  solid 1px black;
+  background-color: #556a7b;
+}
+
+.text-history {
+  color: white;
+  padding: 10px;
+  text-align: center;
+}

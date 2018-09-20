@@ -8,7 +8,7 @@ const appRoutes: Routes = [
    path: "employer", 
    children:[
      {
-   	 path:"dashboard",
+   	 path:"",
      component: EmployerDashboardComponent
      }
     ]

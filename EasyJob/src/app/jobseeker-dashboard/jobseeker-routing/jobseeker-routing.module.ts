@@ -3,7 +3,7 @@ import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
 import { DashboardComponent } from "../dashboard/dashboard.component";
 import { JobseekerNavbarComponent } from "../jobseeker-navbar/jobseeker-navbar.component";
-
+import {DataResolverService} from "../../data-resolver.service";
 const appRoutes: Routes = [
   {
     path: "jobseeker",

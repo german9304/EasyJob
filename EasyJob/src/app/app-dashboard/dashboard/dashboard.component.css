@@ -9,7 +9,7 @@
 }
 
 .search-job-form {
-  font-size: 30px;
+  font-size: 40px;
   flex-basis: 80%;
   font-family: "Open Sans", sans-serif;
   text-align: center;
@@ -17,6 +17,9 @@
   color: white;
   background: #a7b4c6;
 }
+/* .search-job-form p{
+  border:  solid 1px black;
+} */
 .search-job-form .search-forms {
   display: flex;
   flex-wrap: wrap;

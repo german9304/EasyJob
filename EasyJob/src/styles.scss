@@ -2,7 +2,7 @@
 
 body {
   background-color: #cfd1d032;
-  /*border:  solid 5px royalblue;*/
+  /* border:  solid 5px royalblue;*/
   padding: 0;
   margin: 0;
 }
@@ -10,10 +10,10 @@ body {
   padding: 10px;
   display: flex;
   flex-wrap: wrap;
-  /*height: 100vh;*/
   justify-content: center;
   background-color: #cfd1d032;
   align-content: center;
+  margin: 0 0 20px 0;
   .form {
     /* border: solid 1px royalblue;*/
     margin-bottom: 5px;

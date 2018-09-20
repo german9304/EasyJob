@@ -17,6 +17,7 @@ export class AuthService {
   isLoggedin: boolean = false;
   url: string = `/api`;
   userUrl: string = `/user`;
+  user: USER;
   constructor(private http: HttpClient) {}
 
   authenticate(user: USER): Observable<USER> {

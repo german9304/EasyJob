@@ -25,6 +25,7 @@ export class NavBarComponent implements OnInit {
       // console.log(auth);
       if (auth) {
         this.router.navigate(["/jobseeker"]);
+        this.auth.user = userData;
         this.auth.logUser();
       }
       //this.router.navigate(["/user"]);
