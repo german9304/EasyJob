@@ -17,11 +17,13 @@
 	 		justify-content: space-between;
 	 		h2{
 	 			font-family: 'Muli', sans-serif;
-	 			margin: 0;
+	 			margin: 0 0 5px 0;
+
 	 			// border: solid 1px black;
 	 		}
 	 		.material-icons{
 	 			// border: solid 1px black;
+	 			color: black;
 	 			cursor: pointer;
 	 		}
 	 	
@@ -51,26 +53,37 @@
 				box-sizing: border-box;
 				background-color: white;
 				width: 100%;
+				outline: none;
+				transition: all 1s;
+				border: solid 1px gray;
 			}
 			input:focus{
-               outline: solid 2px;
+               border-color: black;
 			}
 			textarea{
 				box-sizing: border-box;
 				font-size: 15px;
+				border: solid 1px gray;
 				// border: solid 1px black;
                  width: 100%;
+                 outline: none;
+                 transition: all 1s;
+                 padding: 10px;
 			}
 			textarea:focus{
-               outline: solid 2px;
+               border-color: black;
 			}
 		}
 		.date{
-			margin: 20px 0 0 0;
-				display: flex;
+			margin: 10px 0 10px 0;
+			display: flex;
+			// border: solid 1px gray;
+			justify-content: space-between;
 		}
 		.date input{
-			flex:1;
+
+			width:210px;
+
 		}
 		.frm.btns{
 			button{
@@ -84,6 +97,7 @@
 				cursor: pointer;
 				transition: all .5s;
 				border: none;
+				outline: none;
 			}
 			button:hover{
 				background-color:#3D9970;
