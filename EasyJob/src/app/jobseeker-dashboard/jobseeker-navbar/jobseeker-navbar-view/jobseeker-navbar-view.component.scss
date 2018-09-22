@@ -2,7 +2,8 @@
   /*border: solid 3px white;*/
   display: flex;
   padding: 20px;
-  background-color: #285679;
+  // background-color: #285679;
+  background-color: #3d9970;
   align-items: center;
   color: white;
   nav {
@@ -19,20 +20,32 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        cursor: pointer;
         background-color: #5082b7;
         color: #b5cae0;
         width: 50px;
       }
       input {
-        padding: 5px;
+        padding: 10px;
         width: 300px;
         font-size: 15px;
         box-sizing: border-box;
-        outline-width: 2px;
+        // outline-width: 2px;
+        // border: solid 1px #dddddd;
+        // transition: all 0.9s;
+        // outline: none;
+        border: none;
+         // outline: solid 2px;
+        margin: 0 0 0 5px;
       }
       input:focus {
-        outline-style: solid;
-        outline-color: white;
+        // outline-style: solid;
+        // border-color: #0074d9;
+        // box-shadow: 0 2px 2px 2px gray;
+        // background-color: #dddddd;
+        // transform: scale(1.1);
+         outline: solid 2px #0074d9;
+        // outline-color: white;
       }
     }
   }

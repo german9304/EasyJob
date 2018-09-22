@@ -1,0 +1,93 @@
+.experience.container{
+	 // border: solid 10px blue;
+	 width: 500px; 
+	 border:  solid 1px #DDDDDD;
+	 border-radius: 5px;
+	 background-color: white;
+	 .headers{
+	 	// border: solid 1px black;
+	 	// display: flex;
+	 	// justify-content: center;
+	 	padding: 5px;
+	 	.addexperience{
+	 		// padding: 10px;
+	 		// margin: 10px;
+	 		// border: solid 1px red;
+	 		display: flex;
+	 		justify-content: space-between;
+	 		h2{
+	 			font-family: 'Muli', sans-serif;
+	 			margin: 0;
+	 			// border: solid 1px black;
+	 		}
+	 		.material-icons{
+	 			// border: solid 1px black;
+	 			cursor: pointer;
+	 		}
+	 	
+	 	}
+	 }
+	form{
+		// border: solid 1px royalblue;
+		// padding: 5px;
+		margin: 30px;
+		box-sizing: border-box;
+		.frm{
+			box-sizing: border-box;
+			 // border: solid 1px gray;
+			 // margin: 5px;
+			padding: 5px;
+			label{
+				font-family: 'Muli', sans-serif;
+				font-weight: 300;
+				font-size: 20px;
+				display: block;
+				// border: solid 1px black;
+				margin: 0 0 5px 0;
+			}
+			input{
+				font-size: 15px;
+				padding: 10px;
+				box-sizing: border-box;
+				background-color: white;
+				width: 100%;
+			}
+			input:focus{
+               outline: solid 2px;
+			}
+			textarea{
+				box-sizing: border-box;
+				font-size: 15px;
+				// border: solid 1px black;
+                 width: 100%;
+			}
+			textarea:focus{
+               outline: solid 2px;
+			}
+		}
+		.date{
+			margin: 20px 0 0 0;
+				display: flex;
+		}
+		.date input{
+			flex:1;
+		}
+		.frm.btns{
+			button{
+				color: white;
+				box-sizing: border-box;
+				padding: 10px;
+				border-radius: 10px;
+				width: 100px;
+				font-size: 15px;
+				background-color:#2ECC40;
+				cursor: pointer;
+				transition: all .5s;
+				border: none;
+			}
+			button:hover{
+				background-color:#3D9970;
+			}
+		}
+	}
+}

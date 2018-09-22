@@ -7,6 +7,8 @@ import { JobseekerNavbarComponent } from "./jobseeker-navbar/jobseeker-navbar.co
 import { JobseekerNavbarViewComponent } from "./jobseeker-navbar/jobseeker-navbar-view/jobseeker-navbar-view.component";
 import { CandidateProfileComponent } from "./candidate-profile/candidate-profile.component";
 import { CandidateProfileViewComponent } from "./candidate-profile/candidate-profile-view/candidate-profile-view.component";
+import { ExperienceComponent } from './candidate-profile/experience/experience.component';
+import { ExperienceViewComponent } from './candidate-profile/experience/experience-view/experience-view.component';
 @NgModule({
   imports: [CommonModule, JobseekerRoutingModule],
   declarations: [
@@ -15,7 +17,9 @@ import { CandidateProfileViewComponent } from "./candidate-profile/candidate-pro
     JobseekerNavbarComponent,
     JobseekerNavbarViewComponent,
     CandidateProfileComponent,
-    CandidateProfileViewComponent
+    CandidateProfileViewComponent,
+    ExperienceComponent,
+    ExperienceViewComponent
   ]
 })
 export class JobseekerDashboardModule {}

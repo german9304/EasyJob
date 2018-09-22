@@ -5,6 +5,7 @@ import { DashboardComponent } from "../dashboard/dashboard.component";
 import { JobseekerNavbarComponent } from "../jobseeker-navbar/jobseeker-navbar.component";
 import { DataResolverService } from "../../data-resolver.service";
 import { CandidateProfileComponent } from "../candidate-profile/candidate-profile.component";
+import {ExperienceComponent} from "../candidate-profile/experience/experience.component";
 const appRoutes: Routes = [
   {
     path: "jobseeker",
@@ -16,7 +17,13 @@ const appRoutes: Routes = [
       },
       {
         path: "profile",
-        component: CandidateProfileComponent
+        component: CandidateProfileComponent,
+        children:[
+          {
+            path:"experience",
+            component: ExperienceComponent
+          },
+        ],
       }
     ]
   }
