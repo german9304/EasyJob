@@ -28,11 +28,15 @@
 .search-job-form input {
   box-sizing: border-box;
   flex: 5 2 150px;
-  padding: 5px;
+  padding: 10px;
   font-size: 15px;
   outline-style: none;
 
-  border: solid 2px #e2e5e7;
+  border: solid 1px #e2e5e7;
+  transition: all 0.5s;
+}
+.search-job-form input:focus {
+  border-color: #0074d9;
 }
 .search-job-form .material-icons {
   box-sizing: border-box;
@@ -41,6 +45,10 @@
   color: white;
   cursor: pointer;
   font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: solid 3px black; */
 }
 /* .search-job-form .material-icons:hover {
   background-color: #477a9d32;

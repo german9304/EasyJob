@@ -1,7 +1,7 @@
-.expcontainer{
-	box-sizing: border-box;
- /* border:  solid 5px blue; */
-	/* width: 500px; */
+/* .expcontainer{
+	 box-sizing: border-box; 
+ border:  solid 5px blue;
+	 width: 500px;
 	background-color: #AAAAAA32;
 	position: absolute;
 	top: 0;
@@ -10,5 +10,5 @@
 	bottom: 0;
 	padding: 10px;
 	display: flex;
-	justify-content: center;
-}
+	justify-content: center; 
+} */

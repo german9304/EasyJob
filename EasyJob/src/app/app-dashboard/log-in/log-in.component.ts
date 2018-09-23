@@ -10,7 +10,7 @@ import { USER } from "../../user";
 })
 export class LogInComponent implements OnInit {
   loginForm = this.fb.group({
-    username: [""],
+    email: [""],
     password: [""]
   });
 
@@ -35,7 +35,7 @@ export class LogInComponent implements OnInit {
     localStorage.setItem("option", option);
   }
   get userName(): FormControl {
-    return this.loginForm.get("username") as FormControl;
+    return this.loginForm.get("email") as FormControl;
   }
 
   get PassWord(): FormControl {

@@ -4,14 +4,14 @@ import { USER } from "../../user";
 
 @Component({
   selector: "app-dashboard",
-  templateUrl: "./dashboard.component.html",
-  styleUrls: ["./dashboard.component.css"]
+  templateUrl: "./candidate-suggested-jobs.component.html",
+  styleUrls: ["./candidate-suggested-jobs.component.css"]
 })
-export class DashboardComponent implements OnInit {
+export class CandidateSuggestedJobsComponent implements OnInit {
   constructor(private auth: AuthService) {}
 
   ngOnInit() {
-  	/*
+    /*
     this.auth.getUSER().subscribe((user: USER) => {
       console.log("user ", user);
     });

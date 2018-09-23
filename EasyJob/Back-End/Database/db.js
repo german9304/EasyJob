@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const { DATABASE_URL } = require("../client-auth");
-const { userSchema } = require("./schemaModels");
+const { userSchema, preSaveMiddleware } = require("./schemaModels");
+const bcrypt = require("bcrypt");
+const SALT_ROUNDS = 10;
 
 mongoose.connect(
   DATABASE_URL,
@@ -32,8 +34,30 @@ const createUserGoogle = ({ value, id }) => {
   });
 };
 
+const createUser = async ({ email, password }) => {
+  const user = new userModel({
+    email,
+    password
+  });
+  // console.log("user before: ", user);
+  preSaveMiddleware(user);
+  const newuser = await user.save();
+
+  // pres.then(() => {
+  //   // user.save(function(err, newuser) {
+  //   //   console.log(newuser);
+  //   // });
+  // });
+  // user.save(function(err, newuser) {
+  //   console.log("save");
+  //   console.log(newuser);
+  // });
+  //console.log("user after: ", user);
+};
+
 module.exports = {
   createUserGoogle,
   userModel,
-  findGoogleUser
+  findGoogleUser,
+  createUser
 };

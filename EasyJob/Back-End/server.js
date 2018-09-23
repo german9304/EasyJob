@@ -2,7 +2,7 @@ const express = require("express");
 const googleAuth = require("./google-auth");
 const cookieSession = require("cookie-session");
 const { SECRET_KEY } = require("./client-auth");
-const { userModel } = require("./Database/db");
+const { userModel, createUser } = require("./Database/db");
 
 const passport = require("passport");
 
@@ -74,13 +74,8 @@ app.get("*", (req, res) => {
 
 app.post("/create/user", (req, res) => {
   const { body } = req;
-  const newUser = new userModel({
-    email: body.email
-  });
-  newUser.save(function(err, user) {
-    console.log(user);
-  });
-  console.log(body);
+  createUser(body);
   res.send(body);
 });
+
 app.listen(3000, () => console.log("app listening on port 3000!"));

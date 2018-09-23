@@ -1,31 +1,26 @@
-<div class="container navbarview ">
+<div class="jobseeker-navbarview">
 	<!-- {{selectedClasses | json}}-->
 	<nav class="menu">
 		<div class="search-bar">
-			<input type="text" class="text" placeholder="Search">
-			<input type="text" class="text" placeholder="City, Zip">
+			<input type="text" id="search" class="text" placeholder="Search">
+			<input type="text" id="address"class="text" placeholder="City, Zip">
 			<i class="material-icons">
 				search
 			</i>
 		</div>
 		<ul class="items">
 			<li class="item item1">
-				<a routerLink="./" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-					Dashboard </a>
-			</li>
-			<li class="item item2">
-				<a routerLink="#" routerLinkActive="active">
+				<a routerLink="./saved-jobs" routerLinkActive="active">
 					My Jobs </a>
 			</li>
-			<li class="item item3">
-				<a routerLink="#" routerLinkActive="active">
+			<li class="item item2">
+				<a routerLink="./suggested-jobs" routerLinkActive="active">
 					Jobs For You </a>
 			</li>
-			<li class="item item4">
+			<li class="item item3">
 				<a routerLink="#" routerLinkActive="active"> Applied Jobs</a>
 			</li>
-		</ul>
-		<div class="container profile">
+		<li class="jobseeker-profile-menu">
 			<!--  <div class="arrow">
 
             </div> -->
@@ -60,6 +55,7 @@
 				</ul>
 			</div>
 
-		</div>
+		</li>
+		</ul>
 	</nav>
 </div>

@@ -1,8 +1,11 @@
 #account-form {
-  width: 300px;
+  width: 400px;
   border: solid 1px rgb(236, 230, 230);
   background-color: white;
-  padding: 15px 10px 10px 10px;
-  /*align-self: center;*/
-  /*border: solid 1px red;*/
+  padding: 20px;
+  // align-self: center;
+  // border: solid 1px red;
+  h2 {
+    text-align: center;
+  }
 }

@@ -8,10 +8,7 @@ const appRoutes: Routes = [
   {
     path: "",
     redirectTo: "/",
-    pathMatch: "full",
-    resolve: {
-      user: DataResolverService
-    }
+    pathMatch: "full"
   },
   { path: "**", component: PageNotFoundComponent }
 ];
@@ -19,7 +16,7 @@ const appRoutes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forRoot(appRoutes /* { enableTracing: true }*/)
+    RouterModule.forRoot(appRoutes, /*{ enableTracing: true }*/)
   ],
   exports: [RouterModule],
   declarations: []
