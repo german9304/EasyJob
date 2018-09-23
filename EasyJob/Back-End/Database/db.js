@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const { DATABASE_URL } = require("../client-auth");
-const { userSchema, preSaveMiddleware } = require("./schemaModels");
+const { userSchema } = require("./schemaModels");
 const bcrypt = require("bcrypt");
 const SALT_ROUNDS = 10;
 
@@ -21,7 +21,7 @@ const findGoogleUser = async id => {
   const user = await userModel.findOne({ googleId: id });
   if (user) {
     const { _id } = user;
-    console.log(_id);
+    // console.log(_id);
     return _id;
   }
   return user;
@@ -34,30 +34,42 @@ const createUserGoogle = ({ value, id }) => {
   });
 };
 
-const createUser = async ({ email, password }) => {
+const createUser = async ({ email, password, token: jwt }) => {
   const user = new userModel({
     email,
-    password
+    password,
+    jwt
   });
-  // console.log("user before: ", user);
-  preSaveMiddleware(user);
   const newuser = await user.save();
-
-  // pres.then(() => {
-  //   // user.save(function(err, newuser) {
-  //   //   console.log(newuser);
-  //   // });
-  // });
-  // user.save(function(err, newuser) {
-  //   console.log("save");
-  //   console.log(newuser);
-  // });
-  //console.log("user after: ", user);
+  return newuser;
 };
+
+const findUserById = async ({ _id, password }) => {
+  const usr = await userModel.findById(_id);
+  const { password: hash } = usr;
+  const res = await usr.comparePasswords(password, hash);
+  return {
+    usr,
+    res
+  };
+};
+const findUserName = async ({ email, password }) => {
+  const usr = await userModel.findOne({ email });
+  const { password: hash } = usr;
+  const res = await usr.comparePasswords(password, hash);
+  // console.log(usr, res);
+  return {
+    usr,
+    res
+  };
+};
+
+// findUserName({ email: "test@mail.com", password: "mypassword" });
 
 module.exports = {
   createUserGoogle,
   userModel,
   findGoogleUser,
-  createUser
+  createUser,
+  findUserById
 };

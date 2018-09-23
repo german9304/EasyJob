@@ -1,5 +1,6 @@
 const { GOOGLE_CLIENT } = require("./client-auth");
 const passport = require("passport");
+const jwt = require("jsonwebtoken");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const {
   userModel,
@@ -24,25 +25,21 @@ passport.use(
       clientSecret: GOOGLE_CLIENT.client_secret,
       callbackURL: GOOGLE_CLIENT.redirect_uris[0]
     },
-    function(accessToken, refreshToken, profile, done) {
+    async function(accessToken, refreshToken, profile, done) {
       //console.log("profile: ", profile);
       const { id, displayName, emails } = profile;
       const { value } = emails[0];
-      findGoogleUser(id)
-        .then(googleUser => {
+        const googleUser = await findGoogleUser(id);
           if (!googleUser) {
-            const user = {
+             const user = {
               id,
               value
             };
             const addedUser = createUserGoogle(user);
-            addedUser.save(function(err, user) {
-              done(null, user);
-            });
+            const newuser = await addedUser.save();
+            return done(null,  newuser);
           }
-          done(null, googleUser);
-        })
-        .catch(error => console.log(error));
+         return done(null, googleUser);
     }
   )
 );

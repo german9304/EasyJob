@@ -10,6 +10,7 @@ const userSchema = new mongoose.Schema(
     email: String,
     googleId: String,
     password: String,
+    jwt: String,
     experience: [
       {
         position: String,
@@ -23,20 +24,22 @@ const userSchema = new mongoose.Schema(
   { collection: "UserCollection", versionKey: false }
 );
 
-const preSaveMiddleware = user => {
-  userSchema.pre("save", async function() {
-    console.log("inside save");
-    const gen = await bcrypt.genSalt(SALT_ROUNDS);
-    const bcrypthash = await bcrypt.hash(user.password, gen);
-    user.password = bcrypthash;
-  });
-};
-userSchema.methods.comparePasswords = function(userPassword, cb) {
-  bcrypt.compare(myPlaintextPassword, hash, function(err, res) {});
-  cb(null, this.password);
+userSchema.pre("save", async function() {
+  const user = this;
+  if(user.password){
+    if (user.isModified("password") || user.isNew) {
+      const gen = await bcrypt.genSalt(SALT_ROUNDS);
+      const bcrypthash = await bcrypt.hash(user.password, gen);
+      user.password = bcrypthash;
+    }
+  }
+});
+
+userSchema.methods.comparePasswords = async function(userPassword, hash) {
+  const result = await bcrypt.compare(userPassword, hash);
+  return result;
 };
 
 module.exports = {
-  userSchema,
-  preSaveMiddleware
+  userSchema
 };
