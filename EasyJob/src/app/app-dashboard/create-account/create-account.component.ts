@@ -13,7 +13,11 @@ export class CreateAccountComponent implements OnInit {
     password: [""]
   });
 
-  constructor(private router: Router,private fb: FormBuilder, private auth: AuthService) {}
+  constructor(
+    private router: Router,
+    private fb: FormBuilder,
+    private auth: AuthService
+  ) {}
 
   ngOnInit() {}
 
@@ -25,9 +29,8 @@ export class CreateAccountComponent implements OnInit {
     const { value } = this.createAccountForm;
     this.auth.authenticate(value).subscribe(res => {
       console.log(res);
-      return this.router.navigate(['/'])
+      return this.router.navigate(["/jobseeker"]);
     });
-
   }
   get Email() {
     return this.createAccountForm.get("email") as FormControl;
