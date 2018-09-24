@@ -19,3 +19,4 @@ export class AppComponent implements OnInit {
     console.log(this.auth.isLoggedin);
     console.log();
 }
+}
