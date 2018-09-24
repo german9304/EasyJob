@@ -35,7 +35,7 @@ const createUserGoogle = ({ id, email, token }) => {
   });
 };
 
-const createUser =  ({ email, password, token: jwt }) => {
+const createUser = ({ email, password, token: jwt }) => {
   return new userModel({
     email,
     password,
@@ -43,7 +43,7 @@ const createUser =  ({ email, password, token: jwt }) => {
   });
 };
 
-const findUserById = async ({ _id}) => {
+const findUserById = async ({ _id }) => {
   const usr = await userModel.findById(_id);
   return usr;
 };

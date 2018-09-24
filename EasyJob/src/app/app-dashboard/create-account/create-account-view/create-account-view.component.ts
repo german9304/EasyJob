@@ -9,7 +9,14 @@ import { FormGroup, FormControl } from "@angular/forms";
 export class CreateAccountViewComponent implements OnInit {
   @Input()
   createaccount: FormGroup;
+  @Output()
+  submitted = new EventEmitter<any>();
+
   constructor() {}
 
   ngOnInit() {}
+
+  onSubmit() {
+    this.submitted.emit(null);
+  }
 }

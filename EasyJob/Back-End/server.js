@@ -50,7 +50,7 @@ app.get("/google/auth/redirect", passport.authenticate("google"), function(
 });
 
 app.get("/user", (req, res) => {
-  console.log(req.user);
+  // console.log(req.user);
   if (req.user) {
     const { email, jwt } = req.user;
     const user = {
@@ -61,6 +61,7 @@ app.get("/user", (req, res) => {
     res.json(user);
   } else {
     res.json({ auth: false });
+    // res.status(401);
   }
 });
 

@@ -1,5 +1,5 @@
 <!-- <p> {{ createaccount.value | json }} </p> -->
-<form [formGroup]="createaccount" id="account-form">
+<form [formGroup]="createaccount" (ngSubmit)="onSubmit()" id="account-form">
 	<!-- <p> name </p> -->
 	<h2> Create Your Account</h2>
 	<div class="form formgroup">

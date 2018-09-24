@@ -7,7 +7,7 @@ const PROXY_CONFIG = [
       "/user",
       "/logout",
       "/login",
-      "/google/auth/redirect"
+      "/create"
     ],
     target: "http://localhost:3000",
     secure: false
