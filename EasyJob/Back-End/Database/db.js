@@ -27,31 +27,25 @@ const findGoogleUser = async id => {
   return user;
 };
 
-const createUserGoogle = ({ value, id }) => {
+const createUserGoogle = ({ id, email, token }) => {
   return new userModel({
-    email: value,
-    googleId: id
+    email,
+    googleId: id,
+    jwt: token
   });
 };
 
-const createUser = async ({ email, password, token: jwt }) => {
-  const user = new userModel({
+const createUser =  ({ email, password, token: jwt }) => {
+  return new userModel({
     email,
     password,
     jwt
   });
-  const newuser = await user.save();
-  return newuser;
 };
 
-const findUserById = async ({ _id, password }) => {
+const findUserById = async ({ _id}) => {
   const usr = await userModel.findById(_id);
-  const { password: hash } = usr;
-  const res = await usr.comparePasswords(password, hash);
-  return {
-    usr,
-    res
-  };
+  return usr;
 };
 const findUserName = async ({ email, password }) => {
   const usr = await userModel.findOne({ email });

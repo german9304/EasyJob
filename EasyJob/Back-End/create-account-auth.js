@@ -6,6 +6,7 @@ const { JWT_SECRET_KEY } = require("./client-auth");
 const { userModel, createUser, findUserById } = require("./Database/db");
 const express = require("express");
 
+
 passport.serializeUser(function(userId, done) {
   done(null, userId);
 });
@@ -17,29 +18,58 @@ passport.deserializeUser(function(id, done) {
   });
 });
 
-passport.use(
+passport.use('createUser',
   new LocalStrategy(
     {
       usernameField: "email",
       passwordField: "password"
     },
     function(email, password, done) {
+      
       userModel.findOne({ email }, async  function(err, user) {
         if (!user) {
-          const token = jwt.sign({ email, password }, JWT_SECRET_KEY.key);
-          const usr = await createUser({ email, password, token });
+          const user = createUser({ email, password });
+          const token = jwt.sign({ user}, JWT_SECRET_KEY.key);
+          user.jwt = token;
+          const usr = await user.save();
+          console.log('usr: ', usr);
           return done(null, usr._id,{ message: 0});
          
         }
-        const {password: hash} = user;
-        console.log('hash: ',hash);
-        const checkpsswrd = user.comparePasswords(password, hash);
-        if(checkpsswrd){
-           return done(null, user, { message: 1});
-        }
-        return done(null, {message: "incorrect password"})
+        // const {password: hash} = user;
+        // // console.log('hash: ',hash);
+        // const checkpsswrd = user.comparePasswords(password, hash);
+        // if(checkpsswrd){
+        //    return done(null, user, { message: 1});
+        // }
+         return done(null,false, {message: "user already exists"})
       });
       //   return done(null, { username }, { message: "Username Already Exists" });
     }
   )
 );
+
+passport.use('loginUser',
+  new LocalStrategy(
+    {
+      usernameField: "email",
+      passwordField: "password"
+    },
+    function(email, password, done) {
+      
+      userModel.findOne({ email }, async  function(err, user) {
+        if (!user) {
+          return done(null, false, {message: "incorrect password"})
+        }
+        const {password: hash} = user;
+        // console.log('hash: ',hash);
+        const checkpsswrd = user.comparePasswords(password, hash);
+        if(checkpsswrd){
+           return done(null, user, { message: 1});
+        }
+      });
+      //   return done(null, { username }, { message: "Username Already Exists" });
+    }
+  )
+);
+

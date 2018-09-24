@@ -2,8 +2,9 @@ const express = require("express");
 const googleAuth = require("./google-auth");
 const cookieSession = require("cookie-session");
 const { SECRET_KEY } = require("./client-auth");
-const test = require("./local-auth");
+const localAuth = require("./create-account-auth");
 const flash = require("connect-flash");
+const jwtAuth = require('./jwt-auth');
 const { userModel, createUser, findUserById } = require("./Database/db");
 
 const passport = require("passport");
@@ -49,7 +50,7 @@ app.get("/google/auth/redirect", passport.authenticate("google"), function(
 });
 
 app.get("/user", (req, res) => {
-  console.log(req.user);
+  // console.log(req.user);
   if (req.user) {
     const { email, jwt } = req.user;
     const user = {
@@ -74,27 +75,41 @@ app.post("/api", (req, res) => {
   res.json(user);
 });
 
+
+
+app.post("/create/user", passport.authenticate("createUser"), function(req, res) {
+  // console.log(req.authInfo)
+  const {message} = req.authInfo;
+  if(message){
+     res.json({message: 'user aleady exist'});
+  }else{
+    const {user: id} = req;
+     const usr = findUserById(id);
+     usr.then( data => {
+         const {_id , email , jwt } = data;
+         res.json({user: {_id, email, jwt}});
+     })
+  }
+});
+
+app.post("/login", passport.authenticate("loginUser",{ failureFlash: "invalid password"} ), (req, res) => {
+  console.log(req)
+  const {  email, jwt } = req.user;
+  // console.log("successful login: ", user);
+  res.json({user: {email, jwt, auth: true}});
+
+});
+
+app.get('/jwt',passport.authenticate('jwt', { session: false }), (req, res) => {
+  console.log(req.user)
+  res.send('data')
+})
+
+
 app.get("*", (req, res) => {
   res.redirect("/");
 });
 
-app.post("/create/user", passport.authenticate("local"), function(req, res) {
-  const {  email, jwt } = req.user;
-  // console.log(req.authInfo)
-  const {message} = req.authInfo;
-  
-  if(message){
-     res.json({message: 'user aleady exist'});
-  }else{
-     res.json({user: {email, jwt}});
-  }
-});
-
-app.post("/login", passport.authenticate("local"), (req, res) => {
-  const {  email, jwt } = req.user;
-  // console.log("successful login: ", user);
-  res.json({user: {email, jwt}});
-});
 app.listen(3000, () => console.log("app listening on port 3000!"));
 
 

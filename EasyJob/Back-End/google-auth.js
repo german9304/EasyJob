@@ -1,6 +1,7 @@
 const { GOOGLE_CLIENT } = require("./client-auth");
 const passport = require("passport");
 const jwt = require("jsonwebtoken");
+const { JWT_SECRET_KEY } = require("./client-auth");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const {
   userModel,
@@ -28,14 +29,17 @@ passport.use(
     async function(accessToken, refreshToken, profile, done) {
       //console.log("profile: ", profile);
       const { id, displayName, emails } = profile;
-      const { value } = emails[0];
+      const { value: email } = emails[0];
         const googleUser = await findGoogleUser(id);
           if (!googleUser) {
+            const googleid = id;
              const user = {
               id,
-              value
+              email,
             };
             const addedUser = createUserGoogle(user);
+            const token = jwt.sign({addedUser},JWT_SECRET_KEY.key);
+            addedUser.jwt = token;
             const newuser = await addedUser.save();
             return done(null,  newuser);
           }
