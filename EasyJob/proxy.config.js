@@ -6,6 +6,7 @@ const PROXY_CONFIG = [
       "/test",
       "/user",
       "/logout",
+      "/login",
       "/google/auth/redirect"
     ],
     target: "http://localhost:3000",

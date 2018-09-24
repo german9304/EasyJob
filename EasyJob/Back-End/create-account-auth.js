@@ -12,7 +12,6 @@ passport.serializeUser(function(userId, done) {
 });
 
 passport.deserializeUser(function(id, done) {
-  console.log("desirialize");
   userModel.findById(id).then(user => {
     done(null, user);
   });
@@ -56,17 +55,18 @@ passport.use('loginUser',
       passwordField: "password"
     },
     function(email, password, done) {
-      
-      userModel.findOne({ email }, async  function(err, user) {
+      userModel.findOne({ email }, async function(err, user) {
         if (!user) {
-          return done(null, false, {message: "incorrect password"})
+          return done(null, false)
         }
         const {password: hash} = user;
         // console.log('hash: ',hash);
-        const checkpsswrd = user.comparePasswords(password, hash);
+        const checkpsswrd = await user.comparePasswords(password, hash);
         if(checkpsswrd){
            return done(null, user, { message: 1});
         }
+
+        return done(null, false)
       });
       //   return done(null, { username }, { message: "Username Already Exists" });
     }

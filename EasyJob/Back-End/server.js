@@ -46,7 +46,7 @@ app.get("/google/auth/redirect", passport.authenticate("google"), function(
   res,
   next
 ) {
-  res.redirect("/");
+  res.redirect("http://localhost:4200");
 });
 
 app.get("/user", (req, res) => {
@@ -92,7 +92,7 @@ app.post("/create/user", passport.authenticate("createUser"), function(req, res)
   }
 });
 
-app.post("/login", passport.authenticate("loginUser",{ failureFlash: "invalid password"} ), (req, res) => {
+app.post("/login", passport.authenticate("loginUser" ), (req, res) => {
   console.log(req)
   const {  email, jwt } = req.user;
   // console.log("successful login: ", user);

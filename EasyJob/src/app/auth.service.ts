@@ -15,14 +15,18 @@ const httpOptions = {
 @Injectable()
 export class AuthService {
   isLoggedin: boolean = false;
-  url: string = `/api`;
+  url: string = `/login`;
   userUrl: string = `/user`;
   user: USER;
   constructor(private http: HttpClient) {}
 
-  authenticate(user: USER): Observable<USER> {
-    return this.http.post<USER>(this.url, user, httpOptions);
+  authenticate(user): Observable<any> {
+    return this.http.post<any>('/login', user, httpOptions)
+    .pipe(catchError(val => {
+      return of(`I caught: ${val.status}`)
+    }));
   }
+
   getUSER(): Observable<USER> {
     return this.http.get<USER>(this.userUrl).pipe(
       catchError(val => of(val)),
