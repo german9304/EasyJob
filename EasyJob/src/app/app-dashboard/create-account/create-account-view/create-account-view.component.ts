@@ -5,7 +5,7 @@ import { FormGroup, FormControl } from "@angular/forms";
   selector: "create-account-view",
   templateUrl: "./create-account-view.component.html",
   styleUrls: [
-    "../../login-create-account-shared.component.scss",
+    "../../sharedstyle.component.scss",
     "./create-account-view.component.scss"
   ]
 })
@@ -13,13 +13,23 @@ export class CreateAccountViewComponent implements OnInit {
   @Input()
   createaccount: FormGroup;
   @Output()
-  submitted = new EventEmitter<any>();
+  submitted = new EventEmitter<string>();
+  fieldSelected: string;
+  selected: boolean = false;
+  i: number;
 
   constructor() {}
 
   ngOnInit() {}
 
   onSubmit() {
-    this.submitted.emit(null);
+    if(this.selected){
+    this.submitted.emit(this.fieldSelected);
+    }
+  }
+   clicked(number: number, option: string) {
+    this.selected = true;
+    this.i = number;
+    this.fieldSelected = option;
   }
 }

@@ -1,35 +1,64 @@
-<div class="navbarview container ">
+<div class="navbarview-container-profiles">
+  <!-- {{selectedClasses | json}}-->
   <nav class="menu">
-    <div class="search nav">
-      <input type="text" class="search" placeholder="Search">
+    <div class="search-bar">
+      <input type="text" id="search" class="text" placeholder="Search">
+      <input type="text" id="address" class="text" placeholder="City, Zip">
       <i class="material-icons">
         search
       </i>
     </div>
     <ul class="items">
       <li class="item item1">
-        <a routerLink="./" routerLinkActive="active"> Dashboard </a>
+        <a routerLink="./saved-jobs" routerLinkActive="active">
+          My Jobs </a>
       </li>
       <li class="item item2">
-        <a routerLink="#" routerLinkActive="active"> Candidates </a>
+        <a routerLink="./suggested-jobs" routerLinkActive="active">
+          Jobs For You </a>
       </li>
       <li class="item item3">
-        <a routerLink="#" routerLinkActive="active"> Jobs </a>
+        <a routerLink="#" routerLinkActive="active"> Applied Jobs</a>
       </li>
-      <li class="item item4">
-        <a routerLink="#" routerLinkActive="active"> Resumes </a>
+      <li class="jobseeker-profile-menu">
+        <!--  <div class="arrow">
+
+            </div> -->
+
+        <div class="icons">
+          <div class="item ">
+            Me
+          </div>
+          <i class="material-icons ">
+            expand_more
+          </i>
+        </div>
+        <!-- <div class="profile-menu "> -->
+        <div class="profile-menu">
+          <ul class="items-profile ">
+            <li>
+              <p id="signin "> Signed in as: </p>
+              <p class="email "> {{email}}</p>
+            </li>
+            <li>
+              <a routerLink="# "> Your Profile </a>
+            </li>
+            <li>
+              <a routerLink="# "> Testing </a>
+            </li>
+            <li>
+              <a routerLink="./ "> Your Dashboard </a>
+            </li>
+            <li>
+              <a routerLink="# "> Upload Resume </a>
+            </li>
+            <li>
+              <a href="/logout "> Sign Out </a>
+            </li>
+          </ul>
+        </div>
+
       </li>
     </ul>
-    <div class="profile">
-      <div class="icons">
-        <div class="item">
-          Me
-        </div>
-        <i class="material-icons ">
-          expand_more
-        </i>
-      </div>
-    </div>
   </nav>
-
 </div>

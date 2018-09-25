@@ -24,15 +24,26 @@ export class CreateAccountComponent implements OnInit {
 
   ngOnInit() {}
 
-  onSubmit() {
+  onSubmit(option: string) {
     // this.auth.authenticate()
     // const {value: email} = this.Email;
     // const {value: password} = this.Password;
     // console.log(email, password);
+    // localStorage.setItem('option',option);
+    //    if(option === "jobseeker"){
+    //      return this.router.navigate(["/jobseeker"]);
+    //   }else{
+    //     return this.router.navigate(["/employer"]);
+    //   }
     const { value } = this.createAccountForm;
     this.auth.authenticate(value).subscribe(res => {
-      console.log(res);
-      return this.router.navigate(["/jobseeker"]);
+       // console.log(res);
+      localStorage.setItem('option',option);
+       if(option === "jobseeker"){
+         return this.router.navigate(["/jobseeker"]);
+      }else{
+        return this.router.navigate(["/employer"]);
+      }
     });
   }
   get Email() {

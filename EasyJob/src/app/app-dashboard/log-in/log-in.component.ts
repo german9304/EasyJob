@@ -9,6 +9,7 @@ import { USER } from "../../user";
   styleUrls: ["../sharedstyle.component.scss", "./log-in.component.css"]
 })
 export class LogInComponent implements OnInit {
+  option: boolean;
   loginForm = this.fb.group({
     email: [""],
     password: [""]
@@ -19,19 +20,21 @@ export class LogInComponent implements OnInit {
   ngOnInit() {
     console.log("is logged in: ", this.auth.isLoggedin);
   }
-  onSubmit(isSubmited: boolean) {
+  onSubmit() {
+    // console.log(this.loginForm.value);
+    const {value} = this.loginForm.value;
+    this.auth.login(value).subscribe( res => console.log(res));
+
+    
+    this.loginForm.setValue({
+      email: '',
+      password: ''
+    });
+
     console.log("submited");
-    /*
-    const {value: username} = this.userName;
-    const {value: password} = this.PassWord;
-    const contact: USER = new USER(username,password);
-    this.auth.authenticate(contact).subscribe(
-       (user: USER) => console.log(user),
-       (error) => console.log(error)
-      )
-      */
   }
   storeField(option: string) {
+    this.option = true;
     localStorage.setItem("option", option);
   }
   get userName(): FormControl {

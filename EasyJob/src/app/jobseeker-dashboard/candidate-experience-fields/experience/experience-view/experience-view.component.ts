@@ -4,16 +4,10 @@ import { FormGroup, FormControl } from '@angular/forms';
 @Component({
   selector: 'experience-view',
   templateUrl: './experience-view.component.html',
-  styleUrls: ['./experience-view.component.scss']
+  styleUrls: ['../../shared-profile-fields.component.scss','./experience-view.component.scss']
 })
 export class ExperienceViewComponent implements OnInit {
- @Input() expForm: FormGroup;
- @Input() position: FormControl;
- @Input() company: FormControl;
- @Input() location:  FormControl;
- @Input() startDate: FormControl;
- @Input() endDate: FormControl;
- @Input() description: FormControl;
+ @Input() expForm: FormGroup;;
  @Output() submitExperience: EventEmitter<any>  = new EventEmitter();
   constructor() { }
 

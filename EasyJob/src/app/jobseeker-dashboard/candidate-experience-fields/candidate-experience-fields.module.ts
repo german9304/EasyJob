@@ -9,6 +9,8 @@ import { ExperienceComponent } from "./experience/experience.component";
 import { ExperienceViewComponent } from "./experience/experience-view/experience-view.component";
 import { TestComponent } from "./testing/test.component";
 import { TestViewComponent } from "./testing/test-view/test-view.component";
+import { EducationComponent } from './education/education.component';
+import { EducationViewComponent } from './education/education-view/education-view.component';
 
 @NgModule({
   imports: [CommonModule, ReactiveFormsModule, RouterModule],
@@ -18,8 +20,10 @@ import { TestViewComponent } from "./testing/test-view/test-view.component";
     ExperienceComponent,
     ExperienceViewComponent,
     TestComponent,
-    TestViewComponent
+    TestViewComponent,
+    EducationComponent,
+    EducationViewComponent
   ],
-  exports: [CandidateProfileComponent, ExperienceComponent, TestComponent]
+  exports: [CandidateProfileComponent, ExperienceComponent, EducationComponent, TestComponent]
 })
 export class CandidateExperienceFieldsModule {}

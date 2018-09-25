@@ -26,6 +26,12 @@ export class AuthService {
       return of(`I caught: ${val.status}`)
     }));
   }
+  login(user): Observable<any> {
+    return this.http.post<any>('/login', user, httpOptions)
+    .pipe(catchError(val => {
+      return of(`I caught: ${val.status}`)
+    }));
+  }
   
   getUSER(): Observable<USER> {
     return this.http.get<USER>(this.userUrl).pipe(

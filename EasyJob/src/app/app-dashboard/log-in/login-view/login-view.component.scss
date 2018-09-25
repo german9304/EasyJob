@@ -53,7 +53,7 @@ a {
   cursor: pointer;
 }
 #not-member {
-  font-size: 15px;
+  font-size: 20px;
   font-family: "Quicksand", sans-serif;
 }
 #not-member a:hover {
@@ -80,9 +80,10 @@ a {
     border-radius: 10px;
     flex: 1;
     padding: 10px;
-    background-color: #517bab;
+    background-color: #3D9970;
     // border: solid 1px royalblue;
     outline: none;
+     transition: all .5s;
   }
   button:hover {
     color: #517bab;

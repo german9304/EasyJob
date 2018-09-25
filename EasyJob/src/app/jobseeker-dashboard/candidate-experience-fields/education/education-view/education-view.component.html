@@ -1,5 +1,5 @@
 <div class="fields-container">
-  <form action="" [formGroup]="expForm" (ngSubmit)="submitForm()" class="experience-form">
+  <form action="" [formGroup]="educationForm" (ngSubmit)="submitForm()" class="experience-form">
     <!--  <p> {{ expForm.value| json}}</p> -->
     <div class="headers">
       <div class="addexperience">
@@ -13,24 +13,24 @@
     </div>
     <div class="frm exp">
       <label for="position">Position</label>
-      <input type="text" formControlName="position" id="position" placeholder="Position" />
+      <input type="text"  id="position" placeholder="Position" />
     </div>
     <div class="frm cmp">
       <label for="company">Company</label>
-      <input type="text" formControlName="company" id="company" placeholder="Company" />
+      <input type="text" id="company" placeholder="Company" />
     </div>
     <div class="frm loc">
       <label for="location">Location</label>
-      <input type="text" formControlName="location" id="location" placeholder="Location" />
+      <input type="text"  id="location" placeholder="Location" />
     </div>
 
     <div class="frm date">
-      <input type="text" formControlName="startDate" id="strt" placeholder="Start date" />
-      <input type="text" formControlName="endDate" id="end" placeholder="End date" />
+      <input type="text" id="strt" placeholder="Start date" />
+      <input type="text"  id="end" placeholder="End date" />
     </div>
     <div class="frm desc">
       <label for="description">Description</label>
-      <textarea type="text" formControlName="description" id="description" placeholder="Description">
+      <textarea type="text" id="description" placeholder="Description">
         </textarea>
     </div>
     <div class="frm btns">
