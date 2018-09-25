@@ -4,7 +4,10 @@ import { FormGroup, FormControl } from "@angular/forms";
 @Component({
   selector: "create-account-view",
   templateUrl: "./create-account-view.component.html",
-  styleUrls: ["./create-account-view.component.scss"]
+  styleUrls: [
+    "../../login-create-account-shared.component.scss",
+    "./create-account-view.component.scss"
+  ]
 })
 export class CreateAccountViewComponent implements OnInit {
   @Input()

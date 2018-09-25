@@ -11,7 +11,10 @@ import { FormGroup, FormControl } from "@angular/forms";
 @Component({
   selector: "app-login-view",
   templateUrl: "./login-view.component.html",
-  styleUrls: ["./login-view.component.scss"]
+  styleUrls: [
+    "../../login-create-account-shared.component.scss",
+    "./login-view.component.scss"
+  ]
 })
 export class LoginViewComponent implements OnInit {
   @Input()

@@ -6,7 +6,7 @@ import { USER } from "../../user";
 @Component({
   selector: "app-log-in",
   templateUrl: "./log-in.component.html",
-  styleUrls: ["./log-in.component.css"]
+  styleUrls: ["../sharedstyle.component.scss", "./log-in.component.css"]
 })
 export class LogInComponent implements OnInit {
   loginForm = this.fb.group({

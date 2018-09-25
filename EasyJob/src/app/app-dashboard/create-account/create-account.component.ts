@@ -5,7 +5,10 @@ import { RouterModule, Routes, Router, ActivatedRoute } from "@angular/router";
 @Component({
   selector: "app-create-account",
   templateUrl: "./create-account.component.html",
-  styleUrls: ["./create-account.component.css"]
+  styleUrls: [
+    "../sharedstyle.component.scss",
+    "./create-account.component.scss"
+  ]
 })
 export class CreateAccountComponent implements OnInit {
   createAccountForm = this.fb.group({

@@ -81,17 +81,12 @@ app.post("/create/user", passport.authenticate("createUser"), function(
   res
 ) {
   // console.log(req.authInfo)
-  const { message } = req.authInfo;
-  if (message) {
-    res.json({ message: "user aleady exist" });
-  } else {
-    const { user: id } = req;
-    const usr = findUserById(id);
-    usr.then(data => {
-      const { _id, email, jwt } = data;
-      res.json({ user: { _id, email, jwt } });
-    });
-  }
+  const { user: id } = req;
+  const usr = findUserById(id);
+  usr.then(data => {
+    const { _id, email, jwt } = data;
+    res.json({ user: { _id, email, jwt } });
+  });
 });
 
 app.post("/login", passport.authenticate("loginUser"), (req, res) => {
