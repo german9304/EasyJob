@@ -7,7 +7,7 @@ const {
   userModel,
   findGoogleUser,
   createUserGoogle
-} = require("./Database/db");
+} = require("./Database/user-schema");
 
 passport.serializeUser(function(userId, done) {
   done(null, userId);
@@ -30,20 +30,20 @@ passport.use(
       //console.log("profile: ", profile);
       const { id, displayName, emails } = profile;
       const { value: email } = emails[0];
-        const googleUser = await findGoogleUser(id);
-          if (!googleUser) {
-            const googleid = id;
-             const user = {
-              id,
-              email,
-            };
-            const addedUser = createUserGoogle(user);
-            const token = jwt.sign({addedUser},JWT_SECRET_KEY.key);
-            addedUser.jwt = token;
-            const newuser = await addedUser.save();
-            return done(null,  newuser);
-          }
-         return done(null, googleUser);
+      const googleUser = await findGoogleUser(id);
+      if (!googleUser) {
+        const googleid = id;
+        const user = {
+          id,
+          email
+        };
+        const addedUser = createUserGoogle(user);
+        const token = jwt.sign({ addedUser }, JWT_SECRET_KEY.key);
+        addedUser.jwt = token;
+        const newuser = await addedUser.save();
+        return done(null, newuser);
+      }
+      return done(null, googleUser);
     }
   )
 );

@@ -5,7 +5,11 @@ const { SECRET_KEY } = require("./client-auth");
 const localAuth = require("./create-account-auth");
 const flash = require("connect-flash");
 const jwtAuth = require("./jwt-auth");
-const { userModel, createUser, findUserById } = require("./Database/db");
+const {
+  userModel,
+  createUser,
+  findUserById
+} = require("./Database/user-schema");
 
 const passport = require("passport");
 const app = express();
@@ -46,7 +50,7 @@ app.get("/google/auth/redirect", passport.authenticate("google"), function(
   res,
   next
 ) {
-  res.redirect("http://localhost:4200");
+  res.redirect("/");
 });
 
 app.get("/user", (req, res) => {
