@@ -20,6 +20,7 @@ import { CreateAccountViewComponent } from "./create-account/create-account-view
 import { PostjobComponent } from './postjob/postjob.component';
 import { PostjobViewComponent } from './postjob/postjob-view/postjob-view.component';
 import { AccountComponent } from './account/account.component';
+import { DashboardViewComponent } from './dashboard/dashboard-view/dashboard-view.component';
 
 @NgModule({
   imports: [
@@ -38,7 +39,8 @@ import { AccountComponent } from './account/account.component';
     CreateAccountViewComponent,
     PostjobComponent,
     PostjobViewComponent,
-    AccountComponent
+    AccountComponent,
+    DashboardViewComponent
   ]
 })
 export class AppDashboardModule {}
