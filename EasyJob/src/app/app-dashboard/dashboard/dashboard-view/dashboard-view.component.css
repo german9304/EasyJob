@@ -95,17 +95,19 @@
   display: flex;
   flex-wrap: wrap;
   padding: 20px;
-  justify-content: center;
-
-  /*border: solid 1px black;*/
+  flex-direction: column;
+  /* justify-content: center; */
+  /* border: solid 1px black; */
 }
 .job-site .inner {
-  flex-basis: 80%;
-  /*   border: solid 1px blue; */
+  flex: 1;
+  /* border: solid 1px blue; */
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
+  /* flex-direction: column; */
+  /* justify-content: space-around; */
+  /* align-items: center; */
+  justify-content: center;
   font-family: "Quicksand", sans-serif;
   margin-bottom: 20px;
 }
@@ -113,17 +115,13 @@
   text-align: center;
   font-weight: bold;
   font-size: 30px;
-  color: #517bab;
+  color: #3d9970;
   border-radius: 15px;
   font-family: "Open Sans", sans-serif;
   padding: 10px;
   /* border:  solid 1px black; */
 }
-.job-site .information > * {
-  font-size: 18px;
-  /* margin:  0;
-     padding: 0; */
-}
+
 .job-site .information {
   padding: 10px;
   /* border: solid 1px #aaaaaa; */
@@ -141,13 +139,21 @@
   padding: 5px;
 }
 .inner > * {
-  flex-basis: 400px;
-  /*border: solid 1px red;*/
+  width: 350px;
+  /* flex-basis: 400px; */
+  margin: 0 30px 10px 0;
+  /* border: solid 3px red; */
 }
 
+/* .job-site .information-img {
+  flex: 1; 
+  width: 400px;
+  border: solid 5px black;
+} */
 img {
-  width: 300px;
-  height: 200px;
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
 }
 
 .explanation {
