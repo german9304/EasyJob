@@ -5,12 +5,16 @@ $back-ground-color: white;
 }
 */
 #login-form {
-  width: 300px;
+  width: 400px;
   border: solid 1px rgb(236, 230, 230);
   background-color: $back-ground-color;
   padding: 15px 10px 10px 10px;
   /*height: 300px;*/
   /*border: solid 1px red;*/
+  h2 {
+    font-family: "Quicksand", sans-serif;
+    text-align: center;
+  }
 }
 
 #google-sigin {
@@ -80,10 +84,10 @@ a {
     border-radius: 10px;
     flex: 1;
     padding: 10px;
-    background-color: #3D9970;
+    background-color: #3d9970;
     // border: solid 1px royalblue;
     outline: none;
-     transition: all .5s;
+    transition: all 0.5s;
   }
   button:hover {
     color: #517bab;
