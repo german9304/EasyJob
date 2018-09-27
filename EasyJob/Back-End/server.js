@@ -38,6 +38,12 @@ app.get("/test", (req, res) => {
   res.send("middleware");
 });
 
+app.get("/auth/google", (req, res, next) => {
+  console.log(req.query);
+
+  next();
+});
+
 app.get(
   "/auth/google",
   passport.authenticate("google", {
@@ -50,6 +56,7 @@ app.get("/google/auth/redirect", passport.authenticate("google"), function(
   res,
   next
 ) {
+  console.log("req user: ", req.user);
   res.redirect("/");
 });
 

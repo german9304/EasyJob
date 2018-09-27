@@ -8,6 +8,8 @@ USER SCHEMA
 const userSchema = new mongoose.Schema(
   {
     name: String,
+    candidate: Boolean,
+    employer: Boolean,
     email: String,
     googleId: String,
     password: String,
@@ -20,7 +22,9 @@ const userSchema = new mongoose.Schema(
         date: { start: String, end: String },
         description: String
       }
-    ]
+    ],
+    education: [],
+    jobs: []
   },
   { collection: "UserCollection", versionKey: false }
 );
