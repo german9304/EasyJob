@@ -1,22 +1,35 @@
 .container-menu {
-  /*background-color: #cfd1d032;*/
+  background-color: #cfd1d032;
   padding-top: 30px;
 }
 .job-search {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 20px 0 20px 0;
+ /*  border:  solid 1px black; */
+  align-items:  center;
+  margin: 0 0 40px 0;
+  height: 300px;
 }
-
+/* .job-search > *{
+  border:  solid 1px red;
+} */
 .search-job-form {
-  font-size: 40px;
+  font-size: 60px;
   flex-basis: 80%;
   font-family: "Open Sans", sans-serif;
   text-align: center;
   font-weight: bold;
-  color: white;
-  background: #3d9970;
+  /* color: white;
+  background: #3d9970; */
+  color:  #3d9970;
+  /* border:  solid 2px black; */
   border-radius: 10px 10px 10px 10px;
+}
+.search-job-form  p {
+  flex:  1;
+  /* border:  solid 1px black; */
+  margin: 0 0 40px 0;
 }
 /* .search-job-form p{
   border:  solid 1px black;
@@ -24,6 +37,8 @@
 .search-job-form .search-forms {
   display: flex;
   flex-wrap: wrap;
+  /* border:  solid 1px black; */
+  margin:  0;
 }
 
 .search-job-form input {
@@ -33,16 +48,19 @@
   font-size: 15px;
   outline-style: none;
   border: solid 1px #AAAAAA;
+  border-radius: 10px;
   transition: all 0.5s;
+  margin: 0 10px 0 0;
 }
-.search-job-form  #search-input{
-    border-radius: 10px 0 0 10px;
-}
+/* .search-job-form  #search-input{
+    border-radius: 10px;
+} */
 .search-job-form input:focus {
   border-color: #0074d9;
 }
 .search-job-form .material-icons {
   box-sizing: border-box;
+   border-radius: 10px;
   flex: 2 1 50px;
   background-color: #477a9d;
   color: white;
@@ -81,7 +99,7 @@
 }
 .job-site .inner {
   flex-basis: 80%;
-  /*border: solid 1px blue;*/
+/*   border: solid 1px blue; */
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -89,8 +107,30 @@
   font-family: "Quicksand", sans-serif;
   margin-bottom: 20px;
 }
+.job-site .information h2{
+   text-align: center;
+    font-weight: bold;
+    font-size:  25px;
+    border-radius: 15px;
+    padding: 10px;
+   border:  solid 1px black;
+}
+.job-site .information > * {
+  font-size:  20px;
+   /* margin:  0;
+   padding: 0; */
+}
+.job-site .information p {
+  font-size:  20px;
+  /* font-weight: bold; */
+ /*  text-align: center;
+  border:  solid 1px red; */
+  line-height: 32px;
+  font-family: 'Lato', sans-serif;
+  padding: 5px;
+}
 .inner > * {
-  flex-basis: 300px;
+  flex-basis: 400px;
   /*border: solid 1px red;*/
 }
 
