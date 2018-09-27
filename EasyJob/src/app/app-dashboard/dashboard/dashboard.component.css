@@ -16,6 +16,7 @@
   font-weight: bold;
   color: white;
   background: #3d9970;
+  border-radius: 10px 10px 10px 10px;
 }
 /* .search-job-form p{
   border:  solid 1px black;
@@ -31,9 +32,11 @@
   padding: 10px;
   font-size: 15px;
   outline-style: none;
-
-  border: solid 1px #e2e5e7;
+  border: solid 1px #AAAAAA;
   transition: all 0.5s;
+}
+.search-job-form  #search-input{
+    border-radius: 10px 0 0 10px;
 }
 .search-job-form input:focus {
   border-color: #0074d9;
