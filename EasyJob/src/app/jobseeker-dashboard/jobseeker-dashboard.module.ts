@@ -15,6 +15,12 @@ import { JobseekerNavbarComponent } from "./candidate-navbar/jobseeker-navbar.co
 import { JobseekerNavbarViewComponent } from "./candidate-navbar/jobseeker-navbar-view/jobseeker-navbar-view.component";
 import { SavedJobsComponent } from "./saved-jobs/saved-jobs.component";
 import { SavedJobsViewComponent } from "./saved-jobs/saved-jobs-view/saved-jobs-view.component";
+/*
+Serivice 
+*/
+import { CandidateFieldsService } from "./candidate-fields.service";
+import { AppliedJobsComponent } from './applied-jobs/applied-jobs.component';
+import { AppliedJobsViewComponent } from './applied-jobs/applied-jobs-view/applied-jobs-view.component';
 
 @NgModule({
   imports: [
@@ -29,7 +35,10 @@ import { SavedJobsViewComponent } from "./saved-jobs/saved-jobs-view/saved-jobs-
     JobseekerNavbarComponent,
     JobseekerNavbarViewComponent,
     SavedJobsComponent,
-    SavedJobsViewComponent
-  ]
+    SavedJobsViewComponent,
+    AppliedJobsComponent,
+    AppliedJobsViewComponent
+  ],
+  providers: [CandidateFieldsService]
 })
 export class JobseekerDashboardModule {}

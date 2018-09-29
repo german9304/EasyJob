@@ -26,7 +26,7 @@ const userSchema = new mongoose.Schema(
     education: [],
     jobs: []
   },
-  { collection: "UserCollection", versionKey: false }
+  { collection: "users", versionKey: false }
 );
 
 userSchema.pre("save", async function() {

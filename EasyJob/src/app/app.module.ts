@@ -14,6 +14,7 @@ import { PageNotFoundComponent } from "./page-not-found/page-not-found.component
 import { Router } from "@angular/router";
 import { AuthService } from "./auth.service";
 import { DataResolverService } from "./data-resolver.service";
+import { JobDataService } from "./job-data.service";
 
 @NgModule({
   declarations: [AppComponent, PageNotFoundComponent],
@@ -27,7 +28,7 @@ import { DataResolverService } from "./data-resolver.service";
     EmployerDashboardModule,
     AppRoutingModule
   ],
-  providers: [AuthService, DataResolverService],
+  providers: [AuthService, DataResolverService, JobDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

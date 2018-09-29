@@ -5,6 +5,7 @@ const { SECRET_KEY } = require("./client-auth");
 const localAuth = require("./create-account-auth");
 const flash = require("connect-flash");
 const jwtAuth = require("./jwt-auth");
+const { categoryModel } = require("./Database/jobs-Schema");
 const {
   userModel,
   createUser,
@@ -116,8 +117,35 @@ app.get(
   }
 );
 
+app.post("/api/post/job", (req, res) => {});
+
+app.get("/api/job/categories", (req, res) => {
+  const {
+    query: { search }
+  } = req;
+  const searchRegex = new RegExp(`^${search}`);
+  categoryModel.find({ category: { $regex: searchRegex } }, function(
+    err,
+    data
+  ) {
+    if (err) {
+      return console.log(err);
+    }
+    res.json(data);
+  });
+});
+
+app.get('/api/categories', (req, res) => {
+  categoryModel.find({}, function(err, data){
+     if (err) {
+      return console.log(err);
+    }
+    res.json(data);
+  })
+})
+
+app.listen(3000, () => console.log("app listening on port 3000!"));
+
 app.get("*", (req, res) => {
   res.redirect("/");
 });
-
-app.listen(3000, () => console.log("app listening on port 3000!"));

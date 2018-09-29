@@ -4,13 +4,13 @@
   <section class="job-search">
     <div class="search-job-form">
       <p> Find Your Job </p>
-      <div class="search-forms">
-        <input type="text" name="" id="search-input" placeholder="Search">
-        <input type="text" name="" id="" placeholder="City, State, Zip">
+      <form class="search-forms" [formGroup]="searchForm">
+        <input type="text" name=""  id="search-input" formControlName="category" placeholder="Search">
+        <input type="text" name="" id="search-city" formControlName="location" placeholder="City, State, Zip">
         <i class="material-icons">
           search
         </i>
-      </div>
+      </form>
     </div>
   </section>
   <!--- JOB SITE INFORMATION -->
@@ -21,7 +21,7 @@
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto, molestiae.</p>
       </div>
       <div class="information-img">
-        <img class="myimg" src="../../assets/resume.jpg">
+        <img class="myimg" [src]="imgurl1">
       </div>
     </div>
 
@@ -32,7 +32,7 @@
           modi dolores, soluta est!</p>
       </div>
       <div class="information-img">
-        <img class="myimg" src="../../assets/searchjobs.jpg">
+        <img class="myimg" [src]="imgurl2">
       </div>
     </div>
   </section>

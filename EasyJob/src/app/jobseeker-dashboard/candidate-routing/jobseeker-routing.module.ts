@@ -6,7 +6,8 @@ import { JobseekerNavbarComponent } from "../candidate-navbar/jobseeker-navbar.c
 import { DataResolverService } from "../../data-resolver.service";
 import { CandidateProfileComponent } from "../candidate-experience-fields/candidate-profile/candidate-profile.component";
 
-import { EducationComponent  } from "../candidate-experience-fields/education/education.component";
+import { AppliedJobsComponent } from "../applied-jobs/applied-jobs.component";
+import { EducationComponent } from "../candidate-experience-fields/education/education.component";
 import { ExperienceComponent } from "../candidate-experience-fields/experience/experience.component";
 import { SavedJobsComponent } from "../saved-jobs/saved-jobs.component";
 import { NewComponent } from "../candidate-experience-fields/new/new.component";
@@ -25,6 +26,10 @@ const appRoutes: Routes = [
         component: CandidateSuggestedJobsComponent
       },
       {
+        path: "applied-jobs",
+        component: AppliedJobsComponent
+      },
+      {
         path: "profile",
         component: CandidateProfileComponent,
         children: [
@@ -34,7 +39,7 @@ const appRoutes: Routes = [
           },
           {
             path: "education",
-            component: EducationComponent 
+            component: EducationComponent
           },
           {
             path: "test",
