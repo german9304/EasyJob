@@ -13,7 +13,7 @@
 
 .fields-container {
   // border: solid 10px blue;
-  width: 500px;
+  width: 400px;
   border: solid 1px #dddddd;
   border-radius: 5px;
   background-color: white;
@@ -60,23 +60,23 @@
         margin: 0 0 5px 0;
       }
       input {
-        font-size: 15px;
-        padding: 10px;
+        font-size: 13px;
+        padding: 8px;
         box-sizing: border-box;
         background-color: white;
         width: 100%;
         outline: none;
         transition: all 1s;
-        border: solid 1px gray;
+        border: solid 1px #9ca2a7;
       }
       input:focus {
-        border-color: black;
+        border-color: #797c7f;
         background-color: #dddddd32;
       }
       textarea {
         box-sizing: border-box;
         font-size: 15px;
-        border: solid 1px gray;
+        border: solid 1px #9ca2a7;
         // border: solid 1px black;
         width: 100%;
         outline: none;
@@ -84,7 +84,8 @@
         padding: 10px;
       }
       textarea:focus {
-        border-color: black;
+        border-color: #797c7f;
+        background-color: #dddddd32;
       }
     }
     .date {
@@ -94,7 +95,8 @@
       justify-content: space-between;
     }
     .date input {
-      width: 210px;
+      box-sizing: border-box;
+      width: 100%;
     }
     .frm.btns {
       button {
