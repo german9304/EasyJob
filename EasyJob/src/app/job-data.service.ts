@@ -14,9 +14,14 @@ export class JobDataService {
   createAJob(job): Observable<any> {
     return;
   }
-  searchCategories(data: string): Observable<CATEGORY> {
+  searchCategories(data: string): Observable<CATEGORY[]> {
+    console.log(data);
+    if (!data.trim()) {
+      return of([]);
+    }
+    // console.log("res: ", data);
     return this.http
-      .get<CATEGORY>(`api/job/categories?search=${data}`)
+      .get<CATEGORY[]>(`api/job/categories?search=${data}`)
       .pipe(tap(data => console.log(data), catchError(err => of(err))));
   }
 }

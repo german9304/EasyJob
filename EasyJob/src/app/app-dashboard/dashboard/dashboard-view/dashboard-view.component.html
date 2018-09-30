@@ -5,11 +5,19 @@
     <div class="search-job-form">
       <p> Find Your Job </p>
       <form class="search-forms" [formGroup]="searchForm">
-        <input type="text" name=""  id="search-input" formControlName="category" placeholder="Search">
-        <input type="text" name="" id="search-city" formControlName="location" placeholder="City, State, Zip">
-        <i class="material-icons">
-          search
-        </i>
+        <div class="search category">
+          <input type="text" name="" id="search-input" appTest (click)="showList($event)" formControlName="category" placeholder="Search">
+          <!-- <p> {{ sts.searchForm| json}}</p> -->
+          <categories-view  *ngIf="sts.searchForm" (clickCategories)="clickCat($event)" [categories]="CATEGORIES"></categories-view>
+        </div>
+        <div class="search location">
+          <input type="text" name="" id="search-city" formControlName="location" placeholder="City, State, Zip">
+        </div>
+        <div class="search icon">
+          <i class="material-icons">
+            search
+          </i>
+        </div>
       </form>
     </div>
   </section>

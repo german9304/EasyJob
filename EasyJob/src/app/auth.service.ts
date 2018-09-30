@@ -21,18 +21,20 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   authenticate(user): Observable<any> {
-    return this.http.post<any>('/create/user', user, httpOptions)
-    .pipe(catchError(val => {
-      return of(`I caught: ${val.status}`)
-    }));
+    return this.http.post<any>("/auth/create/user", user, httpOptions).pipe(
+      catchError(val => {
+        return of(`I caught: ${val.status}`);
+      })
+    );
   }
   login(user): Observable<any> {
-    return this.http.post<any>('/login', user, httpOptions)
-    .pipe(catchError(val => {
-      return of(`I caught: ${val.status}`)
-    }));
+    return this.http.post<any>("/auth/login", user, httpOptions).pipe(
+      catchError(val => {
+        return of(`I caught: ${val.status}`);
+      })
+    );
   }
-  
+
   getUSER(): Observable<USER> {
     return this.http.get<USER>(this.userUrl).pipe(
       catchError(val => of(val)),

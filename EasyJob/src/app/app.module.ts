@@ -14,10 +14,12 @@ import { PageNotFoundComponent } from "./page-not-found/page-not-found.component
 import { Router } from "@angular/router";
 import { AuthService } from "./auth.service";
 import { DataResolverService } from "./data-resolver.service";
+import { StyleServiceService } from "./style-service.service";
 import { JobDataService } from "./job-data.service";
+import { TestDirective } from './test.directive';
 
 @NgModule({
-  declarations: [AppComponent, PageNotFoundComponent],
+  declarations: [AppComponent, PageNotFoundComponent, TestDirective],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -28,7 +30,12 @@ import { JobDataService } from "./job-data.service";
     EmployerDashboardModule,
     AppRoutingModule
   ],
-  providers: [AuthService, DataResolverService, JobDataService],
+  providers: [
+    AuthService,
+    DataResolverService,
+    JobDataService,
+    StyleServiceService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

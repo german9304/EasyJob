@@ -16,7 +16,7 @@ export class NavBarComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const option = localStorage.getItem('option');
+    const option = localStorage.getItem("option");
     // localStorage.removeItem('option');
     // if(option === "jobseeker"){
     //   this.router.navigate(['/jobseeker'])

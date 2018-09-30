@@ -1,0 +1,36 @@
+#categories {
+  background-color: #ffffff;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  margin: 5px 0 0 0;
+  // border: solid 1px #aaaaaa;
+  border-radius: 10px;
+  .item {
+    // border: solid 1px royalblue;
+    list-style: none;
+    .link-category {
+      padding: 6px;
+      color: #252323;
+      font-size: 20px;
+      display: block;
+      cursor: pointer;
+      text-decoration: none;
+      // border: solid 1px red;
+    }
+    .link-category:hover {
+      background-color: #01ff7032;
+    }
+  }
+}
+ #categories.active{
+    border: solid 1px #aaaaaa;
+  }
+.test{
+ background-color: red;
+}
+
+
+
+

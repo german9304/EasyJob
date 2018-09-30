@@ -1,5 +1,5 @@
 <div class="container-menu-dashboard">
-    <dashboard-view [searchForm]="searchForm" ></dashboard-view>
+    <dashboard-view [searchForm]="searchForm" (catClick)="getClickCategory($event)" [categories]="CATEGORIES" (clickInputSearch)="clickSearch()"></dashboard-view>
 </div>
 
 

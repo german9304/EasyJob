@@ -25,7 +25,9 @@ export class ExperienceComponent implements OnInit {
       console.log(values);
     });
   }
-  Submit() {}
+  Submit() {
+    const { value } = this.experienceForm;
+  }
   get Position() {
     return this.experienceForm.get("position");
   }
