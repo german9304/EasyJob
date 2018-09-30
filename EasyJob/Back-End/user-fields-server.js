@@ -8,22 +8,29 @@ const {
   findUserById
 } = require("./Database/user-schema");
 
-router.put("/create/experience", (req, res) => {
+router.post("/create/experience", (req, res) => {
   const { body } = req;
-  const { _id } = req.user;
-  console.log(body);
+  const barr = [body];
+  const { _id, experience } = req.user;
+  const exp = [...experience, ...barr];
+  // console.log(exp);
   console.log("_id", _id);
-  userModel.findOneAndUpdate(
-    _id,
-    { $set: { experience: body } },
-    { new: true },
-    function(err, user) {
-      if (err) return handleError(err);
-      const { experience } = user;
-      res.send(experience);
-    }
-  );
-  //   res.send(body);
+  userModel.findOneAndUpdate(_id, { $set: { experience: exp } }, function(
+    err,
+    user
+  ) {
+    if (err) return handleError(err);
+   
+    res.json(exp);
+  });
+  // res.send(experience);
 });
 
+router.get("/candidate", (req, res) => {
+  if (req.user) {
+    const { experience, education } = req.user;
+    return res.json({ experience, education });
+  }
+  return res.status(404).send("invalid data");
+});
 module.exports = router;

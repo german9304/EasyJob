@@ -7,7 +7,7 @@ import { NavBarComponent } from "../nav-bar/nav-bar.component";
 import { LogInComponent } from "../log-in/log-in.component";
 import { CreateAccountComponent } from "../create-account/create-account.component";
 import { PostjobComponent } from "../postjob/postjob.component";
-import { DataResolverService } from "../../data-resolver.service";
+import { DataResolverService } from "../../auth-data-resolver.service";
 import { AccountComponent } from "../account/account.component";
 
 const appRoutes: Routes = [

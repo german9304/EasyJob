@@ -1,11 +1,15 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Routes, RouterLinkActive } from "@angular/router";
+
+import { DataResolverService } from "../../auth-data-resolver.service";
+import { DataFieldsService } from "../data-fields.resolver.service";
+/*
+@Components 
+*/
 import { CandidateSuggestedJobsComponent } from "../candidate-suggested-jobs/candidate-suggested-jobs.component";
 import { JobseekerNavbarComponent } from "../candidate-navbar/jobseeker-navbar.component";
-import { DataResolverService } from "../../data-resolver.service";
 import { CandidateProfileComponent } from "../candidate-experience-fields/candidate-profile/candidate-profile.component";
-
 import { AppliedJobsComponent } from "../applied-jobs/applied-jobs.component";
 import { EducationComponent } from "../candidate-experience-fields/education/education.component";
 import { ExperienceComponent } from "../candidate-experience-fields/experience/experience.component";
@@ -32,6 +36,9 @@ const appRoutes: Routes = [
       {
         path: "profile",
         component: CandidateProfileComponent,
+        resolve:{
+          fields: DataFieldsService
+        },
         children: [
           {
             path: "experience",

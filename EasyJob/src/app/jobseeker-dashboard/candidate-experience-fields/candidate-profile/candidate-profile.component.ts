@@ -1,12 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { map, filter } from "rxjs/operators";
-import { EXPERIENCE } from "../../../job";
+import { EXPERIENCE, FIELDS } from "../../../job";
+import { CandidateFieldsService } from "../../candidate-fields.service";
 import {
   Router,
-  Resolve,
-  RouterStateSnapshot,
   ActivatedRoute,
-  ActivatedRouteSnapshot
 } from "@angular/router";
 
 @Component({
@@ -34,7 +32,23 @@ export class CandidateProfileComponent implements OnInit {
     //   description: "I work For 3 months"
     // }
   ];
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  // EXPERIENCE: EXPERIENCE[] = this.fields.EXPERIENCE;
+  constructor(
+    private fields: CandidateFieldsService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.route.data.subscribe((data: { fields: FIELDS }) => {
+      console.log(data);
+      if (data) {
+        const {
+          fields: { experience }
+        } = data;
+        this.fields.EXPERIENCE = experience;
+      }
+      //this.router.navigate(["/user"]);
+    });
+  }
 }

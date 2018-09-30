@@ -48,9 +48,9 @@ router.post("/create/user", passport.authenticate("createUser"), function(
 });
 
 router.post("/login", passport.authenticate("loginUser"), (req, res) => {
-  console.log(req);
+  console.log(req.body);
   const { email, jwt } = req.user;
-  // console.log("successful login: ", user);
+  console.log("successful login: ", email);
   res.json({ user: { email, jwt, auth: true } });
 });
 

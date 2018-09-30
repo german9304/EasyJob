@@ -29,6 +29,7 @@ export class AuthService {
   }
   login(user): Observable<any> {
     return this.http.post<any>("/auth/login", user, httpOptions).pipe(
+      tap(data => console.log(data)),
       catchError(val => {
         return of(`I caught: ${val.status}`);
       })

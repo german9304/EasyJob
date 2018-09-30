@@ -1,23 +1,29 @@
 export class Job {
   category: {
-    _id: String;
-    name: String;
+    _id: string;
+    name: string;
   };
-  title: String;
-  companyName: String;
-  location: String;
-  description: String;
+  title: string;
+  companyName: string;
+  location: string;
+  description: string;
 }
 
 export class CATEGORY {
-  _id: String;
-  category: String;
+  _id: string;
+  category: string;
 }
 
 export class EXPERIENCE {
-  position: String;
-  company: String;
-  location: String;
-  date: { start: String; end: String };
-  description: String;
+  _id: string;
+  position: string;
+  company: string;
+  location: string;
+  date: { start: string; end: string };
+  description: string;
+}
+
+export class FIELDS {
+  experience: EXPERIENCE[];
+  education: Array<any>;
 }

@@ -19,9 +19,9 @@ import { SavedJobsViewComponent } from "./saved-jobs/saved-jobs-view/saved-jobs-
 Serivice 
 */
 import { CandidateFieldsService } from "./candidate-fields.service";
-import { AppliedJobsComponent } from './applied-jobs/applied-jobs.component';
-import { AppliedJobsViewComponent } from './applied-jobs/applied-jobs-view/applied-jobs-view.component';
-
+import { AppliedJobsComponent } from "./applied-jobs/applied-jobs.component";
+import { AppliedJobsViewComponent } from "./applied-jobs/applied-jobs-view/applied-jobs-view.component";
+import { DataFieldsService } from "./data-fields.resolver.service";
 @NgModule({
   imports: [
     CommonModule,
@@ -39,6 +39,6 @@ import { AppliedJobsViewComponent } from './applied-jobs/applied-jobs-view/appli
     AppliedJobsComponent,
     AppliedJobsViewComponent
   ],
-  providers: [CandidateFieldsService]
+  providers: [CandidateFieldsService, DataFieldsService]
 })
 export class JobseekerDashboardModule {}

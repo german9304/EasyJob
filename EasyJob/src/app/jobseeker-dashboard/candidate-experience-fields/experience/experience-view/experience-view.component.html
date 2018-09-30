@@ -24,9 +24,9 @@
       <input type="text" formControlName="location" id="location" placeholder="Ex. Chico CA" />
     </div>
 
-    <div class="frm date">
-      <input type="text" formControlName="startDate" id="strt" placeholder="Ex. 02/2001" />
-      <input type="text" formControlName="endDate" id="end" placeholder="Ex. 03/2005" />
+    <div  formGroupName="date" class="frm date">
+      <input type="text" formControlName="start" id="strt" placeholder="Ex. 02/2001" />
+      <input type="text" formControlName="end" id="end" placeholder="Ex. 03/2005" />
     </div>
     <div class="frm desc">
       <label for="description">Description</label>

@@ -32,7 +32,7 @@ app.use(passport.session());
 // require("./local-auth")(passport);
 app.use(flash());
 app.use("/auth", auth);
-app.use("/api/field", userfields);
+app.use("/api/fields", userfields);
 
 //app.use(express.static("../dist/EasyJob"));
 

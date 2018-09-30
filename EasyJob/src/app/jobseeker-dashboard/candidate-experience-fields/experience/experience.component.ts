@@ -1,5 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder } from "@angular/forms";
+import { CandidateFieldsService } from "../../candidate-fields.service";
+import { EXPERIENCE } from "../../../job";
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-experience",
@@ -14,19 +17,26 @@ export class ExperienceComponent implements OnInit {
     position: [""],
     company: [""],
     location: [""],
-    startDate: [""],
-    endDate: [""],
+    date: this.fb.group({
+      start: [""],
+      end: [""]
+    }),
     description: [""]
   });
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private router: Router,
+    private fb: FormBuilder,
+    private fs: CandidateFieldsService
+  ) {}
 
-  ngOnInit() {
-    this.experienceForm.valueChanges.subscribe(values => {
-      console.log(values);
-    });
-  }
+  ngOnInit() {}
   Submit() {
     const { value } = this.experienceForm;
+    this.fs.createExperience(value).subscribe((res: EXPERIENCE[]) => {
+      this.fs.EXPERIENCE = res;
+    });
+    this.experienceForm.reset();
+    this.router.navigate(["../jobseeker/profile"]);
   }
   get Position() {
     return this.experienceForm.get("position");

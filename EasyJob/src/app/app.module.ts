@@ -13,10 +13,10 @@ import { AppComponent } from "./app.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { Router } from "@angular/router";
 import { AuthService } from "./auth.service";
-import { DataResolverService } from "./data-resolver.service";
+import { DataResolverService } from "./auth-data-resolver.service";
 import { StyleServiceService } from "./style-service.service";
 import { JobDataService } from "./job-data.service";
-import { TestDirective } from './test.directive';
+import { TestDirective } from "./test.directive";
 
 @NgModule({
   declarations: [AppComponent, PageNotFoundComponent, TestDirective],

@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
 import { AuthService } from "../../auth.service";
 import { USER } from "../../user";
-
+import { RouterModule, Routes, Router, ActivatedRoute } from "@angular/router";
 @Component({
   selector: "app-log-in",
   templateUrl: "./log-in.component.html",
@@ -15,20 +15,25 @@ export class LogInComponent implements OnInit {
     password: [""]
   });
 
-  constructor(private fb: FormBuilder, private auth: AuthService) {}
+  constructor(
+    private router: Router,
+    private fb: FormBuilder,
+    private auth: AuthService
+  ) {}
 
   ngOnInit() {
-    console.log("is logged in: ", this.auth.isLoggedin);
+    // console.log("is logged in: ", this.auth.isLoggedin);
   }
   onSubmit() {
     // console.log(this.loginForm.value);
-    const {value} = this.loginForm.value;
-    this.auth.login(value).subscribe( res => console.log(res));
+    const { value } = this.loginForm;
+    this.auth
+      .login(value)
+      .subscribe(res => this.router.navigate(["/jobseeker"]));
 
-    
     this.loginForm.setValue({
-      email: '',
-      password: ''
+      email: "",
+      password: ""
     });
 
     console.log("submited");
