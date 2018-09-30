@@ -11,6 +11,8 @@ import { TestComponent } from "./testing/test.component";
 import { TestViewComponent } from "./testing/test-view/test-view.component";
 import { EducationComponent } from './education/education.component';
 import { EducationViewComponent } from './education/education-view/education-view.component';
+import { EducationListComponent } from './education-list/education-list.component';
+import { ExperienceListComponent } from './experience-list/experience-list.component';
 
 @NgModule({
   imports: [CommonModule, ReactiveFormsModule, RouterModule],
@@ -22,7 +24,9 @@ import { EducationViewComponent } from './education/education-view/education-vie
     TestComponent,
     TestViewComponent,
     EducationComponent,
-    EducationViewComponent
+    EducationViewComponent,
+    EducationListComponent,
+    ExperienceListComponent
   ],
   exports: [CandidateProfileComponent, ExperienceComponent, EducationComponent, TestComponent]
 })

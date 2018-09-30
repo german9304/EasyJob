@@ -13,3 +13,11 @@ export class CATEGORY {
   _id: String;
   category: String;
 }
+
+export class EXPERIENCE {
+  position: String;
+  company: String;
+  location: String;
+  date: { start: String; end: String };
+  description: String;
+}

@@ -1,33 +1,48 @@
 <div class="candidate-profile-view">
   <div class="skills">
+
     <div class="item experience">
-      <h2> Experience </h2>
-      <div class="icon" id="add-icon-experience">
-        <a routerLink="./experience" routerLinkActive="active">
-          <i class="material-icons">
-            add
-          </i>
-        </a>
+      <div class="inner experience">
+        <h2> Experience </h2>
+        <div class="icon" id="add-icon-experience">
+          <a routerLink="./experience" routerLinkActive="active">
+            <i class="material-icons">
+              add
+            </i>
+          </a>
+        </div>
+      </div>
+      <div class="experience-lists">
+        <education-list [EXPERIENCE]="experience"></education-list>
       </div>
     </div>
+
+
     <div class="item education">
-      <h2> Education </h2>
-      <div class="icon" id="add-icon-education">
-         <a routerLink="./education" routerLinkActive="active">
+      <div class="inner education">
+        <h2> Education </h2>
+        <div class="icon" id="add-icon-education">
+          <a routerLink="./education" routerLinkActive="active">
+            <i class="material-icons">
+              add
+            </i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="item resume">
+      <div class="inner resume">
+        <h2> Resume </h2>
+        <div class="icon" id="add-icon-resume">
           <i class="material-icons">
             add
           </i>
-        </a>
+        </div>
       </div>
     </div>
-    <div class="item resume">
-      <h2> Resume </h2>
-      <div class="icon" id="add-icon-resume">
-        <i class="material-icons">
-          add
-        </i>
-      </div>
-    </div>
+
+
   </div>
   <div class="candidate-information">
     <div class="profile name">

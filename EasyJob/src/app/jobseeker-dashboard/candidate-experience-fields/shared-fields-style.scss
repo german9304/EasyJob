@@ -1,0 +1,64 @@
+#items-experience {
+  margin: 0;
+  padding: 0;
+  // border: solid 2px red;
+  .item > * {
+    // border: solid 1px black;
+    margin: 0;
+    padding: 2px;
+    font-size: 15px;
+    font-weight: 300;
+    font-family: "Montserrat", sans-serif;
+  }
+  .item p {
+    color: #313f58;
+  }
+  .item #inner-header {
+    font-family: "Muli", sans-serif;
+    // border: solid 1px rosybrown;
+    padding: 2px 2px 0 2px;
+    display: flex;
+    font-size: 12px;
+    justify-content: space-between;
+    h2 {
+      margin: 0;
+      padding: 0;
+      // border: solid 1px blue;
+    }
+    #icon-edit {
+      cursor: pointer;
+      color: #0074d9;
+      transition: all 0.5s;
+      padding: 5px;
+      border-radius: 10px;
+    }
+    #icon-edit:hover {
+      color: black;
+      background-color: #dddddd;
+    }
+  }
+  .item #inner-header > * {
+    margin: 0;
+    // border: solid 1px rosybrown;
+  }
+  .item {
+    // border-color: black;
+    // border-style: solid;
+    // border-width: 0 0 1px 0;
+    padding: 20px;
+    // border: solid 1px #babcbf;
+    border-bottom: solid 1px #dddddd;
+    // margin: 0 0 5px 0;
+    #company {
+      font-weight: bold;
+    }
+    .inner #description {
+      // border: solid 2px black;
+      margin: 0;
+    }
+    #description-field {
+      // border: solid 2px red;
+      padding: 2px;
+    }
+  }
+}
