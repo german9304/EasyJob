@@ -12,16 +12,18 @@ router.post("/create/experience", (req, res) => {
   const { body } = req;
   const barr = [body];
   const { _id, experience } = req.user;
+  // console.log("req before user: ", req.user);
   const exp = [...experience, ...barr];
+  // console.log();
   // console.log(exp);
-  console.log("_id", _id);
-  userModel.findOneAndUpdate(_id, { $set: { experience: exp } }, function(
-    err,
-    user
-  ) {
+  // console.log("_id", _id);
+  userModel.findById(_id, function(err, user) {
     if (err) return handleError(err);
-   
-    res.json(exp);
+    user.experience = exp;
+    user.save(function(err, updatedUser) {
+      if (err) return handleError(err);
+      res.json(updatedUser.experience);
+    });
   });
   // res.send(experience);
 });
