@@ -31,7 +31,7 @@ router.get("/google/redirect", passport.authenticate("google"), function(
   next
 ) {
   //   console.log("req user: ", req.user);
-  res.redirect("/");
+  res.redirect("http://localhost:4200/");
 });
 
 router.post("/create/user", passport.authenticate("createUser"), function(
@@ -50,7 +50,7 @@ router.post("/create/user", passport.authenticate("createUser"), function(
 router.post("/login", passport.authenticate("loginUser"), (req, res) => {
   console.log(req.body);
   const { email, jwt } = req.user;
-  console.log("successful login: ", email);
+  // console.log("successful login: ", email);
   res.json({ user: { email, jwt, auth: true } });
 });
 
