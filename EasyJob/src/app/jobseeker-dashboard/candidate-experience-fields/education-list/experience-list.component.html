@@ -1,0 +1,17 @@
+<div id="items-experience">
+    <div class="item exp" *ngFor="let item of EXPERIENCE">
+        <div class="inner field" id="inner-header">
+            <h2> {{item.position}} </h2>
+            <div id="icon-edit">
+                <i class="material-icons">
+                    edit
+                </i>
+            </div>
+        </div>
+        <p class="inner field" id="company"> {{item.company}} </p>
+        <p class="inner field" id="location"> {{item.location}} </p>
+        <p class="inner field" id="dates"> {{item.date.start}} - {{item.date.end}} </p>
+        <div id="description-field" class="inner field">
+            <p id="description"> {{item.description}} </div>
+    </div>
+</div>

@@ -1,5 +1,8 @@
 const mongoose = require("mongoose");
 const db = require("./db-connection");
+const cheerio = require("cheerio");
+const request = require("request");
+const rp = require("request-promise");
 /*
 Jobs Schema
 */
@@ -51,6 +54,48 @@ const createAcategory = ({ name }) => {
   return (category = new categoryModel({
     name
   }));
+};
+
+const jobSearch = ({ field, location }) => {
+  // console.log(field, location)
+  const url = `https://www.ziprecruiter.com/candidate/search?search=${field}&location=${location}`;
+  const options = {
+    uri: url,
+    transform(body) {
+      return cheerio.load(body);
+    }
+  };
+  // const res = request(
+  //   `https://www.ziprecruiter.com/candidate/search?search=${field}&location=${location}`
+  // );
+  try {
+    const $ = await rp(options);
+    // console.log(res);
+    // console.log(res);
+    const jobs = [];
+    $("#job_list .job_results article").each(function(i, elem) {
+      const job_content = $(this).children(".job_content");
+      const title = job_content.find("span");
+      // console.log(title.text());
+      const companyName = job_content.find(".t_org_link.name");
+      // console.log(companyName.text());
+      const location = job_content.find(".t_location_link.location");
+      // console.log(location.text());
+      const description = job_content.find(".job_snippet a");
+      // console.log(description.text());
+      const job = {
+        title: title.text(),
+        companyName: companyName.text(),
+        location: location.text(),
+        description: description.text().trim()
+      };
+      // console.log("res: ", job);
+      jobs.push(job);
+    });
+    return jobs;
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 module.exports = {

@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
 import { CATEGORY } from "../../job";
 import { StyleServiceService } from "../../style-service.service";
+import { Router, ActivatedRoute } from "@angular/router";
 import {
   map,
   tap,
@@ -24,7 +25,8 @@ export class DashboardComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private sts: StyleServiceService,
-    private jb: JobDataService
+    private jb: JobDataService,
+    private router: Router
   ) {}
   MOCK_LIST: Array<any> = [
     {
@@ -76,14 +78,13 @@ export class DashboardComponent implements OnInit {
     this.Category.setValue(value);
     this.clicked = true;
     this.CATEGORIES = [];
-    console.log("clicked in get click category: ", this.Category.value);
+    // console.log("clicked in get click category: ", this.Category.value);
   }
 
   clickSearch() {
-     console.log("clicked input");
-
-
-    // this.showSearchInput = this.sts.searchForm;
+    const { value } = this.Category;
+    // console.log(value);
+    this.router.navigate(["/jobs", { search: value }]);
   }
 
   get Category() {

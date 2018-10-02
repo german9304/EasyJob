@@ -79,17 +79,37 @@
       }
       .material-icons {
         padding: 5px;
-        flex: 1;
+        // flex: 1;
         box-sizing: border-box;
-        border-radius: 10px;
-        background-color: #477a9d;
-        color: white;
+        // background-color: #477a9d;
+        // color: white;
         cursor: pointer;
         font-size: 30px;
         display: flex;
         justify-content: center;
-        align-items: center;
+        // align-items: center;
         // border: solid 3px black;
+      }
+    }
+    .icon {
+      // display: flex;
+      // justify-content: center;
+      // border: solid 1px royalblue;
+      #search-jobs {
+        border-radius: 10px;
+        color: white;
+        background-color: #477a9d;
+        display: block;
+        width: 100%;
+        // flex: 1;
+        text-decoration: none;
+        transition: all 0.5s;
+        outline: none;
+        // border: solid 2px black;
+      }
+      #search-jobs:hover {
+        background-color: #3d9970;
+        color: white;
       }
     }
   }

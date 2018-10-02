@@ -1,11 +1,12 @@
 .nav-container {
   /*border: solid 1px black;*/
+  background-color: #cfd1d032;
   padding: 0;
 }
 .job-footer {
   height: 80px;
   margin: 0;
-  border:  solid 1px black;
+  border: solid 1px black;
   background-color: #556a7b;
 }
 

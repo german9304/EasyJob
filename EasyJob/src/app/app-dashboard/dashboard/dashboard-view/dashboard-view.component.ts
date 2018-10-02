@@ -16,20 +16,20 @@ export class DashboardViewComponent implements OnInit {
   clickInputSearch = new EventEmitter<null>();
   @Output()
   catClick = new EventEmitter<string>();
+  @Output()
+  search: EventEmitter<null> = new EventEmitter<null>();
+
   imgurl1: string = "../../assets/resume.jpg";
   imgurl2: string = "../../assets/searchjobs.jpg";
   constructor(private sts: StyleServiceService) {}
 
   ngOnInit() {}
-  clickCat(data: string){
+  clickCat(data: string) {
     this.catClick.emit(data);
   }
-  showList(){
-    
+  showList() {}
+
+  searchJobs() {
+    this.search.emit(null);
   }
 }
-
-
-
-
-

@@ -9,6 +9,7 @@ import { CreateAccountComponent } from "../create-account/create-account.compone
 import { PostjobComponent } from "../postjob/postjob.component";
 import { DataResolverService } from "../../auth-data-resolver.service";
 import { AccountComponent } from "../account/account.component";
+import { JobSearchComponent } from "../job-search/job-search.component";
 
 const appRoutes: Routes = [
   {
@@ -25,6 +26,10 @@ const appRoutes: Routes = [
       {
         path: "post/job",
         component: PostjobComponent
+      },
+      {
+        path: "jobs",
+        component: JobSearchComponent
       },
       {
         path: "account",

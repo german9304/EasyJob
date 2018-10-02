@@ -14,9 +14,11 @@
           <input type="text" name="" id="search-city" formControlName="location" placeholder="City, State, Zip">
         </div>
         <div class="search icon">
-          <i class="material-icons">
-            search
-          </i>
+          <button type="button" (click)="searchJobs()" id="search-jobs">
+            <i class="material-icons">
+              search
+            </i>
+          </button>
         </div>
       </form>
     </div>

@@ -1,7 +1,9 @@
 /* .candidateprofile {
-  border: solid 2px red;
-} 
- */
+  display: flex;
+  justify-content: center; 
+   border: solid 2px red; 
+} */
+
 /*  #profile-fields{
     border: solid 2px red; 
    background-color: #AAAAAA32;

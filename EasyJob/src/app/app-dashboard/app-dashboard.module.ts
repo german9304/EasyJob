@@ -22,6 +22,8 @@ import { PostjobViewComponent } from './postjob/postjob-view/postjob-view.compon
 import { AccountComponent } from './account/account.component';
 import { DashboardViewComponent } from './dashboard/dashboard-view/dashboard-view.component';
 import { CategoriesViewComponent } from './dashboard/categories-view/categories-view.component';
+import { JobSearchComponent } from './job-search/job-search.component';
+import { JobSerchListComponent } from './job-search/job-serch-list/job-serch-list.component';
 
 @NgModule({
   imports: [
@@ -42,7 +44,9 @@ import { CategoriesViewComponent } from './dashboard/categories-view/categories-
     PostjobViewComponent,
     AccountComponent,
     DashboardViewComponent,
-    CategoriesViewComponent
+    CategoriesViewComponent,
+    JobSearchComponent,
+    JobSerchListComponent
   ]
 })
 export class AppDashboardModule {}
