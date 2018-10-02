@@ -1,14 +1,15 @@
 #categories {
   background-color: #ffffff;
   width: 100%;
-  margin: 0;
   padding: 0;
   position: absolute;
+
   margin: 5px 0 0 0;
   // border: solid 1px #aaaaaa;
   border-radius: 10px;
   .item {
     // border: solid 1px royalblue;
+    margin: 0;
     list-style: none;
     .link-category {
       padding: 6px;
@@ -24,13 +25,9 @@
     }
   }
 }
- #categories.active{
-    border: solid 1px #aaaaaa;
-  }
-.test{
- background-color: red;
+#categories.active {
+  border: solid 1px #aaaaaa;
 }
-
-
-
-
+.test {
+  background-color: red;
+}
