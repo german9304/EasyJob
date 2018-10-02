@@ -28,6 +28,7 @@
   /* border: solid 1px black;*/
   /* border: solid 1px red;*/
   a {
+    transition: all 0.5s;
     padding: 10px;
     display: block;
     color: white;
@@ -40,7 +41,7 @@
   }
 
   a:hover {
-    color: #f2ebea;
+    color: #aaaaaa;
   }
 }
 
