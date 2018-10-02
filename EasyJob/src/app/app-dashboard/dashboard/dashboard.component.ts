@@ -82,9 +82,9 @@ export class DashboardComponent implements OnInit {
   }
 
   clickSearch() {
-    const { value } = this.Category;
-    // console.log(value);
-    this.router.navigate(["/jobs", { search: value }]);
+    const { category, location } = this.searchForm.value;
+    //console.log(value);
+    this.router.navigate(["/jobs", { search: category, location }]);
   }
 
   get Category() {

@@ -56,7 +56,7 @@ const createAcategory = ({ name }) => {
   }));
 };
 
-const jobSearch = ({ field, location }) => {
+const jobSearch = async ({ search: field, location }) => {
   // console.log(field, location)
   const url = `https://www.ziprecruiter.com/candidate/search?search=${field}&location=${location}`;
   const options = {
@@ -70,9 +70,9 @@ const jobSearch = ({ field, location }) => {
   // );
   try {
     const $ = await rp(options);
+    // console.log($);
     // console.log(res);
-    // console.log(res);
-    const jobs = [];
+    const jobslist = [];
     $("#job_list .job_results article").each(function(i, elem) {
       const job_content = $(this).children(".job_content");
       const title = job_content.find("span");
@@ -85,16 +85,18 @@ const jobSearch = ({ field, location }) => {
       // console.log(description.text());
       const job = {
         title: title.text(),
-        companyName: companyName.text(),
+        company: companyName.text(),
         location: location.text(),
         description: description.text().trim()
       };
       // console.log("res: ", job);
-      jobs.push(job);
+      jobslist.push(job);
     });
-    return jobs;
+    return jobslist;
   } catch (error) {
     console.error(error);
+    // expected output: SyntaxError: unterminated string literal
+    // Note - error messages will vary depending on browser
   }
 };
 

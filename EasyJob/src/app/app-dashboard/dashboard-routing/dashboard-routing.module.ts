@@ -40,6 +40,11 @@ const appRoutes: Routes = [
           {
             path: "create",
             component: CreateAccountComponent
+          },
+          {
+            path: "",
+            redirectTo: "login",
+            pathMatch: "full"
           }
         ]
       }

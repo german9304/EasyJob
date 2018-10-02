@@ -4,8 +4,7 @@ const { SECRET_KEY } = require("./client-auth");
 const localAuth = require("./create-account-auth");
 const flash = require("connect-flash");
 const jwtAuth = require("./jwt-auth");
-const { categoryModel } = require("./Database/jobs-Schema");
-const { jobSearch } = require("./Database/jobs-schema");
+const { categoryModel, jobSearch } = require("./Database/jobs-Schema");
 
 const auth = require("./auth-server");
 const userfields = require("./user-fields-server");
@@ -94,8 +93,14 @@ app.post("/api", (req, res) => {
   res.json(user);
 });
 
-app.get("/candidate/jobs", (req, res) => {
+app.get("/api/candidate/jobs", (req, res) => {
   const { query } = req;
+  const listjobs = jobSearch(query);
+  listjobs.then(data => {
+    console.log(data);
+    res.json(data);
+  });
+  // console.log("query: ", jobSearch);
 });
 
 // app.post("/create/user", passport.authenticate("createUser"), function(

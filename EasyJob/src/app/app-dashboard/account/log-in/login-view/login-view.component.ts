@@ -9,7 +9,7 @@ import {
 import { FormGroup, FormControl } from "@angular/forms";
 
 @Component({
-  selector: "app-login-view",
+  selector: "login-view",
   templateUrl: "./login-view.component.html",
   styleUrls: [
     "../../../sharedstyle.component.scss",

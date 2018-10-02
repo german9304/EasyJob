@@ -1,3 +1,8 @@
-<p>
-  job-serch-list works!
-</p>
+<div class="job-list-view">
+  <div class="job job{{i}}" *ngFor="let job of JOBS; let i= index">
+    <h2> {{job.title}} </h2>
+    <p> {{job.company}}</p>
+    <p> {{job.location}}</p>
+    <p> {{job.description}}</p>
+  </div>
+</div>

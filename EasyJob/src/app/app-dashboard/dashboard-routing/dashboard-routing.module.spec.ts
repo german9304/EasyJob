@@ -1,13 +1,13 @@
-import { AppDashboardRoutingModule } from './app-dashboard-routing.module';
+import { AppDashboardRoutingModule } from "./dashboard-routing.module";
 
-describe('AppDashboardRoutingModule', () => {
+describe("AppDashboardRoutingModule", () => {
   let appDashboardRoutingModule: AppDashboardRoutingModule;
 
   beforeEach(() => {
     appDashboardRoutingModule = new AppDashboardRoutingModule();
   });
 
-  it('should create an instance', () => {
+  it("should create an instance", () => {
     expect(appDashboardRoutingModule).toBeTruthy();
   });
 });

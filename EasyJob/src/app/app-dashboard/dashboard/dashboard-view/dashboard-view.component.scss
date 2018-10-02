@@ -1,5 +1,4 @@
 .container-menu-dashboard-view {
-  background-color: #cfd1d032;
   padding-top: 30px;
 }
 .job-search {
@@ -178,6 +177,7 @@
   justify-content: center;
   flex-wrap: wrap;
   font-family: "Quicksand", sans-serif;
+  // border: solid 1px #2b3137;
 }
 .job-site .inner.upload-resume {
   margin: 0 0 20px 0;
@@ -198,6 +198,8 @@
 
 .job-site .information {
   padding: 10px;
+  // border: solid 1px #2b313732;
+  box-shadow: 0 0 5px 5px #2b313732;
   background-color: white;
   margin: 0 20px 0;
 

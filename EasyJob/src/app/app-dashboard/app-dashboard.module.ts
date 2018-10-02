@@ -5,7 +5,7 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { ReactiveFormsModule } from "@angular/forms";
-import { AppDashboardRoutingModule } from "./app-dashboard-routing/app-dashboard-routing.module";
+import { AppDashboardRoutingModule } from "./dashboard-routing/dashboard-routing.module";
 import { AccountModule } from "./account/account.module";
 
 /*

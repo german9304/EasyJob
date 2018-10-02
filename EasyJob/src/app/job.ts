@@ -1,10 +1,10 @@
-export class Job {
+export class JOB {
   category: {
     _id: string;
     name: string;
   };
   title: string;
-  companyName: string;
+  company: string;
   location: string;
   description: string;
 }

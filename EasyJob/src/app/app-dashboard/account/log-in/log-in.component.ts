@@ -4,7 +4,7 @@ import { AuthService } from "../../../auth.service";
 import { USER } from "../../../user";
 import { RouterModule, Routes, Router, ActivatedRoute } from "@angular/router";
 @Component({
-  selector: "app-log-in",
+  selector: "log-in",
   templateUrl: "./log-in.component.html",
   styleUrls: ["../../sharedstyle.component.scss", "./log-in.component.css"]
 })

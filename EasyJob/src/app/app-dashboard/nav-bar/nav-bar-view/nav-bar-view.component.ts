@@ -5,7 +5,7 @@ import { USER } from "../../../user";
 //import { LoginViewComponent } from "../../authentication/log-in/login-view/login-view.component";
 
 @Component({
-  selector: "app-nav-bar-view",
+  selector: "nav-bar-view",
   templateUrl: "./nav-bar-view-component.html",
   styleUrls: ["./nav-bar-view.component.scss"]
 })

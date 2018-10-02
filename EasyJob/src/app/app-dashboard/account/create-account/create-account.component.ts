@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
 import { AuthService } from "../../../auth.service";
 import { RouterModule, Routes, Router, ActivatedRoute } from "@angular/router";
 @Component({
-  selector: "app-create-account",
+  selector: "create-account",
   templateUrl: "./create-account.component.html",
   styleUrls: [
     "../../sharedstyle.component.scss",

@@ -4,7 +4,7 @@ import { HttpHeaders } from "@angular/common/http";
 import { Observable, of } from "rxjs";
 import { map, tap, catchError } from "rxjs/operators";
 
-import { CATEGORY } from "./job";
+import { CATEGORY, JOB } from "./job";
 
 @Injectable()
 export class JobDataService {
@@ -22,6 +22,12 @@ export class JobDataService {
     // console.log("res: ", data);
     return this.http
       .get<CATEGORY[]>(`api/job/categories?search=${data}`)
+      .pipe(tap(data => console.log(data), catchError(err => of(err))));
+  }
+
+  getJobs({ field, location }): Observable<JOB[]> {
+    return this.http
+      .get<JOB[]>(`api/candidate/jobs?search=${field}&location=${location}`)
       .pipe(tap(data => console.log(data), catchError(err => of(err))));
   }
 }
