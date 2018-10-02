@@ -4,11 +4,10 @@ import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
 import { DashboardComponent } from "../dashboard/dashboard.component";
 import { NavBarComponent } from "../nav-bar/nav-bar.component";
-import { LogInComponent } from "../log-in/log-in.component";
-import { CreateAccountComponent } from "../create-account/create-account.component";
+import { LogInComponent } from "../account/log-in/log-in.component";
+import { CreateAccountComponent } from "../account/create-account/create-account.component";
 import { PostjobComponent } from "../postjob/postjob.component";
 import { DataResolverService } from "../../auth-data-resolver.service";
-import { AccountComponent } from "../account/account.component";
 import { JobSearchComponent } from "../job-search/job-search.component";
 
 const appRoutes: Routes = [
@@ -33,7 +32,6 @@ const appRoutes: Routes = [
       },
       {
         path: "account",
-        component: AccountComponent,
         children: [
           {
             path: "login",

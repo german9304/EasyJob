@@ -99,6 +99,7 @@ const jobSearch = ({ field, location }) => {
 };
 
 module.exports = {
+  jobSearch,
   createAJob,
   createAcategory,
   categoryModel

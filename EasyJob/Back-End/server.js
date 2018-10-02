@@ -5,6 +5,7 @@ const localAuth = require("./create-account-auth");
 const flash = require("connect-flash");
 const jwtAuth = require("./jwt-auth");
 const { categoryModel } = require("./Database/jobs-Schema");
+const { jobSearch } = require("./Database/jobs-schema");
 
 const auth = require("./auth-server");
 const userfields = require("./user-fields-server");
@@ -91,6 +92,10 @@ app.post("/api", (req, res) => {
   const { body: user } = req;
   console.log(user);
   res.json(user);
+});
+
+app.get("/candidate/jobs", (req, res) => {
+  const { query } = req;
 });
 
 // app.post("/create/user", passport.authenticate("createUser"), function(

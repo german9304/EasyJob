@@ -1,12 +1,12 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
-import { AuthService } from "../../auth.service";
+import { AuthService } from "../../../auth.service";
 import { RouterModule, Routes, Router, ActivatedRoute } from "@angular/router";
 @Component({
   selector: "app-create-account",
   templateUrl: "./create-account.component.html",
   styleUrls: [
-    "../sharedstyle.component.scss",
+    "../../sharedstyle.component.scss",
     "./create-account.component.scss"
   ]
 })
@@ -37,11 +37,11 @@ export class CreateAccountComponent implements OnInit {
     //   }
     const { value } = this.createAccountForm;
     this.auth.authenticate(value).subscribe(res => {
-       // console.log(res);
-      localStorage.setItem('option',option);
-       if(option === "jobseeker"){
-         return this.router.navigate(["/jobseeker"]);
-      }else{
+      // console.log(res);
+      localStorage.setItem("option", option);
+      if (option === "jobseeker") {
+        return this.router.navigate(["/jobseeker"]);
+      } else {
         return this.router.navigate(["/employer"]);
       }
     });

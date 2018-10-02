@@ -1,12 +1,12 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
-import { AuthService } from "../../auth.service";
-import { USER } from "../../user";
+import { AuthService } from "../../../auth.service";
+import { USER } from "../../../user";
 import { RouterModule, Routes, Router, ActivatedRoute } from "@angular/router";
 @Component({
   selector: "app-log-in",
   templateUrl: "./log-in.component.html",
-  styleUrls: ["../sharedstyle.component.scss", "./log-in.component.css"]
+  styleUrls: ["../../sharedstyle.component.scss", "./log-in.component.css"]
 })
 export class LogInComponent implements OnInit {
   option: boolean;
