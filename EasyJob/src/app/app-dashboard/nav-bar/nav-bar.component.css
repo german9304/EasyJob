@@ -1,6 +1,7 @@
 .nav-container {
   /*border: solid 1px black;*/
-  background-color: #dddddd32;
+  /* background-color: #dddddd32; */
+  background-color: #fff;
   padding: 0;
 }
 .job-footer {

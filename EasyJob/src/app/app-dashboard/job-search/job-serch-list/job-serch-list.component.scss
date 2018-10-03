@@ -1,0 +1,51 @@
+.job-list-view {
+  margin: 40px;
+  //   border: solid 2px royalblue;
+  max-width: 600px;
+  min-width: 300px;
+  font-family: "Montserrat", sans-serif;
+  .job {
+    background-color: #fff;
+    p {
+      line-height: 32px;
+    }
+    #company {
+      font-weight: bolder;
+    }
+    #location {
+      font-weight: bolder;
+      font-family: "Roboto", sans-serif;
+      //   font-weight: lighter;
+      color: #111111;
+    }
+    // border: solid 2px red;
+    padding: 10px;
+    margin: 0 0 10px 0;
+    .item {
+      margin: 0;
+      font-size: 15px;
+      //   padding: 5px;
+      //   border: solid 2px black;
+      //   #title {
+      //     border: solid 3px blue;
+      //   }
+      //   .material-icons {
+      //     border: solid 3px blue;
+      //   }
+    }
+
+    .item.title {
+      display: flex;
+      justify-content: space-between;
+      h2 {
+        padding: 0;
+        margin: 0;
+      }
+      .material-icons {
+        cursor: pointer;
+        font-size: 35px;
+        color: #2e4a62;
+      }
+    }
+  }
+}

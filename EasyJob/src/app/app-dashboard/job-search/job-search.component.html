@@ -1,4 +1,16 @@
 <div class="container-job-search">
-  <input id="search-jobs">
+  <div class="search-input">
+    <form class="inner inpt">
+      <div class="frm form-field">
+        <input id="field" type="text">
+      </div>
+      <div class="frm form-location">
+        <input id="location" type="text">
+      </div>
+      <div class="btn">
+        <button type="button"> Search Jobs</button>
+      </div>
+    </form>
+  </div>
   <job-serch-list [jobs]="JOBS"></job-serch-list>
 </div>

@@ -1,8 +1,13 @@
 <div class="job-list-view">
   <div class="job job{{i}}" *ngFor="let job of JOBS; let i= index">
-    <h2> {{job.title}} </h2>
-    <p> {{job.company}}</p>
-    <p> {{job.location}}</p>
-    <p> {{job.description}}</p>
+    <div class="item title" id="save-job-title">
+      <h2 id="title-name"> {{job.title}} </h2>
+      <i class="material-icons">
+        add_circle_outline
+      </i>
+    </div>
+    <p id="company" class="item item1"> {{job.company}}</p>
+    <p id="location" class="item item2"> {{job.location}}</p>
+    <p id="description" class="item item3"> {{job.description}}</p>
   </div>
 </div>

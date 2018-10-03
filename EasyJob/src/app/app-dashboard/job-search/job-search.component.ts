@@ -9,7 +9,30 @@ import { JOB } from "../../job";
   styleUrls: ["./job-search.component.scss"]
 })
 export class JobSearchComponent implements OnInit {
-  JOBS: JOB[] = [];
+  JOBS: JOB[] = [
+    {
+      category: {
+        _id: "",
+        name: ""
+      },
+      title: "SOFTWARE ENGINEER",
+      company: "MICROSOFT",
+      location: "Monterey By",
+      description:
+        "  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut, velit."
+    },
+    {
+      category: {
+        _id: "",
+        name: ""
+      },
+      title: "BACK-END",
+      company: "GOOGLE",
+      location: "San Diego",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat quos est natus deleniti magni, libero blanditiis. Qui voluptasconsectetur quod!"
+    }
+  ];
   constructor(
     private js: JobDataService,
     private router: Router,
@@ -17,6 +40,9 @@ export class JobSearchComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    // this.getJobList();
+  }
+  getJobList() {
     this.route.paramMap
       .pipe(
         switchMap((data: ParamMap) => {

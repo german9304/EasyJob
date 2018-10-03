@@ -1,0 +1,48 @@
+.container-job-search {
+  background-color: #dddddd32;
+  //   border: solid 2px black;
+  .search-input {
+    // max-width: 500px
+    display: flex;
+    margin: 20px 0 0 0;
+    justify-content: center;
+
+    // border: solid 1px blue;
+    .inner {
+      width: 600px;
+      display: flex;
+      padding: 10px;
+      ///   border: solid 1px black;
+      input {
+        box-sizing: border-box;
+        display: block;
+        border: solid 1px #dddd;
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        outline: none;
+      }
+      .btn {
+        border: solid 1px black;
+        margin: 0 0 0 10px;
+        flex: 1;
+        button {
+          cursor: pointer;
+          border-radius: 5px;
+          padding: 10px;
+          box-sizing: border-box;
+          //   padding: 10px;
+          font-size: 10px;
+        }
+      }
+      .frm {
+        font-size: 15px;
+        border: solid 1px rosybrown;
+        margin: 0 0 0 10px;
+      }
+    }
+    .inner > * {
+      flex: 2;
+    }
+  }
+}

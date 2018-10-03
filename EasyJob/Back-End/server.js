@@ -89,7 +89,7 @@ app.get("/logout", (req, res) => {
 });
 app.post("/api", (req, res) => {
   const { body: user } = req;
-  console.log(user);
+  // console.log(user);
   res.json(user);
 });
 
@@ -97,7 +97,7 @@ app.get("/api/candidate/jobs", (req, res) => {
   const { query } = req;
   const listjobs = jobSearch(query);
   listjobs.then(data => {
-    console.log(data);
+    // console.log(data);
     res.json(data);
   });
   // console.log("query: ", jobSearch);
