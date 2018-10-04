@@ -1,11 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { map, filter } from "rxjs/operators";
-import { EXPERIENCE, FIELDS } from "../../../job";
+import { EXPERIENCE, FIELDS, EDUCATION } from "../../../job";
 import { CandidateFieldsService } from "../../candidate-fields.service";
-import {
-  Router,
-  ActivatedRoute,
-} from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "candidate-profile",
@@ -16,22 +13,25 @@ import {
   ]
 })
 export class CandidateProfileComponent implements OnInit {
-  MOCK_LIST: EXPERIENCE[] = [
-    // {
-    //   position: "Software Developer",
-    //   company: "Google",
-    //   location: "Monterey Bay",
-    //   date: { start: "01/2000", end: "02/2005" },
-    //   description: "I work For 3 months"
-    // },
-    // {
-    //   position: "Back-End",
-    //   company: "TEST",
-    //   location: "Chico",
-    //   date: { start: "02/12", end: "02/12" },
-    //   description: "I work For 3 months"
-    // }
+  MOCK_LIST: EDUCATION[] = [
+    {
+      _id: "123",
+      school: "CSU CHICO",
+      degree: "Compuer Science",
+      majorField: "Google",
+      date: { start: "01/2000", end: "02/2005" },
+      description: "I work For 3 months"
+    },
+    {
+      _id: "123",
+      school: "CSU SACRAMENTO",
+      degree: "Business",
+      majorField: "Google",
+      date: { start: "01/2000", end: "02/2005" },
+      description: "I work For 3 months"
+    }
   ];
+
   // EXPERIENCE: EXPERIENCE[] = this.fields.EXPERIENCE;
   constructor(
     private fields: CandidateFieldsService,

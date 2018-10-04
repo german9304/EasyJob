@@ -1,10 +1,15 @@
 .job-list-view {
   margin: 40px;
-  //   border: solid 2px royalblue;
+  // border: solid 2px royalblue;
+  // display: grid;
+  // grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  // grid-gap: 20px;
   max-width: 600px;
   min-width: 300px;
   font-family: "Montserrat", sans-serif;
   .job {
+    border: solid 1px #aaaaaa;
+    border-radius: 5px;
     background-color: #fff;
     p {
       line-height: 32px;
@@ -37,11 +42,18 @@
     .item.title {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       h2 {
+        line-height: 32px;
+        font-weight: 600;
+        color: #0074d9;
+        // border: solid 3px blue;
+        font-size: 18px;
         padding: 0;
-        margin: 0;
+        margin: 5px 0 0 0;
       }
       .material-icons {
+        // border: solid 1px black;
         cursor: pointer;
         font-size: 35px;
         color: #2e4a62;

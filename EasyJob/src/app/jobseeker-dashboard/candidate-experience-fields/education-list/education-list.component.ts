@@ -1,15 +1,14 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
+import { EDUCATION } from "../../../job";
 
 @Component({
   selector: "education-list",
-  template: `
-    <p>
-      experience-list works!
-    </p>
-  `,
-  styleUrls: ["./education-list.component.scss"]
+  templateUrl: "./education-list.component.html",
+  styleUrls: ["../shared-fields-style.scss", "./education-list.component.scss"]
 })
 export class EducationListComponent implements OnInit {
+  @Input()
+  EDUCATION: EDUCATION[];
   constructor() {}
 
   ngOnInit() {}

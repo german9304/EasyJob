@@ -75,7 +75,7 @@ const jobSearch = async ({ search: field, location }) => {
     const jobslist = [];
     $("#job_list .job_results article").each(function(i, elem) {
       const job_content = $(this).children(".job_content");
-      const title = job_content.find("span");
+      const title = job_content.find(".just_job_title");
       // console.log(title.text());
       const companyName = job_content.find(".t_org_link.name");
       // console.log(companyName.text());

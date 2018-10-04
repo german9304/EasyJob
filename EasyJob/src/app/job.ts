@@ -23,6 +23,15 @@ export class EXPERIENCE {
   description: string;
 }
 
+export class EDUCATION {
+  _id: string;
+  school: string;
+  degree: string;
+  majorField: string;
+  date: { start: string; end: string };
+  description: string;
+}
+
 export class FIELDS {
   experience: EXPERIENCE[];
   education: Array<any>;

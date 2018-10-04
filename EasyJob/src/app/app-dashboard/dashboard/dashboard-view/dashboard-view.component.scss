@@ -1,13 +1,13 @@
-.container-menu-dashboard-view {
-  padding-top: 30px;
-}
+// .container-menu-dashboard-view {
+//   padding-top: 30px;
+// }
 .job-search {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px 0 20px 0;
+  margin: 20px 0 20px 0;
   // border: solid 1px black;
   align-items: center;
-  margin: 0 0 40px 0;
+  // margin: 0 0 40px 0;
   height: 300px;
 }
 /* .job-search > *{
@@ -19,7 +19,9 @@
 // }
 .search-job-form {
   // font-size: 60px;
+  margin: 0;
   flex-basis: 80%;
+  // border: solid 1px black;
   font-family: "Open Sans", sans-serif;
   font-weight: bold;
   /* color: white;
@@ -173,7 +175,7 @@
 .job-site {
   display: flex;
   flex-direction: column;
-  /* border: solid 2px black; */
+  // border: solid 2px black;
 }
 .job-site .inner {
   /* border: solid 2px blue; */

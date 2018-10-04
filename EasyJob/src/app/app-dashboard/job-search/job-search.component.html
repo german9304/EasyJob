@@ -2,15 +2,17 @@
   <div class="search-input">
     <form class="inner inpt">
       <div class="frm form-field">
-        <input id="field" type="text">
+        <input id="field" type="text" placeholder="Search job title">
       </div>
       <div class="frm form-location">
-        <input id="location" type="text">
+        <input id="location" type="text" placeholder="City, Street , Zip">
       </div>
       <div class="btn">
         <button type="button"> Search Jobs</button>
       </div>
     </form>
   </div>
-  <job-serch-list [jobs]="JOBS"></job-serch-list>
+  <div id="container-joblist">
+    <job-serch-list [jobs]="JOBS"></job-serch-list>
+  </div>
 </div>

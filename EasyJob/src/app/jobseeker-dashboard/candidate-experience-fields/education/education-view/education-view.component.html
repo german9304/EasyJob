@@ -13,24 +13,24 @@
     </div>
     <div class="frm exp">
       <label for="school">School</label>
-      <input type="text" id="position" placeholder="Ex. CSU Chico" />
+      <input type="text" formControlName="school" id="position" placeholder="Ex. CSU Chico" />
     </div>
     <div class="frm cmp">
       <label for="company">Degree</label>
-      <input type="text" id="company" placeholder="Ex. Bachelor's" />
+      <input type="text" formControlName="degree" id="company" placeholder="Ex. Bachelor's" />
     </div>
     <div class="frm loc">
       <label for="location">Major or Field </label>
-      <input type="text" id="location" placeholder="Ex. Computer Science" />
+      <input type="text" formControlName="majorField" id="location" placeholder="Ex. Computer Science" />
     </div>
 
-    <div class="frm date">
-      <input type="text" id="strt" placeholder="Start date" />
-      <input type="text" id="end" placeholder="End date" />
+    <div formGroupName="date" class="frm date">
+      <input type="text" formControlName="start" id="strt" placeholder="Start date" />
+      <input type="text" formControlName="end" id="end" placeholder="End date" />
     </div>
     <div class="frm desc">
       <label for="description">Description</label>
-      <textarea type="text" id="description" placeholder=""></textarea>
+      <textarea type="text" formControlName="description" id="description" placeholder=""></textarea>
     </div>
     <div class="frm btns">
       <button class="save" type="submit">Submit</button>

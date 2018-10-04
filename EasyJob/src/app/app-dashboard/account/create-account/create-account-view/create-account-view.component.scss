@@ -1,45 +1,48 @@
+.form-container {
+  margin: 20px 0 0 0;
+}
 #account-form {
   width: 400px;
   border: solid 1px rgb(236, 230, 230);
   background-color: white;
   padding: 20px;
-   margin-top: 20px;
+  margin-top: 20px;
   // align-self: center;
   // border: solid 1px red;
   h2 {
-  	font-family: "Quicksand", sans-serif;
+    font-family: "Quicksand", sans-serif;
     text-align: center;
   }
-  label{
-  	font-family: "Quicksand", sans-serif;
+  label {
+    font-family: "Quicksand", sans-serif;
   }
-  button{
-  	font-family: "Quicksand", sans-serif;
+  button {
+    font-family: "Quicksand", sans-serif;
   }
 }
 
-.option-container{
-	display: flex;
-	// border: solid 1px black;
-	justify-content: space-between;
-	button{
-		cursor: pointer;
-	    font-family: "Quicksand", sans-serif;
-		padding: 10px;
-		font-size: 20px;
-		border-radius: 10px;
-		width: 200px;
-		color: white;
-		background-color: #3D9970;
-		transition: all .5s;
-		outline: none;
-		// margin: 0 10px 0 0;
-	}
-	.selected{
-		background-color: white;
-		color: #517bab;
-	}
-	button:hover {
+.option-container {
+  display: flex;
+  // border: solid 1px black;
+  justify-content: space-between;
+  button {
+    cursor: pointer;
+    font-family: "Quicksand", sans-serif;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 10px;
+    width: 200px;
+    color: white;
+    background-color: #3d9970;
+    transition: all 0.5s;
+    outline: none;
+    // margin: 0 10px 0 0;
+  }
+  .selected {
+    background-color: white;
+    color: #517bab;
+  }
+  button:hover {
     color: #517bab;
     background-color: white;
   }

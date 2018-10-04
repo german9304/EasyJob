@@ -6,7 +6,7 @@
       <p> Find Your Job </p>
       <form class="search-forms" [formGroup]="searchForm">
         <div class="search category">
-          <input type="text" name="" id="search-input" (click)="showList($event)" formControlName="category" placeholder="Search">
+          <input type="text" name="" id="search-input" (click)="showList($event)" formControlName="category" placeholder="Search job title">
           <!-- <p> {{ sts.searchForm| json}}</p> -->
           <categories-view (clickCategories)="clickCat($event)" [categories]="CATEGORIES"></categories-view>
         </div>

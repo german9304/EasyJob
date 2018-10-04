@@ -6,8 +6,9 @@ import { JOB } from "../../../job";
   styleUrls: ["./job-serch-list.component.scss"]
 })
 export class JobSerchListComponent implements OnInit {
-  @Input('jobs')
+  @Input("jobs")
   JOBS: JOB[];
+  TEST = "TESTING SPAN";
   constructor() {}
 
   ngOnInit() {}

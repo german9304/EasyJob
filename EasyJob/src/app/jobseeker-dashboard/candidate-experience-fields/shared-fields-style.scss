@@ -1,12 +1,13 @@
-#items-experience {
+.items-fields {
   margin: 0;
   padding: 0;
   // border: solid 2px red;
   .item > * {
     // border: solid 1px black;
+    box-sizing: border-box;
     margin: 0;
-    padding: 2px;
-    font-size: 15px;
+    padding: 5px 5px 5px 0;
+    font-size: 18px;
     font-weight: 300;
     font-family: "Montserrat", sans-serif;
   }
@@ -16,7 +17,7 @@
   .item #inner-header {
     font-family: "Muli", sans-serif;
     // border: solid 1px rosybrown;
-    padding: 2px 2px 0 2px;
+    // padding: 0 2px 0 2px;
     display: flex;
     font-size: 12px;
     justify-content: space-between;
@@ -44,14 +45,18 @@
     // border: solid 1px rosybrown;
   }
   .item {
+    margin: 20px 0 20px 0;
     // border-color: black;
     // border-style: solid;
     // border-width: 0 0 1px 0;
-    padding: 20px;
+    // padding: 10px 20px 10px 20px;
     // border: solid 1px #babcbf;
-    border-bottom: solid 1px #dddddd;
+    // border-bottom: solid 1px #0000;
     // margin: 0 0 5px 0;
     #company {
+      font-weight: bold;
+    }
+    #degree {
       font-weight: bold;
     }
     .inner #description {
