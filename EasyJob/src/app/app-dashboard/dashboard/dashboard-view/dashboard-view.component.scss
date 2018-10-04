@@ -1,11 +1,12 @@
 // .container-menu-dashboard-view {
 //   padding-top: 30px;
+//   border: solid 1px black;
 // }
 .job-search {
   display: flex;
   justify-content: center;
-  margin: 20px 0 20px 0;
-  // border: solid 1px black;
+  margin: 0;
+  // border: solid 2px black;
   align-items: center;
   // margin: 0 0 40px 0;
   height: 300px;
@@ -33,7 +34,7 @@
     // color: #3d9970;
     color: #111111;
     /* border:  solid 1px black; */
-    margin: 0 0 40px 0;
+    margin: 0 0 20px 0;
   }
   // border: solid 2px black;
   border-radius: 10px 10px 10px 10px;
