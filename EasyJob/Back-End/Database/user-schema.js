@@ -23,7 +23,15 @@ const userSchema = new mongoose.Schema(
         description: String
       }
     ],
-    education: [],
+    education: [
+      {
+        school: String,
+        degree: String,
+        majorField: String,
+        date: { start: String, end: String },
+        description: String
+      }
+    ],
     jobs: []
   },
   { collection: "users", versionKey: false }

@@ -7,8 +7,8 @@
   // padding: 20px 0 0 0;
   // margin: 20px 0 20px 0;
   #container-joblist {
-    display: flex;
-    justify-content: center;
+    // display: flex;
+    // justify-content: center;
     margin: 0;
     // border: solid 1px black;
   }
@@ -38,6 +38,7 @@
         // font-size: 15px;
         border-radius: 5px;
         outline: none;
+        transition: all 1s;
       }
       .btn {
         // border: solid 1px black;
@@ -54,11 +55,19 @@
           box-sizing: border-box;
           //   padding: 10px;
           font-size: 15px;
+          transition: all .5s;
+        }
+        button:hover{
+          background-color: white;
+          color: #2e4a62;
         }
       }
       .frm {
         // border: solid 1px rosybrown;
         margin: 0 0 0 10px;
+        input:focus {
+          border-color: #0074d9;
+        }
       }
     }
     .inner > * {

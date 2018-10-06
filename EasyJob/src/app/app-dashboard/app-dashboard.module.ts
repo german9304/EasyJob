@@ -7,6 +7,7 @@ import { FormsModule } from "@angular/forms";
 import { ReactiveFormsModule } from "@angular/forms";
 import { AppDashboardRoutingModule } from "./dashboard-routing/dashboard-routing.module";
 import { AccountModule } from "./account/account.module";
+import { JobListDataService } from "./job-list-data.service";
 
 /*
 Components 
@@ -25,7 +26,6 @@ import { JobSerchListComponent } from "./job-search/job-serch-list/job-serch-lis
   imports: [
     CommonModule,
     AppDashboardRoutingModule,
-    AccountModule,
     FormsModule,
     ReactiveFormsModule
   ],
@@ -39,6 +39,7 @@ import { JobSerchListComponent } from "./job-search/job-serch-list/job-serch-lis
     CategoriesViewComponent,
     JobSearchComponent,
     JobSerchListComponent
-  ]
+  ],
+  providers: [JobListDataService]
 })
 export class AppDashboardModule {}

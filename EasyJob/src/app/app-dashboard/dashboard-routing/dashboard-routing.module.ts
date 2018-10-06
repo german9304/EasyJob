@@ -9,6 +9,7 @@ import { CreateAccountComponent } from "../account/create-account/create-account
 import { PostjobComponent } from "../postjob/postjob.component";
 import { DataResolverService } from "../../auth-data-resolver.service";
 import { JobSearchComponent } from "../job-search/job-search.component";
+import { JobListDataService } from "../job-list-data.service";
 
 const appRoutes: Routes = [
   {
@@ -28,25 +29,14 @@ const appRoutes: Routes = [
       },
       {
         path: "jobs",
-        component: JobSearchComponent
+        component: JobSearchComponent,
+        resolve: {
+          joblist: JobListDataService
+        }
       },
       {
         path: "account",
-        children: [
-          {
-            path: "login",
-            component: LogInComponent
-          },
-          {
-            path: "create",
-            component: CreateAccountComponent
-          },
-          {
-            path: "",
-            redirectTo: "login",
-            pathMatch: "full"
-          }
-        ]
+        loadChildren: "../account/account.module#AccountModule"
       }
     ]
   }

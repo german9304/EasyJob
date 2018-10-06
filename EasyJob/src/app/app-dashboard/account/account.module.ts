@@ -8,15 +8,20 @@ import { LogInComponent } from "./log-in/log-in.component";
 import { LoginViewComponent } from "./log-in/login-view/login-view.component";
 import { CreateAccountComponent } from "./create-account/create-account.component";
 import { CreateAccountViewComponent } from "./create-account/create-account-view/create-account-view.component";
-
+import { AccountRoutingModule } from "./account-routing/account-routing.module";
 @NgModule({
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AccountRoutingModule
+  ],
   declarations: [
     LogInComponent,
     LoginViewComponent,
     CreateAccountComponent,
     CreateAccountViewComponent
   ],
-  exports: [LogInComponent, CreateAccountComponent]
+  exports: []
 })
 export class AccountModule {}

@@ -1,5 +1,5 @@
 .candidate-profile-view {
-  margin: 40px;
+  margin: 5px 40px 5px 40px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   grid-gap: 60px;
@@ -30,6 +30,7 @@
     }
     .inner {
       border-radius: 5px;
+      margin: 0;
       // border: solid 1px #dddddd;
       // margin: 0 0 20px 0;
       display: flex;

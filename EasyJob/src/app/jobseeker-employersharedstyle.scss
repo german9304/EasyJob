@@ -1,16 +1,19 @@
 .navbarview-container-profiles {
-  /*border: solid 3px white;*/
-  display: flex;
-  padding: 20px;
+  // border: solid 3px black;
+  // display: flex;
+  padding: 5px 40px 5px 40px;
+  box-sizing: border-box;
   // background-color: #285679;
   background-color: #3d9970;
-  align-items: center;
+  // align-items: center;
   color: white;
   nav {
+    margin: 0;
     display: flex;
     flex-wrap: wrap;
     flex: 1;
     // border: solid 5px white;
+
     align-items: center;
     .search-bar {
       display: flex;
@@ -40,7 +43,9 @@
         outline: none;
         // border: none;
         // outline: solid 2px;
-        margin: 0 0 0 5px;
+      }
+      input[id="search"] {
+        margin: 0 5px 0 0;
       }
       #search {
         border-radius: 5px;
@@ -65,7 +70,7 @@
     // justify-content: flex-end;
     // border: solid 1px white;
     .item {
-      font-size: 15px;
+      font-size: 16px;
       text-align: center;
       font-family: "Raleway", sans-serif;
       // font-weight: 100;
