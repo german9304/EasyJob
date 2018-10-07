@@ -2,7 +2,7 @@
   <div class="job job{{i}}" *ngFor="let job of JOBS; let i= index">
     <div class="item title" id="save-job-title">
       <h2 id="title-name"> {{job.title}} </h2>
-      <i class="material-icons">
+      <i (click)="clickAdd()" class="material-icons">
         add_circle_outline
       </i>
     </div>

@@ -29,38 +29,39 @@ export class JobSearchComponent implements OnInit {
     this.route.paramMap.subscribe(data => {
       const str = data.get("search");
 
-      console.log("data: ");
+      // console.log("data: ");
     });
     this.route.data.subscribe((data: { joblist: JOB[] }) => {
       const { joblist } = data;
       this.JOBS = joblist;
     });
-    // this.route.paramMap
-    //   .pipe(
-    //     switchMap((data: ParamMap) => {
-    //       console.log(`data: ${data.get("search")}`);
-    //       const field = data.get("search");
-    //       const location = data.get("location");
-    //       console.log(location);
-    //       const obj = {
-    //         field,
-    //         location
-    //       };
-    //       return this.js.getJobs(obj);
-    //     })
-    //   )
-    //   .subscribe(data => {
-    //     this.JOBS = data;
-    //     console.log("param: ", this.JOBS);
-    //   });
   }
-
+  getSearchJobs() {
+    this.router.navigate(["/jobseeker/job/search"]);
+  }
   searchJobs() {
     const { field, location } = this.searchForm.value;
-    // const { value } = this.searchForm;
-    // console.log("trim: ", value.trim());
     this.js.goHome(field, location)
       ? this.router.navigate(["../"])
       : this.router.navigate(["./jobs", { search: field, location }]);
   }
 }
+
+// this.route.paramMap
+//   .pipe(
+//     switchMap((data: ParamMap) => {
+//       console.log(`data: ${data.get("search")}`);
+//       const field = data.get("search");
+//       const location = data.get("location");
+//       console.log(location);
+//       const obj = {
+//         field,
+//         location
+//       };
+//       return this.js.getJobs(obj);
+//     })
+//   )
+//   .subscribe(data => {
+//     this.JOBS = data;
+//     console.log("param: ", this.JOBS);
+//   });

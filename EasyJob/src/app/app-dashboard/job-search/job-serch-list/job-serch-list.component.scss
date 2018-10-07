@@ -53,10 +53,15 @@
         margin: 5px 0 0 0;
       }
       .material-icons {
-        // border: solid 1px black;
+        border: solid 1px white;
+        border-radius: 10px;
         cursor: pointer;
         font-size: 35px;
         color: #2e4a62;
+      }
+      .material-icons:hover {
+        background-color: #ddd;
+        color: black;
       }
     }
   }

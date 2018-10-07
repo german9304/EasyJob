@@ -33,7 +33,7 @@ export class JobListDataService implements Resolve<JOB[]> {
       take(1),
       map(data => {
         if (data) {
-          console.log("map: ", data);
+          // console.log("map: ", data);
           return data;
         } else {
           return [];

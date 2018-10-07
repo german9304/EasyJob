@@ -12,6 +12,7 @@ import { JobseekerNavbarComponent } from "../candidate-navbar/jobseeker-navbar.c
 import { CandidateProfileComponent } from "../candidate-fields/candidate-profile/candidate-profile.component";
 import { AppliedJobsComponent } from "../applied-jobs/applied-jobs.component";
 import { SavedJobsComponent } from "../saved-jobs/saved-jobs.component";
+import { CandidateSearchJobsComponent } from "../candidate-search-jobs/candidate-search-jobs.component";
 
 const appRoutes: Routes = [
   {
@@ -29,6 +30,10 @@ const appRoutes: Routes = [
       {
         path: "applied-jobs",
         component: AppliedJobsComponent
+      },
+      {
+        path: "job/search",
+        component: CandidateSearchJobsComponent
       },
       {
         path: "profile",
