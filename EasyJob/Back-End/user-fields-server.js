@@ -23,7 +23,7 @@ router.post("/create/experience", (req, res) => {
     user.save(function(err, updatedUser) {
       if (err) return handleError(err);
       const { experience } = updatedUser;
-      res.json(experience);
+      res.json(body);
     });
   });
   // res.send(experience);
@@ -40,7 +40,7 @@ router.post("/create/education", (req, res) => {
     user.save(function(err, updatedUser) {
       const { education } = updatedUser;
       if (err) return handleError(err);
-      res.json(education);
+      res.json(body);
     });
   });
 });

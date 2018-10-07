@@ -13,24 +13,24 @@ import { Router, ActivatedRoute } from "@angular/router";
   ]
 })
 export class CandidateProfileComponent implements OnInit {
-  MOCK_LIST: EDUCATION[] = [
-    {
-      _id: "123",
-      school: "CSU CHICO",
-      degree: "Compuer Science",
-      majorField: "Google",
-      date: { start: "01/2000", end: "02/2005" },
-      description: "I work For 3 months"
-    },
-    {
-      _id: "123",
-      school: "CSU SACRAMENTO",
-      degree: "Business",
-      majorField: "Google",
-      date: { start: "01/2000", end: "02/2005" },
-      description: "I work For 3 months"
-    }
-  ];
+  // MOCK_LIST: EDUCATION[] = [
+  //   {
+  //     _id: "123",
+  //     school: "CSU CHICO",
+  //     degree: "Compuer Science",
+  //     majorField: "Google",
+  //     date: { start: "01/2000", end: "02/2005" },
+  //     description: "I work For 3 months"
+  //   },
+  //   {
+  //     _id: "123",
+  //     school: "CSU SACRAMENTO",
+  //     degree: "Business",
+  //     majorField: "Google",
+  //     date: { start: "01/2000", end: "02/2005" },
+  //     description: "I work For 3 months"
+  //   }
+  // ];
 
   // EXPERIENCE: EXPERIENCE[] = this.fields.EXPERIENCE;
   constructor(
@@ -40,13 +40,16 @@ export class CandidateProfileComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.route.data.subscribe((data: { fields: FIELDS }) => {
+    this.route.data.subscribe((data: { CandidateFields: FIELDS }) => {
       console.log(data);
       if (data) {
         const {
-          fields: { experience }
+          CandidateFields: { experience, education }
         } = data;
+
+        console.log(this.fields);
         this.fields.EXPERIENCE = experience;
+        this.fields.EDUCATION = education;
       }
       //this.router.navigate(["/user"]);
     });

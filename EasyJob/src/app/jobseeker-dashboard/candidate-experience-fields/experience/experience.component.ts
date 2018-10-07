@@ -32,8 +32,9 @@ export class ExperienceComponent implements OnInit {
   ngOnInit() {}
   Submit() {
     const { value } = this.experienceForm;
-    this.fs.createExperience(value).subscribe((res: EXPERIENCE[]) => {
-      this.fs.EXPERIENCE = res;
+    this.fs.createExperience(value).subscribe((res: EXPERIENCE) => {
+       const exp = [res]
+      this.fs.EXPERIENCE = [...this.fs.EXPERIENCE, ...exp];
     });
     this.experienceForm.reset();
     this.router.navigate(["../jobseeker/profile"]);

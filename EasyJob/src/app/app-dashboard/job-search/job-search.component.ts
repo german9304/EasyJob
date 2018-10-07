@@ -11,30 +11,7 @@ import { DataFieldsService } from "../../jobseeker-dashboard/data-fields.resolve
   styleUrls: ["./job-search.component.scss"]
 })
 export class JobSearchComponent implements OnInit {
-  JOBS: JOB[] = [
-    // {
-    //   category: {
-    //     _id: "",
-    //     name: ""
-    //   },
-    //   title: "SOFTWARE ENGINEER",
-    //   company: "MICROSOFT",
-    //   location: "Monterey By",
-    //   description:
-    //     "  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut, velit."
-    // },
-    // {
-    //   category: {
-    //     _id: "",
-    //     name: ""
-    //   },
-    //   title: "BACK-END",
-    //   company: "GOOGLE",
-    //   location: "San Diego",
-    //   description:
-    //     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat quos est natus deleniti magni, libero blanditiis. Qui voluptasconsectetur quod!"
-    // }
-  ];
+  JOBS: JOB[] = [];
   constructor(
     private js: JobDataService,
     private router: Router,
@@ -49,6 +26,11 @@ export class JobSearchComponent implements OnInit {
     this.getJobList();
   }
   getJobList() {
+    this.route.paramMap.subscribe(data => {
+      const str = data.get("search");
+
+      console.log("data: ");
+    });
     this.route.data.subscribe((data: { joblist: JOB[] }) => {
       const { joblist } = data;
       this.JOBS = joblist;
@@ -74,14 +56,11 @@ export class JobSearchComponent implements OnInit {
   }
 
   searchJobs() {
-    const {
-      value: { field, location }
-    } = this.searchForm;
-    const obj = { field, location };
-    // this.js
-    //   .getJobs(obj)
-    //   .subscribe(data => console.log("returned data: ", data));
-    this.router.navigate(["./jobs", { search: field, location }]);
-    this.searchForm.reset();
+    const { field, location } = this.searchForm.value;
+    // const { value } = this.searchForm;
+    // console.log("trim: ", value.trim());
+    this.js.goHome(field, location)
+      ? this.router.navigate(["../"])
+      : this.router.navigate(["./jobs", { search: field, location }]);
   }
 }

@@ -30,4 +30,12 @@ export class JobDataService {
       .get<JOB[]>(`api/candidate/jobs?search=${field}&location=${location}`)
       .pipe(tap(data => console.log(data), catchError(err => of(err))));
   }
+
+  goHome(field: string, location: string): boolean {
+    return !field.trim() && !location.trim();
+  }
+
+  searchWord(word: string) {
+    // console.log(word);
+  }
 }

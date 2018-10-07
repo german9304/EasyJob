@@ -32,13 +32,14 @@
         flex: 2 1 50px;
       }
       input {
+        // display: block;
         border-radius: 5px 0 0 5px;
         padding: 10px;
         flex: 2 1 300px;
-        font-size: 15px;
+        // font-size: 1px;
         box-sizing: border-box;
         // outline-width: 2px;
-        border: solid 1px #dddddd;
+        // border: solid 1px #dddddd;
         transition: all 0.9s;
         outline: none;
         // border: none;

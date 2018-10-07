@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder } from "@angular/forms";
-
+import { CandidateFieldsService } from "../../candidate-fields.service";
+import { EDUCATION } from "../../../job";
+import { Router, ActivatedRoute } from "@angular/router";
 @Component({
   selector: "education",
   templateUrl: "./education.component.html",
@@ -20,7 +22,18 @@ export class EducationComponent implements OnInit {
     }),
     description: [""]
   });
-  constructor(private fb: FormBuilder) {}
+  constructor(private router: Router, private cf: CandidateFieldsService, private fb: FormBuilder) {}
 
   ngOnInit() {}
+  addEducation() {
+    const { value } = this.educationForm;
+
+    this.cf.createEducation(value).subscribe((edu: EDUCATION) => {
+      const ed = [edu];
+      const { EDUCATION } = this.cf;
+      this.cf.EDUCATION = [...EDUCATION, ...ed];
+    });
+    this.educationForm.reset();
+    this.router.navigate(["../jobseeker/profile"]);
+  }
 }

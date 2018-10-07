@@ -17,6 +17,6 @@ export class AppComponent implements OnInit {
     private sts: StyleServiceService
   ) {}
   ngOnInit() {
-    this.router.events.subscribe(events => console.log(events));
+    // this.router.events.subscribe(events => console.log(events));
   }
 }

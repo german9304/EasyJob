@@ -1,7 +1,7 @@
 .items-fields {
   margin: 0;
   padding: 0;
-  // border: solid 2px red;
+  // border: solid 1px red;
   .item > * {
     // border: solid 1px black;
     box-sizing: border-box;
@@ -18,6 +18,8 @@
     font-family: "Muli", sans-serif;
     // border: solid 1px rosybrown;
     // padding: 0 2px 0 2px;
+    margin: 0;
+    padding: 0;
     display: flex;
     font-size: 12px;
     justify-content: space-between;
@@ -29,10 +31,11 @@
       // border: solid 1px blue;
     }
     #icon-edit {
+      // border: solid 1px blue;
       cursor: pointer;
       color: #0074d9;
       transition: all 0.5s;
-      padding: 5px;
+      padding: 0;
       border-radius: 10px;
     }
     #icon-edit:hover {
@@ -45,8 +48,8 @@
     // border: solid 1px rosybrown;
   }
   .item {
-    margin: 20px 0 0 0;
-    // border-color: black;
+    margin: 10px 0 10px 0;
+    // border: solid 1px black;
     // border-style: solid;
     // border-width: 0 0 1px 0;
     // padding: 10px 20px 10px 20px;
@@ -64,7 +67,6 @@
       margin: 0;
     }
     #description-field {
-      // border: solid 2px red;
       padding: 2px;
     }
   }

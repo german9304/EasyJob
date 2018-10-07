@@ -34,7 +34,7 @@ passport.use(
           const token = jwt.sign({ user }, JWT_SECRET_KEY.key);
           user.jwt = token;
           const usr = await user.save();
-          console.log("usr: ", usr);
+          // console.log("usr: ", usr);
           return done(null, usr._id, { message: 0 });
         }
         // const {password: hash} = user;

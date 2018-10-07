@@ -36,8 +36,8 @@ const appRoutes: Routes = [
       {
         path: "profile",
         component: CandidateProfileComponent,
-        resolve:{
-          fields: DataFieldsService
+        resolve: {
+          CandidateFields: DataFieldsService
         },
         children: [
           {

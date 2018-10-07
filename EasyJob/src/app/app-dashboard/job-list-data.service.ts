@@ -23,7 +23,6 @@ export class JobListDataService implements Resolve<JOB[]> {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<JOB[]> {
-    console.log("test");
     const field = route.paramMap.get("search");
     const location = route.paramMap.get("location");
     const obj = {
