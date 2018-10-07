@@ -6,7 +6,7 @@ import { CommonModule } from "@angular/common";
 import { CandidateSuggestedJobsComponent } from "./candidate-suggested-jobs/candidate-suggested-jobs.component";
 import { JobseekerRoutingModule } from "./candidate-routing/jobseeker-routing.module";
 import { ReactiveFormsModule } from "@angular/forms";
-import { CandidateExperienceFieldsModule } from "./candidate-experience-fields/candidate-experience-fields.module";
+import { CandidateFieldsModule } from "./candidate-fields/candidate-fields.module";
 /*
   @Components
 */
@@ -22,13 +22,9 @@ import { CandidateFieldsService } from "./candidate-fields.service";
 import { AppliedJobsComponent } from "./applied-jobs/applied-jobs.component";
 import { AppliedJobsViewComponent } from "./applied-jobs/applied-jobs-view/applied-jobs-view.component";
 import { DataFieldsService } from "./data-fields.resolver.service";
+import { CandidateSearchJobsComponent } from './candidate-search-jobs/candidate-search-jobs.component';
 @NgModule({
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    CandidateExperienceFieldsModule,
-    JobseekerRoutingModule
-  ],
+  imports: [CommonModule, ReactiveFormsModule, JobseekerRoutingModule],
   declarations: [
     CandidateSuggestedJobsComponent,
     DashboardViewComponent,
@@ -37,7 +33,8 @@ import { DataFieldsService } from "./data-fields.resolver.service";
     SavedJobsComponent,
     SavedJobsViewComponent,
     AppliedJobsComponent,
-    AppliedJobsViewComponent
+    AppliedJobsViewComponent,
+    CandidateSearchJobsComponent
   ],
   providers: [CandidateFieldsService, DataFieldsService]
 })

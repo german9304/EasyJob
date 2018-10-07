@@ -15,27 +15,5 @@ export class NavBarComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
 
-  ngOnInit() {
-    // const option = localStorage.getItem("option");
-    // localStorage.removeItem('option');
-    // if(option === "jobseeker"){
-    //   this.router.navigate(['/jobseeker'])
-    // }else{
-    //   this.router.navigate(['/employer'])
-    // }
-    this.route.data.subscribe((data: { userData: USER }) => {
-      //console.log(data);
-      const { userData } = data;
-      const {
-        userData: { auth }
-      } = data;
-      // console.log(auth);
-      if (auth) {
-        this.router.navigate(["/jobseeker"]);
-        this.auth.user = userData;
-        this.auth.logUser();
-      }
-      //this.router.navigate(["/user"]);
-    });
-  }
+  ngOnInit() {}
 }

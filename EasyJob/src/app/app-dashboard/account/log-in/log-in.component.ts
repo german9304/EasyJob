@@ -36,7 +36,7 @@ export class LogInComponent implements OnInit {
       password: ""
     });
 
-    console.log("submited");
+    // console.log("submited");
   }
   storeField(option: string) {
     this.option = true;

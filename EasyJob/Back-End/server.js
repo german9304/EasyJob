@@ -68,6 +68,8 @@ app.get("/test", (req, res) => {
 
 app.get("/user", (req, res) => {
   // console.log(req.user);
+  // const { user } = req;
+
   if (req.user) {
     const { email, jwt } = req.user;
     const user = {
@@ -76,9 +78,8 @@ app.get("/user", (req, res) => {
       auth: true
     };
     res.json(user);
-  } else {
-    res.json({ auth: false });
-    // res.status(401);
+  } else{
+    res.json(req.user);
   }
 });
 

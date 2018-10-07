@@ -7,7 +7,7 @@ import {
   RouterStateSnapshot,
   ActivatedRouteSnapshot
 } from "@angular/router";
-import { map } from "rxjs/operators";
+import { map, take } from "rxjs/operators";
 
 import { USER } from "./user";
 
@@ -18,7 +18,23 @@ export class DataResolverService implements Resolve<USER> {
   resolve(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ): Observable<USER> {
-    return this.auth.getUSER();
+  ): Observable<USER> | any {
+    return this.auth.getUSER().pipe(
+      take(1),
+      map(user => {
+        const credentials = this.auth.getUserCredentials();
+        if (user) {
+          if (!credentials) {
+            this.auth.createUserCredentials(user);
+          }
+          return this.router.navigate(["/jobseeker"]);
+        } else {
+          if (credentials) {
+            this.auth.clearCredentials();
+          }
+          return null;
+        }
+      })
+    );
   }
 }
