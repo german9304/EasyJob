@@ -7,7 +7,7 @@ import {
   RouterStateSnapshot,
   ParamMap
 } from "@angular/router";
-import { JobDataService } from "../job-data.service";
+import { JobDataService } from "../services/job-data.service";
 import { JOB } from "../job";
 import { Observable } from "rxjs";
 import { switchMap, map, take } from "rxjs/operators";

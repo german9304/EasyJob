@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
 import { CATEGORY } from "../../job";
-import { StyleServiceService } from "../../style-service.service";
+import { StyleServiceService } from "../../services/style-service.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import {
   map,
@@ -11,7 +11,7 @@ import {
   distinctUntilChanged
 } from "rxjs/operators";
 import { of, Observable } from "rxjs";
-import { JobDataService } from "../../job-data.service";
+import { JobDataService } from "../../services/job-data.service";
 @Component({
   selector: "app-dashboard",
   templateUrl: "./dashboard.component.html",

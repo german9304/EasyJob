@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute, ParamMap } from "@angular/router";
-import { JobDataService } from "../../job-data.service";
+import { JobDataService } from "../../services/job-data.service";
 import { tap, map, switchMap } from "rxjs/operators";
 import { FormBuilder } from "@angular/forms";
 import { JOB } from "../../job";
@@ -36,11 +36,17 @@ export class JobSearchComponent implements OnInit {
       this.JOBS = joblist;
     });
   }
-  getSearchJobs() {
-    this.router.navigate(["/jobseeker/job/search"]);
+  getSearchJobs(job: JOB) {
+    // const params = this.route.paramMap.subscribe(param => console.log(param));
+    const location = this.route.snapshot.paramMap.get("location");
+    const search = this.route.snapshot.paramMap.get("search");
+    console.log(job);
+    console.log(` ${location}  ${search}`);
+     this.router.navigate(["/jobseeker/job/search", { search, location }]);
   }
   searchJobs() {
     const { field, location } = this.searchForm.value;
+
     this.js.goHome(field, location)
       ? this.router.navigate(["../"])
       : this.router.navigate(["./jobs", { search: field, location }]);

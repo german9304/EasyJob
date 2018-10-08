@@ -9,7 +9,7 @@ import {
 } from "@angular/router";
 import { map, take } from "rxjs/operators";
 
-import { USER } from "./user";
+import { USER } from "../user";
 
 @Injectable()
 export class DataResolverService implements Resolve<USER> {

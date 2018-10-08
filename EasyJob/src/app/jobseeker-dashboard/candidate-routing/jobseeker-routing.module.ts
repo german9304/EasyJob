@@ -2,8 +2,9 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Routes, RouterLinkActive } from "@angular/router";
 
-import { DataResolverService } from "../../auth-data-resolver.service";
+import { DataResolverService } from "../../services/auth-data-resolver.service";
 import { DataFieldsService } from "../data-fields.resolver.service";
+import { AuthGuardService } from "../../services/auth-guard.service";
 /*
 @Components 
 */
@@ -33,7 +34,8 @@ const appRoutes: Routes = [
       },
       {
         path: "job/search",
-        component: CandidateSearchJobsComponent
+        component: CandidateSearchJobsComponent,
+        canActivate: [AuthGuardService]
       },
       {
         path: "profile",
@@ -54,3 +56,4 @@ const appRoutes: Routes = [
   exports: [RouterModule]
 })
 export class JobseekerRoutingModule {}
+

@@ -4,7 +4,7 @@ import { HttpHeaders } from "@angular/common/http";
 import { Observable, of } from "rxjs";
 import { map, tap, catchError } from "rxjs/operators";
 
-import { CATEGORY, JOB } from "./job";
+import { CATEGORY, JOB } from "../job";
 
 @Injectable()
 export class JobDataService {

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { JOB } from "../../../job";
-import { JobDataService } from "../../../job-data.service";
+import { JobDataService } from "../../../services/job-data.service";
+import { JobseekerRoutingModule } from "../../../jobseeker-dashboard/candidate-routing/jobseeker-routing.module";
 @Component({
   selector: "job-serch-list",
   templateUrl: "./job-serch-list.component.html",
@@ -11,7 +12,7 @@ export class JobSerchListComponent implements OnInit {
   JOBS: JOB[];
   TEST = "TESTING SPAN";
   @Output()
-  add: EventEmitter<any> = new EventEmitter<any>();
+  add: EventEmitter<JOB> = new EventEmitter<JOB>();
 
   constructor(private js: JobDataService) {}
 
@@ -19,7 +20,8 @@ export class JobSerchListComponent implements OnInit {
   getWord(word: string) {
     this.js.searchWord(word);
   }
-  clickAdd() {
-    this.add.emit(null);
+  clickAdd(job: JOB) {
+    // console.log(job);
+    this.add.emit(job);
   }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
-import { StyleServiceService } from "../../../style-service.service";
+import { StyleServiceService } from "../../../services/style-service.service";
 import { CATEGORY } from "../../../job";
 @Component({
   selector: "dashboard-view",

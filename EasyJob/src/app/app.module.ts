@@ -12,11 +12,12 @@ import { AppDashboardModule } from "./app-dashboard/app-dashboard.module";
 import { AppComponent } from "./app.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { Router } from "@angular/router";
-import { AuthService } from "./auth.service";
-import { DataResolverService } from "./auth-data-resolver.service";
-import { StyleServiceService } from "./style-service.service";
-import { JobDataService } from "./job-data.service";
+import { AuthService } from "./services/auth.service";
+import { DataResolverService } from "./services/auth-data-resolver.service";
+import { StyleServiceService } from "./services/style-service.service";
+import { JobDataService } from "./services/job-data.service";
 import { TestDirective } from "./test.directive";
+import { AuthGuardService } from "./services/auth-guard.service";
 
 @NgModule({
   declarations: [AppComponent, PageNotFoundComponent, TestDirective],
@@ -34,7 +35,8 @@ import { TestDirective } from "./test.directive";
     AuthService,
     DataResolverService,
     JobDataService,
-    StyleServiceService
+    StyleServiceService,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })

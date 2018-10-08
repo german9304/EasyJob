@@ -1,5 +1,5 @@
 import { Directive, ElementRef, HostListener, Input } from "@angular/core";
-import {StyleServiceService} from "./style-service.service"
+import {StyleServiceService} from "./services/style-service.service"
 @Directive({
   selector: "[appTest]"
 })

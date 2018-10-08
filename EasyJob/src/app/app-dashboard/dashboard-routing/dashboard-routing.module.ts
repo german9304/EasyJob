@@ -7,7 +7,7 @@ import { NavBarComponent } from "../nav-bar/nav-bar.component";
 import { LogInComponent } from "../account/log-in/log-in.component";
 import { CreateAccountComponent } from "../account/create-account/create-account.component";
 import { PostjobComponent } from "../postjob/postjob.component";
-import { DataResolverService } from "../../auth-data-resolver.service";
+import { DataResolverService } from "../../services/auth-data-resolver.service";
 import { JobSearchComponent } from "../job-search/job-search.component";
 import { JobListDataService } from "../job-list-data.service";
 
