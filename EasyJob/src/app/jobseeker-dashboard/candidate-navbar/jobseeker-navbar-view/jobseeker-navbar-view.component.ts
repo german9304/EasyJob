@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
-
+import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
 @Component({
   selector: "jobseeker-navbar-view",
   templateUrl: "./jobseeker-navbar-view.component.html",
@@ -11,6 +11,8 @@ import { Component, OnInit, Input } from "@angular/core";
 export class JobseekerNavbarViewComponent implements OnInit {
   @Input()
   email: string;
+  @Input()
+  searchForm: FormGroup;
   selected: boolean = false;
   selectedClasses: any;
   constructor() {}

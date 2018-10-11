@@ -13,7 +13,7 @@ const {
 } = require("./Database/user-schema");
 
 router.get("/google", (req, res, next) => {
-  console.log(req.query);
+  // console.log(req.query);
 
   next();
 });
