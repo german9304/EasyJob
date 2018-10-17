@@ -30,12 +30,20 @@ passport.use(
     function(email, password, done) {
       userModel.findOne({ email }, async function(err, user) {
         if (!user) {
-          const user = createUser({ email, password });
-          const token = jwt.sign({ user }, JWT_SECRET_KEY.key);
-          user.jwt = token;
-          const usr = await user.save();
+          try {
+            const newUser = createUser({ email, password });
+            console.log(`new user: ${newUser.email}`);
+            const token = jwt.sign(
+              { email: newUser.email, _id: newUser._id },
+              JWT_SECRET_KEY.key
+            );
+            newUser.jwt = token;
+            const usr = await newUser.save();
+            return done(null, usr._id, { message: 0 });
+          } catch (err) {
+            console.log(err);
+          }
           // console.log("usr: ", usr);
-          return done(null, usr._id, { message: 0 });
         }
         // const {password: hash} = user;
         // // console.log('hash: ',hash);

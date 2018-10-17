@@ -13,26 +13,7 @@ const userSchema = new mongoose.Schema(
     email: String,
     googleId: String,
     password: String,
-    jwt: String,
-    experience: [
-      {
-        position: String,
-        company: String,
-        location: String,
-        date: { start: String, end: String },
-        description: String
-      }
-    ],
-    education: [
-      {
-        school: String,
-        degree: String,
-        majorField: String,
-        date: { start: String, end: String },
-        description: String
-      }
-    ],
-    jobs: []
+    jwt: String
   },
   { collection: "users", versionKey: false }
 );
