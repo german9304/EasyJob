@@ -22,7 +22,6 @@ export class DataResolverService implements Resolve<USER> {
     return this.auth.getUSER().pipe(
       take(1),
       map(user => {
-        console.log("user: ", user);
         const credentials = this.auth.getUserCredentials();
         if (user) {
           if (!credentials) {
@@ -33,7 +32,6 @@ export class DataResolverService implements Resolve<USER> {
           if (credentials) {
             this.auth.clearCredentials();
           }
-          console.log("user");
           return null;
         }
       })

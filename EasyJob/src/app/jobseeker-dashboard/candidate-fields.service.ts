@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable, OnInit } from "@angular/core";
 import {
   HttpClient,
   HttpHeaders,
@@ -7,20 +7,34 @@ import {
 import { Observable, of, throwError } from "rxjs";
 import { tap, catchError } from "rxjs/operators";
 import { EXPERIENCE, FIELDS, EDUCATION } from "../job";
+import { USER } from "../user";
+
+import { AuthService } from "../services/auth.service";
 
 @Injectable()
-export class CandidateFieldsService {
+export class CandidateFieldsService implements OnInit {
   EXPERIENCE: EXPERIENCE[] = [];
   EDUCATION: EDUCATION[] = [];
+  credentials: USER = this.auth.getUserCredentials() as USER;
+  jwt: string = "";
   httpOptions = {
     headers: new HttpHeaders({
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${this.credentials.jwt}`
     })
   };
+  ngOnInit() {
+    //console.log("on init service");
+  }
+  constructor(private http: HttpClient, private auth: AuthService) {
+    const user = this.auth.getUserCredentials() as USER;
+    this.jwt = user.jwt;
 
-  constructor(private http: HttpClient) {}
+    // console.log(`credentials ${this.httpOptions.headers.get("Authorization")}`);
+  }
 
   createExperience(experience: EXPERIENCE): Observable<EXPERIENCE> {
+    // console.log(this.httpOptions.headers.get("Authorization"));
     return this.http
       .post<EXPERIENCE>(
         `/api/fields/create/experience`,

@@ -27,9 +27,9 @@ export class LogInComponent implements OnInit {
   onSubmit() {
     // console.log(this.loginForm.value);
     const { value } = this.loginForm;
-    this.auth
-      .login(value)
-      .subscribe(res => this.router.navigate(["/jobseeker"]));
+    this.auth.login(value).subscribe(res => {
+      return this.router.navigate(["/jobseeker"]);
+    });
 
     this.loginForm.setValue({
       email: "",

@@ -43,7 +43,6 @@ export class DashboardComponent implements OnInit {
   CATEGORIES: CATEGORY[] = [];
   clicked: boolean = false;
   ngOnInit() {
-    console.log("ng init");
     this.getList();
   }
 

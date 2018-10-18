@@ -22,7 +22,7 @@ router.post(
 
       // console.log(`user: ${JSON.stringify(req.user)}`);
       // console.log(user);
-      console.log(`${user._id}    ${JSON.stringify(fields)}`);
+      // console.log(`${user._id}    ${JSON.stringify(fields)}`);
       const experience = await createExperience(user, fields);
       // console.log(`new experience ${experience}`);
       return res.json(fields);
@@ -50,7 +50,7 @@ router.post(
 
 router.get("/candidate", (req, res) => {
   if (req.user) {
-    return res.json({ experience: [], education: [] });
+    return res.json({ experience: ["test"], education: ["test"] });
   }
   return res.status(404).send("invalid data");
 });

@@ -1,16 +1,12 @@
 import { Injectable } from "@angular/core";
-import { Observable, of } from "rxjs";
-import { map } from "rxjs/operators";
-import { tap, catchError } from "rxjs/operators";
+import { Observable, of, throwError } from "rxjs";
+import { map, tap, catchError } from "rxjs/operators";
 import { USER } from "../user";
-import { HttpClient } from "@angular/common/http";
-import { HttpHeaders } from "@angular/common/http";
-
-const httpOptions = {
-  headers: new HttpHeaders({
-    "Content-Type": "application/json"
-  })
-};
+import {
+  HttpClient,
+  HttpHeaders,
+  HttpErrorResponse
+} from "@angular/common/http";
 
 @Injectable()
 export class AuthService {
@@ -18,45 +14,68 @@ export class AuthService {
   url: string = `/login`;
   userUrl: string = `/user`;
   user: any;
+
+  httpOptions = {
+    headers: new HttpHeaders({
+      "Content-Type": "application/json"
+    })
+  };
   constructor(private http: HttpClient) {}
 
   authenticate(user): Observable<any> {
-    return this.http.post<any>("/auth/create/user", user, httpOptions).pipe(
-      tap(({ user }) => {
-        console.log("create account: ", user);
-      }),
-      catchError(val => {
-        return of(`I caught: ${val.status}`);
-      })
-    );
+    return this.http
+      .post<any>("/auth/create/user", user, this.httpOptions)
+      .pipe(
+        tap(({ user }) => {
+          console.log("create account: ", user);
+        }),
+        catchError(val => {
+          return of(`I caught: ${val.status}`);
+        })
+      );
   }
   login(user): Observable<any> {
-    return this.http.post<any>("/auth/login", user, httpOptions).pipe(
+    return this.http.post<any>("/auth/login", user, this.httpOptions).pipe(
       tap(({ user }) => {
         this.createUserCredentials(user);
       }),
-      catchError(val => {
-        return of(`I caught: ${val.status}`);
+      catchError(error => {
+        // console.log(`error ${JSON.stringify(error)}`);
+        return this.handleError(error);
       })
     );
   }
 
   getUSER(): Observable<USER> {
     return this.http.get<USER>(this.userUrl).pipe(
-      catchError(val => of(val)),
-      tap(user => console.log(`user sigined in`))
+      catchError(error => {
+        console.log(error.error);
+        // return of(error);
+        //this.handleError(error);
+        return of(null);
+      })
+      // tap(user => console.log(`user ${JSON.stringify(user)}`))
     );
   }
   logUser() {
     this.isLoggedin = true;
   }
 
+  set HttpHeaders({ jwt, httpOptions }) {
+    // console.log(jwt);
+    httpOptions.set("", "");
+  }
   createUserCredentials(user: USER): boolean | USER {
     try {
       const { email, auth, jwt } = user;
       const usr = new USER("", email, auth, jwt);
       console.log("user: ", usr);
       localStorage.setItem("token", JSON.stringify(user));
+      // const httpOpts = {
+      //   jwt,
+      //   httpOptions: this.httpOptions
+      // };
+      // this.HttpHeaders(httpOpts);
       return usr;
     } catch (error) {
       return false;
@@ -78,5 +97,10 @@ export class AuthService {
   }
   clearCredentials() {
     localStorage.removeItem("token");
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    console.log(`error ${error.error} ${error.status}`);
+    return throwError(` ${error.error}`);
   }
 }

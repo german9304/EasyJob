@@ -47,9 +47,9 @@ export class CandidateProfileComponent implements OnInit {
           CandidateFields: { experience, education }
         } = data;
 
-        console.log(this.fields);
-        this.fields.EXPERIENCE = experience;
-        this.fields.EDUCATION = education;
+        // console.log(this.fields);
+        // this.fields.EXPERIENCE = experience;
+        // this.fields.EDUCATION = education;
       }
       //this.router.navigate(["/user"]);
     });

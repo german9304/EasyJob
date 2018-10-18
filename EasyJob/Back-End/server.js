@@ -44,21 +44,24 @@ app.get("/test", (req, res) => {
   res.send("middleware");
 });
 
-
 app.get("/user", (req, res) => {
   // console.log(req.user);
   // const { user } = req;
 
   if (req.user) {
-    const { email, jwt } = req.user;
-    const user = {
-      email,
-      jwt,
-      auth: true
-    };
-    res.json(user);
-  } else{
-    res.json(req.user);
+    try {
+      const { email, jwt } = req.user;
+      const user = {
+        email,
+        jwt,
+        auth: true
+      };
+      res.json(user);
+    } catch (error) {
+      console.log(error);
+    }
+  } else {
+    res.json(null);
   }
 });
 
@@ -82,7 +85,6 @@ app.get("/api/candidate/jobs", (req, res) => {
   });
   // console.log("query: ", jobSearch);
 });
-
 
 app.get(
   "/jwt",
