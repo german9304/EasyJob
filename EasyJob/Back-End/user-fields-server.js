@@ -18,14 +18,14 @@ router.post(
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
     try {
-      const { user, body } = req;
+      const { user, body: fields } = req;
+
       // console.log(`user: ${JSON.stringify(req.user)}`);
-      const { ...fields } = body;
       // console.log(user);
-      // console.log(`${user._id}    ${JSON.stringify(fields)}`);
+      console.log(`${user._id}    ${JSON.stringify(fields)}`);
       const experience = await createExperience(user, fields);
       // console.log(`new experience ${experience}`);
-      return res.json(body);
+      return res.json(fields);
     } catch (err) {
       console.log(err);
     }
@@ -50,8 +50,7 @@ router.post(
 
 router.get("/candidate", (req, res) => {
   if (req.user) {
-    const { experience, education } = req.user;
-    return res.json({ experience, education });
+    return res.json({ experience: [], education: [] });
   }
   return res.status(404).send("invalid data");
 });

@@ -33,9 +33,9 @@ export class ExperienceComponent implements OnInit {
   Submit() {
     const { value } = this.experienceForm;
     this.fs.createExperience(value).subscribe((res: EXPERIENCE) => {
-       const exp = [res]
-      this.fs.EXPERIENCE = [...this.fs.EXPERIENCE, ...exp];
+      console.log(`res inside ${res}`);
     });
+
     this.experienceForm.reset();
     this.router.navigate(["../jobseeker/profile"]);
   }

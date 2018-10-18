@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
+const { Schema } = mongoose;
 const db = require("./db-connection");
 
-const experienceSchema = new mongoose.Schema(
+const experienceSchema = new Schema(
   {
     user: {
       _id: String
@@ -15,7 +16,7 @@ const experienceSchema = new mongoose.Schema(
   { collection: "experience", versionKey: false }
 );
 
-const educationSchema = new mongoose.Schema(
+const educationSchema = new Schema(
   {
     user: {
       _id: String
@@ -29,14 +30,13 @@ const educationSchema = new mongoose.Schema(
   { collection: "education", versionKey: false }
 );
 
-const userExperience = mongoose.model("education", experienceSchema);
+const userEducation = mongoose.model("education", educationSchema);
 
-const userEducation = mongoose.model("experience", educationSchema);
+const userExperience = mongoose.model("experience", experienceSchema);
 
 const createExperience = async (user, fields) => {
   const { _id } = user;
   const { postion, company, location, date, description } = fields;
-  //   console.log(`${_id}   ${JSON.stringify(fields)}`);
   const experience = new userExperience({
     user: {
       _id
@@ -47,9 +47,9 @@ const createExperience = async (user, fields) => {
     date,
     description
   });
+
   try {
     const field = await experience.save();
-    console.log(`sucess: ${field}`);
     return field;
   } catch (err) {
     console.log(err);

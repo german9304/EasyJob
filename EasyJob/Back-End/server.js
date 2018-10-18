@@ -44,27 +44,6 @@ app.get("/test", (req, res) => {
   res.send("middleware");
 });
 
-// app.get("/auth/google", (req, res, next) => {
-//   console.log(req.query);
-
-//   next();
-// });
-
-// app.get(
-//   "/auth/google",
-//   passport.authenticate("google", {
-//     scope: ["profile", "email"]
-//   })
-// );
-
-// app.get("/google/auth/redirect", passport.authenticate("google"), function(
-//   req,
-//   res,
-//   next
-// ) {
-//   console.log("req user: ", req.user);
-//   res.redirect("/");
-// });
 
 app.get("/user", (req, res) => {
   // console.log(req.user);
@@ -104,25 +83,6 @@ app.get("/api/candidate/jobs", (req, res) => {
   // console.log("query: ", jobSearch);
 });
 
-// app.post("/create/user", passport.authenticate("createUser"), function(
-//   req,
-//   res
-// ) {
-//   // console.log(req.authInfo)
-//   const { user: id } = req;
-//   const usr = findUserById(id);
-//   usr.then(data => {
-//     const { _id, email, jwt } = data;
-//     res.json({ user: { _id, email, jwt } });
-//   });
-// });
-
-// app.post("/login", passport.authenticate("loginUser"), (req, res) => {
-//   console.log(req);
-//   const { email, jwt } = req.user;
-//   // console.log("successful login: ", user);
-//   res.json({ user: { email, jwt, auth: true } });
-// });
 
 app.get(
   "/jwt",

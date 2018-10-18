@@ -32,7 +32,7 @@ passport.use(
         if (!user) {
           try {
             const newUser = createUser({ email, password });
-            console.log(`new user: ${newUser.email}`);
+            // console.log(`new user: ${newUser.email}`);
             const token = jwt.sign(
               { email: newUser.email, _id: newUser._id },
               JWT_SECRET_KEY.key

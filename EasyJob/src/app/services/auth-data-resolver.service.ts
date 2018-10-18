@@ -22,13 +22,13 @@ export class DataResolverService implements Resolve<USER> {
     return this.auth.getUSER().pipe(
       take(1),
       map(user => {
-        // console.log("user: ", user.error);
+        console.log("user: ", user);
         const credentials = this.auth.getUserCredentials();
         if (user) {
           if (!credentials) {
             this.auth.createUserCredentials(user);
           }
-          // return this.router.navigate(["/jobseeker"]);
+          return this.router.navigate(["/jobseeker"]);
         } else {
           if (credentials) {
             this.auth.clearCredentials();
