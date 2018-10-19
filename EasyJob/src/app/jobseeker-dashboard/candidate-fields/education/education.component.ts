@@ -5,7 +5,15 @@ import { EDUCATION } from "../../../job";
 import { Router, ActivatedRoute } from "@angular/router";
 @Component({
   selector: "education",
-  templateUrl: "./education.component.html",
+  // templateUrl: "./education.component.html",
+  template: `
+    <div id="profile-fields">
+      <education-view 
+      (educationCeate)="addEducation()" 
+      [educationForm]="educationForm">
+      </education-view>
+    </div>
+  `,
   styleUrls: [
     "../shared-profile-fields.component.scss",
     "./education.component.css"
@@ -22,7 +30,11 @@ export class EducationComponent implements OnInit {
     }),
     description: [""]
   });
-  constructor(private router: Router, private cf: CandidateFieldsService, private fb: FormBuilder) {}
+  constructor(
+    private router: Router,
+    private cf: CandidateFieldsService,
+    private fb: FormBuilder
+  ) {}
 
   ngOnInit() {}
   addEducation() {

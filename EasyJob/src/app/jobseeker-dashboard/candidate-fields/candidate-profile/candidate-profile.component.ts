@@ -6,7 +6,16 @@ import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "candidate-profile",
-  templateUrl: "./candidate-profile.component.html",
+  // templateUrl: "./candidate-profile.component.html",
+  template: `
+    <div class="candidateprofile">
+      <candidate-profile-view 
+      [experience]="fields.EXPERIENCE" 
+      [education]="fields.EDUCATION">
+      </candidate-profile-view>
+      <router-outlet></router-outlet>
+    </div>
+  `,
   styleUrls: [
     "../shared-profile-fields.component.scss",
     "./candidate-profile.component.css"

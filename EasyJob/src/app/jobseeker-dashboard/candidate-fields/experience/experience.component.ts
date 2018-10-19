@@ -6,7 +6,15 @@ import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-experience",
-  templateUrl: "./experience.component.html",
+  // templateUrl: "./experience.component.html",
+  template: `
+    <div id="profile-fields">
+      <experience-view 
+      [expForm]="experienceForm" 
+      (submitExperience)="Submit()">
+      </experience-view>
+    </div>
+  `,
   styleUrls: [
     "../shared-profile-fields.component.scss",
     "./experience.component.css"

@@ -75,16 +75,20 @@
         // vertical-align: middle;
         box-sizing: border-box;
         width: 100%;
-        padding: 15px;
+        padding: 10px;
         font-size: 15px;
         margin: 0;
-        outline-style: none;
+        // outline-style: white;
+        // outline: 2px white solid;
+        outline: 0;
         border: solid 1px #aaaaaa;
         border-radius: 5px;
-        transition: all 0.5s;
+        transition: all ease-out 0.3s;
         // margin: 0 10px 0 0;
       }
       input:focus {
+        // outline: 2px solid #0074d9;
+        box-shadow: 0 0 5px 0 #4c8fc9;
         border-color: #0074d9;
       }
       .material-icons {
@@ -119,7 +123,7 @@
         // border: solid 2px black;
       }
       #search-jobs:hover {
-        background-color: #3d9970;
+        background-color: #0074d9;
         color: white;
       }
     }
