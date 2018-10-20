@@ -36,12 +36,13 @@ const userExperience = mongoose.model("experience", experienceSchema);
 
 const createExperience = async (user, fields) => {
   const { _id } = user;
-  const { postion, company, location, date, description } = fields;
+  const { position, company, location, date, description } = fields;
+  console.log(fields);
   const experience = new userExperience({
     user: {
       _id
     },
-    postion,
+    position,
     company,
     location,
     date,
@@ -56,6 +57,35 @@ const createExperience = async (user, fields) => {
     return "error";
   }
 };
+const editExperience = async (_id, data) => {
+  //console.log("id inside: ", _id);
+  // console.log("data: ", data);
+  try {
+    const experience = await userExperience.findById(_id);
+    if (experience) {
+      const { position, company, location, date, description } = data;
+      // console.log(`EXPERIENCE BEFORE: ${experience}`);
+      experience.set({
+        company,
+        location,
+        date,
+        description
+      });
+      const resultExperience = await experience.save();
+      return resultExperience;
+      //console.log(`EXPERIENCE AFTER: ${experience}`);
+    }
+    return experience;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const deleteExperience = async (_id, fields) => {
+  const experience = await userExperience.deleteOne({ _id });
+  return experience;
+};
+
 const createEducation = async (user, fields) => {
   const { _id } = user;
   const { school, degree, majorField, date, description } = fields;
@@ -78,10 +108,25 @@ const createEducation = async (user, fields) => {
     console.log(err);
   }
 };
+const candidateFields = async id => {
+  const education = await userEducation.find({
+    user: { _id: `${id}` }
+  });
+  const experience = await userExperience.find({
+    user: { _id: `${id}` }
+  });
 
+  return {
+    education,
+    experience
+  };
+};
 module.exports = {
   experienceSchema,
   educationSchema,
   createExperience,
-  createEducation
+  editExperience,
+  deleteExperience,
+  createEducation,
+  candidateFields
 };

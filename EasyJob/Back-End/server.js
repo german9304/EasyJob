@@ -5,18 +5,16 @@ const localAuth = require("./create-account-auth");
 const flash = require("connect-flash");
 const jwtAuth = require("./jwt-auth");
 const { categoryModel, jobSearch } = require("./Database/jobs-Schema");
-
+const passport = require("passport");
+const app = express();
 const auth = require("./auth-server");
-const userfields = require("./user-fields-server");
+const appRoutes = require("./user-fields-server");
 
 const {
   userModel,
   createUser,
   findUserById
 } = require("./Database/user-schema");
-
-const passport = require("passport");
-const app = express();
 
 app.use(
   cookieSession({
@@ -32,7 +30,7 @@ app.use(passport.session());
 // require("./local-auth")(passport);
 app.use(flash());
 app.use("/auth", auth);
-app.use("/api/fields", userfields);
+app.use("/api/fields", appRoutes);
 
 //app.use(express.static("../dist/EasyJob"));
 

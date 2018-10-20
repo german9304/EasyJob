@@ -44,13 +44,17 @@ userSchema.methods.comparePasswords = async function(userPassword, hash) {
 const userModel = mongoose.model("user", userSchema);
 
 const findGoogleUser = async id => {
-  const user = await userModel.findOne({ googleId: id });
-  if (user) {
-    const { _id } = user;
-    // console.log(_id);
-    return _id;
+  try {
+    const user = await userModel.findOne({ googleId: id });
+    if (user) {
+      const { _id } = user;
+      // console.log(_id);
+      return _id;
+    }
+    return user;
+  } catch (error) {
+    console.log(error);
   }
-  return user;
 };
 
 const createUserGoogle = ({ id, email, token }) => {
