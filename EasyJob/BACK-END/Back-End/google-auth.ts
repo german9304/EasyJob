@@ -92,7 +92,7 @@ passport.use(
         console.log(err);
       }
 
-      return done(null, googleUser);
+      return done(null, false);
     }
   )
 );

@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-const { DATABASE_URL } = require("../client-auth");
+import * as mongoose from "mongoose";
+import { DATABASE_URL } from "../client-auth";
 // const { userSchema } = require("./user-schema");
 
 mongoose.connect(

@@ -1,8 +1,8 @@
-const mongoose = require("mongoose");
-const db = require("./db-connection");
-const cheerio = require("cheerio");
-const request = require("request");
-const rp = require("request-promise");
+import * as mongoose from "mongoose";
+import "./db-connection";
+import * as cheerio from "cheerio";
+import * as request from "request";
+import * as rp from "request-promise";
 /*
 Jobs Schema
 */
@@ -51,9 +51,9 @@ const createAJob = ({
 };
 
 const createAcategory = ({ name }) => {
-  return (category = new categoryModel({
+  return new categoryModel({
     name
-  }));
+  });
 };
 
 const jobSearch = async ({ search: field, location }) => {
@@ -100,9 +100,4 @@ const jobSearch = async ({ search: field, location }) => {
   }
 };
 
-module.exports = {
-  jobSearch,
-  createAJob,
-  createAcategory,
-  categoryModel
-};
+export { jobSearch, createAJob, createAcategory, categoryModel };

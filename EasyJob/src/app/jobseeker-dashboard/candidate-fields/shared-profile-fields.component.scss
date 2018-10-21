@@ -9,7 +9,7 @@
   bottom: 0;
   padding: 10px;
   display: flex;
-  // align-items: center;
+  align-items: flex-start;
   justify-content: center;
 }
 
@@ -29,14 +29,20 @@
       // margin: 10px;
       // border: solid 1px red;
       display: flex;
+      align-items: center;
       justify-content: space-between;
       h2 {
         font-family: "Muli", sans-serif;
-        margin: 0 0 5px 0;
-
+        // margin: 0 0 5px 0;
+        margin: 0;
         // border: solid 1px black;
       }
+      a {
+        // border: solid 1px red;
+        text-decoration: none;
+      }
       .material-icons {
+        display: block;
         // border: solid 1px black;
         color: black;
         cursor: pointer;
@@ -52,7 +58,7 @@
       box-sizing: border-box;
       // border: solid 1px gray;
       // margin: 5px;
-      padding: 5px;
+      padding: 5px 0 5px 0;
       label {
         font-family: "Muli", sans-serif;
         font-weight: 300;

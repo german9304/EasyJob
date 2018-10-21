@@ -5,14 +5,11 @@ import { EXPERIENCE } from "../../../job";
 import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
-  selector: "app-experience",
+  selector: "experience",
   // templateUrl: "./experience.component.html",
   template: `
     <div id="profile-fields">
-      <experience-view 
-      [expForm]="experienceForm" 
-      (submitExperience)="Submit()">
-      </experience-view>
+    
     </div>
   `,
   styleUrls: [
@@ -41,28 +38,30 @@ export class ExperienceComponent implements OnInit {
   Submit() {
     const { value } = this.experienceForm;
     this.fs.createExperience(value).subscribe((res: EXPERIENCE) => {
-      console.log(`res inside ${res}`);
+      console.log(`res inside ${JSON.stringify(res)}`);
+      // console.log(this.fs.EXPERIENCE  === this.fs.EXPERIENCE.push(res));
+      this.fs.EXPERIENCE = this.fs.EXPERIENCE.push(res);
     });
 
     this.experienceForm.reset();
     this.router.navigate(["../jobseeker/profile"]);
   }
-  get Position() {
-    return this.experienceForm.get("position");
-  }
-  get Company() {
-    return this.experienceForm.get("company");
-  }
-  get Location() {
-    return this.experienceForm.get("location");
-  }
-  get StartDate() {
-    return this.experienceForm.get("startDate");
-  }
-  get EndDate() {
-    return this.experienceForm.get("endDate");
-  }
-  get Description() {
-    return this.experienceForm.get("description");
-  }
+  // get Position() {
+  //   return this.experienceForm.get("position");
+  // }
+  // get Company() {
+  //   return this.experienceForm.get("company");
+  // }
+  // get Location() {
+  //   return this.experienceForm.get("location");
+  // }
+  // get StartDate() {
+  //   return this.experienceForm.get("startDate");
+  // }
+  // get EndDate() {
+  //   return this.experienceForm.get("endDate");
+  // }
+  // get Description() {
+  //   return this.experienceForm.get("description");
+  // }
 }

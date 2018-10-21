@@ -1,11 +1,13 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
 import { map, filter } from "rxjs/operators";
 import { EXPERIENCE, FIELDS, EDUCATION } from "../../../job";
 import { CandidateFieldsService } from "../../candidate-fields.service";
 import { Router, ActivatedRoute } from "@angular/router";
+import { List, Map } from "immutable";
 
 @Component({
   selector: "candidate-profile",
+
   // templateUrl: "./candidate-profile.component.html",
   template: `
     <div class="candidateprofile">
@@ -55,12 +57,10 @@ export class CandidateProfileComponent implements OnInit {
         const {
           CandidateFields: { experience, education }
         } = data;
-
-        // console.log(this.fields);
-        // this.fields.EXPERIENCE = experience;
-        // this.fields.EDUCATION = education;
+        this.fields.EXPERIENCE = List<EXPERIENCE>(experience);
+        this.fields.EDUCATION = List<EDUCATION>(education);
       }
-      //this.router.navigate(["/user"]);
+      console.log("ng init");
     });
   }
 }

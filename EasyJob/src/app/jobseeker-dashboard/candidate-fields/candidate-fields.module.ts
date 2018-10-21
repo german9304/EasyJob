@@ -7,13 +7,15 @@ import { CandidateFieldsRoutingModule } from "./candidate-fields-routing/candida
 import { CandidateProfileComponent } from "./candidate-profile/candidate-profile.component";
 import { CandidateProfileViewComponent } from "./candidate-profile/candidate-profile-view/candidate-profile-view.component";
 import { ExperienceComponent } from "./experience/experience.component";
-import { ExperienceViewComponent } from "./experience/experience-view/experience-view.component";
+import { NewExperienceComponent } from "./experience/new-experience/new-experience.component";
 import { TestComponent } from "./testing/test.component";
 import { TestViewComponent } from "./testing/test-view/test-view.component";
 import { EducationComponent } from "./education/education.component";
 import { EducationViewComponent } from "./education/education-view/education-view.component";
 import { EducationListComponent } from "./education-list/education-list.component";
 import { ExperienceListComponent } from "./experience-list/experience-list.component";
+import { EditExperienceComponent } from "./experience/edit-experience/edit-experience.component";
+import { DeleteExperienceComponent } from "./experience/delete-experience/delete-experience.component";
 
 @NgModule({
   imports: [
@@ -26,13 +28,15 @@ import { ExperienceListComponent } from "./experience-list/experience-list.compo
     CandidateProfileComponent,
     CandidateProfileViewComponent,
     ExperienceComponent,
-    ExperienceViewComponent,
+    NewExperienceComponent,
     TestComponent,
     TestViewComponent,
     EducationComponent,
     EducationViewComponent,
     EducationListComponent,
-    ExperienceListComponent
+    ExperienceListComponent,
+    EditExperienceComponent,
+    DeleteExperienceComponent
   ],
   exports: []
 })

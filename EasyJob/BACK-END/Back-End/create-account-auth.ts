@@ -1,15 +1,18 @@
-const bycript = require("bcrypt");
-const passport = require("passport");
-const jwt = require("jsonwebtoken");
-const LocalStrategy = require("passport-local").Strategy;
-const { JWT_SECRET_KEY } = require("./client-auth");
-const {
-  userModel,
-  createUser,
-  findUserById
-} = require("./Database/user-schema");
-const express = require("express");
+import * as bycript from "bcrypt";
+import * as passport from "passport";
 
+// const jwt = require("jsonwebtoken");
+import * as jwt from "jsonwebtoken";
+// const LocalStrategy = require("passport-local").Strategy;
+import * as LocalStrategy from "passport-local";
+
+import { JWT_SECRET_KEY } from "./client-auth";
+
+import { userModel, createUser, findUserById } from "./Database/user-schema";
+
+import * as express from "express";
+
+const localStrategy = LocalStrategy.Strategy;
 passport.serializeUser(function(userId, done) {
   done(null, userId);
 });
@@ -22,7 +25,7 @@ passport.deserializeUser(function(id, done) {
 
 passport.use(
   "createUser",
-  new LocalStrategy(
+  new localStrategy(
     {
       usernameField: "email",
       passwordField: "password"
@@ -31,15 +34,16 @@ passport.use(
       userModel.findOne({ email }, async function(err, user) {
         if (!user) {
           try {
-            const newUser = createUser({ email, password });
+            const token = "1123";
+            const newUser = createUser({ email, password, token });
             // console.log(`new user: ${newUser.email}`);
-            const token = jwt.sign(
+            const newToken = jwt.sign(
               { email: newUser.email, _id: newUser._id },
               JWT_SECRET_KEY.key
             );
-            newUser.jwt = token;
+            newUser.jwt = newToken;
             const usr = await newUser.save();
-            return done(null, usr._id, { message: 0 });
+            return done(null, usr._id);
           } catch (err) {
             console.log(err);
           }
@@ -60,13 +64,13 @@ passport.use(
 
 passport.use(
   "loginUser",
-  new LocalStrategy(
+  new localStrategy(
     {
       usernameField: "email",
       passwordField: "password"
     },
     function(email, password, done) {
-      userModel.findOne({ email }, async function(err, user) {
+      userModel.findOne({ email }, async function(err, user): Promise<any> {
         if (!user) {
           return done(null, false);
         }
@@ -74,7 +78,7 @@ passport.use(
         // console.log('hash: ',hash);
         const checkpsswrd = await user.comparePasswords(password, hash);
         if (checkpsswrd) {
-          return done(null, user, { message: 1 });
+          return done(null, user);
         }
 
         return done(null, false);

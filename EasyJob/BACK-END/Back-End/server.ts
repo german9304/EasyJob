@@ -1,20 +1,27 @@
-const express = require("express");
-const cookieSession = require("cookie-session");
-const { SECRET_KEY } = require("./client-auth");
-const localAuth = require("./create-account-auth");
-const flash = require("connect-flash");
-const jwtAuth = require("./jwt-auth");
-const { categoryModel, jobSearch } = require("./Database/jobs-Schema");
-const passport = require("passport");
-const app = express();
-const auth = require("./auth-server");
-const appRoutes = require("./user-fields-server");
+// const express = require("express");
+import * as express from "express";
+import cookieSession = require("cookie-session");
 
-const {
-  userModel,
-  createUser,
-  findUserById
-} = require("./Database/user-schema");
+// import {SECRET_KEY } from "./client-auth";
+import { SECRET_KEY } from "./client-auth";
+
+// const cookieSession = require("cookie-session");
+// const { SECRET_KEY } = require("./client-auth");
+// const localAuth = require("./create-account-auth");
+import "./create-account-auth";
+// const flash = require("connect-flash");
+// const jwtAuth = require("./jwt-auth");
+import "./jwt-auth";
+import { categoryModel, jobSearch } from "./Database/jobs-Schema";
+import * as passport from "passport";
+// const passport = require("passport");
+const app = express();
+// const auth = require("./auth-server");
+import auth from "./auth-server";
+
+import appRoutes from "./user-fields-server";
+
+import { userModel, createUser, findUserById } from "./Database/user-schema";
 
 app.use(
   cookieSession({
@@ -28,10 +35,10 @@ app.use(express.json());
 app.use(passport.initialize());
 app.use(passport.session());
 // require("./local-auth")(passport);
-app.use(flash());
+// app.use(flash());
+
 app.use("/auth", auth);
 app.use("/api/fields", appRoutes);
-
 //app.use(express.static("../dist/EasyJob"));
 
 app.get("/", (req, res) => {
@@ -45,7 +52,6 @@ app.get("/test", (req, res) => {
 app.get("/user", (req, res) => {
   // console.log(req.user);
   // const { user } = req;
-
   if (req.user) {
     try {
       const { email, jwt } = req.user;
@@ -110,7 +116,6 @@ app.get("/api/job/categories", (req, res) => {
     res.json(data);
   });
 });
-
 app.get("/api/categories", (req, res) => {
   categoryModel.find({}, function(err, data) {
     if (err) {

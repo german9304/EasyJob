@@ -41,9 +41,7 @@ export class EducationComponent implements OnInit {
     const { value } = this.educationForm;
 
     this.cf.createEducation(value).subscribe((edu: EDUCATION) => {
-      const ed = [edu];
-      const { EDUCATION } = this.cf;
-      this.cf.EDUCATION = [...EDUCATION, ...ed];
+    
     });
     this.educationForm.reset();
     this.router.navigate(["../jobseeker/profile"]);

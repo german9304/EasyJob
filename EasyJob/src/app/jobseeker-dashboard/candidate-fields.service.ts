@@ -8,13 +8,13 @@ import { Observable, of, throwError } from "rxjs";
 import { tap, catchError } from "rxjs/operators";
 import { EXPERIENCE, FIELDS, EDUCATION } from "../job";
 import { USER } from "../user";
-
+import { List, Map } from "immutable";
 import { AuthService } from "../services/auth.service";
 
 @Injectable()
 export class CandidateFieldsService implements OnInit {
-  EXPERIENCE: EXPERIENCE[] = [];
-  EDUCATION: EDUCATION[] = [];
+  EXPERIENCE: List<EXPERIENCE> = List();
+  EDUCATION: List<EDUCATION> = List();
   credentials: USER = this.auth.getUserCredentials() as USER;
   jwt: string = "";
   httpOptions = {
@@ -32,15 +32,54 @@ export class CandidateFieldsService implements OnInit {
 
     // console.log(`credentials ${this.httpOptions.headers.get("Authorization")}`);
   }
-
+  /*
+  *
+  * Creates experience
+  * 
+  * 
+  */
   createExperience(experience: EXPERIENCE): Observable<EXPERIENCE> {
     // console.log(this.httpOptions.headers.get("Authorization"));
     return this.http
-      .post<EXPERIENCE>(
-        `/api/fields/create/experience`,
+      .post<EXPERIENCE>(`/api/fields/experience`, experience, this.httpOptions)
+      .pipe(
+        tap(data => console.log(`experience: ${data}`)),
+        catchError(error => {
+          console.log(`the error is ${error}`);
+          return this.handleError(error);
+        })
+      );
+  }
+  /*
+  *
+  * Updates Experience 
+  * 
+  * 
+  */
+  updateExperience(id: string, experience: EXPERIENCE): Observable<EXPERIENCE> {
+    return this.http
+      .put<EXPERIENCE>(
+        `/api/fields/experience?id=${id}`,
         experience,
         this.httpOptions
       )
+      .pipe(
+        tap(data => console.log(`experience: ${data}`)),
+        catchError(error => {
+          console.log(`the error is ${error}`);
+          return this.handleError(error);
+        })
+      );
+  }
+  /*
+  *
+  * Deletes Experience
+  * 
+  * 
+  */
+  deleteExperience(id: string): Observable<{}> {
+    return this.http
+      .delete<{}>(`/api/fields/experience?id=${id}`, this.httpOptions)
       .pipe(
         tap(data => console.log(`experience: ${data}`)),
         catchError(error => {

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { EXPERIENCE, EDUCATION } from "../../../../job";
+import { List, Map } from "immutable";
 @Component({
   selector: "candidate-profile-view",
   templateUrl: "./candidate-profile-view.component.html",
@@ -7,9 +8,9 @@ import { EXPERIENCE, EDUCATION } from "../../../../job";
 })
 export class CandidateProfileViewComponent implements OnInit {
   @Input()
-  experience: EXPERIENCE[];
+  experience: List<EXPERIENCE>;
   @Input()
-  education: EDUCATION[];
+  education: List<EDUCATION>;
   constructor() {}
 
   ngOnInit() {}

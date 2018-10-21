@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ExperienceViewComponent } from './experience-view.component';
+import { EditExperienceComponent } from './edit-experience.component';
 
-describe('ExperienceViewComponent', () => {
-  let component: ExperienceViewComponent;
-  let fixture: ComponentFixture<ExperienceViewComponent>;
+describe('EditExperienceComponent', () => {
+  let component: EditExperienceComponent;
+  let fixture: ComponentFixture<EditExperienceComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ExperienceViewComponent ]
+      declarations: [ EditExperienceComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ExperienceViewComponent);
+    fixture = TestBed.createComponent(EditExperienceComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

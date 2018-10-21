@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { EDUCATION } from "../../../job";
+import { Map, List } from "immutable";
 
 @Component({
   selector: "education-list",
@@ -8,7 +9,7 @@ import { EDUCATION } from "../../../job";
 })
 export class EducationListComponent implements OnInit {
   @Input()
-  EDUCATION: EDUCATION[];
+  EDUCATION: List<EDUCATION>;
   constructor() {}
 
   ngOnInit() {}

@@ -2,11 +2,11 @@
     <div class="item exp" *ngFor="let item of EXPERIENCE">
         <div class="inner field" id="inner-header">
             <h2> {{item.position}} </h2>
-            <div id="icon-edit">
+            <a id="icon-edit" routerLink="./edit/experience" routerLinkActive="active">
                 <i class="material-icons">
                     edit
                 </i>
-            </div>
+            </a>
         </div>
         <p class="inner field" id="company"> {{item.company}} </p>
         <p class="inner field" id="location"> {{item.location}} </p>
