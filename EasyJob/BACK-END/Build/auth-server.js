@@ -69,11 +69,12 @@ router.get("/google", passport.authenticate("google", {
     scope: ["profile", "email"]
 }));
 router.get("/google/redirect", passport.authenticate("google"), function (req, res, next) {
-    console.log("req user: ", req.user);
+    //console.log("redirect out");
+    //  console.log("req user: ", req.user);
     res.redirect("http://localhost:4200/");
 });
 router.post("/create/user", passport.authenticate("createUser"), function (req, res) {
-    console.log(req.authInfo);
+    // console.log(req.authInfo);
     var id = req.user;
     var usr = findUserById(id);
     usr.then(function (data) {
@@ -82,11 +83,11 @@ router.post("/create/user", passport.authenticate("createUser"), function (req, 
     });
 });
 router.post("/login", passport.authenticate("loginUser"), function (req, res) {
-    console.log(req.body);
+    // console.log(req.body);
     try {
-        var _a = req.user, email = _a.email, jwt_1 = _a.jwt;
-        console.log("login: ", req.user);
-        res.json({ user: { email: email, jwt: jwt_1, auth: true } });
+        var _a = req.user, email = _a.email, jwt = _a.jwt;
+        // console.log("login: ", req.user);
+        res.json({ user: { email: email, jwt: jwt, auth: true } });
     }
     catch (error) {
         console.log(error);

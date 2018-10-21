@@ -33,8 +33,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
         while (_) try {
-            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [0, t.value];
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
             switch (op[0]) {
                 case 0: case 1: t = op; break;
                 case 4: _.label++; return { value: op[1], done: false };
@@ -159,7 +159,7 @@ userSchema.pre("save", function () {
             switch (_a.label) {
                 case 0:
                     user = this;
-                    if (!user) return [3 /*break*/, 5];
+                    if (!user.password) return [3 /*break*/, 5];
                     if (!(user.isModified("password") || user.isNew)) return [3 /*break*/, 5];
                     _a.label = 1;
                 case 1:
@@ -176,7 +176,9 @@ userSchema.pre("save", function () {
                     err_1 = _a.sent();
                     console.log("res: ", err_1);
                     return [3 /*break*/, 5];
-                case 5: return [2 /*return*/];
+                case 5:
+                    console.log("password: ", user.password);
+                    return [2 /*return*/];
             }
         });
     });
@@ -210,7 +212,7 @@ var findGoogleUser = function (id) { return __awaiter(_this, void 0, void 0, fun
                 user = _a.sent();
                 if (user) {
                     _id = user._id;
-                    console.log(_id);
+                    // console.log(_id);
                     return [2 /*return*/, _id];
                 }
                 return [2 /*return*/, user];

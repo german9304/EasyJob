@@ -148,7 +148,7 @@ const userSchema: Schema = new mongoose.Schema(
 
 userSchema.pre<IUser>("save", async function(): Promise<void> {
   const user = this;
-  if (user) {
+  if (user.password) {
     if (user.isModified("password") || user.isNew) {
       try {
         const gen = await bcrypt.genSalt(SALT_ROUNDS);
@@ -159,6 +159,7 @@ userSchema.pre<IUser>("save", async function(): Promise<void> {
       }
     }
   }
+  console.log("password: ", user.password);
 });
 
 /*
@@ -179,7 +180,7 @@ const findGoogleUser = async id => {
     const user = await userModel.findOne({ googleId: id });
     if (user) {
       const { _id } = user;
-      console.log(_id);
+      // console.log(_id);
       return _id;
     }
     return user;

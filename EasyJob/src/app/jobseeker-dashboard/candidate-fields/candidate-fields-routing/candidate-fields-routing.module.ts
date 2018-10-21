@@ -10,6 +10,7 @@ import { CandidateProfileComponent } from "../candidate-profile/candidate-profil
 import { NewExperienceComponent } from "../experience/new-experience/new-experience.component";
 import { EditExperienceComponent } from "../experience/edit-experience/edit-experience.component";
 
+
 const candidateFieldsRoutes: Routes = [
   {
     path: "",
@@ -18,6 +19,15 @@ const candidateFieldsRoutes: Routes = [
       CandidateFields: DataFieldsService
     },
     children: [
+      {
+        path: "create",
+        children: [
+          {
+            path: "experience",
+            component: NewExperienceComponent
+          }
+        ]
+      },
       {
         path: "edit",
         children: [
@@ -34,15 +44,6 @@ const candidateFieldsRoutes: Routes = [
       {
         path: "test",
         component: TestComponent
-      }
-    ]
-  },
-  {
-    path: "create",
-    children: [
-      {
-        path: "experience",
-        component: NewExperienceComponent
       }
     ]
   },

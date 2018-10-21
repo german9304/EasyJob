@@ -1,3 +1,4 @@
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
@@ -13,8 +14,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
         while (_) try {
-            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [0, t.value];
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
             switch (op[0]) {
                 case 0: case 1: t = op; break;
                 case 4: _.label++; return { value: op[1], done: false };
@@ -33,11 +34,16 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var GOOGLE_CLIENT = require("./client-auth").GOOGLE_CLIENT;
+Object.defineProperty(exports, "__esModule", { value: true });
+// const { GOOGLE_CLIENT } = require("./client-auth");
+var client_auth_1 = require("./client-auth");
 var passport = require("passport");
 var jwt = require("jsonwebtoken");
-var JWT_SECRET_KEY = require("./client-auth").JWT_SECRET_KEY;
-var GoogleStrategy = require("passport-google-oauth20").Strategy;
+var client_auth_2 = require("./client-auth");
+// const { JWT_SECRET_KEY } = require("./client-auth");
+// const GoogleStrategy = require("passport-google-oauth20").Strategy;
+var GoogleStrategy = require("passport-google-oauth2");
+var googleStrategy = GoogleStrategy.Strategy;
 var _a = require("./Database/user-schema"), userModel = _a.userModel, findGoogleUser = _a.findGoogleUser, createUserGoogle = _a.createUserGoogle;
 passport.serializeUser(function (userId, done) {
     done(null, userId);
@@ -89,10 +95,10 @@ var candidate_employer = function (req, res, next) {
     req.session = query;
     next();
 };
-passport.use(new GoogleStrategy({
-    clientID: GOOGLE_CLIENT.client_id,
-    clientSecret: GOOGLE_CLIENT.client_secret,
-    callbackURL: GOOGLE_CLIENT.redirect_uris[0]
+passport.use(new googleStrategy({
+    clientID: client_auth_1.GOOGLE_CLIENT.client_id,
+    clientSecret: client_auth_1.GOOGLE_CLIENT.client_secret,
+    callbackURL: client_auth_1.GOOGLE_CLIENT.redirect_uris[0]
 }, function (accessToken, refreshToken, profile, done) {
     return __awaiter(this, void 0, void 0, function () {
         var id, displayName, emails, email, googleUser, googleid, user, addedUser, token, newuser, err_1;
@@ -114,18 +120,18 @@ passport.use(new GoogleStrategy({
                         email: email
                     };
                     addedUser = createUserGoogle(user);
-                    token = jwt.sign({ addedUser: addedUser }, JWT_SECRET_KEY.key);
+                    token = jwt.sign({ addedUser: addedUser }, client_auth_2.JWT_SECRET_KEY.key);
                     addedUser.jwt = token;
                     return [4 /*yield*/, addedUser.save()];
                 case 3:
                     newuser = _a.sent();
                     return [2 /*return*/, done(null, newuser)];
-                case 4: return [3 /*break*/, 6];
+                case 4: return [2 /*return*/, done(null, googleUser)];
                 case 5:
                     err_1 = _a.sent();
                     console.log(err_1);
                     return [3 /*break*/, 6];
-                case 6: return [2 /*return*/, done(null, false)];
+                case 6: return [2 /*return*/];
             }
         });
     });

@@ -41,8 +41,8 @@ export class NewExperienceComponent implements OnInit {
       console.log(`res inside ${JSON.stringify(res)}`);
       console.log(this.fs.EXPERIENCE === this.fs.EXPERIENCE.push(res));
       this.fs.EXPERIENCE = this.fs.EXPERIENCE.push(res);
+      this.experienceForm.reset();
+      this.router.navigate(["../../jobseeker/profile"]);
     });
-    this.experienceForm.reset();
-    this.router.navigate(["../../jobseeker/profile"]);
   }
 }

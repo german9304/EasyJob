@@ -78,11 +78,14 @@ const {
   findUserById
 } = require("./Database/user-schema");
 
-router.get("/google", (req: Request, res: Response, next) => {
-  console.log(req.query);
+router.get(
+  "/google",
+  (req: Request, res: Response, next): void => {
+    console.log(req.query);
 
-  next();
-});
+    next();
+  }
+);
 
 router.get(
   "/google",
@@ -96,7 +99,8 @@ router.get("/google/redirect", passport.authenticate("google"), function(
   res: Response,
   next: NextFunction
 ) {
-  console.log("req user: ", req.user);
+  //console.log("redirect out");
+  //  console.log("req user: ", req.user);
   res.redirect("http://localhost:4200/");
 });
 
@@ -104,7 +108,7 @@ router.post("/create/user", passport.authenticate("createUser"), function(
   req: Request,
   res: Response
 ) {
-  console.log(req.authInfo);
+  // console.log(req.authInfo);
   const { user: id } = req;
   const usr = findUserById(id);
   usr.then(data => {
@@ -117,10 +121,10 @@ router.post(
   "/login",
   passport.authenticate("loginUser"),
   (req: Request, res: Response) => {
-    console.log(req.body);
+    // console.log(req.body);
     try {
       const { email, jwt } = req.user;
-      console.log("login: ", req.user);
+      // console.log("login: ", req.user);
       res.json({ user: { email, jwt, auth: true } });
     } catch (error) {
       console.log(error);

@@ -17,15 +17,15 @@
     align-items: center;
     .search-bar {
       // border: solid 1px black;
-      flex: 1;
+      flex: 0 1 500px;
       // align-items: center;
 
       #frm-search-address {
         display: flex;
-        flex: 1;
-        // flex-wrap: wrap;
+        // flex: 1;
+        flex-wrap: wrap;
         // align-items: center;
-        // border: solid 1px black;
+        // border: solid 3px rosybrown;
 
         .frm {
           flex: 2;

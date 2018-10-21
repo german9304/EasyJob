@@ -44,10 +44,10 @@ app.get("/user", function (req, res) {
     // const { user } = req;
     if (req.user) {
         try {
-            var _a = req.user, email = _a.email, jwt_1 = _a.jwt;
+            var _a = req.user, email = _a.email, jwt = _a.jwt;
             var user = {
                 email: email,
-                jwt: jwt_1,
+                jwt: jwt,
                 auth: true
             };
             res.json(user);

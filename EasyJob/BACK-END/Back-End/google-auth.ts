@@ -1,8 +1,14 @@
-const { GOOGLE_CLIENT } = require("./client-auth");
-const passport = require("passport");
-const jwt = require("jsonwebtoken");
-const { JWT_SECRET_KEY } = require("./client-auth");
-const GoogleStrategy = require("passport-google-oauth20").Strategy;
+// const { GOOGLE_CLIENT } = require("./client-auth");
+import { GOOGLE_CLIENT } from "./client-auth";
+import * as passport from "passport";
+import * as jwt from "jsonwebtoken";
+import { JWT_SECRET_KEY } from "./client-auth";
+// const { JWT_SECRET_KEY } = require("./client-auth");
+// const GoogleStrategy = require("passport-google-oauth20").Strategy;
+import * as GoogleStrategy from "passport-google-oauth2";
+
+const googleStrategy = GoogleStrategy.Strategy;
+
 const {
   userModel,
   findGoogleUser,
@@ -64,7 +70,7 @@ const candidate_employer = (req, res, next) => {
 };
 
 passport.use(
-  new GoogleStrategy(
+  new googleStrategy(
     {
       clientID: GOOGLE_CLIENT.client_id,
       clientSecret: GOOGLE_CLIENT.client_secret,
@@ -88,11 +94,10 @@ passport.use(
           const newuser = await addedUser.save();
           return done(null, newuser);
         }
+        return done(null, googleUser);
       } catch (err) {
         console.log(err);
       }
-
-      return done(null, false);
     }
   )
 );

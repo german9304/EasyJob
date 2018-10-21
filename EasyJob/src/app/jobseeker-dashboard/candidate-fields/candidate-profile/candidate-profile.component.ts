@@ -2,7 +2,14 @@ import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
 import { map, filter } from "rxjs/operators";
 import { EXPERIENCE, FIELDS, EDUCATION } from "../../../job";
 import { CandidateFieldsService } from "../../candidate-fields.service";
-import { Router, ActivatedRoute } from "@angular/router";
+import {
+  Router,
+  ActivatedRoute,
+  ActivationStart,
+  ActivationEnd,
+  ChildActivationStart,
+  ChildActivationEnd
+} from "@angular/router";
 import { List, Map } from "immutable";
 
 @Component({
@@ -19,7 +26,7 @@ import { List, Map } from "immutable";
     </div>
   `,
   styleUrls: [
-    "../shared-profile-fields.component.scss",
+    // "../shared-profile-fields.component.scss",
     "./candidate-profile.component.css"
   ]
 })
@@ -62,5 +69,12 @@ export class CandidateProfileComponent implements OnInit {
       }
       console.log("ng init");
     });
+    // this.router.events
+    //   .pipe(filter(route => route instanceof ChildActivationStart))
+    //   .subscribe(event => console.log(event));
+    // this.router.events
+    //   .pipe(filter(route => route instanceof ChildActivationEnd))
+    //   .subscribe(event => console.log(event));
+    //this.route.paramMap.subscribe(param => console.log(param));
   }
 }
