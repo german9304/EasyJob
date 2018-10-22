@@ -1,20 +1,16 @@
-// const jwt = require("jsonwebtoken");
 import * as jwt from "jsonwebtoken";
-// const JwtStrategy = require("passport-jwt").Strategy;
 import * as JwtStrategy from "passport-jwt";
-// const ExtractJwt = require("passport-jwt").ExtractJwt;
-// const passport = require("passport");
 import * as passport from "passport";
-// const { JWT_SECRET_KEY } = require("./client-auth");
 import { JWT_SECRET_KEY } from "./client-auth";
 const { userModel } = require("./Database/user-schema");
+import { User } from "./user";
 const jwtStrategy = JwtStrategy.Strategy;
 const extractJWT = JwtStrategy.ExtractJwt;
-const opts = {
+const opts: Options = {
   jwtFromRequest: extractJWT.fromAuthHeaderAsBearerToken(),
   secretOrKey: JWT_SECRET_KEY.key
 };
-passport.use(
+const passportJWT = passport.use(
   new jwtStrategy(opts, function(jwt_payload, done) {
     const { _id, email } = jwt_payload;
     userModel.findById(_id, (err, user) => {
@@ -25,3 +21,10 @@ passport.use(
     });
   })
 );
+
+interface Options {
+  jwtFromRequest: JwtStrategy.JwtFromRequestFunction;
+  secretOrKey: string;
+}
+
+export default passportJWT;

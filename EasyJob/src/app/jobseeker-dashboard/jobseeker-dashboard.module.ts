@@ -18,11 +18,12 @@ import { SavedJobsViewComponent } from "./saved-jobs/saved-jobs-view/saved-jobs-
 /*
 Serivice 
 */
+import { GetFieldService } from "./candidate-fields/get-field.service";
 import { CandidateFieldsService } from "./candidate-fields.service";
 import { AppliedJobsComponent } from "./applied-jobs/applied-jobs.component";
 import { AppliedJobsViewComponent } from "./applied-jobs/applied-jobs-view/applied-jobs-view.component";
 import { DataFieldsService } from "./data-fields.resolver.service";
-import { CandidateSearchJobsComponent } from './candidate-search-jobs/candidate-search-jobs.component';
+import { CandidateSearchJobsComponent } from "./candidate-search-jobs/candidate-search-jobs.component";
 @NgModule({
   imports: [CommonModule, ReactiveFormsModule, JobseekerRoutingModule],
   declarations: [
@@ -36,6 +37,6 @@ import { CandidateSearchJobsComponent } from './candidate-search-jobs/candidate-
     AppliedJobsViewComponent,
     CandidateSearchJobsComponent
   ],
-  providers: [CandidateFieldsService, DataFieldsService]
+  providers: [CandidateFieldsService, GetFieldService, DataFieldsService]
 })
 export class JobseekerDashboardModule {}

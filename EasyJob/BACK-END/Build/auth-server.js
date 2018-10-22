@@ -60,7 +60,7 @@ var express = require("express");
 var passport = require("passport");
 require("./google-auth");
 var router = express.Router();
-var _a = require("./Database/user-schema"), userModel = _a.userModel, createUser = _a.createUser, findUserById = _a.findUserById;
+var user_schema_1 = require("./Database/user-schema");
 router.get("/google", function (req, res, next) {
     console.log(req.query);
     next();
@@ -72,11 +72,12 @@ router.get("/google/redirect", passport.authenticate("google"), function (req, r
     //console.log("redirect out");
     //  console.log("req user: ", req.user);
     res.redirect("http://localhost:4200/");
+    // res.redirect("/");
 });
 router.post("/create/user", passport.authenticate("createUser"), function (req, res) {
     // console.log(req.authInfo);
     var id = req.user;
-    var usr = findUserById(id);
+    var usr = user_schema_1.findUserById(id);
     usr.then(function (data) {
         var _id = data._id, email = data.email, jwt = data.jwt;
         res.json({ user: { _id: _id, email: email, jwt: jwt } });

@@ -72,6 +72,18 @@ export class CandidateFieldsService implements OnInit {
       );
   }
   /*
+  * Get Experience
+  */
+  getExperience(id: string): Observable<EXPERIENCE> {
+    return this.http.get<EXPERIENCE>(`/api/fields/experience?id=${id}`).pipe(
+      tap(data => console.log(`experience: ${data}`)),
+      catchError(error => {
+        console.log(`the error is ${error}`);
+        return this.handleError(error);
+      })
+    );
+  }
+  /*
   *
   * Deletes Experience
   * 
@@ -105,7 +117,7 @@ export class CandidateFieldsService implements OnInit {
       );
   }
 
-  getExperience(): Observable<FIELDS> {
+  getFields(): Observable<FIELDS> {
     return this.http.get<FIELDS>(`/api/fields/candidate`).pipe(
       tap(fields => {
         console.log(`fields: ${fields.experience}`);

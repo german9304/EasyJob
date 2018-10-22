@@ -36,8 +36,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var passport = require("passport");
-// const jwt = require("jsonwebtoken");
-var jwt = require("jsonwebtoken");
+// const JWT = require("jsonwebtoken");
+var JWT = require("jsonwebtoken");
 // const LocalStrategy = require("passport-local").Strategy;
 var LocalStrategy = require("passport-local");
 var client_auth_1 = require("./client-auth");
@@ -57,7 +57,7 @@ passport.use("createUser", new localStrategy({
 }, function (email, password, done) {
     user_schema_1.userModel.findOne({ email: email }, function (err, user) {
         return __awaiter(this, void 0, void 0, function () {
-            var token, newUser, newToken, usr, err_1;
+            var jwt, newUser, newToken, usr, err_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -65,9 +65,9 @@ passport.use("createUser", new localStrategy({
                         _a.label = 1;
                     case 1:
                         _a.trys.push([1, 3, , 4]);
-                        token = "1123";
-                        newUser = user_schema_1.createUser({ email: email, password: password, token: token });
-                        newToken = jwt.sign({ email: newUser.email, _id: newUser._id }, client_auth_1.JWT_SECRET_KEY.key);
+                        jwt = "1123";
+                        newUser = user_schema_1.createUser({ email: email, password: password, jwt: jwt });
+                        newToken = JWT.sign({ email: newUser.email, _id: newUser._id }, client_auth_1.JWT_SECRET_KEY.key);
                         newUser.jwt = newToken;
                         return [4 /*yield*/, newUser.save()];
                     case 2:

@@ -1,11 +1,11 @@
 <div id="profile-fields">
   <div class="fields-container">
-    <form action="" [formGroup]="experienceForm" (ngSubmit)="submitForm()" class="experience-form">
+    <form action="" [formGroup]="experienceForm" class="experience-form">
       <!--  <p> {{ expForm.value| json}}</p> -->
       <div class="headers">
         <div class="addexperience">
           <h2>Edit Experience</h2>
-          <a routerLink="../../" routerLinkActive="active">
+          <a routerLink="../../../" routerLinkActive="active">
             <i class="material-icons">
               clear
             </i>
@@ -35,7 +35,8 @@
         </textarea>
       </div>
       <div class="frm btns">
-        <button class="save" type="submit">Save</button>
+        <button class="save" (click)="save()" type="submit">Save</button>
+        <button class="delete" (click)="delete()" type="submit">Delete</button>
       </div>
     </form>
   </div>

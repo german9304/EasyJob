@@ -120,8 +120,16 @@
         border: none;
         outline: none;
       }
-      button:hover {
+      .save:hover {
         background-color: #3d9970;
+        box-shadow: 0 0 5px 0 #3d9970;
+      }
+      .delete:hover {
+        background-color: #ff4136;
+        box-shadow: 0 0 5px 0 #ff4136;
+      }
+      .delete {
+        background-color: #ee635c;
       }
     }
   }

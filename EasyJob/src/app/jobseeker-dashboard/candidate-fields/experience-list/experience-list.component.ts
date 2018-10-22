@@ -15,6 +15,8 @@ import { List, Map } from "immutable";
 export class ExperienceListComponent implements OnInit {
   @Input()
   EXPERIENCE: List<EXPERIENCE>;
+  @Input()
+  trackById;
   constructor() {}
 
   ngOnInit() {}

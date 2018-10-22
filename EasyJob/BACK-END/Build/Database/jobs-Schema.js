@@ -37,7 +37,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
 var mongoose = require("mongoose");
-require("./db-connection");
 var cheerio = require("cheerio");
 var rp = require("request-promise");
 /*

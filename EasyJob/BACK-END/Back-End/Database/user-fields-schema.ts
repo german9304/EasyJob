@@ -1,33 +1,8 @@
 import * as mongoose from "mongoose";
 import { Schema, Document, Model } from "mongoose";
-import "./db-connection";
+import { Fields, Education, Experience } from "./fields";
+import db from "./db-connection";
 
-interface Experience extends Document {
-  user: {
-    _id: String;
-  };
-  position: String;
-  company: String;
-  location: String;
-  date: { start: String; end: String };
-  description: String;
-}
-
-interface Education extends Document {
-  user: {
-    _id: String;
-  };
-  school: String;
-  degree: String;
-  majorField: String;
-  date: { start: String; end: String };
-  description: String;
-}
-
-interface Fields {
-  education: Array<Education>;
-  experience: Array<Experience>;
-}
 const experienceSchema: Schema = new Schema(
   {
     user: {
@@ -42,7 +17,7 @@ const experienceSchema: Schema = new Schema(
   { collection: "experience", versionKey: false }
 );
 
-const educationSchema = new Schema(
+const educationSchema: Schema = new Schema(
   {
     user: {
       _id: String
@@ -85,7 +60,7 @@ const createExperience = async (
   });
 
   try {
-    const field = await experience.save();
+    const field: Experience = await experience.save();
     return field;
   } catch (err) {
     console.log(err);
@@ -109,7 +84,7 @@ const editExperience = async (
         date,
         description
       });
-      const resultExperience = await experience.save();
+      const resultExperience: Experience = await experience.save();
       return resultExperience;
       //console.log(`EXPERIENCE AFTER: ${experience}`);
     }
@@ -121,7 +96,7 @@ const editExperience = async (
 };
 
 const deleteExperience = async (_id): Promise<Experience> => {
-  const experience = await userExperience.deleteOne({ _id });
+  const experience: Experience = await userExperience.deleteOne({ _id });
   return experience;
 };
 
@@ -155,11 +130,18 @@ const candidateFields = async (id: string): Promise<Fields> => {
   const experience: Array<Experience> = await userExperience.find({
     user: { _id: `${id}` }
   });
-
   return {
     education,
     experience
   };
+};
+const getExperience = async (id: string): Promise<Experience> => {
+  try {
+    const experience: Experience = await userExperience.findById(id);
+    return experience;
+  } catch (err) {
+    console.log(err);
+  }
 };
 export {
   experienceSchema,
@@ -168,5 +150,6 @@ export {
   editExperience,
   deleteExperience,
   createEducation,
-  candidateFields
+  candidateFields,
+  getExperience
 };

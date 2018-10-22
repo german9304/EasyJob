@@ -1,22 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-// const express = require("express");
 var express = require("express");
 var cookieSession = require("cookie-session");
-// import {SECRET_KEY } from "./client-auth";
 var client_auth_1 = require("./client-auth");
-// const cookieSession = require("cookie-session");
-// const { SECRET_KEY } = require("./client-auth");
-// const localAuth = require("./create-account-auth");
 require("./create-account-auth");
-// const flash = require("connect-flash");
-// const jwtAuth = require("./jwt-auth");
 require("./jwt-auth");
 var jobs_Schema_1 = require("./Database/jobs-Schema");
 var passport = require("passport");
-// const passport = require("passport");
 var app = express();
-// const auth = require("./auth-server");
 var auth_server_1 = require("./auth-server");
 var user_fields_server_1 = require("./user-fields-server");
 app.use(cookieSession({

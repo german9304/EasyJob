@@ -1,8 +1,8 @@
 <div class="items-fields">
-    <div class="item exp" *ngFor="let item of EXPERIENCE">
+    <div class="item exp" *ngFor="let item of EXPERIENCE; trackBy: trackById">
         <div class="inner field" id="inner-header">
             <h2> {{item.position}} </h2>
-            <a id="icon-edit" routerLink="./edit/experience" routerLinkActive="active">
+            <a id="icon-edit" [routerLink]="['./edit/experience', item._id]" routerLinkActive="active">
                 <i class="material-icons">
                     edit
                 </i>

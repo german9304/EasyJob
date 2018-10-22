@@ -38,18 +38,18 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // const { GOOGLE_CLIENT } = require("./client-auth");
 var client_auth_1 = require("./client-auth");
 var passport = require("passport");
-var jwt = require("jsonwebtoken");
+var JWT = require("jsonwebtoken");
 var client_auth_2 = require("./client-auth");
 // const { JWT_SECRET_KEY } = require("./client-auth");
 // const GoogleStrategy = require("passport-google-oauth20").Strategy;
 var GoogleStrategy = require("passport-google-oauth2");
 var googleStrategy = GoogleStrategy.Strategy;
-var _a = require("./Database/user-schema"), userModel = _a.userModel, findGoogleUser = _a.findGoogleUser, createUserGoogle = _a.createUserGoogle;
+var user_schema_1 = require("./Database/user-schema");
 passport.serializeUser(function (userId, done) {
     done(null, userId);
 });
 passport.deserializeUser(function (id, done) {
-    userModel.findById(id).then(function (user) {
+    user_schema_1.userModel.findById(id).then(function (user) {
         done(null, user);
     });
 });
@@ -101,7 +101,7 @@ passport.use(new googleStrategy({
     callbackURL: client_auth_1.GOOGLE_CLIENT.redirect_uris[0]
 }, function (accessToken, refreshToken, profile, done) {
     return __awaiter(this, void 0, void 0, function () {
-        var id, displayName, emails, email, googleUser, googleid, user, addedUser, token, newuser, err_1;
+        var id, displayName, emails, email, googleUser, googleId, user, addedUser, token, newuser, err_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -110,17 +110,18 @@ passport.use(new googleStrategy({
                     _a.label = 1;
                 case 1:
                     _a.trys.push([1, 5, , 6]);
-                    return [4 /*yield*/, findGoogleUser(id)];
+                    return [4 /*yield*/, user_schema_1.findGoogleUser(id)];
                 case 2:
                     googleUser = _a.sent();
                     if (!!googleUser) return [3 /*break*/, 4];
-                    googleid = id;
+                    googleId = id;
                     user = {
-                        id: id,
-                        email: email
+                        googleId: googleId,
+                        email: email,
+                        jwt: ""
                     };
-                    addedUser = createUserGoogle(user);
-                    token = jwt.sign({ addedUser: addedUser }, client_auth_2.JWT_SECRET_KEY.key);
+                    addedUser = user_schema_1.createUserGoogle(user);
+                    token = JWT.sign({ addedUser: addedUser }, client_auth_2.JWT_SECRET_KEY.key);
                     addedUser.jwt = token;
                     return [4 /*yield*/, addedUser.save()];
                 case 3:

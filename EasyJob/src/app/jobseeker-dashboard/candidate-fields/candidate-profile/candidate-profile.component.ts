@@ -20,7 +20,8 @@ import { List, Map } from "immutable";
     <div class="candidateprofile">
       <candidate-profile-view 
       [experience]="fields.EXPERIENCE" 
-      [education]="fields.EDUCATION">
+      [education]="fields.EDUCATION"
+       [trackByExp]="trackByExperience">
       </candidate-profile-view>
       <router-outlet></router-outlet>
     </div>
@@ -76,5 +77,9 @@ export class CandidateProfileComponent implements OnInit {
     //   .pipe(filter(route => route instanceof ChildActivationEnd))
     //   .subscribe(event => console.log(event));
     //this.route.paramMap.subscribe(param => console.log(param));
+  }
+  trackByExperience(index: number, experience: EXPERIENCE): string {
+    //console.log(`id: ${experience._id}`);
+    return experience._id;
   }
 }

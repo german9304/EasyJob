@@ -1,12 +1,13 @@
 import * as mongoose from "mongoose";
-import "./db-connection";
+import { Schema } from "mongoose";
+import db from "./db-connection";
 import * as cheerio from "cheerio";
 import * as request from "request";
 import * as rp from "request-promise";
 /*
 Jobs Schema
 */
-const jobsSchema = new mongoose.Schema(
+const jobsSchema: Schema = new mongoose.Schema(
   {
     category: {
       _id: String,
@@ -20,7 +21,7 @@ const jobsSchema = new mongoose.Schema(
   { collection: "jobs", versionKey: false }
 );
 
-const categorySchema = new mongoose.Schema(
+const categorySchema: Schema = new mongoose.Schema(
   {
     category: String
   },

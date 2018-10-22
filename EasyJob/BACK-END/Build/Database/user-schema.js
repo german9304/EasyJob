@@ -176,9 +176,7 @@ userSchema.pre("save", function () {
                     err_1 = _a.sent();
                     console.log("res: ", err_1);
                     return [3 /*break*/, 5];
-                case 5:
-                    console.log("password: ", user.password);
-                    return [2 /*return*/];
+                case 5: return [2 /*return*/];
             }
         });
     });
@@ -226,16 +224,16 @@ var findGoogleUser = function (id) { return __awaiter(_this, void 0, void 0, fun
 }); };
 exports.findGoogleUser = findGoogleUser;
 var createUserGoogle = function (_a) {
-    var id = _a.id, email = _a.email, token = _a.token;
+    var googleId = _a.googleId, email = _a.email, jwt = _a.jwt;
     return new userModel({
         email: email,
-        googleId: id,
-        jwt: token
+        googleId: googleId,
+        jwt: jwt
     });
 };
 exports.createUserGoogle = createUserGoogle;
 var createUser = function (_a) {
-    var email = _a.email, password = _a.password, jwt = _a.token;
+    var email = _a.email, password = _a.password, jwt = _a.jwt;
     return new userModel({
         email: email,
         password: password,

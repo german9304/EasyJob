@@ -11,6 +11,8 @@ export class CandidateProfileViewComponent implements OnInit {
   experience: List<EXPERIENCE>;
   @Input()
   education: List<EDUCATION>;
+  @Input()
+  trackByExp;
   constructor() {}
 
   ngOnInit() {}

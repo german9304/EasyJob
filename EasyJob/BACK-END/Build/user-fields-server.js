@@ -36,57 +36,42 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
-// const express = require("express");
 var express = require("express");
 require("./google-auth");
-// const googleAuth = require("./google-auth");
-// const passport = require("passport");
 var passport = require("passport");
+var user_fields_schema_1 = require("./Database/user-fields-schema");
 var router = express.Router();
 var appRoutes = express();
-// const jwt = require("./jwt-auth");
-require("./jwt-auth");
-var user_fields_schema_1 = require("./Database/user-fields-schema");
-// router.post(
-//   "/create/experience",
-//   passport.authenticate("jwt", { session: false }),
-//   async (req, res) => {
-//     try {
-//       const { user, body: fields } = req;
-//       console.log(`user: ${JSON.stringify(req.user)}`);
-//       console.log(user);
-//       console.log(`${user._id}    ${JSON.stringify(fields)}`);
-//       const experience = await createExperience(user, fields);
-//       console.log(`new experience ${experience}`);
-//       return res.json(fields);
-//     } catch (err) {
-//       console.log(err);
-//     }
-//   }
-// );
-// router.post(
-//   "/create/education",
-//   passport.authenticate("jwt", { session: false }),
-//   async (req, res) => {
-//     try {
-//       const { user, body } = req;
-//       const { ...fields } = body;
-//       const education = await createEducation(user, fields);
-//       console.log(`new education ${JSON.stringify(education)}`);
-//       return res.json(education);
-//     } catch (error) {
-//       console.log(err);
-//     }
-//   }
-// );
 var JWT = passport.authenticate("jwt", { session: false });
 appRoutes
     .route("/experience")
-    .get(function (req, res) {
-    res.send("Get a random book");
-})
+    .get(function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+    var id, experience, err_1;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                id = req.query.id;
+                _a.label = 1;
+            case 1:
+                _a.trys.push([1, 3, , 4]);
+                return [4 /*yield*/, user_fields_schema_1.getExperience(id)];
+            case 2:
+                experience = _a.sent();
+                // console.log(id);
+                //res.json(experience);
+                return [2 /*return*/, experience
+                        ? res.json(experience)
+                        : res.status(404).json({ notFound: "Not Found" })];
+            case 3:
+                err_1 = _a.sent();
+                console.log(err_1);
+                return [3 /*break*/, 4];
+            case 4: return [2 /*return*/];
+        }
+    });
+}); })
     .post(JWT, function (req, res) { return __awaiter(_this, void 0, void 0, function () {
-    var user, fields, experience, err_1;
+    var user, fields, experience, err_2;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -101,15 +86,15 @@ appRoutes
                 // console.log(`new experience ${experience}`);
                 return [2 /*return*/, res.json(experience)];
             case 2:
-                err_1 = _a.sent();
-                console.log(err_1);
+                err_2 = _a.sent();
+                console.log(err_2);
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
         }
     });
 }); })
     .put(JWT, function (req, res) { return __awaiter(_this, void 0, void 0, function () {
-    var user, data, id, _id, experience, err_2;
+    var user, data, id, _id, experience, err_3;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -125,15 +110,15 @@ appRoutes
                 }
                 return [2 /*return*/, res.status(404).json("not found")];
             case 2:
-                err_2 = _a.sent();
-                console.log(err_2);
+                err_3 = _a.sent();
+                console.log(err_3);
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
         }
     });
 }); })
     .delete(JWT, function (req, res) { return __awaiter(_this, void 0, void 0, function () {
-    var user, data, id, _id, experience, err_3;
+    var user, data, id, _id, experience, err_4;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -145,8 +130,8 @@ appRoutes
                 experience = _a.sent();
                 return [2 /*return*/, res.json({})];
             case 2:
-                err_3 = _a.sent();
-                console.log(err_3);
+                err_4 = _a.sent();
+                console.log(err_4);
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
         }

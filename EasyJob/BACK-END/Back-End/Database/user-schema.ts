@@ -108,6 +108,8 @@ Compare Passwords
 import * as mongoose from "mongoose";
 import * as bcrypt from "bcrypt";
 import { Document, Schema, model, Model } from "mongoose";
+import { User, GoogleUser } from "../user";
+import { ISize } from "selenium-webdriver";
 const SALT_ROUNDS = 10;
 const db = require("./db-connection");
 
@@ -151,15 +153,15 @@ userSchema.pre<IUser>("save", async function(): Promise<void> {
   if (user.password) {
     if (user.isModified("password") || user.isNew) {
       try {
-        const gen = await bcrypt.genSalt(SALT_ROUNDS);
-        const bcrypthash = await bcrypt.hash(user.password, gen);
+        const gen: string = await bcrypt.genSalt(SALT_ROUNDS);
+        const bcrypthash: string = await bcrypt.hash(user.password, gen);
         user.password = bcrypthash;
       } catch (err) {
         console.log("res: ", err);
       }
     }
   }
-  console.log("password: ", user.password);
+  // console.log("password: ", user.password);
 });
 
 /*
@@ -169,16 +171,17 @@ userSchema.methods.comparePasswords = async function(
   userPassword,
   hash
 ): Promise<boolean> {
-  const result = await bcrypt.compare(userPassword, hash);
+  const result: boolean = await bcrypt.compare(userPassword, hash);
   return result;
 };
 
 const userModel: Model<IUser> = mongoose.model<IUser>("user", userSchema);
 
-const findGoogleUser = async id => {
+const findGoogleUser = async (id: string) => {
   try {
     const user = await userModel.findOne({ googleId: id });
     if (user) {
+
       const { _id } = user;
       // console.log(_id);
       return _id;
@@ -189,15 +192,15 @@ const findGoogleUser = async id => {
   }
 };
 
-const createUserGoogle = ({ id, email, token }): IUser => {
+const createUserGoogle = ({ googleId, email, jwt }: GoogleUser): IUser => {
   return new userModel({
     email,
-    googleId: id,
-    jwt: token
+    googleId,
+    jwt
   });
 };
 
-const createUser = ({ email, password, token: jwt }): IUser => {
+const createUser = ({ email, password, jwt }: User): IUser => {
   return new userModel({
     email,
     password,
@@ -205,13 +208,13 @@ const createUser = ({ email, password, token: jwt }): IUser => {
   });
 };
 
-const findUserById = async ({ _id }): Promise<IUser> => {
+const findUserById = async ({ _id }: { _id: string }): Promise<IUser> => {
   const usr = await userModel.findById(_id);
   return usr;
 };
-const findUserName = async ({ email, password }): Promise<UserName> => {
+const findUserName = async ({ email, password }: User): Promise<UserName> => {
   try {
-    const usr = await userModel.findOne({ email });
+    const usr: IUser = await userModel.findOne({ email });
     if (usr) {
       const { password: hash } = usr;
       const res = await usr.comparePasswords(password, hash);

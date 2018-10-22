@@ -1,8 +1,8 @@
 import * as bycript from "bcrypt";
 import * as passport from "passport";
 
-// const jwt = require("jsonwebtoken");
-import * as jwt from "jsonwebtoken";
+// const JWT = require("jsonwebtoken");
+import * as JWT from "jsonwebtoken";
 // const LocalStrategy = require("passport-local").Strategy;
 import * as LocalStrategy from "passport-local";
 
@@ -34,10 +34,10 @@ passport.use(
       userModel.findOne({ email }, async function(err, user) {
         if (!user) {
           try {
-            const token = "1123";
-            const newUser = createUser({ email, password, token });
+            const jwt = "1123";
+            const newUser = createUser({ email, password, jwt });
             // console.log(`new user: ${newUser.email}`);
-            const newToken = jwt.sign(
+            const newToken = JWT.sign(
               { email: newUser.email, _id: newUser._id },
               JWT_SECRET_KEY.key
             );
@@ -87,3 +87,4 @@ passport.use(
     }
   )
 );
+

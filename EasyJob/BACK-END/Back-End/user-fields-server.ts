@@ -1,64 +1,40 @@
-// const express = require("express");
 import * as express from "express";
 import "./google-auth";
-// const googleAuth = require("./google-auth");
-// const passport = require("passport");
 import * as passport from "passport";
-const router = express.Router();
-const appRoutes = express();
 import { Request, Response } from "express";
-// const jwt = require("./jwt-auth");
-import "./jwt-auth";
+import passportJWT from "./jwt-auth";
 import { userModel, createUser, findUserById } from "./Database/user-schema";
 import {
   candidateFields,
   createExperience,
   editExperience,
   deleteExperience,
-  createEducation
+  createEducation,
+  getExperience
 } from "./Database/user-fields-schema";
-
-// router.post(
-//   "/create/experience",
-//   passport.authenticate("jwt", { session: false }),
-//   async (req, res) => {
-//     try {
-//       const { user, body: fields } = req;
-
-//       console.log(`user: ${JSON.stringify(req.user)}`);
-//       console.log(user);
-//       console.log(`${user._id}    ${JSON.stringify(fields)}`);
-//       const experience = await createExperience(user, fields);
-//       console.log(`new experience ${experience}`);
-//       return res.json(fields);
-//     } catch (err) {
-//       console.log(err);
-//     }
-//   }
-// );
-
-// router.post(
-//   "/create/education",
-//   passport.authenticate("jwt", { session: false }),
-//   async (req, res) => {
-//     try {
-//       const { user, body } = req;
-//       const { ...fields } = body;
-//       const education = await createEducation(user, fields);
-//       console.log(`new education ${JSON.stringify(education)}`);
-//       return res.json(education);
-//     } catch (error) {
-//       console.log(err);
-//     }
-//   }
-// );
-
+import { Experience, Education } from "./Database/fields";
+const router = express.Router();
+const appRoutes = express();
 const JWT = passport.authenticate("jwt", { session: false });
+
 appRoutes
   .route("/experience")
-  .get(function(req: Request, res: Response) {
-    res.send("Get a random book");
-  })
+  .get(
+    async (req: Request, res: Response): Promise<Response> => {
+      // console.log(req.query);
+      const { id } = req.query;
+      try {
+        const experience: Experience = await getExperience(id);
+        // console.log(id);
+        //res.json(experience);
+        return experience
+          ? res.json(experience)
+          : res.status(404).json({ notFound: "Not Found" });
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  )
   .post(
     JWT,
     async (req: Request, res: Response): Promise<Response> => {
@@ -67,7 +43,7 @@ appRoutes
         // console.log(`user: ${JSON.stringify(req.user)}`);
         // console.log(user);
         console.log(`${user._id}    ${JSON.stringify(fields)}`);
-        const experience = await createExperience(user, fields);
+        const experience: Experience = await createExperience(user, fields);
         // console.log(`new experience ${experience}`);
         return res.json(experience);
       } catch (err) {
@@ -89,7 +65,7 @@ appRoutes
         // console.log(`user: ${JSON.stringify(req.user)} ${_id}`);
         // console.log(user);
         // console.log(`${user._id}    ${JSON.stringify(fields)}`);
-        const experience = await editExperience(id, data);
+        const experience: Experience = await editExperience(id, data);
         console.log(`edit experience ${experience}`);
         if (experience) {
           return res.json(experience);

@@ -15,6 +15,6 @@ export class DataFieldsService implements Resolve<FIELDS> {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<FIELDS> {
-    return this.cf.getExperience();
+    return this.cf.getFields();
   }
 }
