@@ -110,26 +110,34 @@
       button {
         color: white;
         box-sizing: border-box;
-        padding: 10px;
+        padding: 8px;
         border-radius: 10px;
         width: 100px;
-        font-size: 15px;
+        font-size: 18px;
         background-color: #2ecc40;
         cursor: pointer;
         transition: all 0.5s;
         border: none;
         outline: none;
       }
+      .save {
+        background-color: #2ecc40;
+      }
       .save:hover {
         background-color: #3d9970;
         box-shadow: 0 0 5px 0 #3d9970;
       }
       .delete:hover {
-        background-color: #ff4136;
-        box-shadow: 0 0 5px 0 #ff4136;
+        color: black;
+        background-color: #c6c6c6;
+        box-shadow: 0 0 5px 0 #c6c6c6;
       }
       .delete {
-        background-color: #ee635c;
+        color: hsl(0, 0%, 53.3);
+        border: solid 1px #aaa;
+        font-weight: bolder;
+        // background-color: #ee635c;
+        background-color: #dddddd32;
       }
     }
   }

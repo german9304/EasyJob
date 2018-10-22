@@ -14,6 +14,7 @@ import { switchMap } from "rxjs/operators";
   ]
 })
 export class EditExperienceComponent implements OnInit {
+  _id: string;
   experienceForm = this.fb.group({
     position: [""],
     company: [""],
@@ -42,15 +43,16 @@ export class EditExperienceComponent implements OnInit {
         description
       });
     });
+    this.route.paramMap.subscribe(param => (this._id = param.get("id")));
   }
   save() {
     const { value } = this.experienceForm;
-    console.log(this.experienceForm);
-    console.log("save");
+    const { _id } = this;
+    this.fs.updateExperience(_id, value).subscribe(data => console.log(data));
   }
   delete() {
-    const { value } = this.experienceForm;
-    console.log(this.experienceForm);
-    console.log("delete");
+    // const { value } = this.experienceForm;
+    // console.log(this.experienceForm);
+    // console.log("delete");
   }
 }
