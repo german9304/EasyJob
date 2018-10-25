@@ -59,32 +59,10 @@ var educationSchema = new mongoose_1.Schema({
     description: String
 }, { collection: "education", versionKey: false });
 var userEducation = mongoose_1.model("education", educationSchema);
+exports.userEducation = userEducation;
 var userExperience = mongoose_1.model("experience", experienceSchema);
-var createCandidateField = function (user, field, is) { return __awaiter(_this, void 0, void 0, function () {
-    var experience, education, err_1;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                _a.trys.push([0, 4, , 5]);
-                if (!is) return [3 /*break*/, 2];
-                experience = experieceModel(field);
-                return [4 /*yield*/, experience.save()];
-            case 1: return [2 /*return*/, _a.sent()];
-            case 2:
-                education = educationModel(field);
-                return [4 /*yield*/, education.save()];
-            case 3: return [2 /*return*/, _a.sent()];
-            case 4:
-                err_1 = _a.sent();
-                console.error(err_1);
-                return [3 /*break*/, 5];
-            case 5: return [2 /*return*/];
-        }
-    });
-}); };
-var updateCandidateField = function (user, field, is) { };
-var deleteCandidateField = function (user, field, is) { };
-var experieceModel = function (_a) {
+exports.userExperience = userExperience;
+var experienceModel = function (_a) {
     var user = _a.user, position = _a.position, company = _a.company, location = _a.location, date = _a.date, description = _a.description;
     return new userExperience({
         user: user,
@@ -95,9 +73,10 @@ var experieceModel = function (_a) {
         description: description
     });
 };
+exports.experienceModel = experienceModel;
 var educationModel = function (_a) {
     var user = _a.user, school = _a.school, degree = _a.degree, majorField = _a.majorField, date = _a.date, description = _a.description;
-    return new userExperience({
+    return new userEducation({
         user: user,
         school: school,
         degree: degree,
@@ -106,6 +85,89 @@ var educationModel = function (_a) {
         description: description
     });
 };
+exports.educationModel = educationModel;
+var createCandidateField = function (user, field, model) { return __awaiter(_this, void 0, void 0, function () {
+    var newField, err_1;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                newField = model(field);
+                return [4 /*yield*/, newField.save()];
+            case 1: return [2 /*return*/, _a.sent()];
+            case 2:
+                err_1 = _a.sent();
+                console.error(err_1);
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };
+exports.createCandidateField = createCandidateField;
+var user = {
+    jwt: "1",
+    email: "2",
+    _id: "23"
+};
+var updateCandidateField = function (user, field, model, updateModel) { return __awaiter(_this, void 0, void 0, function () {
+    var _id, findField, updatedField, err_2;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                _id = user._id;
+                return [4 /*yield*/, model.findById(_id)];
+            case 1:
+                findField = _a.sent();
+                updatedField = updateModel(findField, field);
+                return [2 /*return*/, updatedField];
+            case 2:
+                err_2 = _a.sent();
+                console.error(err_2);
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };
+exports.updateCandidateField = updateCandidateField;
+var updatEducationField = function (model, _a) {
+    var user = _a.user, school = _a.school, degree = _a.degree, majorField = _a.majorField, date = _a.date, description = _a.description;
+    return model.set({
+        user: user,
+        school: school,
+        degree: degree,
+        majorField: majorField,
+        date: date,
+        description: description
+    });
+};
+var updatExperienceField = function (model, _a) {
+    var user = _a.user, position = _a.position, company = _a.company, location = _a.location, date = _a.date, description = _a.description;
+    return model.set({
+        user: user,
+        position: position,
+        company: company,
+        location: location,
+        date: date,
+        description: description
+    });
+};
+// const createCandidateFieldEducation = async (
+//   user: User,
+//   field: Field
+// ): Promise<Field> => {
+//   try {
+//     const education: Field = educationModel(field);
+//     return await education.save();
+//   } catch (err) {
+//     console.error(err);
+//   }
+// };
+// const deleteCandidateField = (
+//   user: User,
+//   field: Field,
+//   is: boolean
+// ): void => {};
 // const createFieldModel = ({ _id }, field: Field, is: boolean): Field => {
 //   // const { _id } = user;
 //   if (is) {

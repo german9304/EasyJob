@@ -39,102 +39,82 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var express = require("express");
 require("./google-auth");
 var passport = require("passport");
-var user_fields_schema_1 = require("./Database/user-fields-schema");
-var router = express.Router();
+var user_fields_schema_1 = require("./Models/user-fields-schema");
 var appRoutes = express();
+exports.appRoutes = appRoutes;
+var router = express.Router();
 var JWT = passport.authenticate("jwt", { session: false });
 appRoutes
-    .route("/experience")
+    .route("/experienc")
     .get(function (req, res) { return __awaiter(_this, void 0, void 0, function () {
-    var id, experience, err_1;
+    var id, experience;
     return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                id = req.query.id;
-                _a.label = 1;
-            case 1:
-                _a.trys.push([1, 3, , 4]);
-                return [4 /*yield*/, user_fields_schema_1.getExperience(id)];
-            case 2:
-                experience = _a.sent();
-                // console.log(id);
-                //res.json(experience);
-                return [2 /*return*/, experience
-                        ? res.json(experience)
-                        : res.status(404).json({ notFound: "Not Found" })];
-            case 3:
-                err_1 = _a.sent();
-                console.log(err_1);
-                return [3 /*break*/, 4];
-            case 4: return [2 /*return*/];
+        id = req.query.id;
+        try {
+            experience = void 0;
+            // = await getExperience(id);
+            // console.log(id);
+            //res.json(experience);
+            return [2 /*return*/, experience
+                    ? res.json(experience)
+                    : res.status(404).json({ notFound: "Not Found" })];
         }
+        catch (err) {
+            console.log(err);
+        }
+        return [2 /*return*/];
     });
 }); })
     .post(JWT, function (req, res) { return __awaiter(_this, void 0, void 0, function () {
-    var user, fields, experience, err_2;
+    var user, fields, experience;
     return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                _a.trys.push([0, 2, , 3]);
-                user = req.user, fields = req.body;
-                // console.log(`user: ${JSON.stringify(req.user)}`);
-                // console.log(user);
-                console.log(user._id + "    " + JSON.stringify(fields));
-                return [4 /*yield*/, user_fields_schema_1.createExperience(user, fields)];
-            case 1:
-                experience = _a.sent();
-                // console.log(`new experience ${experience}`);
-                return [2 /*return*/, res.json(experience)];
-            case 2:
-                err_2 = _a.sent();
-                console.log(err_2);
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
+        try {
+            user = req.user, fields = req.body;
+            experience = void 0;
+            // console.log(`new experience ${experience}`);
+            return [2 /*return*/, res.json(experience)];
         }
+        catch (err) {
+            console.log(err);
+        }
+        return [2 /*return*/];
     });
 }); })
     .put(JWT, function (req, res) { return __awaiter(_this, void 0, void 0, function () {
-    var user, data, id, _id, experience, err_3;
+    var user, data, id, _id, experience;
     return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                _a.trys.push([0, 2, , 3]);
-                user = req.user, data = req.body, id = req.query.id;
-                _id = user._id;
-                return [4 /*yield*/, user_fields_schema_1.editExperience(id, data)];
-            case 1:
-                experience = _a.sent();
-                console.log("edit experience " + experience);
-                if (experience) {
-                    return [2 /*return*/, res.json(experience)];
-                }
-                return [2 /*return*/, res.status(404).json("not found")];
-            case 2:
-                err_3 = _a.sent();
-                console.log(err_3);
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
+        try {
+            user = req.user, data = req.body, id = req.query.id;
+            _id = user._id;
+            experience = void 0;
+            //console.log(`edit experience ${experience}`);
+            if (experience) {
+                return [2 /*return*/, res.json(experience)];
+            }
+            return [2 /*return*/, res.status(404).json("not found")];
         }
+        catch (err) {
+            console.log(err);
+        }
+        return [2 /*return*/];
     });
 }); })
     .delete(JWT, function (req, res) { return __awaiter(_this, void 0, void 0, function () {
-    var user, data, id, _id, experience, err_4;
+    var user, data, id, _id, experience;
     return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                _a.trys.push([0, 2, , 3]);
-                user = req.user, data = req.body, id = req.query.id;
-                _id = user._id;
-                return [4 /*yield*/, user_fields_schema_1.deleteExperience(id)];
-            case 1:
-                experience = _a.sent();
-                return [2 /*return*/, res.json({})];
-            case 2:
-                err_4 = _a.sent();
-                console.log(err_4);
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
+        try {
+            user = req.user, data = req.body, id = req.query.id;
+            _id = user._id;
+            experience = void 0;
+            if (experience) {
+                return [2 /*return*/, res.json({ sucess: "sucessful deleted" })];
+            }
+            return [2 /*return*/, res.status(404).json("not found")];
         }
+        catch (err) {
+            console.log(err);
+        }
+        return [2 /*return*/];
     });
 }); });
 appRoutes.get("/candidate", function (req, res) { return __awaiter(_this, void 0, void 0, function () {
@@ -153,4 +133,3 @@ appRoutes.get("/candidate", function (req, res) { return __awaiter(_this, void 0
         }
     });
 }); });
-exports.default = appRoutes;

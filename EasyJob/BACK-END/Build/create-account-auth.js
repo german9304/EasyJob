@@ -35,23 +35,21 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var passport = require("passport");
-// const JWT = require("jsonwebtoken");
+var passport_1 = require("passport");
 var JWT = require("jsonwebtoken");
-// const LocalStrategy = require("passport-local").Strategy;
-var LocalStrategy = require("passport-local");
+var passport_local_1 = require("passport-local");
 var client_auth_1 = require("./client-auth");
-var user_schema_1 = require("./Database/user-schema");
-var localStrategy = LocalStrategy.Strategy;
-passport.serializeUser(function (userId, done) {
+var user_schema_1 = require("./Models/user-schema");
+// const localStrategy = LocalStrategy.Strategy;
+passport_1.serializeUser(function (userId, done) {
     done(null, userId);
 });
-passport.deserializeUser(function (id, done) {
+passport_1.deserializeUser(function (id, done) {
     user_schema_1.userModel.findById(id).then(function (user) {
         done(null, user);
     });
 });
-passport.use("createUser", new localStrategy({
+passport_1.use("createUser", new passport_local_1.Strategy({
     usernameField: "email",
     passwordField: "password"
 }, function (email, password, done) {
@@ -91,7 +89,7 @@ passport.use("createUser", new localStrategy({
     });
     //   return done(null, { username }, { message: "Username Already Exists" });
 }));
-passport.use("loginUser", new localStrategy({
+passport_1.use("loginUser", new passport_local_1.Strategy({
     usernameField: "email",
     passwordField: "password"
 }, function (email, password, done) {

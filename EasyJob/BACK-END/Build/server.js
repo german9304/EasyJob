@@ -5,11 +5,11 @@ var cookieSession = require("cookie-session");
 var client_auth_1 = require("./client-auth");
 require("./create-account-auth");
 require("./jwt-auth");
-var jobs_Schema_1 = require("./Database/jobs-Schema");
+var jobs_Schema_1 = require("./Models/jobs-Schema");
 var passport = require("passport");
 var app = express();
 var auth_server_1 = require("./auth-server");
-var user_fields_server_1 = require("./user-fields-server");
+var post_fields_1 = require("./crud-fields/post.fields");
 app.use(cookieSession({
     name: "session",
     keys: [client_auth_1.SECRET_KEY.key],
@@ -18,16 +18,12 @@ app.use(cookieSession({
 app.use(express.json());
 app.use(passport.initialize());
 app.use(passport.session());
-// require("./local-auth")(passport);
-// app.use(flash());
 app.use("/auth", auth_server_1.default);
-app.use("/api/fields", user_fields_server_1.default);
-//app.use(express.static("../dist/EasyJob"));
+app.use("/api/fields", post_fields_1.default);
 app.get("/", function (req, res) {
     res.send("home");
 });
 app.get("/test", function (req, res) {
-    //console.log(req);
     res.send("middleware");
 });
 app.get("/user", function (req, res) {
@@ -64,13 +60,10 @@ app.get("/api/candidate/jobs", function (req, res) {
     var query = req.query;
     var listjobs = jobs_Schema_1.jobSearch(query);
     listjobs.then(function (data) {
-        // console.log(data);
         res.json(data);
     });
-    // console.log("query: ", jobSearch);
 });
 app.get("/jwt", passport.authenticate("jwt", { session: false }), function (req, res) {
-    // console.log(req.user);
     res.send("data");
 });
 app.post("/api/post/job", function (req, res) { });

@@ -35,67 +35,26 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-// const { GOOGLE_CLIENT } = require("./client-auth");
 var client_auth_1 = require("./client-auth");
-var passport = require("passport");
-var JWT = require("jsonwebtoken");
+var passport_1 = require("passport");
+var jsonwebtoken_1 = require("jsonwebtoken");
 var client_auth_2 = require("./client-auth");
-// const { JWT_SECRET_KEY } = require("./client-auth");
-// const GoogleStrategy = require("passport-google-oauth20").Strategy;
-var GoogleStrategy = require("passport-google-oauth2");
-var googleStrategy = GoogleStrategy.Strategy;
-var user_schema_1 = require("./Database/user-schema");
-passport.serializeUser(function (userId, done) {
+var passport_google_oauth2_1 = require("passport-google-oauth2");
+var user_schema_1 = require("./Models/user-schema");
+passport_1.serializeUser(function (userId, done) {
     done(null, userId);
 });
-passport.deserializeUser(function (id, done) {
+passport_1.deserializeUser(function (id, done) {
     user_schema_1.userModel.findById(id).then(function (user) {
         done(null, user);
     });
 });
-// const testmiddleware = () => {
-//   return (req, res, next) => {
-//     console.log(req.query);
-//     passport.use(
-//       new GoogleStrategy(
-//         {
-//           clientID: GOOGLE_CLIENT.client_id,
-//           clientSecret: GOOGLE_CLIENT.client_secret,
-//           callbackURL: GOOGLE_CLIENT.redirect_uris[0]
-//         },
-//         async function(accessToken, refreshToken, profile, done) {
-//           //console.log("profile: ", profile);
-//           const { id, displayName, emails } = profile;
-//           const { value: email } = emails[0];
-//           const googleUser = await findGoogleUser(id);
-//           if (!googleUser) {
-//             const googleid = id;
-//             const user = {
-//               id,
-//               email
-//             };
-//             const addedUser = createUserGoogle(user);
-//             const token = jwt.sign({ addedUser }, JWT_SECRET_KEY.key);
-//             addedUser.jwt = token;
-//             const newuser = await addedUser.save();
-//             next();
-//             return done(null, newuser);
-//           }
-//           console.log(googleUser);
-//           next();
-//           return done(null, googleUser);
-//         }
-//       )
-//     );
-//   };
-// };
-// module.exports = { testmiddleware };
 var candidate_employer = function (req, res, next) {
     var query = req.query;
     req.session = query;
     next();
 };
-passport.use(new googleStrategy({
+passport_1.use(new passport_google_oauth2_1.Strategy({
     clientID: client_auth_1.GOOGLE_CLIENT.client_id,
     clientSecret: client_auth_1.GOOGLE_CLIENT.client_secret,
     callbackURL: client_auth_1.GOOGLE_CLIENT.redirect_uris[0]
@@ -121,7 +80,7 @@ passport.use(new googleStrategy({
                         jwt: ""
                     };
                     addedUser = user_schema_1.createUserGoogle(user);
-                    token = JWT.sign({ addedUser: addedUser }, client_auth_2.JWT_SECRET_KEY.key);
+                    token = jsonwebtoken_1.sign({ addedUser: addedUser }, client_auth_2.JWT_SECRET_KEY.key);
                     addedUser.jwt = token;
                     return [4 /*yield*/, addedUser.save()];
                 case 3:
