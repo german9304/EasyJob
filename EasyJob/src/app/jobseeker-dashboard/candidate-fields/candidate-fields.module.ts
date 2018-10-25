@@ -15,7 +15,6 @@ import { EducationViewComponent } from "./education/education-view/education-vie
 import { EducationListComponent } from "./education-list/education-list.component";
 import { ExperienceListComponent } from "./experience-list/experience-list.component";
 import { EditExperienceComponent } from "./experience/edit-experience/edit-experience.component";
-import { DeleteExperienceComponent } from "./experience/delete-experience/delete-experience.component";
 
 @NgModule({
   imports: [
@@ -35,8 +34,7 @@ import { DeleteExperienceComponent } from "./experience/delete-experience/delete
     EducationViewComponent,
     EducationListComponent,
     ExperienceListComponent,
-    EditExperienceComponent,
-    DeleteExperienceComponent
+    EditExperienceComponent
   ],
   exports: []
 })

@@ -42,7 +42,7 @@ export class NewExperienceComponent implements OnInit {
       console.log(this.fs.EXPERIENCE === this.fs.EXPERIENCE.push(res));
       this.fs.EXPERIENCE = this.fs.EXPERIENCE.push(res);
       this.experienceForm.reset();
-      this.router.navigate(["../../jobseeker/profile"]);
+      this.fs.goBackToProfile();
     });
   }
 }

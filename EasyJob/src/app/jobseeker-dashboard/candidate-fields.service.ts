@@ -4,6 +4,8 @@ import {
   HttpHeaders,
   HttpErrorResponse
 } from "@angular/common/http";
+import { Router, Route, ActivatedRoute } from "@angular/router";
+
 import { Observable, of, throwError } from "rxjs";
 import { tap, catchError } from "rxjs/operators";
 import { EXPERIENCE, FIELDS, EDUCATION } from "../job";
@@ -26,7 +28,12 @@ export class CandidateFieldsService implements OnInit {
   ngOnInit() {
     //console.log("on init service");
   }
-  constructor(private http: HttpClient, private auth: AuthService) {
+  constructor(
+    private http: HttpClient,
+    private auth: AuthService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
     const user = this.auth.getUserCredentials() as USER;
     this.jwt = user.jwt;
 
@@ -127,6 +134,10 @@ export class CandidateFieldsService implements OnInit {
         return of(error);
       })
     );
+  }
+
+  goBackToProfile() {
+    this.router.navigate(["../jobseeker/profile"]);
   }
   private handleError(error: HttpErrorResponse) {
     console.log(`error ${error.error} ${error.status}`);

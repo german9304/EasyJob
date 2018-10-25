@@ -1,31 +1,26 @@
 import * as bycript from "bcrypt";
-import * as passport from "passport";
-
-// const JWT = require("jsonwebtoken");
+import { serializeUser, deserializeUser, use } from "passport";
 import * as JWT from "jsonwebtoken";
-// const LocalStrategy = require("passport-local").Strategy;
-import * as LocalStrategy from "passport-local";
-
+import { Strategy } from "passport-local";
 import { JWT_SECRET_KEY } from "./client-auth";
-
-import { userModel, createUser, findUserById } from "./Database/user-schema";
+import { userModel, createUser, findUserById } from "./Models/user-schema";
 
 import * as express from "express";
 
-const localStrategy = LocalStrategy.Strategy;
-passport.serializeUser(function(userId, done) {
+// const localStrategy = LocalStrategy.Strategy;
+serializeUser(function(userId, done) {
   done(null, userId);
 });
 
-passport.deserializeUser(function(id, done) {
+deserializeUser(function(id, done) {
   userModel.findById(id).then(user => {
     done(null, user);
   });
 });
 
-passport.use(
+use(
   "createUser",
-  new localStrategy(
+  new Strategy(
     {
       usernameField: "email",
       passwordField: "password"
@@ -62,9 +57,9 @@ passport.use(
   )
 );
 
-passport.use(
+use(
   "loginUser",
-  new localStrategy(
+  new Strategy(
     {
       usernameField: "email",
       passwordField: "password"
@@ -87,4 +82,3 @@ passport.use(
     }
   )
 );
-

@@ -1,30 +1,33 @@
 import * as express from "express";
 import "./google-auth";
 import * as passport from "passport";
-import { Request, Response } from "express";
-import passportJWT from "./jwt-auth";
-import { userModel, createUser, findUserById } from "./Database/user-schema";
+import { Request, Response, IRoute } from "express";
+import "./jwt-auth";
+import { userModel, createUser, findUserById } from "./Models/user-schema";
+
 import {
-  candidateFields,
-  createExperience,
-  editExperience,
-  deleteExperience,
-  createEducation,
-  getExperience
-} from "./Database/user-fields-schema";
-import { Experience, Education } from "./Database/fields";
-const router = express.Router();
+  candidateFields
+  // createExperience,
+  // editExperience,
+  // deleteExperience,
+  // createEducation,
+  // getExperience
+} from "./Models/user-fields-schema";
+import { User } from "./user";
+import { Experience, Education } from "./Models/fields";
 const appRoutes = express();
+const router = express.Router();
 const JWT = passport.authenticate("jwt", { session: false });
 
 appRoutes
-  .route("/experience")
+  .route("/experienc")
   .get(
     async (req: Request, res: Response): Promise<Response> => {
       // console.log(req.query);
       const { id } = req.query;
       try {
-        const experience: Experience = await getExperience(id);
+        let experience: Experience;
+        // = await getExperience(id);
         // console.log(id);
         //res.json(experience);
         return experience
@@ -42,8 +45,9 @@ appRoutes
         const { user, body: fields } = req;
         // console.log(`user: ${JSON.stringify(req.user)}`);
         // console.log(user);
-        console.log(`${user._id}    ${JSON.stringify(fields)}`);
-        const experience: Experience = await createExperience(user, fields);
+        // console.log(`${user._id}    ${JSON.stringify(fields)}`);
+        //const experience: Experience = await createExperience(user, fields);
+        let experience: Experience;
         // console.log(`new experience ${experience}`);
         return res.json(experience);
       } catch (err) {
@@ -65,8 +69,9 @@ appRoutes
         // console.log(`user: ${JSON.stringify(req.user)} ${_id}`);
         // console.log(user);
         // console.log(`${user._id}    ${JSON.stringify(fields)}`);
-        const experience: Experience = await editExperience(id, data);
-        console.log(`edit experience ${experience}`);
+        //  const experience: Experience = await editExperience(id, data);
+        let experience: Experience;
+        //console.log(`edit experience ${experience}`);
         if (experience) {
           return res.json(experience);
         }
@@ -86,8 +91,12 @@ appRoutes
           query: { id }
         } = req;
         const { _id } = user;
-        const experience = await deleteExperience(id);
-        return res.json({});
+        //const experience: Experience = await deleteExperience(id);
+        let experience: Experience;
+        if (experience) {
+          return res.json({ sucess: "sucessful deleted" });
+        }
+        return res.status(404).json("not found");
       } catch (err) {
         console.log(err);
       }
@@ -103,7 +112,6 @@ appRoutes.get(
         user: { _id }
       } = req;
       //console.log(_id);
-
       const fields = await candidateFields(_id);
       // console.log(`fields: ${fields}`);
       return res.json(fields);
@@ -112,4 +120,5 @@ appRoutes.get(
   }
 );
 
-export default appRoutes;
+// console.log(field1);
+export { appRoutes };

@@ -3,13 +3,14 @@ import cookieSession = require("cookie-session");
 import { SECRET_KEY } from "./client-auth";
 import "./create-account-auth";
 import "./jwt-auth";
-import { categoryModel, jobSearch } from "./Database/jobs-Schema";
+import { categoryModel, jobSearch } from "./Models/jobs-Schema";
 import * as passport from "passport";
 const app = express();
 import auth from "./auth-server";
-import appRoutes from "./user-fields-server";
-import { userModel, createUser, findUserById } from "./Database/user-schema";
+import { appRoutes } from "./user-fields-server";
+import { userModel, createUser, findUserById } from "./Models/user-schema";
 import { Request, Response } from "express";
+import crudField from "./crud-fields/post.fields";
 app.use(
   cookieSession({
     name: "session",
@@ -21,18 +22,14 @@ app.use(
 app.use(express.json());
 app.use(passport.initialize());
 app.use(passport.session());
-// require("./local-auth")(passport);
-// app.use(flash());
 
 app.use("/auth", auth);
-app.use("/api/fields", appRoutes);
-//app.use(express.static("../dist/EasyJob"));
+app.use("/api/fields", crudField);
 
 app.get("/", (req, res) => {
   res.send("home");
 });
 app.get("/test", (req, res) => {
-  //console.log(req);
   res.send("middleware");
 });
 
@@ -76,10 +73,8 @@ app.get(
     const { query } = req;
     const listjobs = jobSearch(query);
     listjobs.then(data => {
-      // console.log(data);
       res.json(data);
     });
-    // console.log("query: ", jobSearch);
   }
 );
 
@@ -87,7 +82,6 @@ app.get(
   "/jwt",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    // console.log(req.user);
     res.send("data");
   }
 );
