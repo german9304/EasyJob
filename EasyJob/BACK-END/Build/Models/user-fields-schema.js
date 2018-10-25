@@ -87,12 +87,14 @@ var educationModel = function (_a) {
 };
 exports.educationModel = educationModel;
 var createCandidateField = function (user, field, model) { return __awaiter(_this, void 0, void 0, function () {
-    var newField, err_1;
+    var _id, newField, err_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
+                _id = user._id;
                 newField = model(field);
+                newField.user = { _id: _id };
                 return [4 /*yield*/, newField.save()];
             case 1: return [2 /*return*/, _a.sent()];
             case 2:

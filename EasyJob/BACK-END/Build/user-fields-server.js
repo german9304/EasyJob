@@ -39,6 +39,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var express = require("express");
 require("./google-auth");
 var passport = require("passport");
+require("./jwt-auth");
 var user_fields_schema_1 = require("./Models/user-fields-schema");
 var appRoutes = express();
 exports.appRoutes = appRoutes;

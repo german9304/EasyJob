@@ -45,22 +45,23 @@ var createField = function (model) { return function (req, res) { return __await
                 _a.trys.push([0, 2, , 3]);
                 user = req.user, field = req.body;
                 console.log(field);
+                console.log(user);
                 return [4 /*yield*/, user_fields_schema_1.createCandidateField(user, field, model)];
             case 1:
                 newField = _a.sent();
-                return [2 /*return*/, res.json(newField)];
+                return [2 /*return*/, res.json({ field: field })];
             case 2:
                 err_1 = _a.sent();
                 console.error(err_1);
-                return [3 /*break*/, 3];
+                return [2 /*return*/, res.json(err_1)];
             case 3: return [2 /*return*/];
         }
     });
 }); }; };
 exports.createField = createField;
-var deleteField = function (req, res) { };
+var deleteField = function (model) { return function (req, res) { }; };
 exports.deleteField = deleteField;
-var editField = function (req, res) { };
-exports.editField = editField;
+var updateField = function (model) { return function (req, res) { }; };
+exports.updateField = updateField;
 var getFields = function (req, res) { };
 exports.getFields = getFields;
