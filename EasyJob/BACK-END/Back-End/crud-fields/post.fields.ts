@@ -16,7 +16,7 @@ const router: Router = Router();
 const experienceField = createField(experienceModel);
 const educationField = createField(educationModel);
 /*
-* Http Method:  Post 
+* Http Method:  POST
 * Create New Field, Education, Experience
 */
 router.post(

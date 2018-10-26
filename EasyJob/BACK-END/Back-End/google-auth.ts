@@ -1,8 +1,11 @@
 import { GOOGLE_CLIENT } from "./client-auth";
 import { serializeUser, use, deserializeUser } from "passport";
+import * as passport from "passport";
+
 import { sign } from "jsonwebtoken";
+import * as jwt from "jsonwebtoken";
 import { JWT_SECRET_KEY } from "./client-auth";
-import { Strategy } from "passport-google-oauth2";
+import * as gooogleStrategy from "passport-google-oauth2";
 import { promise } from "selenium-webdriver";
 
 import {
@@ -11,11 +14,11 @@ import {
   createUserGoogle
 } from "./Models/user-schema";
 
-serializeUser(function(userId, done) {
+passport.serializeUser(function(userId, done) {
   done(null, userId);
 });
 
-deserializeUser(function(id, done) {
+passport.deserializeUser(function(id, done) {
   userModel.findById(id).then(user => {
     done(null, user);
   });
@@ -28,7 +31,7 @@ const candidate_employer = (req, res, next) => {
 };
 
 use(
-  new Strategy(
+  new gooogleStrategy.Strategy(
     {
       clientID: GOOGLE_CLIENT.client_id,
       clientSecret: GOOGLE_CLIENT.client_secret,
@@ -48,7 +51,7 @@ use(
             jwt: ""
           };
           const addedUser = createUserGoogle(user);
-          const token = sign({ addedUser }, JWT_SECRET_KEY.key);
+          const token = jwt.sign({ addedUser }, JWT_SECRET_KEY.key);
           addedUser.jwt = token;
           const newuser = await addedUser.save();
           return done(null, newuser);

@@ -36,9 +36,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
-// import * as mongoose from "mongoose";
-var mongoose_1 = require("mongoose");
-var experienceSchema = new mongoose_1.Schema({
+var mongoose = require("mongoose");
+var experienceSchema = new mongoose.Schema({
     user: {
         _id: String
     },
@@ -48,7 +47,7 @@ var experienceSchema = new mongoose_1.Schema({
     date: { start: String, end: String },
     description: String
 }, { collection: "experience", versionKey: false });
-var educationSchema = new mongoose_1.Schema({
+var educationSchema = new mongoose.Schema({
     user: {
         _id: String
     },
@@ -58,9 +57,9 @@ var educationSchema = new mongoose_1.Schema({
     date: { start: String, end: String },
     description: String
 }, { collection: "education", versionKey: false });
-var userEducation = mongoose_1.model("education", educationSchema);
+var userEducation = mongoose.model("education", educationSchema);
 exports.userEducation = userEducation;
-var userExperience = mongoose_1.model("experience", experienceSchema);
+var userExperience = mongoose.model("experience", experienceSchema);
 exports.userExperience = userExperience;
 var experienceModel = function (_a) {
     var user = _a.user, position = _a.position, company = _a.company, location = _a.location, date = _a.date, description = _a.description;
@@ -86,6 +85,28 @@ var educationModel = function (_a) {
     });
 };
 exports.educationModel = educationModel;
+var updateEducationField = function (model, _a) {
+    var school = _a.school, degree = _a.degree, majorField = _a.majorField, date = _a.date, description = _a.description;
+    return model.set({
+        school: school,
+        degree: degree,
+        majorField: majorField,
+        date: date,
+        description: description
+    });
+};
+exports.updateEducationField = updateEducationField;
+var updateExperienceField = function (model, _a) {
+    var position = _a.position, company = _a.company, location = _a.location, date = _a.date, description = _a.description;
+    return model.set({
+        position: position,
+        company: company,
+        location: location,
+        date: date,
+        description: description
+    });
+};
+exports.updateExperienceField = updateExperienceField;
 var createCandidateField = function (user, field, model) { return __awaiter(_this, void 0, void 0, function () {
     var _id, newField, err_1;
     return __generator(this, function (_a) {
@@ -95,6 +116,7 @@ var createCandidateField = function (user, field, model) { return __awaiter(_thi
                 _id = user._id;
                 newField = model(field);
                 newField.user = { _id: _id };
+                console.log(newField);
                 return [4 /*yield*/, newField.save()];
             case 1: return [2 /*return*/, _a.sent()];
             case 2:
@@ -111,49 +133,29 @@ var user = {
     email: "2",
     _id: "23"
 };
-var updateCandidateField = function (user, field, model, updateModel) { return __awaiter(_this, void 0, void 0, function () {
-    var _id, findField, updatedField, err_2;
+var updateCandidateField = function (_id, field, model, updateModel) { return __awaiter(_this, void 0, void 0, function () {
+    var findField, updatedField, err_2;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                _a.trys.push([0, 2, , 3]);
-                _id = user._id;
+                _a.trys.push([0, 4, , 5]);
                 return [4 /*yield*/, model.findById(_id)];
             case 1:
                 findField = _a.sent();
+                if (!findField) return [3 /*break*/, 3];
                 updatedField = updateModel(findField, field);
-                return [2 /*return*/, updatedField];
-            case 2:
+                return [4 /*yield*/, updatedField.save()];
+            case 2: return [2 /*return*/, _a.sent()];
+            case 3: return [2 /*return*/, findField];
+            case 4:
                 err_2 = _a.sent();
                 console.error(err_2);
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
+                return [3 /*break*/, 5];
+            case 5: return [2 /*return*/];
         }
     });
 }); };
 exports.updateCandidateField = updateCandidateField;
-var updatEducationField = function (model, _a) {
-    var user = _a.user, school = _a.school, degree = _a.degree, majorField = _a.majorField, date = _a.date, description = _a.description;
-    return model.set({
-        user: user,
-        school: school,
-        degree: degree,
-        majorField: majorField,
-        date: date,
-        description: description
-    });
-};
-var updatExperienceField = function (model, _a) {
-    var user = _a.user, position = _a.position, company = _a.company, location = _a.location, date = _a.date, description = _a.description;
-    return model.set({
-        user: user,
-        position: position,
-        company: company,
-        location: location,
-        date: date,
-        description: description
-    });
-};
 // const createCandidateFieldEducation = async (
 //   user: User,
 //   field: Field

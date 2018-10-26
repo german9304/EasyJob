@@ -1,13 +1,14 @@
 import { connect, connection } from "mongoose";
+import * as mongoose from "mongoose";
 import { DATABASE_URL } from "../client-auth";
 
-connect(
+mongoose.connect(
   DATABASE_URL,
   { useNewUrlParser: true }
 );
-const db = connection;
+const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
-db.once("open", function() {
+db.once("open", () => {
   console.log("connected mongoose");
 });
 

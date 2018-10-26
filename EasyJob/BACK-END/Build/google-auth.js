@@ -37,14 +37,15 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var client_auth_1 = require("./client-auth");
 var passport_1 = require("passport");
-var jsonwebtoken_1 = require("jsonwebtoken");
+var passport = require("passport");
+var jwt = require("jsonwebtoken");
 var client_auth_2 = require("./client-auth");
-var passport_google_oauth2_1 = require("passport-google-oauth2");
+var gooogleStrategy = require("passport-google-oauth2");
 var user_schema_1 = require("./Models/user-schema");
-passport_1.serializeUser(function (userId, done) {
+passport.serializeUser(function (userId, done) {
     done(null, userId);
 });
-passport_1.deserializeUser(function (id, done) {
+passport.deserializeUser(function (id, done) {
     user_schema_1.userModel.findById(id).then(function (user) {
         done(null, user);
     });
@@ -54,7 +55,7 @@ var candidate_employer = function (req, res, next) {
     req.session = query;
     next();
 };
-passport_1.use(new passport_google_oauth2_1.Strategy({
+passport_1.use(new gooogleStrategy.Strategy({
     clientID: client_auth_1.GOOGLE_CLIENT.client_id,
     clientSecret: client_auth_1.GOOGLE_CLIENT.client_secret,
     callbackURL: client_auth_1.GOOGLE_CLIENT.redirect_uris[0]
@@ -80,7 +81,7 @@ passport_1.use(new passport_google_oauth2_1.Strategy({
                         jwt: ""
                     };
                     addedUser = user_schema_1.createUserGoogle(user);
-                    token = jsonwebtoken_1.sign({ addedUser: addedUser }, client_auth_2.JWT_SECRET_KEY.key);
+                    token = jwt.sign({ addedUser: addedUser }, client_auth_2.JWT_SECRET_KEY.key);
                     addedUser.jwt = token;
                     return [4 /*yield*/, addedUser.save()];
                 case 3:

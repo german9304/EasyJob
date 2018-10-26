@@ -4,10 +4,12 @@
 
 import { Request, Response, NextFunction } from "express";
 import { authenticate } from "passport";
+import * as passport from "passport";
 
 import "./google-auth";
+import * as express from "express";
 import { Router } from "express";
-const router: Router = Router();
+const router: Router = express.Router();
 
 import { userModel, createUser, findUserById } from "./Models/user-schema";
 
@@ -21,14 +23,14 @@ router.get(
 
 router.get(
   "/google",
-  authenticate("google", {
+  passport.authenticate("google", {
     scope: ["profile", "email"]
   })
 );
 
 router.get(
   "/google/redirect",
-  authenticate("google"),
+  passport.authenticate("google"),
   (req: Request, res: Response, next: NextFunction): void => {
     //console.log("redirect out");
     //  console.log("req user: ", req.user);
@@ -39,7 +41,7 @@ router.get(
 
 router.post(
   "/create/user",
-  authenticate("createUser"),
+  passport.authenticate("createUser"),
   (req: Request, res: Response): void => {
     // console.log(req.authInfo);
     const { user: id } = req;
@@ -53,7 +55,7 @@ router.post(
 
 router.post(
   "/login",
-  authenticate("loginUser"),
+  passport.authenticate("loginUser"),
   (req: Request, res: Response): void => {
     // console.log(req.body);
     try {

@@ -1,10 +1,10 @@
-// import * as mongoose from "mongoose";
+import * as mongoose from "mongoose";
 import { model, Schema, Document, Model } from "mongoose";
 import { Fields, Field, Education, Experience, FieldModel } from "./fields";
-import db from "./db-connection";
+// import db from "./db-connection";
 import { User } from "../user";
 
-const experienceSchema: Schema = new Schema(
+const experienceSchema: Schema = new mongoose.Schema(
   {
     user: {
       _id: String
@@ -18,7 +18,7 @@ const experienceSchema: Schema = new Schema(
   { collection: "experience", versionKey: false }
 );
 
-const educationSchema: Schema = new Schema(
+const educationSchema: Schema = new mongoose.Schema(
   {
     user: {
       _id: String
@@ -32,12 +32,12 @@ const educationSchema: Schema = new Schema(
   { collection: "education", versionKey: false }
 );
 
-const userEducation: Model<FieldModel> = model<FieldModel>(
+const userEducation: Model<FieldModel> = mongoose.model<FieldModel>(
   "education",
   educationSchema
 );
 
-const userExperience: Model<FieldModel> = model<FieldModel>(
+const userExperience: Model<FieldModel> = mongoose.model<FieldModel>(
   "experience",
   experienceSchema
 );
@@ -78,8 +78,35 @@ const educationModel = ({
   });
 };
 
+const updateEducationField = (
+  model: FieldModel,
+  { school, degree, majorField, date, description }: Field
+): FieldModel => {
+  return model.set({
+    school,
+    degree,
+    majorField,
+    date,
+    description
+  });
+};
+const updateExperienceField = (
+  model: FieldModel,
+  { position, company, location, date, description }: Field
+): FieldModel => {
+  return model.set({
+    position,
+    company,
+    location,
+    date,
+    description
+  });
+};
+
 interface fieldFunction {
   (field: Field): FieldModel;
+}
+interface updateModelFunction {
   (model: FieldModel, {  }: Field): FieldModel;
 }
 const createCandidateField = async (
@@ -91,6 +118,7 @@ const createCandidateField = async (
     const { _id } = user;
     const newField: FieldModel = model(field);
     newField.user = { _id };
+    console.log(newField);
     return await newField.save();
   } catch (err) {
     console.error(err);
@@ -104,46 +132,21 @@ const user: User = {
 };
 
 const updateCandidateField = async (
-  user: User,
+  _id: string,
   field: Field,
   model: Model<FieldModel>,
-  updateModel: fieldFunction
+  updateModel: updateModelFunction
 ): Promise<FieldModel> => {
   try {
-    const { _id } = user;
     const findField: FieldModel = await model.findById(_id);
-    const updatedField: FieldModel = updateModel(findField, field);
-    return updatedField;
+    if (findField) {
+      const updatedField: FieldModel = updateModel(findField, field);
+      return await updatedField.save();
+    }
+    return findField;
   } catch (err) {
     console.error(err);
   }
-};
-
-const updatEducationField = (
-  model: FieldModel,
-  { user, school, degree, majorField, date, description }: Field
-): FieldModel => {
-  return model.set({
-    user,
-    school,
-    degree,
-    majorField,
-    date,
-    description
-  });
-};
-const updatExperienceField = (
-  model: FieldModel,
-  { user, position, company, location, date, description }: Field
-): FieldModel => {
-  return model.set({
-    user,
-    position,
-    company,
-    location,
-    date,
-    description
-  });
 };
 
 // const createCandidateFieldEducation = async (
@@ -318,8 +321,11 @@ export {
   educationModel,
   createCandidateField,
   updateCandidateField,
+  updateEducationField,
+  updateExperienceField,
   userEducation,
   userExperience,
-  candidateFields
+  candidateFields,
+  updateModelFunction
   //   getExperience
 };

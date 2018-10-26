@@ -7,9 +7,12 @@ require("./create-account-auth");
 require("./jwt-auth");
 var jobs_Schema_1 = require("./Models/jobs-Schema");
 var passport = require("passport");
+var passport_1 = require("passport");
+require("./Models/db-connection");
 var app = express();
 var auth_server_1 = require("./auth-server");
 var post_fields_1 = require("./crud-fields/post.fields");
+var put_fields_1 = require("./crud-fields/put.fields");
 app.use(cookieSession({
     name: "session",
     keys: [client_auth_1.SECRET_KEY.key],
@@ -19,7 +22,7 @@ app.use(express.json());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use("/auth", auth_server_1.default);
-app.use("/api/fields", post_fields_1.default);
+app.use("/api/fields", post_fields_1.default, put_fields_1.default);
 app.get("/", function (req, res) {
     res.send("home");
 });
@@ -63,7 +66,7 @@ app.get("/api/candidate/jobs", function (req, res) {
         res.json(data);
     });
 });
-app.get("/jwt", passport.authenticate("jwt", { session: false }), function (req, res) {
+app.get("/jwt", passport_1.authenticate("jwt", { session: false }), function (req, res) {
     res.send("data");
 });
 app.post("/api/post/job", function (req, res) { });

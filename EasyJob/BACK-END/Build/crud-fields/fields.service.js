@@ -38,17 +38,15 @@ var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
 var user_fields_schema_1 = require("../Models/user-fields-schema");
 var createField = function (model) { return function (req, res) { return __awaiter(_this, void 0, void 0, function () {
-    var user, field, newField, err_1;
+    var user, body, field, err_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                user = req.user, field = req.body;
-                console.log(field);
-                console.log(user);
-                return [4 /*yield*/, user_fields_schema_1.createCandidateField(user, field, model)];
+                user = req.user, body = req.body;
+                return [4 /*yield*/, user_fields_schema_1.createCandidateField(user, body, model)];
             case 1:
-                newField = _a.sent();
+                field = _a.sent();
                 return [2 /*return*/, res.json({ field: field })];
             case 2:
                 err_1 = _a.sent();
@@ -59,9 +57,35 @@ var createField = function (model) { return function (req, res) { return __await
     });
 }); }; };
 exports.createField = createField;
+var updateField = function (model, updateFunction) { return function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+    var user, body, params, id, field, err_2;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                user = req.user, body = req.body, params = req.params;
+                id = params.id;
+                return [4 /*yield*/, user_fields_schema_1.updateCandidateField(id, body, model, updateFunction)];
+            case 1:
+                field = _a.sent();
+                //console.log(body);
+                if (field) {
+                    return [2 /*return*/, res.json({ field: field })];
+                }
+                else {
+                    return [2 /*return*/, res.status(404).json({ "not found": "not found" })];
+                }
+                return [3 /*break*/, 3];
+            case 2:
+                err_2 = _a.sent();
+                console.error(err_2);
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); }; };
+exports.updateField = updateField;
 var deleteField = function (model) { return function (req, res) { }; };
 exports.deleteField = deleteField;
-var updateField = function (model) { return function (req, res) { }; };
-exports.updateField = updateField;
 var getFields = function (req, res) { };
 exports.getFields = getFields;

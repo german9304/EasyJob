@@ -5,12 +5,15 @@ import "./create-account-auth";
 import "./jwt-auth";
 import { categoryModel, jobSearch } from "./Models/jobs-Schema";
 import * as passport from "passport";
+import { session, initialize, authenticate } from "passport";
+import "./Models/db-connection";
 const app = express();
 import auth from "./auth-server";
 import { appRoutes } from "./user-fields-server";
 import { userModel, createUser, findUserById } from "./Models/user-schema";
 import { Request, Response } from "express";
 import crudField from "./crud-fields/post.fields";
+import putField from "./crud-fields/put.fields";
 app.use(
   cookieSession({
     name: "session",
@@ -24,7 +27,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use("/auth", auth);
-app.use("/api/fields", crudField);
+app.use("/api/fields", crudField, putField);
 
 app.get("/", (req, res) => {
   res.send("home");
@@ -78,13 +81,9 @@ app.get(
   }
 );
 
-app.get(
-  "/jwt",
-  passport.authenticate("jwt", { session: false }),
-  (req, res) => {
-    res.send("data");
-  }
-);
+app.get("/jwt", authenticate("jwt", { session: false }), (req, res) => {
+  res.send("data");
+});
 
 app.post("/api/post/job", (req, res) => {});
 

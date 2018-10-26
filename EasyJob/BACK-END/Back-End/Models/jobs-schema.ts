@@ -1,6 +1,6 @@
 import * as mongoose from "mongoose";
 import { Schema } from "mongoose";
-import db from "./db-connection";
+// import db from "./db-connection";
 import * as cheerio from "cheerio";
 import * as request from "request";
 import * as rp from "request-promise";

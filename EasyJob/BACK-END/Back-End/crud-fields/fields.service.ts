@@ -11,7 +11,8 @@ import {
   userExperience,
   experienceModel,
   educationModel,
-  fieldFunction
+  fieldFunction,
+  updateModelFunction
 } from "../Models/user-fields-schema";
 import {
   Fields,
@@ -21,16 +22,15 @@ import {
   FieldModel
 } from "../Models/fields";
 import { User } from "../user";
+import { Model } from "mongoose";
 
 const createField = (model: fieldFunction) => async (
   req: Request,
   res: Response
 ): Promise<Response> => {
   try {
-    const { user, body: field } = req;
-    console.log(field);
-    console.log(user);
-    const newField: Field = await createCandidateField(user, field, model);
+    const { user, body } = req;
+    const field: FieldModel = await createCandidateField(user, body, model);
     return res.json({ field });
   } catch (err) {
     console.error(err);
@@ -38,12 +38,31 @@ const createField = (model: fieldFunction) => async (
   }
 };
 
-const deleteField = (model: fieldFunction) => (
-  req: Request,
-  res: Response
-) => {};
+const updateField = (
+  model: Model<FieldModel>,
+  updateFunction: updateModelFunction
+) => async (req: Request, res: Response): Promise<Response> => {
+  try {
+    const { user, body, params } = req;
+    const { id } = params;
+    const field: FieldModel = await updateCandidateField(
+      id,
+      body,
+      model,
+      updateFunction
+    );
+    //console.log(body);
+    if (field) {
+      return res.json({ field });
+    } else {
+      return res.status(404).json({ "not found": "not found" });
+    }
+  } catch (err) {
+    console.error(err);
+  }
+};
 
-const updateField = (model: fieldFunction) => (
+const deleteField = (model: fieldFunction) => (
   req: Request,
   res: Response
 ) => {};

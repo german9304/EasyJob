@@ -9,7 +9,7 @@ var router = express_1.Router();
 var experienceField = fields_service_1.createField(user_fields_schema_1.experienceModel);
 var educationField = fields_service_1.createField(user_fields_schema_1.educationModel);
 /*
-* Http Method:  Post
+* Http Method:  POST
 * Create New Field, Education, Experience
 */
 router.post("/experience", passport_1.authenticate("jwt", { session: false }), experienceField);
