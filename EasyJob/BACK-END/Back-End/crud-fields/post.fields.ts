@@ -1,20 +1,14 @@
 import { Router } from "express";
-import { userModel, createUser, findUserById } from "../Models/user-schema";
-import { Response, Request, IRouter } from "express";
-import { Experience, Education, Field } from "../Models/fields";
-import {
-  userEducation,
-  educationModel,
-  experienceModel
-} from "../Models/user-fields-schema";
+import { educationModel, experienceModel } from "../Models/user-fields-schema";
 import { createField } from "./fields.service";
 import { authenticate } from "passport";
+import { responseRequest } from "../response";
 import "../jwt-auth";
 
 const router: Router = Router();
 
-const experienceField = createField(experienceModel);
-const educationField = createField(educationModel);
+const experienceField: responseRequest = createField(experienceModel);
+const educationField: responseRequest = createField(educationModel);
 /*
 * Http Method:  POST
 * Create New Field, Education, Experience

@@ -109,6 +109,11 @@ interface fieldFunction {
 interface updateModelFunction {
   (model: FieldModel, {  }: Field): FieldModel;
 }
+
+/*
+*  Create field
+*
+*/
 const createCandidateField = async (
   user: User,
   field: Field,
@@ -118,19 +123,17 @@ const createCandidateField = async (
     const { _id } = user;
     const newField: FieldModel = model(field);
     newField.user = { _id };
-    console.log(newField);
+    // console.log(newField);
     return await newField.save();
   } catch (err) {
     console.error(err);
   }
 };
 
-const user: User = {
-  jwt: "1",
-  email: "2",
-  _id: "23"
-};
-
+/*
+*  Update  field
+*
+*/
 const updateCandidateField = async (
   _id: string,
   field: Field,
@@ -149,146 +152,31 @@ const updateCandidateField = async (
   }
 };
 
-// const createCandidateFieldEducation = async (
-//   user: User,
-//   field: Field
-// ): Promise<Field> => {
-//   try {
-//     const education: Field = educationModel(field);
-//     return await education.save();
-//   } catch (err) {
-//     console.error(err);
-//   }
-// };
+/*
+*  Error Checking when delete field
+*
+*/
+const err: (err: any) => void = err => {
+  if (err) console.error(err);
+  console.log("successful");
+};
 
-// const deleteCandidateField = (
-//   user: User,
-//   field: Field,
-//   is: boolean
-// ): void => {};
+/*
+*  Delete  field
+*
+*/
+const deleteCandidateField = async (_id: string, model: Model<FieldModel>) => {
+  try {
+    const findField: FieldModel = await model.findById(_id);
+    if (findField) {
+      model.deleteOne({ _id }, err);
+    }
+    return findField;
+  } catch (err) {
+    console.error(err);
+  }
+};
 
-// const createFieldModel = ({ _id }, field: Field, is: boolean): Field => {
-//   // const { _id } = user;
-//   if (is) {
-//     const { position, company, location, date, description } = field;
-//     const user = {
-//       _id
-//     };
-//     const modelField: Field = {
-//       user,
-//       position,
-//       company,
-//       location,
-//       date,
-//       description
-//     } as Field;
-//     experieceModel(modelField);
-//   }
-//   const { school, degree, majorField, date, description } = field;
-//   return new userEducation({
-//     user: {
-//       _id
-//     },
-//     school,
-//     degree,
-//     majorField,
-//     date,
-//     description
-//   });
-// };
-// const createExperience = async (
-//   user,
-//   fields: Experience
-// ): Promise<Experience> => {
-//   const { _id } = user;
-//   const { position, company, location, date, description } = fields;
-//   console.log(fields);
-//   const experience: Experience = new userExperience({
-//     user: {
-//       _id
-//     },
-//     position,
-//     company,
-//     location,
-//     date,
-//     description
-//   });
-
-//   try {
-//     const field: Experience = await experience.save();
-//     return field;
-//   } catch (err) {
-//     console.log(err);
-//   }
-// };
-// const editExperience = async (
-//   _id: string,
-//   data: Experience
-// ): Promise<Experience> => {
-//   //console.log("id inside: ", _id);
-//   // console.log("data: ", data);
-//   try {
-//     const experience = await userExperience.findById(_id);
-//     if (experience) {
-//       const { position, company, location, date, description } = data;
-//       console.log(`EXPERIENCE BEFORE: ${experience}`);
-//       experience.set({
-//         position,
-//         company,
-//         location,
-//         date,
-//         description
-//       });
-//       const resultExperience: Experience = await experience.save();
-//       return resultExperience;
-//       //console.log(`EXPERIENCE AFTER: ${experience}`);
-//     }
-//     return experience;
-//   } catch (err) {
-//     console.log(err);
-//     return err;
-//   }
-// };
-
-// const deleteExperience = async (_id): Promise<Experience> => {
-//   try {
-//     const experience: Experience = await userExperience.findById(_id);
-//     if (experience) {
-//       userExperience.deleteOne({ _id }, err => {
-//         if (err) console.error(err);
-//         console.log("successful");
-//       });
-//     }
-//     console.log(experience);
-//     return experience;
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
-
-// const createEducation = async (user, fields: Education): Promise<Education> => {
-//   const { _id } = user;
-//   const { school, degree, majorField, date, description } = fields;
-//   console.log(`before id ${_id}  ${JSON.stringify(user)}`);
-//   const education = new userEducation({
-//     user: {
-//       _id
-//     },
-//     school,
-//     degree,
-//     majorField,
-//     date,
-//     description
-//   });
-//   try {
-//     const field: Education = await education.save();
-//     console.log(`sucess: ${field}`);
-//     return field;
-//   } catch (err) {
-//     console.log(err);
-//     return err;
-//   }
-// };
 const candidateFields = async (id: string): Promise<Fields> => {
   const education: Array<Education> = await userEducation.find({
     user: { _id: `${id}` }
@@ -310,16 +198,11 @@ const candidateFields = async (id: string): Promise<Fields> => {
 //   }
 // };
 export {
-  //   experienceSchema,
-  //   educationSchema,
-  //   createExperience,
-  //   editExperience,
-  //   deleteExperience,
-  //   createEducation,
   fieldFunction,
   experienceModel,
   educationModel,
   createCandidateField,
+  deleteCandidateField,
   updateCandidateField,
   updateEducationField,
   updateExperienceField,

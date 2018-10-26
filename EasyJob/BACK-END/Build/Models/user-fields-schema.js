@@ -107,6 +107,10 @@ var updateExperienceField = function (model, _a) {
     });
 };
 exports.updateExperienceField = updateExperienceField;
+/*
+*  Create field
+*
+*/
 var createCandidateField = function (user, field, model) { return __awaiter(_this, void 0, void 0, function () {
     var _id, newField, err_1;
     return __generator(this, function (_a) {
@@ -116,9 +120,10 @@ var createCandidateField = function (user, field, model) { return __awaiter(_thi
                 _id = user._id;
                 newField = model(field);
                 newField.user = { _id: _id };
-                console.log(newField);
                 return [4 /*yield*/, newField.save()];
-            case 1: return [2 /*return*/, _a.sent()];
+            case 1: 
+            // console.log(newField);
+            return [2 /*return*/, _a.sent()];
             case 2:
                 err_1 = _a.sent();
                 console.error(err_1);
@@ -128,11 +133,10 @@ var createCandidateField = function (user, field, model) { return __awaiter(_thi
     });
 }); };
 exports.createCandidateField = createCandidateField;
-var user = {
-    jwt: "1",
-    email: "2",
-    _id: "23"
-};
+/*
+*  Update  field
+*
+*/
 var updateCandidateField = function (_id, field, model, updateModel) { return __awaiter(_this, void 0, void 0, function () {
     var findField, updatedField, err_2;
     return __generator(this, function (_a) {
@@ -156,141 +160,41 @@ var updateCandidateField = function (_id, field, model, updateModel) { return __
     });
 }); };
 exports.updateCandidateField = updateCandidateField;
-// const createCandidateFieldEducation = async (
-//   user: User,
-//   field: Field
-// ): Promise<Field> => {
-//   try {
-//     const education: Field = educationModel(field);
-//     return await education.save();
-//   } catch (err) {
-//     console.error(err);
-//   }
-// };
-// const deleteCandidateField = (
-//   user: User,
-//   field: Field,
-//   is: boolean
-// ): void => {};
-// const createFieldModel = ({ _id }, field: Field, is: boolean): Field => {
-//   // const { _id } = user;
-//   if (is) {
-//     const { position, company, location, date, description } = field;
-//     const user = {
-//       _id
-//     };
-//     const modelField: Field = {
-//       user,
-//       position,
-//       company,
-//       location,
-//       date,
-//       description
-//     } as Field;
-//     experieceModel(modelField);
-//   }
-//   const { school, degree, majorField, date, description } = field;
-//   return new userEducation({
-//     user: {
-//       _id
-//     },
-//     school,
-//     degree,
-//     majorField,
-//     date,
-//     description
-//   });
-// };
-// const createExperience = async (
-//   user,
-//   fields: Experience
-// ): Promise<Experience> => {
-//   const { _id } = user;
-//   const { position, company, location, date, description } = fields;
-//   console.log(fields);
-//   const experience: Experience = new userExperience({
-//     user: {
-//       _id
-//     },
-//     position,
-//     company,
-//     location,
-//     date,
-//     description
-//   });
-//   try {
-//     const field: Experience = await experience.save();
-//     return field;
-//   } catch (err) {
-//     console.log(err);
-//   }
-// };
-// const editExperience = async (
-//   _id: string,
-//   data: Experience
-// ): Promise<Experience> => {
-//   //console.log("id inside: ", _id);
-//   // console.log("data: ", data);
-//   try {
-//     const experience = await userExperience.findById(_id);
-//     if (experience) {
-//       const { position, company, location, date, description } = data;
-//       console.log(`EXPERIENCE BEFORE: ${experience}`);
-//       experience.set({
-//         position,
-//         company,
-//         location,
-//         date,
-//         description
-//       });
-//       const resultExperience: Experience = await experience.save();
-//       return resultExperience;
-//       //console.log(`EXPERIENCE AFTER: ${experience}`);
-//     }
-//     return experience;
-//   } catch (err) {
-//     console.log(err);
-//     return err;
-//   }
-// };
-// const deleteExperience = async (_id): Promise<Experience> => {
-//   try {
-//     const experience: Experience = await userExperience.findById(_id);
-//     if (experience) {
-//       userExperience.deleteOne({ _id }, err => {
-//         if (err) console.error(err);
-//         console.log("successful");
-//       });
-//     }
-//     console.log(experience);
-//     return experience;
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
-// const createEducation = async (user, fields: Education): Promise<Education> => {
-//   const { _id } = user;
-//   const { school, degree, majorField, date, description } = fields;
-//   console.log(`before id ${_id}  ${JSON.stringify(user)}`);
-//   const education = new userEducation({
-//     user: {
-//       _id
-//     },
-//     school,
-//     degree,
-//     majorField,
-//     date,
-//     description
-//   });
-//   try {
-//     const field: Education = await education.save();
-//     console.log(`sucess: ${field}`);
-//     return field;
-//   } catch (err) {
-//     console.log(err);
-//     return err;
-//   }
-// };
+/*
+*  Error Checking when delete field
+*
+*/
+var err = function (err) {
+    if (err)
+        console.error(err);
+    console.log("successful");
+};
+/*
+*  Delete  field
+*
+*/
+var deleteCandidateField = function (_id, model) { return __awaiter(_this, void 0, void 0, function () {
+    var findField, err_3;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                return [4 /*yield*/, model.findById(_id)];
+            case 1:
+                findField = _a.sent();
+                if (findField) {
+                    model.deleteOne({ _id: _id }, err);
+                }
+                return [2 /*return*/, findField];
+            case 2:
+                err_3 = _a.sent();
+                console.error(err_3);
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };
+exports.deleteCandidateField = deleteCandidateField;
 var candidateFields = function (id) { return __awaiter(_this, void 0, void 0, function () {
     var education, experience;
     return __generator(this, function (_a) {

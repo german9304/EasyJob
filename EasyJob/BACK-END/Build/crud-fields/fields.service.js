@@ -58,7 +58,7 @@ var createField = function (model) { return function (req, res) { return __await
 }); }; };
 exports.createField = createField;
 var updateField = function (model, updateFunction) { return function (req, res) { return __awaiter(_this, void 0, void 0, function () {
-    var user, body, params, id, field, err_2;
+    var user, body, params, id, field, err, err_2;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -68,12 +68,12 @@ var updateField = function (model, updateFunction) { return function (req, res) 
                 return [4 /*yield*/, user_fields_schema_1.updateCandidateField(id, body, model, updateFunction)];
             case 1:
                 field = _a.sent();
-                //console.log(body);
                 if (field) {
                     return [2 /*return*/, res.json({ field: field })];
                 }
                 else {
-                    return [2 /*return*/, res.status(404).json({ "not found": "not found" })];
+                    err = "not found";
+                    return [2 /*return*/, res.status(404).json({ err: err })];
                 }
                 return [3 /*break*/, 3];
             case 2:
@@ -85,7 +85,31 @@ var updateField = function (model, updateFunction) { return function (req, res) 
     });
 }); }; };
 exports.updateField = updateField;
-var deleteField = function (model) { return function (req, res) { }; };
+var deleteField = function (model) { return function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+    var user, params, id, deleteField_1, err, err_3;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                user = req.user, params = req.params;
+                id = params.id;
+                console.log(id);
+                return [4 /*yield*/, user_fields_schema_1.deleteCandidateField(id, model)];
+            case 1:
+                deleteField_1 = _a.sent();
+                if (deleteField_1) {
+                    return [2 /*return*/, res.json({ sucess: true })];
+                }
+                err = "not found";
+                return [2 /*return*/, res.status(404).json({ err: err })];
+            case 2:
+                err_3 = _a.sent();
+                console.error(err_3);
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); }; };
 exports.deleteField = deleteField;
 var getFields = function (req, res) { };
 exports.getFields = getFields;
