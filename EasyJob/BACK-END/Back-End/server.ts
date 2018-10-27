@@ -9,9 +9,6 @@ import { session, initialize, authenticate } from "passport";
 import "./Models/db-connection";
 import auth from "./auth-server";
 import { Request, Response } from "express";
-// import postField from "./crud-candidate-fields/post.fields";
-// import putField from "./crud-candidate-fields/put.fields";
-// import delField from "./crud-candidate-fields/delete.fields";
 import crudFields from "./crud-candidate-fields/crud.operations.fields";
 const app = express();
 app.use(

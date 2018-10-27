@@ -9,7 +9,14 @@ import {
 
 import { authenticate } from "passport";
 import { responseRequest } from "../response";
-import { createField, updateField, deleteField } from "./fields.service";
+import {
+  createField,
+  updateField,
+  deleteField,
+  getCandidateFields,
+  getFieldById,
+  getField
+} from "./fields.service";
 
 import "../jwt-auth";
 import { Router } from "express";
@@ -21,15 +28,23 @@ const router: Router = Router();
 * GET Field, Education, Experience
 */
 
-router.get("/experience", authenticate("jwt"));
+const experienceFieldById: responseRequest = getFieldById(userExperience);
 
-router.get("/education", authenticate("jwt"));
+const educationFieldById: responseRequest = getFieldById(userEducation);
 
-router.get("/experience/:id", authenticate("jwt"));
+const experienceField: responseRequest = getField(userExperience);
 
-router.get("/education/:id", authenticate("jwt"));
+const educationField: responseRequest = getField(userEducation);
 
-router.get("/fields");
+router.get("/experience", experienceField);
+
+router.get("/education", educationField);
+
+router.get("/experience/:id", experienceFieldById);
+
+router.get("/education/:id", educationFieldById);
+
+router.get("/candidate", getCandidateFields);
 
 /*
 * Http Method:  POST
@@ -81,8 +96,16 @@ const deleteExperience: responseRequest = deleteField(userExperience);
 
 const deleteEducation: responseRequest = deleteField(userEducation);
 
-router.delete("/experience/:id", authenticate("jwt"), deleteExperience);
+router.delete(
+  "/experience/:id",
+  authenticate("jwt", { session: false }),
+  deleteExperience
+);
 
-router.delete("/education/:id", authenticate("jwt"), deleteEducation);
+router.delete(
+  "/education/:id",
+  authenticate("jwt", { session: false }),
+  deleteEducation
+);
 
 export default router;

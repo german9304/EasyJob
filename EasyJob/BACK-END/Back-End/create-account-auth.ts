@@ -3,9 +3,7 @@ import { serializeUser, deserializeUser, use } from "passport";
 import * as JWT from "jsonwebtoken";
 import { Strategy } from "passport-local";
 import { JWT_SECRET_KEY } from "./client-auth";
-import { userModel, createUser, findUserById } from "./Models/user-schema";
-
-import * as express from "express";
+import { userModel, createUser } from "./Models/user-schema";
 
 // const localStrategy = LocalStrategy.Strategy;
 serializeUser(function(userId, done) {
@@ -66,6 +64,9 @@ use(
     },
     function(email, password, done) {
       userModel.findOne({ email }, async function(err, user): Promise<any> {
+        if (err) {
+          console.error(err);
+        }
         if (!user) {
           return done(null, false);
         }

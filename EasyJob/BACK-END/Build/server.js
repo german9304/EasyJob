@@ -10,9 +10,6 @@ var passport = require("passport");
 var passport_1 = require("passport");
 require("./Models/db-connection");
 var auth_server_1 = require("./auth-server");
-// import postField from "./crud-candidate-fields/post.fields";
-// import putField from "./crud-candidate-fields/put.fields";
-// import delField from "./crud-candidate-fields/delete.fields";
 var crud_operations_fields_1 = require("./crud-candidate-fields/crud.operations.fields");
 var app = express();
 app.use(cookieSession({

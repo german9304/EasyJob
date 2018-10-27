@@ -37,6 +37,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
 var mongoose = require("mongoose");
+// import { genSalt, hash, compare } from "bcrypt";
 var bycrpt = require("bcrypt");
 var SALT_ROUNDS = 10;
 // interface IUserModel extends IUser, Document {
@@ -161,7 +162,7 @@ exports.findUserById = findUserById;
 var findUserName = function (_a) {
     var email = _a.email, password = _a.password;
     return __awaiter(_this, void 0, void 0, function () {
-        var usr, hash_1, res, err_2;
+        var usr, hash, res, err_2;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
@@ -170,8 +171,8 @@ var findUserName = function (_a) {
                 case 1:
                     usr = _b.sent();
                     if (!usr) return [3 /*break*/, 3];
-                    hash_1 = usr.password;
-                    return [4 /*yield*/, usr.comparePasswords(password, hash_1)];
+                    hash = usr.password;
+                    return [4 /*yield*/, usr.comparePasswords(password, hash)];
                 case 2:
                     res = _b.sent();
                     console.log(usr, res);

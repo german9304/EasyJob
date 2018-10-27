@@ -217,3 +217,44 @@ var candidateFields = function (id) { return __awaiter(_this, void 0, void 0, fu
     });
 }); };
 exports.candidateFields = candidateFields;
+var candidateFieldById = function (id, model) {
+    if (id === void 0) { id = ""; }
+    return __awaiter(_this, void 0, void 0, function () {
+        var field, err_4;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 2, , 3]);
+                    return [4 /*yield*/, model.findById(id)];
+                case 1:
+                    field = _a.sent();
+                    return [2 /*return*/, field];
+                case 2:
+                    err_4 = _a.sent();
+                    console.log(err_4);
+                    return [3 /*break*/, 3];
+                case 3: return [2 /*return*/];
+            }
+        });
+    });
+};
+exports.candidateFieldById = candidateFieldById;
+var candidateField = function (model) { return __awaiter(_this, void 0, void 0, function () {
+    var field, err_5;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                return [4 /*yield*/, model.find({})];
+            case 1:
+                field = _a.sent();
+                return [2 /*return*/, field];
+            case 2:
+                err_5 = _a.sent();
+                console.error(err_5);
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };
+exports.candidateField = candidateField;

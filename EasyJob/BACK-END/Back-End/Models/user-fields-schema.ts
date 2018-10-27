@@ -189,14 +189,28 @@ const candidateFields = async (id: string): Promise<Fields> => {
     experience
   };
 };
-// const getExperience = async (id: string): Promise<Experience> => {
-//   try {
-//     const experience: Experience = await userExperience.findById(id);
-//     return experience;
-//   } catch (err) {
-//     console.log(err);
-//   }
-// };
+const candidateFieldById = async (
+  id: string = "",
+  model: Model<FieldModel>
+): Promise<Field> => {
+  try {
+    const field: Field = await model.findById(id);
+    return field;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const candidateField = async (
+  model: Model<FieldModel>
+): Promise<Array<Field>> => {
+  try {
+    const field: Array<Field> = await model.find({});
+    return field;
+  } catch (err) {
+    console.error(err);
+  }
+};
 export {
   fieldFunction,
   experienceModel,
@@ -209,6 +223,7 @@ export {
   userEducation,
   userExperience,
   candidateFields,
-  updateModelFunction
-  //   getExperience
+  updateModelFunction,
+  candidateFieldById,
+  candidateField
 };

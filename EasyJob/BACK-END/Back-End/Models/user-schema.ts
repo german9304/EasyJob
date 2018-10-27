@@ -1,5 +1,5 @@
 import * as mongoose from "mongoose";
-import { genSalt, hash, compare } from "bcrypt";
+// import { genSalt, hash, compare } from "bcrypt";
 import * as bycrpt from "bcrypt";
 import { Document, Schema, model, Model } from "mongoose";
 import { User, GoogleUser } from "../user";

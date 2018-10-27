@@ -66,7 +66,7 @@ export class CandidateFieldsService implements OnInit {
   updateExperience(id: string, experience: EXPERIENCE): Observable<EXPERIENCE> {
     return this.http
       .put<EXPERIENCE>(
-        `/api/fields/experience?id=${id}`,
+        `/api/fields/experience/${id}`,
         experience,
         this.httpOptions
       )
@@ -82,7 +82,7 @@ export class CandidateFieldsService implements OnInit {
   * Get Experience
   */
   getExperience(id: string): Observable<EXPERIENCE> {
-    return this.http.get<EXPERIENCE>(`/api/fields/experience?id=${id}`).pipe(
+    return this.http.get<EXPERIENCE>(`/api/fields/experience/${id}`).pipe(
       tap(data => console.log(`experience: ${data}`)),
       catchError(error => {
         console.log(`the error is ${error}`);
@@ -98,7 +98,7 @@ export class CandidateFieldsService implements OnInit {
   */
   deleteExperience(id: string): Observable<{}> {
     return this.http
-      .delete<{}>(`/api/fields/experience?id=${id}`, this.httpOptions)
+      .delete<{}>(`/api/fields/experience/${id}`, this.httpOptions)
       .pipe(
         tap(data => console.log(`experience: ${data}`)),
         catchError(error => {
@@ -120,6 +120,34 @@ export class CandidateFieldsService implements OnInit {
         catchError(error => {
           console.log(`the error is ${error}`);
           return of(error);
+        })
+      );
+  }
+
+  updateEducation(id: string, experience: EXPERIENCE): Observable<EXPERIENCE> {
+    return this.http
+      .put<EXPERIENCE>(
+        `/api/fields/education/${id}`,
+        experience,
+        this.httpOptions
+      )
+      .pipe(
+        tap(data => console.log(`education: ${data}`)),
+        catchError(error => {
+          console.log(`the error is ${error}`);
+          return this.handleError(error);
+        })
+      );
+  }
+
+  deleteEducation(id: string): Observable<{}> {
+    return this.http
+      .delete<{}>(`/api/fields/education/${id}`, this.httpOptions)
+      .pipe(
+        tap(data => console.log(`education: ${data}`)),
+        catchError(error => {
+          console.log(`the error is ${error}`);
+          return this.handleError(error);
         })
       );
   }

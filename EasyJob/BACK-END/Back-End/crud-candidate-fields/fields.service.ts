@@ -9,13 +9,13 @@ import {
   updateCandidateField,
   fieldFunction,
   updateModelFunction,
-  deleteCandidateField
+  deleteCandidateField,
+  candidateFields,
+  candidateFieldById,
+  candidateField
 } from "../Models/user-fields-schema";
-import { FieldModel } from "../Models/fields";
+import { FieldModel, Field } from "../Models/fields";
 import { Router } from "express";
-import postField from "./post.fields";
-import putField from "./put.fields";
-import delField from "./delete.fields";
 import { Model } from "mongoose";
 
 const createField = (model: fieldFunction) => async (
@@ -25,7 +25,7 @@ const createField = (model: fieldFunction) => async (
   try {
     const { user, body } = req;
     const field: FieldModel = await createCandidateField(user, body, model);
-    return res.json({ field });
+    return res.json(field);
   } catch (err) {
     console.error(err);
     return res.json(err);
@@ -46,7 +46,7 @@ const updateField = (
       updateFunction
     );
     if (field) {
-      return res.json({ field });
+      return res.json(field);
     } else {
       const err: string = "not found";
       return res.status(404).json({ err });
@@ -61,7 +61,7 @@ const deleteField = (model: Model<FieldModel>) => async (
   res: Response
 ): Promise<Response> => {
   try {
-    const { user, params } = req;
+    const { params } = req;
     const { id } = params;
     console.log(id);
     const deleteField: FieldModel = await deleteCandidateField(id, model);
@@ -75,6 +75,62 @@ const deleteField = (model: Model<FieldModel>) => async (
   }
 };
 
-const getFields = (req: Request, res: Response) => {};
+const getCandidateFields = async (
+  req: Request,
+  res: Response
+): Promise<Response> => {
+  try {
+    if (req.user) {
+      const { user } = req;
+      const { _id } = user;
+      const fields = await candidateFields(_id);
+      if (fields) {
+        const { education, experience } = fields;
+        return res.json({ education, experience });
+      }
+    }
+    const err: string = "not found";
+    return res.status(404).json({ err });
+  } catch (err) {
+    console.error(err);
+  }
+};
 
-export { getFields, createField, deleteField, updateField };
+const getFieldById = (model: Model<FieldModel>) => async (
+  req: Request,
+  res: Response
+): Promise<Response> => {
+  try {
+    const { id } = req.params;
+    // console.log(id);
+    const field: Field = await candidateFieldById(id, model);
+    if (field) {
+      return res.json(field);
+    }
+    const err: string = "not found";
+    return res.status(404).json({ err });
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+const getField = (model: Model<FieldModel>) => async (
+  req: Request,
+  res: Response
+): Promise<Response> => {
+  try {
+    const field: Array<Field> = await candidateField(model);
+    return res.json(field);
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+export {
+  getFieldById,
+  getCandidateFields,
+  createField,
+  deleteField,
+  updateField,
+  getField
+};

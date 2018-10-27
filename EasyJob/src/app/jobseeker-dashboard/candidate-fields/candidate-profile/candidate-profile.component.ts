@@ -60,11 +60,11 @@ export class CandidateProfileComponent implements OnInit {
 
   ngOnInit() {
     this.route.data.subscribe((data: { CandidateFields: FIELDS }) => {
-      console.log(data);
       if (data) {
         const {
           CandidateFields: { experience, education }
         } = data;
+        console.log(experience);
         this.fields.EXPERIENCE = List<EXPERIENCE>(experience);
         this.fields.EDUCATION = List<EDUCATION>(education);
       }

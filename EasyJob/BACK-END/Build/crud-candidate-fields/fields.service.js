@@ -47,7 +47,7 @@ var createField = function (model) { return function (req, res) { return __await
                 return [4 /*yield*/, user_fields_schema_1.createCandidateField(user, body, model)];
             case 1:
                 field = _a.sent();
-                return [2 /*return*/, res.json({ field: field })];
+                return [2 /*return*/, res.json(field)];
             case 2:
                 err_1 = _a.sent();
                 console.error(err_1);
@@ -69,7 +69,7 @@ var updateField = function (model, updateFunction) { return function (req, res) 
             case 1:
                 field = _a.sent();
                 if (field) {
-                    return [2 /*return*/, res.json({ field: field })];
+                    return [2 /*return*/, res.json(field)];
                 }
                 else {
                     err = "not found";
@@ -86,12 +86,12 @@ var updateField = function (model, updateFunction) { return function (req, res) 
 }); }; };
 exports.updateField = updateField;
 var deleteField = function (model) { return function (req, res) { return __awaiter(_this, void 0, void 0, function () {
-    var user, params, id, deleteField_1, err, err_3;
+    var params, id, deleteField_1, err, err_3;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                user = req.user, params = req.params;
+                params = req.params;
                 id = params.id;
                 console.log(id);
                 return [4 /*yield*/, user_fields_schema_1.deleteCandidateField(id, model)];
@@ -111,5 +111,75 @@ var deleteField = function (model) { return function (req, res) { return __await
     });
 }); }; };
 exports.deleteField = deleteField;
-var getFields = function (req, res) { };
-exports.getFields = getFields;
+var getCandidateFields = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+    var user, _id, fields, education, experience, err, err_4;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 3, , 4]);
+                if (!req.user) return [3 /*break*/, 2];
+                user = req.user;
+                _id = user._id;
+                return [4 /*yield*/, user_fields_schema_1.candidateFields(_id)];
+            case 1:
+                fields = _a.sent();
+                if (fields) {
+                    education = fields.education, experience = fields.experience;
+                    return [2 /*return*/, res.json({ education: education, experience: experience })];
+                }
+                _a.label = 2;
+            case 2:
+                err = "not found";
+                return [2 /*return*/, res.status(404).json({ err: err })];
+            case 3:
+                err_4 = _a.sent();
+                console.error(err_4);
+                return [3 /*break*/, 4];
+            case 4: return [2 /*return*/];
+        }
+    });
+}); };
+exports.getCandidateFields = getCandidateFields;
+var getFieldById = function (model) { return function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+    var id, field, err, err_5;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                id = req.params.id;
+                return [4 /*yield*/, user_fields_schema_1.candidateFieldById(id, model)];
+            case 1:
+                field = _a.sent();
+                if (field) {
+                    return [2 /*return*/, res.json(field)];
+                }
+                err = "not found";
+                return [2 /*return*/, res.status(404).json({ err: err })];
+            case 2:
+                err_5 = _a.sent();
+                console.error(err_5);
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); }; };
+exports.getFieldById = getFieldById;
+var getField = function (model) { return function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+    var field, err_6;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                return [4 /*yield*/, user_fields_schema_1.candidateField(model)];
+            case 1:
+                field = _a.sent();
+                return [2 /*return*/, res.json(field)];
+            case 2:
+                err_6 = _a.sent();
+                console.error(err_6);
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); }; };
+exports.getField = getField;

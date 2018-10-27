@@ -99,6 +99,9 @@ passport_1.use("loginUser", new passport_local_1.Strategy({
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        if (err) {
+                            console.error(err);
+                        }
                         if (!user) {
                             return [2 /*return*/, done(null, false)];
                         }

@@ -65,7 +65,7 @@ export class AuthService {
     // console.log(jwt);
     httpOptions.set("", "");
   }
-  createUserCredentials(user: USER): boolean | USER {
+  createUserCredentials(user: USER): USER {
     try {
       const { email, auth, jwt } = user;
       const usr = new USER("", email, auth, jwt);
@@ -78,7 +78,7 @@ export class AuthService {
       // this.HttpHeaders(httpOpts);
       return usr;
     } catch (error) {
-      return false;
+      console.error(error);
     }
   }
   getUserCredentials(): boolean | USER {
@@ -92,7 +92,7 @@ export class AuthService {
       return false;
       // return user;
     } catch (error) {
-      return false;
+      console.error(error);
     }
   }
   clearCredentials() {

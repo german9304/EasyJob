@@ -10,11 +10,15 @@ var router = express_1.Router();
 * Http Method:  GET
 * GET Field, Education, Experience
 */
-router.get("/experience", passport_1.authenticate("jwt"));
-router.get("/education", passport_1.authenticate("jwt"));
-router.get("/experience/:id", passport_1.authenticate("jwt"));
-router.get("/education/:id", passport_1.authenticate("jwt"));
-router.get("/fields");
+var experienceFieldById = fields_service_1.getFieldById(user_fields_schema_1.userExperience);
+var educationFieldById = fields_service_1.getFieldById(user_fields_schema_1.userEducation);
+var experienceField = fields_service_1.getField(user_fields_schema_1.userExperience);
+var educationField = fields_service_1.getField(user_fields_schema_1.userEducation);
+router.get("/experience", experienceField);
+router.get("/education", educationField);
+router.get("/experience/:id", experienceFieldById);
+router.get("/education/:id", educationFieldById);
+router.get("/candidate", fields_service_1.getCandidateFields);
 /*
 * Http Method:  POST
 * Create New Field, Education, Experience
@@ -37,6 +41,6 @@ router.put("/education/:id", passport_1.authenticate("jwt", { session: false }),
 */
 var deleteExperience = fields_service_1.deleteField(user_fields_schema_1.userExperience);
 var deleteEducation = fields_service_1.deleteField(user_fields_schema_1.userEducation);
-router.delete("/experience/:id", passport_1.authenticate("jwt"), deleteExperience);
-router.delete("/education/:id", passport_1.authenticate("jwt"), deleteEducation);
+router.delete("/experience/:id", passport_1.authenticate("jwt", { session: false }), deleteExperience);
+router.delete("/education/:id", passport_1.authenticate("jwt", { session: false }), deleteEducation);
 exports.default = router;
