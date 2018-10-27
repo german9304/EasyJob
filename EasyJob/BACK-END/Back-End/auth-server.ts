@@ -3,15 +3,13 @@
 */
 
 import { Request, Response, NextFunction } from "express";
-import { authenticate } from "passport";
 import * as passport from "passport";
-
-import "./google-auth";
 import * as express from "express";
+import "./google-auth";
 import { Router } from "express";
 const router: Router = express.Router();
 
-import { userModel, createUser, findUserById } from "./Models/user-schema";
+import { findUserById } from "./Models/user-schema";
 
 router.get(
   "/google",

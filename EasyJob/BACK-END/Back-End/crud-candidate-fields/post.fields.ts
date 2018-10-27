@@ -1,3 +1,8 @@
+/*
+* Http Method:  POST
+* Create New Field, Education, Experience
+*/
+
 import { Router } from "express";
 import { educationModel, experienceModel } from "../Models/user-fields-schema";
 import { createField } from "./fields.service";
@@ -9,10 +14,7 @@ const router: Router = Router();
 
 const experienceField: responseRequest = createField(experienceModel);
 const educationField: responseRequest = createField(educationModel);
-/*
-* Http Method:  POST
-* Create New Field, Education, Experience
-*/
+
 router.post(
   "/experience",
   authenticate("jwt", { session: false }),

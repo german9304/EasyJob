@@ -4,8 +4,8 @@
 */
 Object.defineProperty(exports, "__esModule", { value: true });
 var passport = require("passport");
-require("./google-auth");
 var express = require("express");
+require("./google-auth");
 var router = express.Router();
 var user_schema_1 = require("./Models/user-schema");
 router.get("/google", function (req, res, next) {

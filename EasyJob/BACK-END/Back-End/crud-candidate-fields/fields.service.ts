@@ -12,6 +12,10 @@ import {
   deleteCandidateField
 } from "../Models/user-fields-schema";
 import { FieldModel } from "../Models/fields";
+import { Router } from "express";
+import postField from "./post.fields";
+import putField from "./put.fields";
+import delField from "./delete.fields";
 import { Model } from "mongoose";
 
 const createField = (model: fieldFunction) => async (

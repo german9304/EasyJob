@@ -1,3 +1,7 @@
+/*
+* Http Method:  PUT
+* Update  Field, Education, Experience
+*/
 import * as passport from "passport";
 import { Router } from "express";
 import {
@@ -9,10 +13,6 @@ import {
 import { updateField } from "./fields.service";
 const router: Router = Router();
 
-/*
-* Http Method:  PUT
-* Update  Field, Education, Experience
-*/
 const eduModel = updateField(userEducation, updateEducationField);
 
 const expModel = updateField(userExperience, updateExperienceField);

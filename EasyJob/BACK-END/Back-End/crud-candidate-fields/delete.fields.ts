@@ -1,3 +1,7 @@
+/*
+* Http Method:  DELETE
+* Delete Field, Education, Experience
+*/
 import { Router } from "express";
 import * as passport from "passport";
 import { userEducation, userExperience } from "../Models/user-fields-schema";

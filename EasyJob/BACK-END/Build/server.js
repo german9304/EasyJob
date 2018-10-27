@@ -10,9 +10,10 @@ var passport = require("passport");
 var passport_1 = require("passport");
 require("./Models/db-connection");
 var auth_server_1 = require("./auth-server");
-var post_fields_1 = require("./crud-fields/post.fields");
-var put_fields_1 = require("./crud-fields/put.fields");
-var delete_fields_1 = require("./crud-fields/delete.fields");
+// import postField from "./crud-candidate-fields/post.fields";
+// import putField from "./crud-candidate-fields/put.fields";
+// import delField from "./crud-candidate-fields/delete.fields";
+var crud_operations_fields_1 = require("./crud-candidate-fields/crud.operations.fields");
 var app = express();
 app.use(cookieSession({
     name: "session",
@@ -23,7 +24,7 @@ app.use(express.json());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use("/auth", auth_server_1.default);
-app.use("/api/fields", [post_fields_1.default, put_fields_1.default, delete_fields_1.default]);
+app.use("/api/fields", crud_operations_fields_1.default);
 app.get("/", function (req, res) {
     res.send("home");
 });
