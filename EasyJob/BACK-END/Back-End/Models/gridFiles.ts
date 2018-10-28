@@ -1,6 +1,7 @@
 // const mongoose = require("mongoose");
 import * as mongoose from "mongoose";
 import db from "./db-connection";
+import * as gridFs from "multer-gridfs-storage";
 
 const gridFsSchema = new mongoose.Schema(
   {
