@@ -1,5 +1,5 @@
 .candidate-profile-view {
-  margin: 5px 40px 5px 40px;
+  margin: 15px 40px 5px 40px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 60px;
@@ -9,27 +9,30 @@
   /* autoprefixer: off */
   .skills {
     // border: solid 2px #dddddd;
-    border-radius: 10px;
-    // border: solid 1px black;
-    padding: 20px;
-    background-color: #ffff;
+    // border-radius: 10px;
+    // border: solid 2px black;
+    // padding: 20px;
+    // background-color: #ffff;
     // border: solid 1px #dddddd32;
     .item {
-      // border: solid 1px #dddddd32;
-      // border-radius: 5px;
+      // border: solid 1px #dddddd;
+      margin: 0 0 15px 0;
+      background-color: #ffff;
+      border: solid 1px #dddddd;
+      border-radius: 5px;
       // .experience-lists {
       // border: solid 1px black;
-      //   padding: 20px;
+      padding: 10px 20px 10px 20px;
       // }
       // border: solid 1px black;
-      padding: 0;
+      //padding: 0;
     }
-    .item.experience {
-      border-radius: 7px 7px 0 0;
-    }
-    .item.resume {
-      border-radius: 0 0 7px 7px;
-    }
+    // .item.experience {
+    //   border-radius: 7px 7px 0 0;
+    // }
+    // .item.resume {
+    //   border-radius: 0 0 7px 7px;
+    // }
     .inner {
       border-radius: 5px;
       margin: 0;

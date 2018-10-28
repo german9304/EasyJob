@@ -6,7 +6,6 @@ import { CandidateFieldsRoutingModule } from "./candidate-fields-routing/candida
 
 import { CandidateProfileComponent } from "./candidate-profile/candidate-profile.component";
 import { CandidateProfileViewComponent } from "./candidate-profile/candidate-profile-view/candidate-profile-view.component";
-import { ExperienceComponent } from "./experience/experience.component";
 import { NewExperienceComponent } from "./experience/new-experience/new-experience.component";
 import { TestComponent } from "./testing/test.component";
 import { TestViewComponent } from "./testing/test-view/test-view.component";
@@ -15,6 +14,8 @@ import { EducationViewComponent } from "./education/education-view/education-vie
 import { EducationListComponent } from "./education-list/education-list.component";
 import { ExperienceListComponent } from "./experience-list/experience-list.component";
 import { EditExperienceComponent } from "./experience/edit-experience/edit-experience.component";
+import { EditEducationComponent } from "./education/edit-education/edit-education.component";
+import { NewEducationComponent } from "./education/new-education/new-education.component";
 
 @NgModule({
   imports: [
@@ -26,15 +27,13 @@ import { EditExperienceComponent } from "./experience/edit-experience/edit-exper
   declarations: [
     CandidateProfileComponent,
     CandidateProfileViewComponent,
-    ExperienceComponent,
     NewExperienceComponent,
-    TestComponent,
-    TestViewComponent,
-    EducationComponent,
     EducationViewComponent,
     EducationListComponent,
     ExperienceListComponent,
-    EditExperienceComponent
+    EditExperienceComponent,
+    EditEducationComponent,
+    NewEducationComponent
   ],
   exports: []
 })

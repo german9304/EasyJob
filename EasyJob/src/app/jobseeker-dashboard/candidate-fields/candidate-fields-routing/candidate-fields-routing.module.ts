@@ -1,17 +1,19 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
-import { EducationComponent } from "../education/education.component";
-import { ExperienceComponent } from "../experience/experience.component";
-import { NewComponent } from "../new/new.component";
+// import { ExperienceComponent } from "../experience/experience.component";
+// import { NewComponent } from "../new/new.component";
 import { TestComponent } from "../testing/test.component";
 
 import { DataFieldsService } from "../../data-fields.resolver.service";
-import { GetFieldService } from "../get-field.service";
+import { GetExperienceFieldService } from "../get-experience-field.service";
 
 import { CandidateProfileComponent } from "../candidate-profile/candidate-profile.component";
 import { NewExperienceComponent } from "../experience/new-experience/new-experience.component";
+import { NewEducationComponent } from "../education/new-education/new-education.component";
 import { EditExperienceComponent } from "../experience/edit-experience/edit-experience.component";
+import { EditEducationComponent } from "../education/edit-education/edit-education.component";
+import { GetEducationFieldService } from "../get-education-field.service";
 
 const candidateFieldsRoutes: Routes = [
   {
@@ -27,26 +29,27 @@ const candidateFieldsRoutes: Routes = [
           {
             path: "experience",
             component: NewExperienceComponent
+          },
+          {
+            path: "education",
+            component: NewEducationComponent
           }
         ]
       },
       {
-        path: "edit",
+        path: "update",
         children: [
           {
             path: "experience/:id",
             component: EditExperienceComponent,
-            resolve: { field: GetFieldService }
+            resolve: { field: GetExperienceFieldService }
+          },
+          {
+            path: "education/:id",
+            component: EditEducationComponent,
+            resolve: { field: GetEducationFieldService }
           }
         ]
-      },
-      {
-        path: "education",
-        component: EducationComponent
-      },
-      {
-        path: "test",
-        component: TestComponent
       }
     ]
   },

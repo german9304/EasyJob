@@ -8,16 +8,16 @@ import {
   RouterStateSnapshot,
   ActivatedRouteSnapshot
 } from "@angular/router";
+
 @Injectable()
-export class GetFieldService implements Resolve<EXPERIENCE | EDUCATION> {
-  constructor(private fs: CandidateFieldsService ) {}
+export class GetEducationFieldService implements Resolve<EDUCATION> {
+  constructor(private fs: CandidateFieldsService) {}
   resolve(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ): Observable<EXPERIENCE>  | Observable<EDUCATION>  {
-    const id = route.paramMap.get('id');
+  ): Observable<EDUCATION> {
+    const id = route.paramMap.get("id");
 
-    return this.fs.getExperience(id);
-    
+    return this.fs.getEducation(id);
   }
 }

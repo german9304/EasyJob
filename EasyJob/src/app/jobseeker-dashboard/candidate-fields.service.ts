@@ -108,13 +108,19 @@ export class CandidateFieldsService implements OnInit {
       );
   }
 
+  getEducation(id: string): Observable<EDUCATION> {
+    return this.http.get<EDUCATION>(`/api/fields/education/${id}`).pipe(
+      tap(data => console.log(`education: ${data}`)),
+      catchError(error => {
+        console.log(`the error is ${error}`);
+        return this.handleError(error);
+      })
+    );
+  }
+
   createEducation(experience: EDUCATION): Observable<EDUCATION> {
     return this.http
-      .post<EDUCATION>(
-        `/api/fields/create/education`,
-        experience,
-        this.httpOptions
-      )
+      .post<EDUCATION>(`/api/fields/education`, experience, this.httpOptions)
       .pipe(
         tap(data => console.log(`education: ${data}`)),
         catchError(error => {

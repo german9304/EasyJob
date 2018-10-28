@@ -18,7 +18,8 @@ import { SavedJobsViewComponent } from "./saved-jobs/saved-jobs-view/saved-jobs-
 /*
 Serivice 
 */
-import { GetFieldService } from "./candidate-fields/get-field.service";
+import { GetEducationFieldService } from "./candidate-fields/get-education-field.service";
+import { GetExperienceFieldService } from "./candidate-fields/get-experience-field.service";
 import { CandidateFieldsService } from "./candidate-fields.service";
 import { AppliedJobsComponent } from "./applied-jobs/applied-jobs.component";
 import { AppliedJobsViewComponent } from "./applied-jobs/applied-jobs-view/applied-jobs-view.component";
@@ -37,6 +38,11 @@ import { CandidateSearchJobsComponent } from "./candidate-search-jobs/candidate-
     AppliedJobsViewComponent,
     CandidateSearchJobsComponent
   ],
-  providers: [CandidateFieldsService, GetFieldService, DataFieldsService]
+  providers: [
+    CandidateFieldsService,
+    GetExperienceFieldService,
+    DataFieldsService,
+    GetEducationFieldService
+  ]
 })
 export class JobseekerDashboardModule {}

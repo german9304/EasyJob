@@ -36,13 +36,23 @@ const experienceField: responseRequest = getField(userExperience);
 
 const educationField: responseRequest = getField(userEducation);
 
+/*
+* Get all experiences
+*/
 router.get("/experience", experienceField);
 
+/*
+* Get all educations
+*/
 router.get("/education", educationField);
 
 router.get("/experience/:id", experienceFieldById);
 
 router.get("/education/:id", educationFieldById);
+
+router.get("/candidate/experiences", authenticate("jwt", { session: false }));
+
+router.get("/candidate/educations", authenticate("jwt", { session: false }));
 
 router.get("/candidate", getCandidateFields);
 

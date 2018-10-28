@@ -14,10 +14,18 @@ var experienceFieldById = fields_service_1.getFieldById(user_fields_schema_1.use
 var educationFieldById = fields_service_1.getFieldById(user_fields_schema_1.userEducation);
 var experienceField = fields_service_1.getField(user_fields_schema_1.userExperience);
 var educationField = fields_service_1.getField(user_fields_schema_1.userEducation);
+/*
+* Get all experiences
+*/
 router.get("/experience", experienceField);
+/*
+* Get all educations
+*/
 router.get("/education", educationField);
 router.get("/experience/:id", experienceFieldById);
 router.get("/education/:id", educationFieldById);
+router.get("/candidate/experiences", passport_1.authenticate("jwt", { session: false }));
+router.get("/candidate/educations", passport_1.authenticate("jwt", { session: false }));
 router.get("/candidate", fields_service_1.getCandidateFields);
 /*
 * Http Method:  POST
