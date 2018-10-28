@@ -1,5 +1,6 @@
-const mongoose = require("mongoose");
-const db = require("./db-connection");
+// const mongoose = require("mongoose");
+import * as mongoose from "mongoose";
+import db from "./db-connection";
 
 const gridFsSchema = new mongoose.Schema(
   {
