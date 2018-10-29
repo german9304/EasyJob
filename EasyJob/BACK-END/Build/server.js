@@ -12,6 +12,7 @@ require("./Models/db-connection");
 var auth_server_1 = require("./auth-server");
 var crud_operations_fields_1 = require("./crud-candidate-fields/crud.operations.fields");
 require("./Models/gridFiles");
+var files_server_1 = require("./crud-files/files.server");
 var app = express();
 app.use(cookieSession({
     name: "session",
@@ -23,6 +24,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use("/auth", auth_server_1.default);
 app.use("/api/fields", crud_operations_fields_1.default);
+app.use("/api/files", files_server_1.default);
 app.get("/", function (req, res) {
     res.send("home");
 });

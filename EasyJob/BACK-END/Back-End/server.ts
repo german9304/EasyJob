@@ -11,6 +11,7 @@ import auth from "./auth-server";
 import { Request, Response } from "express";
 import crudFields from "./crud-candidate-fields/crud.operations.fields";
 import "./Models/gridFiles";
+import fileServer from "./crud-files/files.server";
 const app = express();
 app.use(
   cookieSession({
@@ -26,6 +27,7 @@ app.use(passport.session());
 
 app.use("/auth", auth);
 app.use("/api/fields", crudFields);
+app.use("/api/files", fileServer);
 
 app.get("/", (req, res) => {
   res.send("home");
