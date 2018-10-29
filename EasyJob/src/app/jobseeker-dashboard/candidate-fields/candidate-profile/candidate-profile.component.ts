@@ -22,7 +22,9 @@ import { List, Map } from "immutable";
       <candidate-profile-view 
       [experience]="fields.EXPERIENCE" 
       [education]="fields.EDUCATION"
-       [trackByExp]="trackByExperience">
+       [trackByExp]="trackByExperience"
+       [file]="fileUpload"
+       (fileChosen)="uploadFile($event)">
       </candidate-profile-view>
       <router-outlet></router-outlet>
     </div>
@@ -33,13 +35,12 @@ import { List, Map } from "immutable";
   ]
 })
 export class CandidateProfileComponent implements OnInit {
-  name = new FormControl('');
+  fileUpload: FormControl = new FormControl("");
   constructor(
     private fields: CandidateFieldsService,
     private router: Router,
     private route: ActivatedRoute
   ) {}
-  
 
   ngOnInit() {
     this.route.data.subscribe((data: { CandidateFields: FIELDS }) => {
@@ -64,5 +65,10 @@ export class CandidateProfileComponent implements OnInit {
   trackByExperience(index: number, experience: EXPERIENCE): string {
     //console.log(`id: ${experience._id}`);
     return experience._id;
+  }
+  uploadFile(event) {
+    const { files } = event.target;
+    const [file] = files;
+    console.log(file);
   }
 }
