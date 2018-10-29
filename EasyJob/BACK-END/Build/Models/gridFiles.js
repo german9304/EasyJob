@@ -22,7 +22,8 @@ db_connection_1.default.once("open", function () {
     });
     console.log("connction open");
 });
-var storage = new GridFsStorage({
+var gridFsFiles = mongoose.model("uploads", gridFsSchema);
+var fileStorage = new GridFsStorage({
     db: db_connection_1.default,
     file: function (req, file) {
         return new Promise(function (resolve, reject) {
@@ -33,6 +34,10 @@ var storage = new GridFsStorage({
                 var filename = "" + buf.toString("hex") + path_1.extname(file.originalname);
                 var fileInfo = {
                     filename: filename,
+                    metadata: {
+                        _id: "12345",
+                        type: "resume"
+                    },
                     bucketName: "uploads"
                 };
                 resolve(fileInfo);
@@ -40,8 +45,14 @@ var storage = new GridFsStorage({
         });
     }
 });
-var gridFsFiles = mongoose.model("uploads", gridFsSchema);
-var getFiles = function (_a) {
+exports.fileStorage = fileStorage;
+var getCandidateFiles = function (_a) {
     var fileName = _a.fileName;
-    var file = bucketName.openDownloadStreamByName(fileName);
+    try {
+        var file = bucketName.openDownloadStreamByName(fileName);
+    }
+    catch (err) {
+        console.error(err);
+    }
 };
+exports.getCandidateFiles = getCandidateFiles;

@@ -2,7 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = require("express");
 var files_service_1 = require("./files.service");
+var gridFiles_1 = require("../Models/gridFiles");
+var multer = require("multer");
 var router = express_1.Router();
+var upload = multer({ storage: gridFiles_1.fileStorage });
 router.get("/", files_service_1.getFiles);
-router.post("/upload", files_service_1.uploadFile);
+router.post("/upload", upload.single("files"), files_service_1.uploadFile);
 exports.default = router;

@@ -26,7 +26,12 @@ db.once("open", () => {
   console.log("connction open");
 });
 
-const storage: GridFsStorage = new GridFsStorage({
+const gridFsFiles: Model<Document> = mongoose.model<Document>(
+  "uploads",
+  gridFsSchema
+);
+
+const fileStorage: GridFsStorage = new GridFsStorage({
   db,
   file: (req, file): Promise<{}> => {
     return new Promise(
@@ -40,6 +45,10 @@ const storage: GridFsStorage = new GridFsStorage({
           )}`;
           const fileInfo = {
             filename,
+            metadata: {
+              _id: "12345",
+              type: "resume"
+            },
             bucketName: "uploads"
           };
           resolve(fileInfo);
@@ -49,13 +58,14 @@ const storage: GridFsStorage = new GridFsStorage({
   }
 });
 
-const gridFsFiles: Model<Document> = mongoose.model<Document>(
-  "uploads",
-  gridFsSchema
-);
-
-const getFiles = ({ fileName }) => {
-  const file: GridFSBucketReadStream = bucketName.openDownloadStreamByName(
-    fileName
-  );
+const getCandidateFiles = ({ fileName }) => {
+  try {
+    const file: GridFSBucketReadStream = bucketName.openDownloadStreamByName(
+      fileName
+    );
+  } catch (err) {
+    console.error(err);
+  }
 };
+
+export { getCandidateFiles, fileStorage };
