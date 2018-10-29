@@ -81,7 +81,38 @@
       // .icon {
       //  border: solid 1px black;
       // }
+      #add-icon-resume {
+        position: relative;
+        // border: solid 1px black;
+        cursor: pointer;
+        overflow: hidden;
+        #file-label {
+          cursor: pointer;
+          // border: solid 2px red;
+          z-index: 1;
+        }
+        #file-upload {
+          position: absolute;
+          z-index: 2;
+          box-sizing: border-box;
+          padding: 50px;
+          opacity: 0;
+
+          left: 0;
+          // right: 0;
+          // overflow: hidden;
+          font-size: 0;
+          top: 0;
+          cursor: pointer;
+          // bottom: 0;
+          border: solid 2px black;
+        }
+      }
     }
+    // #add-icon-resume:hover {
+    //   background-color: #001f3f;
+    //   color: red;
+    // }
     // .inner.experience {
     // border: solid 2px black;
     // h2 {

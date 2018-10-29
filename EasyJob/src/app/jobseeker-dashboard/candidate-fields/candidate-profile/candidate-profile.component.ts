@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
 import { map, filter } from "rxjs/operators";
 import { EXPERIENCE, FIELDS, EDUCATION } from "../../../job";
+import { FormControl } from "@angular/forms";
 import { CandidateFieldsService } from "../../candidate-fields.service";
 import {
   Router,
@@ -32,31 +33,13 @@ import { List, Map } from "immutable";
   ]
 })
 export class CandidateProfileComponent implements OnInit {
-  // MOCK_LIST: EDUCATION[] = [
-  //   {
-  //     _id: "123",
-  //     school: "CSU CHICO",
-  //     degree: "Compuer Science",
-  //     majorField: "Google",
-  //     date: { start: "01/2000", end: "02/2005" },
-  //     description: "I work For 3 months"
-  //   },
-  //   {
-  //     _id: "123",
-  //     school: "CSU SACRAMENTO",
-  //     degree: "Business",
-  //     majorField: "Google",
-  //     date: { start: "01/2000", end: "02/2005" },
-  //     description: "I work For 3 months"
-  //   }
-  // ];
-
-  // EXPERIENCE: EXPERIENCE[] = this.fields.EXPERIENCE;
+  name = new FormControl('');
   constructor(
     private fields: CandidateFieldsService,
     private router: Router,
     private route: ActivatedRoute
   ) {}
+  
 
   ngOnInit() {
     this.route.data.subscribe((data: { CandidateFields: FIELDS }) => {

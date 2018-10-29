@@ -1,5 +1,7 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+// const mongoose = require("mongoose");
 var mongoose = require("mongoose");
-var db = require("./db-connection");
 var gridFsSchema = new mongoose.Schema({
     length: Number,
     chunkSize: Number,

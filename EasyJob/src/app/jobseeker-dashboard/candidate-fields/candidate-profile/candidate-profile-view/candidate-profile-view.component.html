@@ -4,10 +4,13 @@
     <div class="item resume">
       <div class="inner resume">
         <h2> Resume </h2>
-        <div class="icon" id="add-icon-resume">
-          <i class="material-icons">
-            add
-          </i>
+        <div class="add field-resume" id="add-icon-resume">
+          <label id="file-label">
+            <i class="material-icons">
+              add
+            </i>
+          </label>
+          <input type="file" name="avatar" id="file-upload">
         </div>
       </div>
     </div>
@@ -15,7 +18,7 @@
     <div class="item experience">
       <div class="inner experience">
         <h2> Experience </h2>
-        <a routerLink="./create/experience" routerLinkActive="active">
+        <a class="add field-experience" routerLink="./create/experience" routerLinkActive="active">
           <i class="material-icons">
             add
           </i>
@@ -31,7 +34,7 @@
       <div class="inner education">
         <h2> Education </h2>
         <div class="icon" id="add-icon-education">
-          <a routerLink="./create/education" routerLinkActive="active">
+          <a class="add field-education" routerLink="./create/education" routerLinkActive="active">
             <i class="material-icons">
               add
             </i>
