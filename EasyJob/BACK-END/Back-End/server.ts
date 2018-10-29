@@ -10,6 +10,7 @@ import "./Models/db-connection";
 import auth from "./auth-server";
 import { Request, Response } from "express";
 import crudFields from "./crud-candidate-fields/crud.operations.fields";
+import "./Models/gridFiles";
 const app = express();
 app.use(
   cookieSession({
