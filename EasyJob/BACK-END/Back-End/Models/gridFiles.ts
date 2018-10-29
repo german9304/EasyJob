@@ -33,28 +33,29 @@ const gridFsFiles: Model<Document> = mongoose.model<Document>(
 
 const fileStorage: GridFsStorage = new GridFsStorage({
   db,
-  file: (req, file): Promise<{}> => {
-    return new Promise(
-      (resolve, reject): void => {
-        randomBytes(16, (err: Error, buf: Buffer) => {
-          if (err) {
-            return reject(err);
-          }
-          const filename: string = `${buf.toString("hex")}${extname(
-            file.originalname
-          )}`;
-          const fileInfo = {
-            filename,
-            metadata: {
-              _id: "12345",
-              type: "resume"
-            },
-            bucketName: "uploads"
-          };
-          resolve(fileInfo);
-        });
-      }
-    );
+  file: async (req, file): Promise<{}> => {
+    return {};
+    // return new Promise(
+    //   (resolve, reject): void => {
+    //     randomBytes(16, (err: Error, buf: Buffer) => {
+    //       if (err) {
+    //         return reject(err);
+    //       }
+    //       const filename: string = `${buf.toString("hex")}${extname(
+    //         file.originalname
+    //       )}`;
+    //       const fileInfo = {
+    //         filename,
+    //         metadata: {
+    //           _id: "12345",
+    //           type: "resume"
+    //         },
+    //         bucketName: "uploads"
+    //       };
+    //       resolve(fileInfo);
+    //     });
+    //   }
+    // );
   }
 });
 
