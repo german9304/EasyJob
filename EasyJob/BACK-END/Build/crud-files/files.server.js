@@ -6,6 +6,6 @@ var gridFiles_1 = require("../Models/gridFiles");
 var multer = require("multer");
 var router = express_1.Router();
 var upload = multer({ storage: gridFiles_1.fileStorage });
-router.get("/", files_service_1.getFiles);
+router.get("/:filename", files_service_1.getFiles);
 router.post("/upload", upload.single("files"), files_service_1.uploadFile);
 exports.default = router;

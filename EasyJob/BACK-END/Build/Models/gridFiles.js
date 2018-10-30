@@ -46,10 +46,10 @@ var fileStorage = new GridFsStorage({
     }
 });
 exports.fileStorage = fileStorage;
-var getCandidateFiles = function (_a) {
-    var fileName = _a.fileName;
+var getCandidateFiles = function (fileName) {
     try {
         var file = bucketName.openDownloadStreamByName(fileName);
+        return file;
     }
     catch (err) {
         console.error(err);

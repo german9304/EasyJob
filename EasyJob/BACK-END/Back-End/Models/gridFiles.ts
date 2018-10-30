@@ -58,11 +58,12 @@ const fileStorage: GridFsStorage = new GridFsStorage({
   }
 });
 
-const getCandidateFiles = ({ fileName }) => {
+const getCandidateFiles = (fileName): GridFSBucketReadStream => {
   try {
     const file: GridFSBucketReadStream = bucketName.openDownloadStreamByName(
       fileName
     );
+    return file;
   } catch (err) {
     console.error(err);
   }
