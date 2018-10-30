@@ -7,7 +7,7 @@ const router: Router = Router();
 
 const upload = multer({ storage: fileStorage });
 
-router.get("/:filename", getFiles);
+router.get("/", getFiles);
 
 router.post("/upload", upload.single("files"), uploadFile);
 

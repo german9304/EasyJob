@@ -58,15 +58,17 @@ const fileStorage: GridFsStorage = new GridFsStorage({
   }
 });
 
-const getCandidateFiles = (fileName): GridFSBucketReadStream => {
-  try {
-    const file: GridFSBucketReadStream = bucketName.openDownloadStreamByName(
-      fileName
-    );
-    return file;
-  } catch (err) {
-    console.error(err);
-  }
+const getCandidateFiles = async () => {
+  // try {
+  //   const file: GridFSBucketReadStream = bucketName.openDownloadStreamByName(
+  //     fileName
+  //   );
+  //   return file;
+  // } catch (err) {
+  //   console.error(err);
+  // }
+  const getAllFiles = await gridFsFiles.find();
+  return gridFsFiles;
 };
 
 export { getCandidateFiles, fileStorage };
