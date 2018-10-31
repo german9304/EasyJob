@@ -34,7 +34,6 @@ const gridFsFiles: Model<Document> = mongoose.model<Document>(
 const fileStorage: GridFsStorage = new GridFsStorage({
   db,
   file: (req, file): Promise<{}> => {
-    console.log(req.user);
     return new Promise(
       (resolve, reject): void => {
         randomBytes(16, (err: Error, buf: Buffer) => {
@@ -44,6 +43,7 @@ const fileStorage: GridFsStorage = new GridFsStorage({
           const filename: string = `${buf.toString("hex")}${extname(
             file.originalname
           )}`;
+          const {user} = req;
           const fileInfo = {
             filename,
             metadata: {
