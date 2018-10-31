@@ -68,7 +68,7 @@ const getCandidateFiles = async () => {
   //   console.error(err);
   // }
   const getAllFiles = await gridFsFiles.find();
-  return gridFsFiles;
+  return getAllFiles;
 };
 
 export { getCandidateFiles, fileStorage };
