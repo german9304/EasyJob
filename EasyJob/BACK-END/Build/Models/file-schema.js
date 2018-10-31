@@ -36,22 +36,72 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
-var file_schema_1 = require("../Models/file-schema");
-var getFiles = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
-    var files;
+// const mongoose = require("mongoose");
+var mongoose = require("mongoose");
+var crypto_1 = require("crypto");
+var path_1 = require("path");
+var GridFsStorage = require("multer-gridfs-storage");
+var db_connection_1 = require("./db-connection");
+var mongodb_1 = require("mongodb");
+var gridFsSchema = new mongoose.Schema({
+    length: Number,
+    chunkSize: Number,
+    uploadDate: Date,
+    filename: String,
+    md5: String,
+    contentType: String
+}, { collection: "uploads.files", versionKey: false });
+var bucketName;
+db_connection_1.default.once("open", function () {
+    bucketName = new mongodb_1.GridFSBucket(db_connection_1.default.db, {
+        bucketName: "uploads"
+    });
+    console.log("connction open");
+});
+var gridFsFiles = mongoose.model("uploads", gridFsSchema);
+var fileStorage = new GridFsStorage({
+    db: db_connection_1.default,
+    file: function (req, file) {
+        return new Promise(function (resolve, reject) {
+            crypto_1.randomBytes(16, function (err, buf) {
+                if (err) {
+                    return reject(err);
+                }
+                var filename = "" + buf.toString("hex") + path_1.extname(file.originalname);
+                var user = req.user;
+                var fileInfo = {
+                    filename: filename,
+                    metadata: {
+                        _id: "12345",
+                        type: "resume"
+                    },
+                    bucketName: "uploads"
+                };
+                resolve(fileInfo);
+            });
+        });
+    }
+});
+exports.fileStorage = fileStorage;
+var getCandidateFiles = function () { return __awaiter(_this, void 0, void 0, function () {
+    var getAllFiles;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, file_schema_1.getCandidateFiles()];
+            case 0: return [4 /*yield*/, gridFsFiles.find()];
             case 1:
-                files = _a.sent();
-                //files.then(files => console.log(files));
-                return [2 /*return*/, res.json(files)];
+                getAllFiles = _a.sent();
+                return [2 /*return*/, getAllFiles];
         }
     });
 }); };
-exports.getFiles = getFiles;
-var uploadFile = function (req, res) {
-    var file = req.file;
-    res.json(file);
+exports.getCandidateFiles = getCandidateFiles;
+var getCandidateFile = function (fileName) {
+    try {
+        var file = bucketName.openDownloadStreamByName(fileName);
+        return file;
+    }
+    catch (err) {
+        console.error(err);
+    }
 };
-exports.uploadFile = uploadFile;
+exports.getCandidateFile = getCandidateFile;

@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { uploadFile, getFiles } from "./files.service";
-import { fileStorage } from "../Models/gridFiles";
+import { fileStorage } from "../Models/file-schema";
 import { authenticate } from "passport";
 import * as multer from "multer";
 import "../jwt-auth";

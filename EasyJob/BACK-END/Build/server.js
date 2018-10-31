@@ -11,7 +11,7 @@ var passport_1 = require("passport");
 require("./Models/db-connection");
 var auth_server_1 = require("./auth-server");
 var crud_operations_fields_1 = require("./crud-candidate-fields/crud.operations.fields");
-require("./Models/gridFiles");
+require("./Models/file-schema");
 var files_server_1 = require("./crud-files/files.server");
 var app = express();
 app.use(cookieSession({

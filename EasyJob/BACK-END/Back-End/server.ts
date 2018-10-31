@@ -10,7 +10,7 @@ import "./Models/db-connection";
 import auth from "./auth-server";
 import { Request, Response } from "express";
 import crudFields from "./crud-candidate-fields/crud.operations.fields";
-import "./Models/gridFiles";
+import "./Models/file-schema";
 import fileServer from "./crud-files/files.server";
 const app = express();
 app.use(
