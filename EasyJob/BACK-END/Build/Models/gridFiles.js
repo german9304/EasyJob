@@ -62,6 +62,7 @@ var gridFsFiles = mongoose.model("uploads", gridFsSchema);
 var fileStorage = new GridFsStorage({
     db: db_connection_1.default,
     file: function (req, file) {
+        console.log(req.user);
         return new Promise(function (resolve, reject) {
             crypto_1.randomBytes(16, function (err, buf) {
                 if (err) {
@@ -89,8 +90,18 @@ var getCandidateFiles = function () { return __awaiter(_this, void 0, void 0, fu
             case 0: return [4 /*yield*/, gridFsFiles.find()];
             case 1:
                 getAllFiles = _a.sent();
-                return [2 /*return*/, gridFsFiles];
+                return [2 /*return*/, getAllFiles];
         }
     });
 }); };
 exports.getCandidateFiles = getCandidateFiles;
+var getCandidateFile = function (fileName) {
+    try {
+        var file = bucketName.openDownloadStreamByName(fileName);
+        return file;
+    }
+    catch (err) {
+        console.error(err);
+    }
+};
+exports.getCandidateFile = getCandidateFile;

@@ -34,6 +34,7 @@ const gridFsFiles: Model<Document> = mongoose.model<Document>(
 const fileStorage: GridFsStorage = new GridFsStorage({
   db,
   file: (req, file): Promise<{}> => {
+    console.log(req.user);
     return new Promise(
       (resolve, reject): void => {
         randomBytes(16, (err: Error, buf: Buffer) => {
@@ -59,16 +60,18 @@ const fileStorage: GridFsStorage = new GridFsStorage({
 });
 
 const getCandidateFiles = async () => {
-  // try {
-  //   const file: GridFSBucketReadStream = bucketName.openDownloadStreamByName(
-  //     fileName
-  //   );
-  //   return file;
-  // } catch (err) {
-  //   console.error(err);
-  // }
   const getAllFiles = await gridFsFiles.find();
   return getAllFiles;
 };
 
-export { getCandidateFiles, fileStorage };
+const getCandidateFile = fileName => {
+  try {
+    const file: GridFSBucketReadStream = bucketName.openDownloadStreamByName(
+      fileName
+    );
+    return file;
+  } catch (err) {
+    console.error(err);
+  }
+};
+export { getCandidateFiles, getCandidateFile, fileStorage };
