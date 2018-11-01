@@ -15,6 +15,9 @@ import { AuthService } from "../services/auth.service";
 
 @Injectable()
 export class CandidateFilesService {
-  constructor(private http: HttpClient) {}
-  
+  constructor(private http: HttpClient, private auth: AuthService) {}
+
+  get userResume() {
+    return;
+  }
 }
