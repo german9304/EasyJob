@@ -5,7 +5,7 @@ import { RouterModule, Routes } from "@angular/router";
 // import { NewComponent } from "../new/new.component";
 import { TestComponent } from "../testing/test.component";
 
-import { DataFieldsService } from "../../data-fields.resolver.service";
+import { DataFieldsService } from "../../services/data-fields.resolver.service";
 import { GetExperienceFieldService } from "../get-experience-field.service";
 
 import { CandidateProfileComponent } from "../candidate-profile/candidate-profile.component";

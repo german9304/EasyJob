@@ -3,7 +3,7 @@ import { CommonModule } from "@angular/common";
 import { RouterModule, Routes, RouterLinkActive } from "@angular/router";
 
 import { DataResolverService } from "../../services/auth-data-resolver.service";
-import { DataFieldsService } from "../data-fields.resolver.service";
+import { DataFieldsService } from "../services/data-fields.resolver.service";
 import { AuthGuardService } from "../../services/auth-guard.service";
 /*
 @Components 

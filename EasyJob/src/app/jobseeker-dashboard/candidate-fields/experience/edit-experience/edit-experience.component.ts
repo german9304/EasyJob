@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 import { FormBuilder } from "@angular/forms";
 import { EXPERIENCE, FIELDS } from "../../../../job";
-import { CandidateFieldsService } from "../../../candidate-fields.service";
+import { CandidateFieldsService } from "../../../services/candidate-fields.service";
 import { Router, ActivatedRoute, ParamMap } from "@angular/router";
 import { switchMap } from "rxjs/operators";
 import { List, Map } from "immutable";

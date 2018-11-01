@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder } from "@angular/forms";
 import { EDUCATION } from "../../../../job";
-import { CandidateFieldsService } from "../../../candidate-fields.service";
+import { CandidateFieldsService } from "../../../services/candidate-fields.service";
 import { Router, ActivatedRoute } from "@angular/router";
 @Component({
   selector: "new-education",

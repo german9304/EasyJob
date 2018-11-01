@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder } from "@angular/forms";
-import { CandidateFieldsService } from "../../candidate-fields.service";
+import { CandidateFieldsService } from "../../services/candidate-fields.service";
 import { EXPERIENCE } from "../../../job";
 import { Router, ActivatedRoute } from "@angular/router";
 

@@ -20,12 +20,12 @@ Serivice
 */
 import { GetEducationFieldService } from "./candidate-fields/get-education-field.service";
 import { GetExperienceFieldService } from "./candidate-fields/get-experience-field.service";
-import { CandidateFieldsService } from "./candidate-fields.service";
+import { CandidateFieldsService } from "./services/candidate-fields.service";
 import { AppliedJobsComponent } from "./applied-jobs/applied-jobs.component";
 import { AppliedJobsViewComponent } from "./applied-jobs/applied-jobs-view/applied-jobs-view.component";
-import { DataFieldsService } from "./data-fields.resolver.service";
+import { DataFieldsService } from "./services/data-fields.resolver.service";
 import { CandidateSearchJobsComponent } from "./candidate-search-jobs/candidate-search-jobs.component";
-import { CandidateFilesService } from "./candidate-files.service";
+import { CandidateFilesService } from "./services/candidate-files.service";
 @NgModule({
   imports: [CommonModule, ReactiveFormsModule, JobseekerRoutingModule],
   declarations: [

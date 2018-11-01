@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { EXPERIENCE, FIELDS } from "../job";
+import { EXPERIENCE, FIELDS } from "../../job";
 import { Observable } from "rxjs";
 import { CandidateFieldsService } from "./candidate-fields.service";
 import {

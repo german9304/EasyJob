@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder } from "@angular/forms";
-import { CandidateFieldsService } from "../../candidate-fields.service";
+import { CandidateFieldsService } from "../../services/candidate-fields.service";
 import { EDUCATION } from "../../../job";
 import { Router, ActivatedRoute } from "@angular/router";
 @Component({
@@ -40,9 +40,7 @@ export class EducationComponent implements OnInit {
   addEducation() {
     const { value } = this.educationForm;
 
-    this.cf.createEducation(value).subscribe((edu: EDUCATION) => {
-    
-    });
+    this.cf.createEducation(value).subscribe((edu: EDUCATION) => {});
     this.educationForm.reset();
     this.router.navigate(["../jobseeker/profile"]);
   }

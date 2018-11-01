@@ -2,7 +2,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
 import { map, filter } from "rxjs/operators";
 import { EXPERIENCE, FIELDS, EDUCATION } from "../../../job";
 import { FormControl } from "@angular/forms";
-import { CandidateFieldsService } from "../../candidate-fields.service";
+import { CandidateFieldsService } from "../../services/candidate-fields.service";
 import {
   Router,
   ActivatedRoute,

@@ -2,7 +2,7 @@ import { Component, OnInit, Output, Input, EventEmitter } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 import { FormBuilder } from "@angular/forms";
 import { EXPERIENCE } from "../../../../job";
-import { CandidateFieldsService } from "../../../candidate-fields.service";
+import { CandidateFieldsService } from "../../../services/candidate-fields.service";
 import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({

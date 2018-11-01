@@ -8,11 +8,11 @@ import { Router, Route, ActivatedRoute } from "@angular/router";
 
 import { Observable, of, throwError } from "rxjs";
 import { tap, catchError } from "rxjs/operators";
-import { EXPERIENCE, FIELDS, EDUCATION } from "../job";
-import { USER } from "../user";
+import { EXPERIENCE, FIELDS, EDUCATION } from "../../job";
+import { USER } from "../../user";
 import { List, Map } from "immutable";
-import { FILE } from "./file";
-import { AuthService } from "../services/auth.service";
+import { FILE } from ".././file";
+import { AuthService } from "../../services/auth.service";
 
 @Injectable()
 export class CandidateFilesService {
