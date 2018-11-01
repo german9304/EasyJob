@@ -113,9 +113,13 @@ var getCandidateFile = function (_id) { return __awaiter(_this, void 0, void 0, 
                     })];
             case 1:
                 gridFile = _a.sent();
-                filename = gridFile.filename;
-                file = bucketName.openDownloadStreamByName(filename);
-                return [2 /*return*/, file];
+                console.log(gridFile);
+                if (gridFile) {
+                    filename = gridFile.filename;
+                    file = bucketName.openDownloadStreamByName(filename);
+                    return [2 /*return*/, file];
+                }
+                return [3 /*break*/, 3];
             case 2:
                 err_1 = _a.sent();
                 console.error(err_1);

@@ -55,17 +55,19 @@ var getResume = function (req, res) { return __awaiter(_this, void 0, void 0, fu
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                _a.trys.push([0, 2, , 3]);
+                _a.trys.push([0, 3, , 4]);
+                if (!req.user) return [3 /*break*/, 2];
                 id = req.user.id;
                 return [4 /*yield*/, file_schema_1.getCandidateFile(id)];
             case 1:
                 file = _a.sent();
                 return [2 /*return*/, file.pipe(res)];
-            case 2:
+            case 2: return [2 /*return*/, res.status(404).json(null)];
+            case 3:
                 err_1 = _a.sent();
                 console.error(err_1);
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
+                return [3 /*break*/, 4];
+            case 4: return [2 /*return*/];
         }
     });
 }); };

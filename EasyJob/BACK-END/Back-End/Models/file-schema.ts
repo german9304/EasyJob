@@ -92,12 +92,14 @@ const getCandidateFile = async (
     const gridFile: FileDocument = await gridFsFiles.findOne({
       metadata: { user: { _id } }
     });
-    //console.log(gridFile);
-    const { filename } = gridFile;
-    const file: GridFSBucketReadStream = bucketName.openDownloadStreamByName(
-      filename
-    );
-    return file;
+    console.log(gridFile);
+    if (gridFile) {
+      const { filename } = gridFile;
+      const file: GridFSBucketReadStream = bucketName.openDownloadStreamByName(
+        filename
+      );
+      return file;
+    }
   } catch (err) {
     console.error(err);
   }
