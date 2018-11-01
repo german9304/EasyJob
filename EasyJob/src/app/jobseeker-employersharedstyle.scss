@@ -6,7 +6,7 @@
   // background-color: #285679;
   background-color: #3d9970;
   // align-items: center;
-  color: white;
+  // color: white;
   nav {
     margin: 0;
     display: flex;
@@ -98,8 +98,9 @@
     // justify-content: flex-end;
     // border: solid 1px white;
     .item {
-      font-size: 18px;
+      font-size: 16px;
       text-align: center;
+      box-sizing: border-box;
       font-family: "Raleway", sans-serif;
       // font-weight: 100;
       // padding: 5px;
@@ -112,18 +113,20 @@
       a {
         // border: solid 1px white;
         text-decoration: none;
-        color: white;
+        color: #dddddd;
         display: block;
-        padding: 12px 0 12px 0;
+        padding: 10px 0 10px 0;
         box-sizing: border-box;
+        font-weight: 500;
         transition: all 0.5s ease-out;
       }
       a:hover {
-        color: #bac3cb;
+        color: white;
       }
       .active {
         background-color: #2ecc4040;
         border-radius: 5px;
+        color: #ffff;
         // color: #b9c7d5;
       }
     }
@@ -139,6 +142,7 @@
     cursor: pointer;
     position: relative;
     flex-wrap: wrap;
+    color: white;
     .icons {
       // border: solid 1px white;
       display: flex;
