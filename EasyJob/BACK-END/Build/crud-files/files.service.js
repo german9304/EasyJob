@@ -50,8 +50,29 @@ var getFiles = function (req, res) { return __awaiter(_this, void 0, void 0, fun
     });
 }); };
 exports.getFiles = getFiles;
+var getResume = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+    var id, file, err_1;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                id = req.params.id;
+                return [4 /*yield*/, file_schema_1.getCandidateFile(id)];
+            case 1:
+                file = _a.sent();
+                return [2 /*return*/, file.pipe(res)];
+            case 2:
+                err_1 = _a.sent();
+                console.error(err_1);
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };
+exports.getResume = getResume;
 var uploadFile = function (req, res) {
     var file = req.file;
-    res.json(file);
+    var originalname = file.originalname;
+    return res.json(file);
 };
 exports.uploadFile = uploadFile;

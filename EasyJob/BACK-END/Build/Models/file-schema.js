@@ -48,6 +48,11 @@ var gridFsSchema = new mongoose.Schema({
     chunkSize: Number,
     uploadDate: Date,
     filename: String,
+    metadata: {
+        user: {
+            _id: String
+        }
+    },
     md5: String,
     contentType: String
 }, { collection: "uploads.files", versionKey: false });
@@ -69,11 +74,12 @@ var fileStorage = new GridFsStorage({
                 }
                 var filename = "" + buf.toString("hex") + path_1.extname(file.originalname);
                 var user = req.user;
+                var _id = user._id;
                 // console.log(user);
                 var fileInfo = {
                     filename: filename,
                     metadata: {
-                        user: user
+                        user: { _id: _id }
                     },
                     bucketName: "uploads"
                 };
@@ -95,13 +101,27 @@ var getCandidateFiles = function () { return __awaiter(_this, void 0, void 0, fu
     });
 }); };
 exports.getCandidateFiles = getCandidateFiles;
-var getCandidateFile = function (fileName) {
-    try {
-        var file = bucketName.openDownloadStreamByName(fileName);
-        return file;
-    }
-    catch (err) {
-        console.error(err);
-    }
-};
+var getCandidateFile = function (_id) { return __awaiter(_this, void 0, void 0, function () {
+    var gridFile, filename, file, err_1;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                console.log(_id);
+                return [4 /*yield*/, gridFsFiles.findOne({
+                        metadata: { user: { _id: _id } }
+                    })];
+            case 1:
+                gridFile = _a.sent();
+                filename = gridFile.filename;
+                file = bucketName.openDownloadStreamByName(filename);
+                return [2 /*return*/, file];
+            case 2:
+                err_1 = _a.sent();
+                console.error(err_1);
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };
 exports.getCandidateFile = getCandidateFile;
