@@ -98,29 +98,31 @@
     // justify-content: flex-end;
     // border: solid 1px white;
     .item {
-      font-size: 16px;
+      font-size: 18px;
       text-align: center;
       font-family: "Raleway", sans-serif;
       // font-weight: 100;
       // padding: 5px;
-      // border: solid 1px rosybrown;
+      // border: solid 1x rosybrown;
       list-style: none;
       flex: 1;
       box-sizing: border-box;
       // padding: 10px;
       // flex:1;
       a {
+        // border: solid 1px white;
         text-decoration: none;
         color: white;
         display: block;
-        padding: 10px;
-        transition: all 0.5s;
+        padding: 12px 0 12px 0;
+        box-sizing: border-box;
+        transition: all 0.5s ease-out;
       }
       a:hover {
         color: #bac3cb;
       }
       .active {
-        background-color: #2ecc40;
+        background-color: #2ecc4040;
         border-radius: 5px;
         // color: #b9c7d5;
       }
