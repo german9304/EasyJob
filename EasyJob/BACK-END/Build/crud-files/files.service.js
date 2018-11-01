@@ -56,7 +56,7 @@ var getResume = function (req, res) { return __awaiter(_this, void 0, void 0, fu
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                id = req.params.id;
+                id = req.user.id;
                 return [4 /*yield*/, file_schema_1.getCandidateFile(id)];
             case 1:
                 file = _a.sent();

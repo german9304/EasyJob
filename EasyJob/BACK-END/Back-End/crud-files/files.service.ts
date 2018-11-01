@@ -9,7 +9,7 @@ const getFiles = async (req: Request, res: Response): Promise<Response> => {
 };
 const getResume = async (req: Request, res: Response): Promise<Response> => {
   try {
-    const { id } = req.params;
+    const { id } = req.user;
     const file: GridFSBucketReadStream = await getCandidateFile(id);
     return file.pipe(res);
     // return res.json({});
