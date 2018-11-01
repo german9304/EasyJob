@@ -4,15 +4,34 @@ import { randomBytes } from "crypto";
 import { extname } from "path";
 import * as GridFsStorage from "multer-gridfs-storage";
 import db from "./db-connection";
+import { User } from "../user";
 import { Schema, Document, Model } from "mongoose";
-import { GridFSBucket, GridFSBucketReadStream } from "mongodb";
+import { GridFSBucket, GridFSBucketReadStream, ObjectId } from "mongodb";
 
+interface FileDocument extends Document {
+  length: Number;
+  chunkSize: Number;
+  uploadDate: Date;
+  filename: string;
+  metadata: {
+    user: {
+      _id: string;
+    };
+  };
+  md5: string;
+  contentType: string;
+}
 const gridFsSchema: Schema = new mongoose.Schema(
   {
     length: Number,
     chunkSize: Number,
     uploadDate: Date,
     filename: String,
+    metadata: {
+      user: {
+        _id: String
+      }
+    },
     md5: String,
     contentType: String
   },
@@ -26,7 +45,7 @@ db.once("open", () => {
   console.log("connction open");
 });
 
-const gridFsFiles: Model<Document> = mongoose.model<Document>(
+const gridFsFiles: Model<FileDocument> = mongoose.model<FileDocument>(
   "uploads",
   gridFsSchema
 );
@@ -43,11 +62,13 @@ const fileStorage: GridFsStorage = new GridFsStorage({
           const filename: string = `${buf.toString("hex")}${extname(
             file.originalname
           )}`;
+          const { user } = req;
+          const { _id }: { _id: string } = user;
+          // console.log(user);
           const fileInfo = {
             filename,
             metadata: {
-              _id: "12345",
-              type: "resume"
+              user: { _id }
             },
             bucketName: "uploads"
           };
@@ -58,15 +79,27 @@ const fileStorage: GridFsStorage = new GridFsStorage({
   }
 });
 
-const getCandidateFiles = (fileName): GridFSBucketReadStream => {
+const getCandidateFiles = async () => {
+  const getAllFiles = await gridFsFiles.find();
+  return getAllFiles;
+};
+
+const getCandidateFile = async (
+  _id: ObjectId
+): Promise<GridFSBucketReadStream> => {
   try {
+    console.log(_id);
+    const gridFile: FileDocument = await gridFsFiles.findOne({
+      metadata: { user: { _id } }
+    });
+    //console.log(gridFile);
+    const { filename } = gridFile;
     const file: GridFSBucketReadStream = bucketName.openDownloadStreamByName(
-      fileName
+      filename
     );
     return file;
   } catch (err) {
     console.error(err);
   }
 };
-
-export { getCandidateFiles, fileStorage };
+export { getCandidateFiles, getCandidateFile, fileStorage };

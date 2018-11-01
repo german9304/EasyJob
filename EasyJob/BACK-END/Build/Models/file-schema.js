@@ -36,31 +36,86 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
-var file_schema_1 = require("../Models/file-schema");
-var getFiles = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
-    var files;
+// const mongoose = require("mongoose");
+var mongoose = require("mongoose");
+var crypto_1 = require("crypto");
+var path_1 = require("path");
+var GridFsStorage = require("multer-gridfs-storage");
+var db_connection_1 = require("./db-connection");
+var mongodb_1 = require("mongodb");
+var gridFsSchema = new mongoose.Schema({
+    length: Number,
+    chunkSize: Number,
+    uploadDate: Date,
+    filename: String,
+    metadata: {
+        user: {
+            _id: String
+        }
+    },
+    md5: String,
+    contentType: String
+}, { collection: "uploads.files", versionKey: false });
+var bucketName;
+db_connection_1.default.once("open", function () {
+    bucketName = new mongodb_1.GridFSBucket(db_connection_1.default.db, {
+        bucketName: "uploads"
+    });
+    console.log("connction open");
+});
+var gridFsFiles = mongoose.model("uploads", gridFsSchema);
+var fileStorage = new GridFsStorage({
+    db: db_connection_1.default,
+    file: function (req, file) {
+        return new Promise(function (resolve, reject) {
+            crypto_1.randomBytes(16, function (err, buf) {
+                if (err) {
+                    return reject(err);
+                }
+                var filename = "" + buf.toString("hex") + path_1.extname(file.originalname);
+                var user = req.user;
+                var _id = user._id;
+                // console.log(user);
+                var fileInfo = {
+                    filename: filename,
+                    metadata: {
+                        user: { _id: _id }
+                    },
+                    bucketName: "uploads"
+                };
+                resolve(fileInfo);
+            });
+        });
+    }
+});
+exports.fileStorage = fileStorage;
+var getCandidateFiles = function () { return __awaiter(_this, void 0, void 0, function () {
+    var getAllFiles;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, file_schema_1.getCandidateFiles()];
+            case 0: return [4 /*yield*/, gridFsFiles.find()];
             case 1:
-                files = _a.sent();
-                //files.then(files => console.log(files));
-                return [2 /*return*/, res.json(files)];
+                getAllFiles = _a.sent();
+                return [2 /*return*/, getAllFiles];
         }
     });
 }); };
-exports.getFiles = getFiles;
-var getResume = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
-    var id, file, err_1;
+exports.getCandidateFiles = getCandidateFiles;
+var getCandidateFile = function (_id) { return __awaiter(_this, void 0, void 0, function () {
+    var gridFile, filename, file, err_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                id = req.params.id;
-                return [4 /*yield*/, file_schema_1.getCandidateFile(id)];
+                console.log(_id);
+                return [4 /*yield*/, gridFsFiles.findOne({
+                        metadata: { user: { _id: _id } }
+                    })];
             case 1:
-                file = _a.sent();
-                return [2 /*return*/, file.pipe(res)];
+                gridFile = _a.sent();
+                filename = gridFile.filename;
+                file = bucketName.openDownloadStreamByName(filename);
+                return [2 /*return*/, file];
             case 2:
                 err_1 = _a.sent();
                 console.error(err_1);
@@ -69,10 +124,4 @@ var getResume = function (req, res) { return __awaiter(_this, void 0, void 0, fu
         }
     });
 }); };
-exports.getResume = getResume;
-var uploadFile = function (req, res) {
-    var file = req.file;
-    var originalname = file.originalname;
-    return res.json(file);
-};
-exports.uploadFile = uploadFile;
+exports.getCandidateFile = getCandidateFile;
