@@ -9,8 +9,8 @@ import { Schema, Document, Model } from "mongoose";
 import { GridFSBucket, GridFSBucketReadStream, ObjectId } from "mongodb";
 
 interface FileDocument extends Document {
-  length: Number;
-  chunkSize: Number;
+  length: number;
+  chunkSize: number;
   uploadDate: Date;
   filename: string;
   metadata: {

@@ -19,12 +19,7 @@ export class CandidateFieldsService implements OnInit {
   EDUCATION: List<EDUCATION> = List();
   credentials: USER = this.auth.getUserCredentials() as USER;
   jwt: string = "";
-  httpOptions = {
-    headers: new HttpHeaders({
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${this.credentials.jwt}`
-    })
-  };
+  httpOptions = {};
   ngOnInit() {
     //console.log("on init service");
   }
@@ -35,8 +30,13 @@ export class CandidateFieldsService implements OnInit {
     private route: ActivatedRoute
   ) {
     const user = this.auth.getUserCredentials() as USER;
-    this.jwt = user.jwt;
-
+    const jwt: string = user.jwt;
+    this.httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${jwt}`
+      })
+    };
     // console.log(`credentials ${this.httpOptions.headers.get("Authorization")}`);
   }
   /*
@@ -48,7 +48,11 @@ export class CandidateFieldsService implements OnInit {
   createExperience(experience: EXPERIENCE): Observable<EXPERIENCE> {
     // console.log(this.httpOptions.headers.get("Authorization"));
     return this.http
-      .post<EXPERIENCE>(`/api/fields/experience`, experience, this.httpOptions)
+      .post<EXPERIENCE>(
+        `/api/fields/experience`,
+        experience,
+        this.auth.UserHeaders
+      )
       .pipe(
         tap(data => console.log(`experience: ${data}`)),
         catchError(error => {
@@ -68,7 +72,7 @@ export class CandidateFieldsService implements OnInit {
       .put<EXPERIENCE>(
         `/api/fields/experience/${id}`,
         experience,
-        this.httpOptions
+        this.auth.UserHeaders
       )
       .pipe(
         tap(data => console.log(`experience: ${data}`)),
@@ -98,7 +102,7 @@ export class CandidateFieldsService implements OnInit {
   */
   deleteExperience(id: string): Observable<{}> {
     return this.http
-      .delete<{}>(`/api/fields/experience/${id}`, this.httpOptions)
+      .delete<{}>(`/api/fields/experience/${id}`, this.auth.UserHeaders)
       .pipe(
         tap(data => console.log(`experience: ${data}`)),
         catchError(error => {
@@ -120,7 +124,7 @@ export class CandidateFieldsService implements OnInit {
 
   createEducation(experience: EDUCATION): Observable<EDUCATION> {
     return this.http
-      .post<EDUCATION>(`/api/fields/education`, experience, this.httpOptions)
+      .post<EDUCATION>(`/api/fields/education`, experience, this.auth.UserHeaders)
       .pipe(
         tap(data => console.log(`education: ${data}`)),
         catchError(error => {
@@ -135,7 +139,7 @@ export class CandidateFieldsService implements OnInit {
       .put<EXPERIENCE>(
         `/api/fields/education/${id}`,
         experience,
-        this.httpOptions
+        this.auth.UserHeaders
       )
       .pipe(
         tap(data => console.log(`education: ${data}`)),
@@ -148,7 +152,7 @@ export class CandidateFieldsService implements OnInit {
 
   deleteEducation(id: string): Observable<{}> {
     return this.http
-      .delete<{}>(`/api/fields/education/${id}`, this.httpOptions)
+      .delete<{}>(`/api/fields/education/${id}`, this.auth.UserHeaders)
       .pipe(
         tap(data => console.log(`education: ${data}`)),
         catchError(error => {

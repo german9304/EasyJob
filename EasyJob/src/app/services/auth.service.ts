@@ -14,8 +14,8 @@ export class AuthService {
   url: string = `/login`;
   userUrl: string = `/user`;
   user: any;
-
-  httpOptions = {
+  httpOptions = {};
+  httHeaderpOptions: { headers: HttpHeaders } = {
     headers: new HttpHeaders({
       "Content-Type": "application/json"
     })
@@ -24,7 +24,7 @@ export class AuthService {
 
   authenticate(user): Observable<any> {
     return this.http
-      .post<any>("/auth/create/user", user, this.httpOptions)
+      .post<any>("/auth/create/user", user, this.httHeaderpOptions)
       .pipe(
         tap(({ user }) => {
           console.log("create account: ", user);
@@ -35,15 +35,17 @@ export class AuthService {
       );
   }
   login(user): Observable<any> {
-    return this.http.post<any>("/auth/login", user, this.httpOptions).pipe(
-      tap(({ user }) => {
-        this.createUserCredentials(user);
-      }),
-      catchError(error => {
-        // console.log(`error ${JSON.stringify(error)}`);
-        return this.handleError(error);
-      })
-    );
+    return this.http
+      .post<any>("/auth/login", user, this.httHeaderpOptions)
+      .pipe(
+        tap(({ user }) => {
+          this.createUserCredentials(user);
+        }),
+        catchError(error => {
+          // console.log(`error ${JSON.stringify(error)}`);
+          return this.handleError(error);
+        })
+      );
   }
 
   getUSER(): Observable<USER> {
@@ -75,7 +77,7 @@ export class AuthService {
       //   jwt,
       //   httpOptions: this.httpOptions
       // };
-      // this.HttpHeaders(httpOpts);
+      //this.HttpHeaders(httpOpts);
       return usr;
     } catch (error) {
       console.error(error);
@@ -85,7 +87,9 @@ export class AuthService {
     try {
       // const user = JSON.parse(localStorage.getItem("token"));
       const token = localStorage.getItem("token");
+      // console.log("user credentials ", localStorage.getItem("token"));
       if (token) {
+        // console.log("token: ", token);
         return JSON.parse(token);
       }
       // console.log("credentials: ", localStorage.getItem("token"));
@@ -99,6 +103,19 @@ export class AuthService {
     localStorage.removeItem("token");
   }
 
+  get UserHeaders(): { headers: HttpHeaders } {
+    const credentials: USER = this.getUserCredentials() as USER;
+    const { jwt } = credentials;
+    // console.log(credentials);
+    // console.log(jwt);
+    const httHeaderpOptions: { headers: HttpHeaders } = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${jwt}`
+      })
+    };
+    return httHeaderpOptions;
+  }
   private handleError(error: HttpErrorResponse) {
     console.log(`error ${error.error} ${error.status}`);
     return throwError(` ${error.error}`);
