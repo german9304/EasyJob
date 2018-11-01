@@ -4,6 +4,7 @@ import { randomBytes } from "crypto";
 import { extname } from "path";
 import * as GridFsStorage from "multer-gridfs-storage";
 import db from "./db-connection";
+import { User } from "../user";
 import { Schema, Document, Model } from "mongoose";
 import { GridFSBucket, GridFSBucketReadStream } from "mongodb";
 
@@ -43,12 +44,12 @@ const fileStorage: GridFsStorage = new GridFsStorage({
           const filename: string = `${buf.toString("hex")}${extname(
             file.originalname
           )}`;
-          const {user} = req;
+          const { user } = req;
+          // console.log(user);
           const fileInfo = {
             filename,
             metadata: {
-              _id: "12345",
-              type: "resume"
+              user
             },
             bucketName: "uploads"
           };
