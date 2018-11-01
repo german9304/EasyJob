@@ -11,13 +11,18 @@ import { tap, catchError } from "rxjs/operators";
 import { EXPERIENCE, FIELDS, EDUCATION } from "../job";
 import { USER } from "../user";
 import { List, Map } from "immutable";
+import { FILE } from "./file";
 import { AuthService } from "../services/auth.service";
 
 @Injectable()
 export class CandidateFilesService {
   constructor(private http: HttpClient, private auth: AuthService) {}
-
-  get userResume() {
-    return;
+  get userFileResume(): Observable<FILE> {
+    return this.http.get<FILE>(`/api/files/resume`).pipe(
+      catchError(err => {
+        console.log(`the error is ${err}`);
+        return of(err);
+      })
+    );
   }
 }
