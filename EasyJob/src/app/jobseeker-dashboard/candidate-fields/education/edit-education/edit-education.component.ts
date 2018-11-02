@@ -5,7 +5,7 @@ import { CandidateFieldsService } from "../../../services/candidate-fields.servi
 import { Router, ActivatedRoute, ParamMap } from "@angular/router";
 import { switchMap } from "rxjs/operators";
 import { FieldsService } from "../../../services/fields.service";
-import { List, Map } from "immutable";
+import { List } from "immutable";
 
 @Component({
   selector: "edit-education",
