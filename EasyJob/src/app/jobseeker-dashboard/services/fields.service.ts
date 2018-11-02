@@ -32,18 +32,19 @@ export class FieldService<T> {
     );
   }
 
-  updateField(url: string): Observable<T> {
-    return this.http.put<T>(url, this.auth.UserHeaders).pipe(
-      tap(data => console.log(`field ${JSON.stringify(data)}`)),
+  updateField(url: string, field: T): Observable<T> {
+    return this.http.put<T>(url, field, this.auth.UserHeaders).pipe(
+      tap(data => console.log(`experience: ${data}`)),
       catchError(error => {
         console.log(`the error is ${error}`);
         return this.handleError(error);
       })
     );
   }
+
   deleteField(url: string): Observable<T> {
     return this.http.delete<T>(url, this.auth.UserHeaders).pipe(
-      tap(data => console.log(`field ${JSON.stringify(data)}`)),
+      tap(data => console.log(`experience: ${data}`)),
       catchError(error => {
         console.log(`the error is ${error}`);
         return this.handleError(error);
