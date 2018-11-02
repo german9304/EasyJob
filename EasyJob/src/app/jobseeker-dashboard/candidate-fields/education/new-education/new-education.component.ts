@@ -4,6 +4,7 @@ import { EDUCATION } from "../../../../job";
 import { CandidateFieldsService } from "../../../services/candidate-fields.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { FieldsService } from "../../../services/fields.service";
+
 @Component({
   selector: "new-education",
   templateUrl: "./new-education.component.html",
