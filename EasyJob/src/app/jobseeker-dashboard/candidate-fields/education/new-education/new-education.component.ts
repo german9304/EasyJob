@@ -32,23 +32,15 @@ export class NewEducationComponent implements OnInit {
 
   ngOnInit() {}
   addEducation() {
-    const { value }: {value: EDUCATION} = this.educationForm;
-    // this.cf.createEducation(value).subscribe((res: EDUCATION) => {
-    //   console.log(res);
-    //   console.log(`res inside ${JSON.stringify(res)}`);
-    //   console.log(this.cf.EDUCATION === this.cf.EDUCATION.push(res));
-    //   this.cf.EDUCATION = this.cf.EDUCATION.push(res);
-    //   this.educationForm.reset();
-    //   this.router.navigate(["../jobseeker/profile"]);
-    // });
-    const url: string = '/api/fields/education';
+    const { value }: { value: EDUCATION } = this.educationForm;
+    const url: string = "/api/fields/education";
     this.fs.createField(url, value).subscribe((res: EDUCATION) => {
-        console.log(res);
-        console.log(`res inside ${JSON.stringify(res)}`);
-        console.log(this.cf.EDUCATION === this.cf.EDUCATION.push(res));
-        this.fs.EDUCATION= this.fs.EDUCATION.push(res);
-        this.educationForm.reset();
-        this.router.navigate(["../jobseeker/profile"]);
-      });
+      console.log(res);
+      console.log(`res inside ${JSON.stringify(res)}`);
+      console.log(this.cf.EDUCATION === this.cf.EDUCATION.push(res));
+      this.fs.EDUCATION = this.fs.EDUCATION.push(res);
+      this.educationForm.reset();
+      this.router.navigate(["../jobseeker/profile"]);
+    });
   }
 }
