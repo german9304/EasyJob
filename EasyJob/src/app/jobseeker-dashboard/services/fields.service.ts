@@ -22,8 +22,8 @@ export class FieldService<T> {
     private route: ActivatedRoute
   ) {}
 
-  createField(url: string): Observable<T> {
-    return this.http.post<T>(url, this.auth.UserHeaders).pipe(
+  createField(url: string, field: T): Observable<T> {
+    return this.http.post<T>(url, field, this.auth.UserHeaders).pipe(
       tap(data => console.log(`field ${JSON.stringify(data)}`)),
       catchError(error => {
         console.log(`the error is ${error}`);
@@ -52,6 +52,21 @@ export class FieldService<T> {
     );
   }
 
+  getFields(): Observable<FIELDS> {
+    return this.http.get<FIELDS>(`/api/fields/candidate`).pipe(
+      tap(fields => {
+        console.log(`fields: ${fields.experience}`);
+      }),
+      catchError(error => {
+        console.log(`the error is ${error}`);
+        return of(error);
+      })
+    );
+  }
+
+  goBackToProfile() {
+    this.router.navigate(["../jobseeker/profile"]);
+  }
   private handleError(error: HttpErrorResponse) {
     console.log(`error ${error.error} ${error.status}`);
     return throwError("Something bad happened; please try again later.");
