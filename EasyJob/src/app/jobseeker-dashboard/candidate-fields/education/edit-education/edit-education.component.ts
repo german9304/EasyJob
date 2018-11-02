@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder } from "@angular/forms";
 import { EDUCATION, FIELDS } from "../../../../job";
 import { CandidateFieldsService } from "../../../services/candidate-fields.service";
-import { Router, ActivatedRoute } from "@angular/router";
+import { Router, ActivatedRoute, ParamMap } from "@angular/router";
 import { switchMap } from "rxjs/operators";
 import { FieldsService } from "../../../services/fields.service";
 import { List, Map } from "immutable";
@@ -39,11 +39,13 @@ export class EditEducationComponent implements OnInit {
 
   ngOnInit() {
     this.updateEducation();
-    this.route.paramMap.subscribe(param => (this._id = param.get("id")));
+    this.route.paramMap.subscribe(
+      (param: ParamMap) => (this._id = param.get("id"))
+    );
   }
 
   updateEducation() {
-    this.route.data.subscribe(({ field }) => {
+    this.route.data.subscribe(({ field }: { field: EDUCATION }) => {
       const { school, degree, majorField, date, description } = field;
       this.educationForm.setValue({
         school,
@@ -72,7 +74,7 @@ export class EditEducationComponent implements OnInit {
         this.fieldServiceEducation.goBackToProfile();
       });
   }
-  delete() {;
+  delete() {
     const { _id }: { _id: string } = this;
     //console.log(this.educationForm.value);
     const url: string = `/api/fields/education/${_id}`;
@@ -88,6 +90,6 @@ export class EditEducationComponent implements OnInit {
         this.fieldServiceEducation.EDUCATION = List<EDUCATION>(education);
         this.fieldServiceEducation.goBackToProfile();
       });
-   // console.log("delete");
+    // console.log("delete");
   }
 }
