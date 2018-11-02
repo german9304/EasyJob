@@ -72,25 +72,7 @@ export class EditEducationComponent implements OnInit {
         this.fieldServiceEducation.goBackToProfile();
       });
   }
-  delete() {
-    //  const { value } = this.educationForm;
-    // const { _id } = this;
-    // console.log(this.educationForm.value);
-    // this.cfs
-    //   .deleteEducation(_id)
-    //   .pipe(
-    //     switchMap(data => {
-    //       console.log(`data received: ${JSON.stringify(data)}`);
-    //       return this.cfs.getFields();
-    //     })
-    //   )
-    //   .subscribe(({ education }: FIELDS) => {
-    //     this.cfs.EDUCATION = List<EDUCATION>(education);
-    //     this.cfs.goBackToProfile();
-    //   });
-    // console.log("delete");
-
-    //const { value } = this.educationForm;
+  delete() {;
     const { _id }: { _id: string } = this;
     //console.log(this.educationForm.value);
     const url: string = `/api/fields/education/${_id}`;
@@ -106,6 +88,6 @@ export class EditEducationComponent implements OnInit {
         this.fieldServiceEducation.EDUCATION = List<EDUCATION>(education);
         this.fieldServiceEducation.goBackToProfile();
       });
-    console.log("delete");
+   // console.log("delete");
   }
 }
