@@ -3,6 +3,7 @@ import { map, filter } from "rxjs/operators";
 import { EXPERIENCE, FIELDS, EDUCATION } from "../../../job";
 import { FormControl } from "@angular/forms";
 import { CandidateFieldsService } from "../../services/candidate-fields.service";
+import {FieldsService } from "../../services/fields.service"
 import {
   Router,
   ActivatedRoute,
@@ -20,8 +21,8 @@ import { List, Map } from "immutable";
   template: `
     <div class="candidateprofile">
       <candidate-profile-view 
-      [experience]="fields.EXPERIENCE" 
-      [education]="fields.EDUCATION"
+      [experience]="fsexp.EXPERIENCE" 
+      [education]="fsedu.EDUCATION"
        [trackByExp]="trackByExperience"
        [file]="fileUpload"
        (fileChosen)="uploadFile($event)">
@@ -38,6 +39,8 @@ export class CandidateProfileComponent implements OnInit {
   fileUpload: FormControl = new FormControl("");
   constructor(
     private fields: CandidateFieldsService,
+    private fsedu: FieldsService<EDUCATION>,
+    private fsexp: FieldsService<EXPERIENCE>,
     private router: Router,
     private route: ActivatedRoute
   ) {}
@@ -49,8 +52,9 @@ export class CandidateProfileComponent implements OnInit {
           CandidateFields: { experience, education }
         } = data;
         console.log(experience);
-        this.fields.EXPERIENCE = List<EXPERIENCE>(experience);
-        this.fields.EDUCATION = List<EDUCATION>(education);
+        this.fsexp.EXPERIENCE = List<EXPERIENCE>(experience);
+       // console.log(this.fsexp.FIELD);
+        this.fsedu.EDUCATION = List<EDUCATION>(education);
       }
       console.log("ng init");
     });

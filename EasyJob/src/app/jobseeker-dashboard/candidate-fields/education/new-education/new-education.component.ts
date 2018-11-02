@@ -3,6 +3,7 @@ import { FormBuilder } from "@angular/forms";
 import { EDUCATION } from "../../../../job";
 import { CandidateFieldsService } from "../../../services/candidate-fields.service";
 import { Router, ActivatedRoute } from "@angular/router";
+import { FieldsService } from "../../../services/fields.service";
 @Component({
   selector: "new-education",
   templateUrl: "./new-education.component.html",
@@ -25,19 +26,29 @@ export class NewEducationComponent implements OnInit {
   constructor(
     private router: Router,
     private fb: FormBuilder,
-    private fs: CandidateFieldsService
+    private cf: CandidateFieldsService,
+    private fs: FieldsService<EDUCATION>
   ) {}
 
   ngOnInit() {}
   addEducation() {
-    const { value } = this.educationForm;
-    this.fs.createEducation(value).subscribe((res: EDUCATION) => {
-      console.log(res);
-      console.log(`res inside ${JSON.stringify(res)}`);
-      console.log(this.fs.EDUCATION === this.fs.EDUCATION.push(res));
-      this.fs.EDUCATION = this.fs.EDUCATION.push(res);
-      this.educationForm.reset();
-      this.router.navigate(["../jobseeker/profile"]);
-    });
+    const { value }: {value: EDUCATION} = this.educationForm;
+    // this.cf.createEducation(value).subscribe((res: EDUCATION) => {
+    //   console.log(res);
+    //   console.log(`res inside ${JSON.stringify(res)}`);
+    //   console.log(this.cf.EDUCATION === this.cf.EDUCATION.push(res));
+    //   this.cf.EDUCATION = this.cf.EDUCATION.push(res);
+    //   this.educationForm.reset();
+    //   this.router.navigate(["../jobseeker/profile"]);
+    // });
+    const url: string = '/api/fields/education';
+    this.fs.createField(url, value).subscribe((res: EDUCATION) => {
+        console.log(res);
+        console.log(`res inside ${JSON.stringify(res)}`);
+        console.log(this.cf.EDUCATION === this.cf.EDUCATION.push(res));
+        this.fs.EDUCATION= this.fs.EDUCATION.push(res);
+        this.educationForm.reset();
+        this.router.navigate(["../jobseeker/profile"]);
+      });
   }
 }

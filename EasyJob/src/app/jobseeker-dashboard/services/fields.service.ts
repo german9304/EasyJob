@@ -12,9 +12,9 @@ import { tap, catchError } from "rxjs/operators";
 import { Router, Route, ActivatedRoute } from "@angular/router";
 
 @Injectable()
-export class FieldService<T> {
-  EXPERIENCE: List<EXPERIENCE> = List();
-  EDUCATION: List<EDUCATION> = List();
+export class FieldsService<T> {
+  EXPERIENCE: List<T> = List();
+  EDUCATION: List<T> = List();
   constructor(
     private http: HttpClient,
     private auth: AuthService,
@@ -52,10 +52,10 @@ export class FieldService<T> {
     );
   }
 
-  getFields(): Observable<FIELDS> {
-    return this.http.get<FIELDS>(`/api/fields/candidate`).pipe(
+  getFields(): Observable<T> {
+    return this.http.get<T>(`/api/fields/candidate`).pipe(
       tap(fields => {
-        console.log(`fields: ${fields.experience}`);
+        console.log(`fields: ${fields}`);
       }),
       catchError(error => {
         console.log(`the error is ${error}`);
