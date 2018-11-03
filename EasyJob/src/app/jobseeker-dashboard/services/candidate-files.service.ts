@@ -18,18 +18,35 @@ import { AuthService } from "../../services/auth.service";
 export class CandidateFilesService {
   constructor(private http: HttpClient, private auth: AuthService) {}
 
-  uploadResume(file): Observable<FILE> {
-    const option = this.auth.UserHeaders;
-    console.log('file upload resume: ',file);
-    const formData = new FormData();
+  async uploadResume(file): Promise<FILE> {
+   // console.log("file upload resume: ", file);
+    const credentials: USER = this.auth.getUserCredentials() as USER;
+    const { jwt }: { jwt: string } = credentials;
+    const formData: FormData = new FormData();
     formData.append("file", file);
-    return this.http.post<FILE>("/api/files/upload", formData, option).pipe(
-      tap(data => console.log(`file ${JSON.stringify(data)}`)),
-      catchError(err => {
-        console.log(`the error is ${err}`);
-        return of(err);
-      })
+    const fetchOptions: PROMISEOPTIONS = this.createPromiseOptions(
+      "POST",
+      `Bearer ${jwt}`,
+      formData
     );
+    const data: Response = await fetch("/api/files/upload", fetchOptions);
+    const fileInfo: FILE = await data.json();
+    //console.log(fileInfo);
+    return fileInfo;
+  }
+
+  createPromiseOptions(
+    method: string,
+    Authorization: string,
+    body: FormData
+  ): PROMISEOPTIONS {
+    return {
+      method,
+      headers: {
+        Authorization
+      },
+      body
+    };
   }
 
   get userFileResume(): Observable<FILE> {
@@ -40,4 +57,12 @@ export class CandidateFilesService {
       })
     );
   }
+}
+
+interface PROMISEOPTIONS {
+  method: string;
+  headers: {
+    Authorization: string;
+  };
+  body: FormData;
 }
