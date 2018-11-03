@@ -52,6 +52,16 @@ export class FieldsService<T> {
     );
   }
 
+  getField(url: string): Observable<T> {
+    return this.http.get<T>(url).pipe(
+      tap(data => console.log(`experience: ${data}`)),
+      catchError(error => {
+        console.log(`the error is ${error}`);
+        return this.handleError(error);
+      })
+    );
+  }
+
   getFields(): Observable<T> {
     return this.http.get<T>(`/api/fields/candidate`).pipe(
       tap(fields => {
