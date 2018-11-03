@@ -5,16 +5,19 @@
   grid-gap: 60px;
 
   // justify-content: center;
-  // border: solid 2px black;
+  border: solid 2px black;
   /* autoprefixer: off */
   .skills {
     // border: solid 2px #dddddd;
     // border-radius: 10px;
-    // border: solid 2px black;
+    border: solid 2px red;
     // padding: 20px;
+    // width: 500px;
     // background-color: #ffff;
     // border: solid 1px #dddddd32;
     .item {
+      // border: solid 2px red;
+      //  width: 50%;
       // border: solid 1px #dddddd;
       margin: 0 0 15px 0;
       background-color: #ffff;
@@ -48,6 +51,9 @@
       color: #0074d9;
       // border: solid 1px #0074d9;
       justify-content: space-between;
+      // h2 {
+      //font-size: 10px;
+      //}
       a {
         display: flex;
         align-items: center;
@@ -74,8 +80,8 @@
         margin: 0;
         font-family: "Muli", sans-serif;
         // border: solid 1px black;
-        font-size: 23px;
-        font-weight: 500;
+        font-size: 18px;
+        font-weight: 80;
         // color: #0074d9;
       }
       // .icon {
@@ -120,7 +126,7 @@
     // }
   }
   .candidate-information {
-    // border: solid 1px brown;
+    border: solid 1px brown;
     // justify-content: center;
     // align-items: flex-start;
     .profile.name {
