@@ -134,11 +134,11 @@ export class CandidateFieldsService implements OnInit {
       );
   }
 
-  updateEducation(id: string, experience: EXPERIENCE): Observable<EXPERIENCE> {
+  updateEducation(id: string, education: EDUCATION): Observable<EDUCATION> {
     return this.http
-      .put<EXPERIENCE>(
+      .put<EDUCATION>(
         `/api/fields/education/${id}`,
-        experience,
+        education,
         this.auth.UserHeaders
       )
       .pipe(
