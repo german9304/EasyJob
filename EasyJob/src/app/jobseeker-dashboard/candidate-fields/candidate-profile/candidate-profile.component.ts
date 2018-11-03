@@ -60,13 +60,6 @@ export class CandidateProfileComponent implements OnInit {
       }
       console.log("ng init");
     });
-    // this.router.events
-    //   .pipe(filter(route => route instanceof ChildActivationStart))
-    //   .subscribe(event => console.log(event));
-    // this.router.events
-    //   .pipe(filter(route => route instanceof ChildActivationEnd))
-    //   .subscribe(event => console.log(event));
-    //this.route.paramMap.subscribe(param => console.log(param));
   }
   trackByExperience(index: number, experience: EXPERIENCE): string {
     //console.log(`id: ${experience._id}`);
