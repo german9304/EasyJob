@@ -3,7 +3,6 @@ import { GridFSBucketReadStream } from "mongodb";
 import { getCandidateFiles, getCandidateFile } from "../Models/file-schema";
 import { FILE } from "../Models/file";
 
-
 const getFiles = async (req: Request, res: Response): Promise<Response> => {
   const files = await getCandidateFiles();
   //files.then(files => console.log(files));
@@ -23,9 +22,9 @@ const getResume = async (req: Request, res: Response): Promise<Response> => {
 };
 
 const uploadFile = (req: Request, res: Response): Response => {
-  
-  const { file }: {file: FILE} = req;
-  const { originalname } = file;
+  const { file }: { file: FILE } = req;
+  // const { originalname } = file;
+  console.log(file);
   return res.json(file);
 };
 

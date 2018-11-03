@@ -64,6 +64,7 @@ const fileStorage: GridFsStorage = new GridFsStorage({
           const filename: string = `${buf.toString("hex")}${extname(
             file.originalname
           )}`;
+          console.log(file);
           const { user } = req;
           const { _id }: { _id: string } = user;
           // console.log(user);

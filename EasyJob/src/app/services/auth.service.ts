@@ -110,12 +110,27 @@ export class AuthService {
     // console.log(jwt);
     const httHeaderpOptions: { headers: HttpHeaders } = {
       headers: new HttpHeaders({
-        "Content-Type": "application/json",
+        "Content-Type": "application/json; multipart/form-data",
         Authorization: `Bearer ${jwt}`
       })
     };
     return httHeaderpOptions;
   }
+
+  get userHeadersFiles(): { headers: HttpHeaders } {
+     const credentials: USER = this.getUserCredentials() as USER;
+    const { jwt } = credentials;
+    // console.log(credentials);
+    // console.log(jwt);
+    const httHeaderpOptions: { headers: HttpHeaders } = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/",
+        Authorization: `Bearer ${jwt}`
+      })
+    };
+    return httHeaderpOptions;
+  }
+
   private handleError(error: HttpErrorResponse) {
     console.log(`error ${error.error} ${error.status}`);
     return throwError(` ${error.error}`);

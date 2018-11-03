@@ -18,9 +18,12 @@ import { AuthService } from "../../services/auth.service";
 export class CandidateFilesService {
   constructor(private http: HttpClient, private auth: AuthService) {}
 
-  uploadResume(file: FILE): Observable<FILE> {
+  uploadResume(file): Observable<FILE> {
     const option = this.auth.UserHeaders;
-    return this.http.post<FILE>("/api/files/upload", file, option).pipe(
+    console.log('file upload resume: ',file);
+    const formData = new FormData();
+    formData.append("file", file);
+    return this.http.post<FILE>("/api/files/upload", formData, option).pipe(
       tap(data => console.log(`file ${JSON.stringify(data)}`)),
       catchError(err => {
         console.log(`the error is ${err}`);

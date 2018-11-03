@@ -3,7 +3,7 @@ import { map, filter } from "rxjs/operators";
 import { EXPERIENCE, FIELDS, EDUCATION } from "../../../job";
 import { FormControl } from "@angular/forms";
 import { CandidateFieldsService } from "../../services/candidate-fields.service";
-import {FieldsService } from "../../services/fields.service"
+import { FieldsService } from "../../services/fields.service";
 import {
   Router,
   ActivatedRoute,
@@ -13,7 +13,7 @@ import {
   ChildActivationEnd
 } from "@angular/router";
 import { List, Map } from "immutable";
-import {CandidateFilesService} from "../../services/candidate-files.service"
+import { CandidateFilesService } from "../../services/candidate-files.service";
 
 @Component({
   selector: "candidate-profile",
@@ -55,7 +55,7 @@ export class CandidateProfileComponent implements OnInit {
         } = data;
         console.log(experience);
         this.fsexp.EXPERIENCE = List<EXPERIENCE>(experience);
-       // console.log(this.fsexp.FIELD);
+        // console.log(this.fsexp.FIELD);
         this.fsedu.EDUCATION = List<EDUCATION>(education);
       }
       console.log("ng init");
@@ -69,11 +69,8 @@ export class CandidateProfileComponent implements OnInit {
     const { files } = event.target;
     const [file] = files;
     console.log(file);
-    const formData = new FormData();
-    formData.append("file", files);
-    this.fileService.uploadResume(file)
-    .subscribe(file => {
-      console.log('uploaded file: ', file);
-    })
+    this.fileService.uploadResume(file).subscribe(file => {
+      console.log("uploaded file: ", file);
+    });
   }
 }

@@ -1,5 +1,5 @@
 export interface FILE {
-  length: number;
+  length?: number;
   chunkSize: number;
   uploadDate: Date;
   filename: string;

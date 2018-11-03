@@ -74,6 +74,7 @@ var fileStorage = new GridFsStorage({
                     return reject(err);
                 }
                 var filename = "" + buf.toString("hex") + path_1.extname(file.originalname);
+                console.log(file);
                 var user = req.user;
                 var _id = user._id;
                 // console.log(user);
