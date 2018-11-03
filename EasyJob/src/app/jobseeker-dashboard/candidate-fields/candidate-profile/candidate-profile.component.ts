@@ -13,7 +13,8 @@ import {
   ChildActivationEnd
 } from "@angular/router";
 import { List, Map } from "immutable";
-
+import {CandidateFilesService} from "../../services/candidate-files.service"
+import {formData} from "form-data"
 @Component({
   selector: "candidate-profile",
 
@@ -42,7 +43,8 @@ export class CandidateProfileComponent implements OnInit {
     private fsedu: FieldsService<EDUCATION>,
     private fsexp: FieldsService<EXPERIENCE>,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private fileService: CandidateFilesService
   ) {}
 
   ngOnInit() {
@@ -74,5 +76,11 @@ export class CandidateProfileComponent implements OnInit {
     const { files } = event.target;
     const [file] = files;
     console.log(file);
+    const formData = new FormData();
+    formData.append("file", files);
+    this.fileService.uploadResume(file)
+    .subscribe(file => {
+      console.log('uploaded file: ', file);
+    })
   }
 }
