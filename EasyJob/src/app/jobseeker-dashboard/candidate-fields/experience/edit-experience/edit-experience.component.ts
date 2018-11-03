@@ -56,7 +56,6 @@ export class EditExperienceComponent implements OnInit {
     });
   }
   save() {
-
     const { value }: { value: EXPERIENCE } = this.experienceForm;
     const { _id }: { _id: string } = this;
     const url: string = `/api/fields/experience/${_id}`;
@@ -75,19 +74,20 @@ export class EditExperienceComponent implements OnInit {
   }
   delete() {
     // const { value } = this.experienceForm;
-    const { _id } = this;
-    console.log(this.experienceForm.value);
-    this.candidateField
-      .deleteExperience(_id)
+    const { _id }: {_id: string} = this;
+    //console.log(this.experienceForm.value);
+    const url: string = `/api/fields/experience/${_id}`;
+    this.fieldSeriviceExperience
+      .deleteField(url)
       .pipe(
         switchMap(data => {
           //console.log(`data received: ${JSON.stringify(data)}`);
-          return this.candidateField.getFields();
+          return this.fieldService.getFields();
         })
       )
-      .subscribe(({ experience }: FIELDS) => {
-        this.candidateField.EXPERIENCE = List<EXPERIENCE>(experience);
-        this.candidateField.goBackToProfile();
+      .subscribe(({ experience }: {experience: Array<EXPERIENCE>}) => {
+        this.fieldSeriviceExperience.EXPERIENCE = List<EXPERIENCE>(experience);
+        this.fieldSeriviceExperience.goBackToProfile();
       });
     console.log("delete");
   }
