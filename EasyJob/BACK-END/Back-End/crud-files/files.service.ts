@@ -24,7 +24,7 @@ const getResume = async (req: Request, res: Response): Promise<Response> => {
 const uploadFile = (req: Request, res: Response): Response => {
   const { file }: { file: FILE } = req;
   // const { originalname } = file;
-  console.log(file);
+  //console.log(file);
   return res.json(file);
 };
 

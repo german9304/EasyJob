@@ -75,7 +75,7 @@ exports.getResume = getResume;
 var uploadFile = function (req, res) {
     var file = req.file;
     // const { originalname } = file;
-    console.log(file);
+    //console.log(file);
     return res.json(file);
 };
 exports.uploadFile = uploadFile;

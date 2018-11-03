@@ -14,8 +14,10 @@ import { List, Map } from "immutable";
 import { FILE } from ".././file";
 import { AuthService } from "../../services/auth.service";
 
+
 @Injectable()
 export class CandidateFilesService {
+  
   constructor(private http: HttpClient, private auth: AuthService) {}
 
   async uploadResume(file): Promise<FILE> {
@@ -23,7 +25,7 @@ export class CandidateFilesService {
     console.log("file upload resume: ", file);
     const credentials: USER = this.auth.getUserCredentials() as USER;
     const { jwt }: { jwt: string } = credentials;
-    const formData = new FormData();
+    const formData: FormData = new FormData();
     formData.append("file", file);
     const data: Response = await fetch("/api/files/upload", {
       method: "POST",
@@ -33,8 +35,18 @@ export class CandidateFilesService {
       body: formData
     });
     const fileInfo: FILE = await data.json();
-    console.log(fileInfo);
+    //console.log(fileInfo);
     return fileInfo;
+  }
+
+  createPromiseOptions(method: string, Authorization: string, body: FormData){
+    return {
+      method,
+       headers:{
+        Authorization
+       },
+      body
+    }
   }
 
   get userFileResume(): Observable<FILE> {
@@ -45,4 +57,12 @@ export class CandidateFilesService {
       })
     );
   }
+}
+
+interface PROMISEOPTIONS{
+  method: string
+  headers:{
+    Authorization: string
+  },
+  body: FormData
 }
