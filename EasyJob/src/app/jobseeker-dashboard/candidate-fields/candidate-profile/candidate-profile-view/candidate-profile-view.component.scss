@@ -29,6 +29,19 @@
       // }
       // border: solid 1px black;
       //padding: 0;
+      .add {
+        transition: all 0.5s;
+      }
+      .add:hover {
+        border-radius: 5px;
+        // border: solid 1px black;
+        background-color: #0074d932;
+        // color: white;
+        //   background-color: rebeccapurple;
+        .material-icons {
+          color: #001f3f;
+        }
+      }
     }
     // .item.experience {
     //   border-radius: 7px 7px 0 0;
@@ -90,13 +103,17 @@
       #add-icon-resume {
         position: relative;
         // border: solid 1px black;
+        display: flex;
+        align-content: center;
         cursor: pointer;
         overflow: hidden;
-        #file-label {
-          cursor: pointer;
-          // border: solid 2px red;
-          // z-index: 1;
-        }
+        // #file-label {
+        //   cursor: pointer;
+        //   border: solid 1px black;
+        //   margin: 0;
+        // border: solid 2px red;
+        // z-index: 1;
+        // }
         #file-upload {
           position: absolute;
           // z-index: 2;
