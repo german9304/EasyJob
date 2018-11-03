@@ -9,7 +9,7 @@ import { Schema, Document, Model } from "mongoose";
 import { GridFSBucket, GridFSBucketReadStream, ObjectId } from "mongodb";
 
 interface FileDocument extends Document {
-  length: number;
+  length?: number;
   chunkSize: number;
   uploadDate: Date;
   filename: string;
@@ -18,6 +18,7 @@ interface FileDocument extends Document {
       _id: string;
     };
   };
+  originalname: string;
   md5: string;
   contentType: string;
 }
@@ -32,6 +33,7 @@ const gridFsSchema: Schema = new mongoose.Schema(
         _id: String
       }
     },
+    originalname: String,
     md5: String,
     contentType: String
   },

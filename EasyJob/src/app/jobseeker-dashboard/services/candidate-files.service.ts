@@ -17,6 +17,12 @@ import { AuthService } from "../../services/auth.service";
 @Injectable()
 export class CandidateFilesService {
   constructor(private http: HttpClient, private auth: AuthService) {}
+
+  uploadResume(file): Observable<FILE> {
+    const option = this.auth.UserHeaders;
+    return this.http.post<FILE>('',file,  option);
+  }
+
   get userFileResume(): Observable<FILE> {
     return this.http.get<FILE>(`/api/files/resume`).pipe(
       catchError(err => {
