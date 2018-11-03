@@ -14,7 +14,7 @@ import {
 } from "@angular/router";
 import { List, Map } from "immutable";
 import {CandidateFilesService} from "../../services/candidate-files.service"
-import {formData} from "form-data"
+
 @Component({
   selector: "candidate-profile",
 
