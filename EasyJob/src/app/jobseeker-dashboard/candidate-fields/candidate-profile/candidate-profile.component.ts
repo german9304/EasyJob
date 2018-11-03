@@ -14,7 +14,7 @@ import {
 } from "@angular/router";
 import { List, Map } from "immutable";
 import { CandidateFilesService } from "../../services/candidate-files.service";
-
+import { FILE } from "../.././file";
 @Component({
   selector: "candidate-profile",
 
@@ -65,12 +65,11 @@ export class CandidateProfileComponent implements OnInit {
     //console.log(`id: ${experience._id}`);
     return experience._id;
   }
-  uploadFile(event) {
+  async uploadFile(event): Promise<void> {
     const { files } = event.target;
     const [file] = files;
     console.log(file);
-    this.fileService.uploadResume(file).subscribe(file => {
-      console.log("uploaded file: ", file);
-    });
+    const fileInfo: FILE = await this.fileService.uploadResume(file);
+    console.log(fileInfo);
   }
 }

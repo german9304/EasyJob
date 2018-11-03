@@ -110,7 +110,7 @@ export class AuthService {
     // console.log(jwt);
     const httHeaderpOptions: { headers: HttpHeaders } = {
       headers: new HttpHeaders({
-        "Content-Type": "application/json; multipart/form-data",
+        "Content-Type": "application/json",
         Authorization: `Bearer ${jwt}`
       })
     };
