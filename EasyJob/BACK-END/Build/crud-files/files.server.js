@@ -10,5 +10,5 @@ var router = express_1.Router();
 var upload = multer({ storage: file_schema_1.fileStorage });
 router.get("/", files_service_1.getFiles);
 router.get("/resume", files_service_1.getResume);
-router.post("/upload", passport_1.authenticate("jwt", { session: false }), upload.single("files"), files_service_1.uploadFile);
+router.post("/upload", passport_1.authenticate("jwt", { session: false }), upload.single("file"), files_service_1.uploadFile);
 exports.default = router;
