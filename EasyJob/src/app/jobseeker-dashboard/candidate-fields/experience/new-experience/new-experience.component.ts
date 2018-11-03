@@ -1,7 +1,6 @@
 import { Component, OnInit, } from "@angular/core";
 import { FormBuilder } from "@angular/forms";
 import { EXPERIENCE } from "../../../../job";
-import { CandidateFieldsService } from "../../../services/candidate-fields.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { FieldsService } from "../../../services/fields.service";
 
@@ -41,7 +40,7 @@ export class NewExperienceComponent implements OnInit {
     this.fieldServiceExperience
       .createField(url, value)
       .subscribe((res: EXPERIENCE) => {
-        console.log(`res inside ${JSON.stringify(res)}`);
+        //console.log(`res inside ${JSON.stringify(res)}`);
         console.log(
           this.fieldServiceExperience.EXPERIENCE ===
             this.fieldServiceExperience.EXPERIENCE.push(res)

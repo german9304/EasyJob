@@ -7,6 +7,7 @@ import { Router, ActivatedRoute, ParamMap } from "@angular/router";
 import { switchMap } from "rxjs/operators";
 import { List, Map } from "immutable";
 import { Experience } from "BACK-END/Back-End/Models/fields";
+import { FieldsService } from "../../../services/fields.service";
 @Component({
   selector: "edit-experience",
   templateUrl: "./edit-experience.component.html",
@@ -17,7 +18,7 @@ import { Experience } from "BACK-END/Back-End/Models/fields";
 })
 export class EditExperienceComponent implements OnInit {
   _id: string;
-  experienceForm = this.fb.group({
+  experienceForm: FormGroup = this.fb.group({
     position: [""],
     company: [""],
     location: [""],
@@ -31,15 +32,19 @@ export class EditExperienceComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private fb: FormBuilder,
-    private fs: CandidateFieldsService
+    private candidateField: CandidateFieldsService,
+    private fieldServiceEducation: FieldsService<EXPERIENCE>,
+    private fieldService: FieldsService<FIELDS>
   ) {}
 
   ngOnInit() {
     this.updateExperience();
-    this.route.paramMap.subscribe(param => (this._id = param.get("id")));
+    this.route.paramMap.subscribe(
+      (param: ParamMap) => (this._id = param.get("id"))
+    );
   }
   updateExperience() {
-    this.route.data.subscribe(({ field }) => {
+    this.route.data.subscribe(({ field }: { field: EXPERIENCE }) => {
       const { position, company, location, date, description } = field;
       this.experienceForm.setValue({
         position,
@@ -51,36 +56,37 @@ export class EditExperienceComponent implements OnInit {
     });
   }
   save() {
-    const { value } = this.experienceForm;
-    const { _id } = this;
-    this.fs
-      .updateExperience(_id, value)
+    const { value }: { value: EXPERIENCE } = this.experienceForm;
+    const { _id }: { _id: string } = this;
+    const url: string = `/api/fields/experience/${_id}`;
+    this.fieldServiceEducation
+      .updateField(url, value)
       .pipe(
         switchMap(data => {
-          //console.log(`data received: ${JSON.stringify(data)}`);
-          return this.fs.getFields();
+          // console.log(`data received: ${JSON.stringify(data)}`);
+          return this.fieldService.getFields();
         })
       )
-      .subscribe(({ experience }: FIELDS) => {
-        this.fs.EXPERIENCE = List<EXPERIENCE>(experience);
-        this.fs.goBackToProfile();
+      .subscribe(({ experience }: { experience: Array<EXPERIENCE> }) => {
+        this.fieldServiceEducation.EXPERIENCE = List<EXPERIENCE>(experience);
+        this.fieldServiceEducation.goBackToProfile();
       });
   }
   delete() {
     // const { value } = this.experienceForm;
     const { _id } = this;
     console.log(this.experienceForm.value);
-    this.fs
+    this.candidateField
       .deleteExperience(_id)
       .pipe(
         switchMap(data => {
           //console.log(`data received: ${JSON.stringify(data)}`);
-          return this.fs.getFields();
+          return this.candidateField.getFields();
         })
       )
       .subscribe(({ experience }: FIELDS) => {
-        this.fs.EXPERIENCE = List<EXPERIENCE>(experience);
-        this.fs.goBackToProfile();
+        this.candidateField.EXPERIENCE = List<EXPERIENCE>(experience);
+        this.candidateField.goBackToProfile();
       });
     console.log("delete");
   }
