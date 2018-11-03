@@ -16,10 +16,11 @@ import { AuthService } from "../../services/auth.service";
 
 @Injectable()
 export class CandidateFilesService {
-  constructor(private http: HttpClient, private auth: AuthService) {}
+  fileInfo: Map<string, string> = Map({ originalname: "", uploadDate: "" });
 
+  constructor(private http: HttpClient, private auth: AuthService) {}
   async uploadResume(file): Promise<FILE> {
-   // console.log("file upload resume: ", file);
+    // console.log("file upload resume: ", file);
     const credentials: USER = this.auth.getUserCredentials() as USER;
     const { jwt }: { jwt: string } = credentials;
     const formData: FormData = new FormData();

@@ -70,6 +70,8 @@ export class CandidateProfileComponent implements OnInit {
     const [file] = files;
     console.log(file);
     const fileInfo: FILE = await this.fileService.uploadResume(file);
+    const { originalname, uploadDate} = fileInfo;
+    
     console.log(fileInfo);
   }
 }
