@@ -1,12 +1,11 @@
 import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormControl } from "@angular/forms";
+import { FormGroup } from "@angular/forms";
 import { FormBuilder } from "@angular/forms";
 import { EXPERIENCE, FIELDS } from "../../../../job";
 import { CandidateFieldsService } from "../../../services/candidate-fields.service";
 import { Router, ActivatedRoute, ParamMap } from "@angular/router";
 import { switchMap } from "rxjs/operators";
-import { List, Map } from "immutable";
-import { Experience } from "BACK-END/Back-End/Models/fields";
+import { List} from "immutable";
 import { FieldsService } from "../../../services/fields.service";
 @Component({
   selector: "edit-experience",
