@@ -53,6 +53,7 @@ var gridFsSchema = new mongoose.Schema({
             _id: String
         }
     },
+    originalname: String,
     md5: String,
     contentType: String
 }, { collection: "uploads.files", versionKey: false });
@@ -83,6 +84,7 @@ var fileStorage = new GridFsStorage({
                     },
                     bucketName: "uploads"
                 };
+                console.log(fileInfo);
                 resolve(fileInfo);
             });
         });
