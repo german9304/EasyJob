@@ -33,7 +33,7 @@ export class EditExperienceComponent implements OnInit {
     private route: ActivatedRoute,
     private fb: FormBuilder,
     private candidateField: CandidateFieldsService,
-    private fieldServiceEducation: FieldsService<EXPERIENCE>,
+    private fieldSeriviceExperience: FieldsService<EXPERIENCE>,
     private fieldService: FieldsService<FIELDS>
   ) {}
 
@@ -56,10 +56,11 @@ export class EditExperienceComponent implements OnInit {
     });
   }
   save() {
+
     const { value }: { value: EXPERIENCE } = this.experienceForm;
     const { _id }: { _id: string } = this;
     const url: string = `/api/fields/experience/${_id}`;
-    this.fieldServiceEducation
+    this.fieldSeriviceExperience
       .updateField(url, value)
       .pipe(
         switchMap(data => {
@@ -68,8 +69,8 @@ export class EditExperienceComponent implements OnInit {
         })
       )
       .subscribe(({ experience }: { experience: Array<EXPERIENCE> }) => {
-        this.fieldServiceEducation.EXPERIENCE = List<EXPERIENCE>(experience);
-        this.fieldServiceEducation.goBackToProfile();
+        this.fieldSeriviceExperience.EXPERIENCE = List<EXPERIENCE>(experience);
+        this.fieldSeriviceExperience.goBackToProfile();
       });
   }
   delete() {
