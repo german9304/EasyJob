@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { EXPERIENCE, EDUCATION, FIELDS } from "../../job";
 import { Observable } from "rxjs";
 import { CandidateFieldsService } from ".././services/candidate-fields.service";
+import { FieldsService } from ".././services/fields.service";
 import {
   Router,
   Resolve,
@@ -10,13 +11,13 @@ import {
 } from "@angular/router";
 @Injectable()
 export class GetExperienceFieldService implements Resolve<EXPERIENCE> {
-  constructor(private fs: CandidateFieldsService) {}
+  constructor(private fs: FieldsService<EXPERIENCE>) {}
   resolve(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<EXPERIENCE> {
-    const id = route.paramMap.get("id");
-
-    return this.fs.getExperience(id);
+    const id: string = route.paramMap.get("id");
+    const url: string = `/api/fields/experience/${id}`;
+    return this.fs.getField(url);
   }
 }
