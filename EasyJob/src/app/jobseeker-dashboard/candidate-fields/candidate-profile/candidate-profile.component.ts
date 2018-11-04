@@ -26,7 +26,8 @@ import { CandidateFilesService } from "../../services/candidate-files.service";
       [education]="fsedu.EDUCATION"
        [trackByExp]="trackByExperience"
        [file]="fileUpload"
-       (fileChosen)="uploadFile($event)">
+       (fileChosen)="uploadFile($event)"
+       [fileInfo]="fileService.fileInfo">
       </candidate-profile-view>
       <router-outlet></router-outlet>
     </div>

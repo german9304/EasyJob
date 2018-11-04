@@ -11,7 +11,7 @@
           <input type="file" (input)="fileSubmit($event)" [formControl]="file" name="file" id="file-upload">
         </div>
       </div>
-      <candidate-files></candidate-files>
+      <candidate-files [fileInfo]="fileInfo.toObject()"></candidate-files>
     </div>
 
     <div class="item experience">
