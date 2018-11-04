@@ -6,22 +6,9 @@ import * as GridFsStorage from "multer-gridfs-storage";
 import db from "./db-connection";
 import { User } from "../user";
 import { Schema, Document, Model } from "mongoose";
+import { FileDocument } from "./file";
 import { GridFSBucket, GridFSBucketReadStream, ObjectId } from "mongodb";
 
-interface FileDocument extends Document {
-  length?: number;
-  chunkSize: number;
-  uploadDate: Date;
-  filename: string;
-  metadata: {
-    user: {
-      _id: string;
-    };
-  };
-  originalname: string;
-  md5: string;
-  contentType: string;
-}
 const gridFsSchema: Schema = new mongoose.Schema(
   {
     length: Number,
@@ -88,6 +75,11 @@ const getCandidateFiles = async () => {
   return getAllFiles;
 };
 
+const getCandidateResume = async (_id: string): Promise<FileDocument> => {
+  return await gridFsFiles.findOne({
+    metadata: { user: { _id: `${_id}` } }
+  });
+};
 const getCandidateFile = async (
   _id: ObjectId
 ): Promise<GridFSBucketReadStream> => {
@@ -108,4 +100,4 @@ const getCandidateFile = async (
     console.error(err);
   }
 };
-export { getCandidateFiles, getCandidateFile, fileStorage };
+export { getCandidateFiles, getCandidateFile, fileStorage, getCandidateResume };
