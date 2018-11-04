@@ -61,14 +61,17 @@ export class CandidateProfileComponent implements OnInit {
         // console.log(this.fsexp.FIELD);
         this.fsedu.EDUCATION = List<EDUCATION>(education);
         const fInfo: FILE = fileInfo;
-        const {
-          originalName,
-          uploadDate
-        }: { originalName: string; uploadDate: string } = fInfo;
-        const fInfoObj = { originalName, uploadDate };
-        this.fileService.fileInfo = Map<string, string>(fInfoObj);
-        const { fileInfo: fi } = this.fileService;
-        console.log(fi.toObject());
+        console.log(`fileinfo: ${fileInfo}`);
+        if (fileInfo) {
+          const {
+            originalName,
+            uploadDate
+          }: { originalName: string; uploadDate: string } = fInfo;
+          const fInfoObj = { originalName, uploadDate };
+          this.fileService.fileInfo = Map<string, string>(fInfoObj);
+          const { fileInfo: fi } = this.fileService;
+          console.log(fi.toObject());
+        }
       }
       console.log("ng init");
     });

@@ -84,9 +84,10 @@ const getCandidateFiles = async () => {
 };
 
 const getCandidateResume = async (_id: string): Promise<FileDocument> => {
-  return await gridFsFiles.findOne({
+  const gridFile = await gridFsFiles.findOne({
     metadata: { user: { _id: `${_id}` } }
   });
+  return gridFile;
 };
 const getCandidateFile = async (
   _id: ObjectId
