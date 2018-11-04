@@ -6,7 +6,7 @@ import * as GridFsStorage from "multer-gridfs-storage";
 import db from "./db-connection";
 import { User } from "../user";
 import { Schema, Document, Model } from "mongoose";
-import { FileDocument } from "./file";
+import { FileDocument, FILE } from "./file";
 import { GridFSBucket, GridFSBucketReadStream, ObjectId } from "mongodb";
 
 const gridFsSchema: Schema = new mongoose.Schema(
@@ -20,7 +20,7 @@ const gridFsSchema: Schema = new mongoose.Schema(
         _id: String
       }
     },
-    originalname: String,
+    originalName: String,
     md5: String,
     contentType: String
   },
@@ -39,37 +39,43 @@ const gridFsFiles: Model<FileDocument> = mongoose.model<FileDocument>(
   gridFsSchema
 );
 
+const FileInfo = (
+  { originalname: originalName }: { originalname: string },
+  buf: Buffer,
+  _id: string,
+  bucketName: string
+) => {
+  const filename: string = `${buf.toString("hex")}${extname(originalName)}`;
+  return {
+    filename,
+    metadata: {
+      user: { _id }
+    },
+    bucketName
+  };
+};
+
+const file: (req, file) => Promise<{}> = (req, file): Promise<{}> => {
+  return new Promise(
+    (resolve, reject): void => {
+      randomBytes(16, (err: Error, buf: Buffer) => {
+        if (err) {
+          return reject(err);
+        }
+        //console.log(file);
+        const { user }: { user: User } = req;
+        const { _id } = user;
+        // console.log(user);
+        const fileInfo: FILE = FileInfo(file, buf, _id, "uploads");
+        console.log(fileInfo);
+        resolve(fileInfo);
+      });
+    }
+  );
+};
 const fileStorage: GridFsStorage = new GridFsStorage({
   db,
-  file: (req, file): Promise<{}> => {
-    return new Promise(
-      (resolve, reject): void => {
-        randomBytes(16, (err: Error, buf: Buffer) => {
-          if (err) {
-            return reject(err);
-          }
-          const { originalname: originalName }: { originalname: string } = file;
-          const filename: string = `${buf.toString("hex")}${extname(
-            originalName
-          )}`;
-          //console.log(file);
-          const { user } = req;
-          const { _id }: { _id: string } = user;
-          // console.log(user);
-          const fileInfo = {
-            filename,
-            metadata: {
-              user: { _id },
-              originalName
-            },
-            bucketName: "uploads"
-          };
-          console.log(fileInfo);
-          resolve(fileInfo);
-        });
-      }
-    );
-  }
+  file
 });
 
 const getCandidateFiles = async () => {
@@ -102,4 +108,26 @@ const getCandidateFile = async (
     console.error(err);
   }
 };
-export { getCandidateFiles, getCandidateFile, fileStorage, getCandidateResume };
+
+const findFileByIdUpdate = async (_id: string, originalName: string) => {
+  try {
+    const gridFile: FileDocument = await gridFsFiles.findById(_id);
+    if (gridFile) {
+      gridFile.set({
+        originalName
+      });
+      return await gridFile.save();
+    }
+    return gridFile;
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+export {
+  getCandidateFiles,
+  findFileByIdUpdate,
+  getCandidateFile,
+  fileStorage,
+  getCandidateResume
+};

@@ -53,7 +53,7 @@ var gridFsSchema = new mongoose.Schema({
             _id: String
         }
     },
-    originalname: String,
+    originalName: String,
     md5: String,
     contentType: String
 }, { collection: "uploads.files", versionKey: false });
@@ -65,33 +65,36 @@ db_connection_1.default.once("open", function () {
     console.log("connction open");
 });
 var gridFsFiles = mongoose.model("uploads", gridFsSchema);
+var FileInfo = function (_a, buf, _id, bucketName) {
+    var originalName = _a.originalname;
+    var filename = "" + buf.toString("hex") + path_1.extname(originalName);
+    return {
+        filename: filename,
+        metadata: {
+            user: { _id: _id }
+        },
+        bucketName: bucketName
+    };
+};
+var file = function (req, file) {
+    return new Promise(function (resolve, reject) {
+        crypto_1.randomBytes(16, function (err, buf) {
+            if (err) {
+                return reject(err);
+            }
+            //console.log(file);
+            var user = req.user;
+            var _id = user._id;
+            // console.log(user);
+            var fileInfo = FileInfo(file, buf, _id, "uploads");
+            console.log(fileInfo);
+            resolve(fileInfo);
+        });
+    });
+};
 var fileStorage = new GridFsStorage({
     db: db_connection_1.default,
-    file: function (req, file) {
-        return new Promise(function (resolve, reject) {
-            crypto_1.randomBytes(16, function (err, buf) {
-                if (err) {
-                    return reject(err);
-                }
-                var originalName = file.originalname;
-                var filename = "" + buf.toString("hex") + path_1.extname(originalName);
-                //console.log(file);
-                var user = req.user;
-                var _id = user._id;
-                // console.log(user);
-                var fileInfo = {
-                    filename: filename,
-                    metadata: {
-                        user: { _id: _id },
-                        originalName: originalName
-                    },
-                    bucketName: "uploads"
-                };
-                console.log(fileInfo);
-                resolve(fileInfo);
-            });
-        });
-    }
+    file: file
 });
 exports.fileStorage = fileStorage;
 var getCandidateFiles = function () { return __awaiter(_this, void 0, void 0, function () {
@@ -118,7 +121,7 @@ var getCandidateResume = function (_id) { return __awaiter(_this, void 0, void 0
 }); };
 exports.getCandidateResume = getCandidateResume;
 var getCandidateFile = function (_id) { return __awaiter(_this, void 0, void 0, function () {
-    var gridFile, filename, file, err_1;
+    var gridFile, filename, file_1, err_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -132,8 +135,8 @@ var getCandidateFile = function (_id) { return __awaiter(_this, void 0, void 0, 
                 console.log(gridFile);
                 if (gridFile) {
                     filename = gridFile.filename;
-                    file = bucketName.openDownloadStreamByName(filename);
-                    return [2 /*return*/, file];
+                    file_1 = bucketName.openDownloadStreamByName(filename);
+                    return [2 /*return*/, file_1];
                 }
                 return [3 /*break*/, 3];
             case 2:
@@ -145,3 +148,28 @@ var getCandidateFile = function (_id) { return __awaiter(_this, void 0, void 0, 
     });
 }); };
 exports.getCandidateFile = getCandidateFile;
+var findFileByIdUpdate = function (_id, originalName) { return __awaiter(_this, void 0, void 0, function () {
+    var gridFile, err_2;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 4, , 5]);
+                return [4 /*yield*/, gridFsFiles.findById(_id)];
+            case 1:
+                gridFile = _a.sent();
+                if (!gridFile) return [3 /*break*/, 3];
+                gridFile.set({
+                    originalName: originalName
+                });
+                return [4 /*yield*/, gridFile.save()];
+            case 2: return [2 /*return*/, _a.sent()];
+            case 3: return [2 /*return*/, gridFile];
+            case 4:
+                err_2 = _a.sent();
+                console.error(err_2);
+                return [3 /*break*/, 5];
+            case 5: return [2 /*return*/];
+        }
+    });
+}); };
+exports.findFileByIdUpdate = findFileByIdUpdate;

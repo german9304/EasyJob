@@ -72,10 +72,18 @@ var getResume = function (req, res) { return __awaiter(_this, void 0, void 0, fu
     });
 }); };
 exports.getResume = getResume;
-var uploadFile = function (req, res) {
-    var file = req.file;
-    // const { originalname } = file;
-    //console.log(file);
-    return res.json(file);
-};
+var uploadFile = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+    var file, originalName, id, fileRes;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                file = req.file;
+                originalName = file.originalname, id = file.id;
+                return [4 /*yield*/, file_schema_1.findFileByIdUpdate(id, originalName)];
+            case 1:
+                fileRes = _a.sent();
+                return [2 /*return*/, res.json(fileRes)];
+        }
+    });
+}); };
 exports.uploadFile = uploadFile;
