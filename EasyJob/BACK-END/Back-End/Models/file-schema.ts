@@ -20,7 +20,7 @@ const gridFsSchema: Schema = new mongoose.Schema(
         _id: String
       }
     },
-    originalname: String,
+    originalName: String,
     md5: String,
     contentType: String
   },
@@ -109,12 +109,12 @@ const getCandidateFile = async (
   }
 };
 
-const findFileByIdUpdate = async (_id: string) => {
+const findFileByIdUpdate = async (_id: string, originalName: string) => {
   try {
     const gridFile: FileDocument = await gridFsFiles.findById(_id);
     if (gridFile) {
       gridFile.set({
-        originalname: "test original name"
+        originalName
       });
       return await gridFile.save();
     }

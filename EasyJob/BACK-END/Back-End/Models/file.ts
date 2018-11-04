@@ -1,6 +1,7 @@
 import { Document } from "mongoose";
 
 export interface FILE {
+  id?: string;
   length?: number;
   chunkSize?: number;
   uploadDate?: Date;
@@ -25,7 +26,7 @@ export interface FileDocument extends Document {
       _id: string;
     };
   };
-  originalname: string;
+  originalName: string;
   md5: string;
   contentType: string;
 }

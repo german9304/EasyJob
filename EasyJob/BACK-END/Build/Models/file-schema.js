@@ -53,7 +53,7 @@ var gridFsSchema = new mongoose.Schema({
             _id: String
         }
     },
-    originalname: String,
+    originalName: String,
     md5: String,
     contentType: String
 }, { collection: "uploads.files", versionKey: false });
@@ -148,7 +148,7 @@ var getCandidateFile = function (_id) { return __awaiter(_this, void 0, void 0, 
     });
 }); };
 exports.getCandidateFile = getCandidateFile;
-var findFileByIdUpdate = function (_id) { return __awaiter(_this, void 0, void 0, function () {
+var findFileByIdUpdate = function (_id, originalName) { return __awaiter(_this, void 0, void 0, function () {
     var gridFile, err_2;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -159,7 +159,7 @@ var findFileByIdUpdate = function (_id) { return __awaiter(_this, void 0, void 0
                 gridFile = _a.sent();
                 if (!gridFile) return [3 /*break*/, 3];
                 gridFile.set({
-                    originalname: "test original name"
+                    originalName: originalName
                 });
                 return [4 /*yield*/, gridFile.save()];
             case 2: return [2 /*return*/, _a.sent()];
