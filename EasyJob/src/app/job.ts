@@ -35,7 +35,7 @@ export class EDUCATION {
 export interface FILE {
   length?: number;
   chunkSize: number;
-  uploadDate: Date;
+  uploadDate: string;
   filename: string;
   metadata: {
     user: {

@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
 import { map, filter } from "rxjs/operators";
-import { EXPERIENCE, FIELDS, EDUCATION } from "../../../job";
+import { EXPERIENCE, FIELDS, EDUCATION, FILE } from "../../../job";
 import { FormControl } from "@angular/forms";
 import { CandidateFieldsService } from "../../services/candidate-fields.service";
 import { FieldsService } from "../../services/fields.service";
@@ -14,7 +14,7 @@ import {
 } from "@angular/router";
 import { List, Map } from "immutable";
 import { CandidateFilesService } from "../../services/candidate-files.service";
-import { FILE } from "../.././file";
+//import { FILE } from "../.././file";
 @Component({
   selector: "candidate-profile",
 
@@ -51,12 +51,22 @@ export class CandidateProfileComponent implements OnInit {
     this.route.data.subscribe((data: { CandidateFields: FIELDS }) => {
       if (data) {
         const {
-          CandidateFields: { experience, education }
-        } = data;
-        console.log(experience);
+          CandidateFields: { experience, education, fileInfo }
+        }: { CandidateFields: FIELDS } = data;
+        // console.log(data);
+
         this.fsexp.EXPERIENCE = List<EXPERIENCE>(experience);
         // console.log(this.fsexp.FIELD);
         this.fsedu.EDUCATION = List<EDUCATION>(education);
+        const fInfo: FILE = fileInfo;
+        const {
+          originalname,
+          uploadDate
+        }: { originalname: string; uploadDate: string } = fInfo;
+        const fInfoObj = { originalname, uploadDate };
+        this.fileService.fileInfo = Map<string, string>(fInfoObj);
+        const { fileInfo: fi } = this.fileService;
+        console.log(fi.toObject());
       }
       console.log("ng init");
     });
@@ -70,8 +80,8 @@ export class CandidateProfileComponent implements OnInit {
     const [file] = files;
     console.log(file);
     const fileInfo: FILE = await this.fileService.uploadResume(file);
-    const { originalname, uploadDate} = fileInfo;
-    
+    const { originalname, uploadDate } = fileInfo;
+
     console.log(fileInfo);
   }
 }

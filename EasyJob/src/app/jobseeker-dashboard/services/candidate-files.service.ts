@@ -8,10 +8,10 @@ import { Router, Route, ActivatedRoute } from "@angular/router";
 
 import { Observable, of, throwError } from "rxjs";
 import { tap, catchError } from "rxjs/operators";
-import { EXPERIENCE, FIELDS, EDUCATION } from "../../job";
+import { EXPERIENCE, FIELDS, EDUCATION, FILE } from "../../job";
 import { USER } from "../../user";
 import { List, Map } from "immutable";
-import { FILE } from ".././file";
+//import { FILE } from ".././file";
 import { AuthService } from "../../services/auth.service";
 
 @Injectable()
@@ -51,14 +51,12 @@ export class CandidateFilesService {
   }
 
   get userFileResume(): Observable<FILE> {
-    return this.http
-      .get<FILE>(`/api/files/resume`, this.auth.UserHeaders)
-      .pipe(
-        catchError(err => {
-          console.log(`the error is ${err}`);
-          return of(err);
-        })
-      );
+    return this.http.get<FILE>(`/api/files/resume`, this.auth.UserHeaders).pipe(
+      catchError(err => {
+        console.log(`the error is ${err}`);
+        return of(err);
+      })
+    );
   }
 }
 
