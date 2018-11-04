@@ -84,7 +84,7 @@ const getCandidateFields = async (
     if (req.user) {
       const { user } = req;
       const { _id } = user;
-      console.log(user);
+      // console.log(user);
       const fields = await candidateFields(_id);
       if (fields) {
         const { education, experience, fileInfo } = fields;

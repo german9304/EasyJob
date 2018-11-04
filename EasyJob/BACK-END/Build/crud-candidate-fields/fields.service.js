@@ -120,7 +120,6 @@ var getCandidateFields = function (req, res) { return __awaiter(_this, void 0, v
                 if (!req.user) return [3 /*break*/, 2];
                 user = req.user;
                 _id = user._id;
-                console.log(user);
                 return [4 /*yield*/, user_fields_schema_1.candidateFields(_id)];
             case 1:
                 fields = _a.sent();

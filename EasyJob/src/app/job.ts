@@ -32,9 +32,24 @@ export class EDUCATION {
   description: string;
 }
 
+export interface FILE {
+  length?: number;
+  chunkSize: number;
+  uploadDate: Date;
+  filename: string;
+  metadata: {
+    user: {
+      _id: string;
+    };
+  };
+  originalname: string;
+  md5: string;
+  contentType: string;
+}
 export class FIELDS {
-  experience: EXPERIENCE[];
-  education: Array<any>;
+  experience: Array<EXPERIENCE>;
+  education: Array<EDUCATION>;
+  fileInfo: FILE;
 }
 
 export const JOBS: JOB[] = [
