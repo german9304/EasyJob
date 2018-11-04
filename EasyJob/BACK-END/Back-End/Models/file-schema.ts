@@ -109,4 +109,25 @@ const getCandidateFile = async (
   }
 };
 
-export { getCandidateFiles, getCandidateFile, fileStorage, getCandidateResume };
+const findFileByIdUpdate = async (_id: string) => {
+  try {
+    const gridFile: FileDocument = await gridFsFiles.findById(_id);
+    if (gridFile) {
+      gridFile.set({
+        originalname: "test original name"
+      });
+      return await gridFile.save();
+    }
+    return gridFile;
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+export {
+  getCandidateFiles,
+  findFileByIdUpdate,
+  getCandidateFile,
+  fileStorage,
+  getCandidateResume
+};
