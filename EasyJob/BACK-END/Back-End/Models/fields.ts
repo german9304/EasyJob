@@ -1,4 +1,5 @@
-import { Document } from "mongoose";
+import { Document, Model } from "mongoose";
+import { FileDocument } from "./file";
 
 interface Experience extends Document {
   position?: String;
@@ -36,6 +37,7 @@ interface Field {
 interface Fields {
   education: Array<Education>;
   experience: Array<Experience>;
+  fileInfo: FileDocument;
 }
 
 export { Experience, Education, Field, Fields, FieldModel };

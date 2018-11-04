@@ -104,6 +104,17 @@ var getCandidateFiles = function () { return __awaiter(_this, void 0, void 0, fu
     });
 }); };
 exports.getCandidateFiles = getCandidateFiles;
+var getCandidateResume = function (_id) { return __awaiter(_this, void 0, void 0, function () {
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, gridFsFiles.findOne({
+                    metadata: { user: { _id: "" + _id } }
+                })];
+            case 1: return [2 /*return*/, _a.sent()];
+        }
+    });
+}); };
+exports.getCandidateResume = getCandidateResume;
 var getCandidateFile = function (_id) { return __awaiter(_this, void 0, void 0, function () {
     var gridFile, filename, file, err_1;
     return __generator(this, function (_a) {
