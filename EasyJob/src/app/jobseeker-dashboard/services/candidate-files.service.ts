@@ -16,7 +16,7 @@ import { AuthService } from "../../services/auth.service";
 
 @Injectable()
 export class CandidateFilesService {
-  fileInfo: Map<string, string> = Map({ originalname: "", uploadDate: "" });
+  fileInfo: Map<string, string> = Map({ originalName: "", uploadDate: "" });
 
   constructor(private http: HttpClient, private auth: AuthService) {}
   async uploadResume(file): Promise<FILE> {

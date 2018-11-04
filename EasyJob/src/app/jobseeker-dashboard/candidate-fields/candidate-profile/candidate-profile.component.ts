@@ -49,6 +49,7 @@ export class CandidateProfileComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    console.log(this.fileService.fileInfo.toObject());
     this.route.data.subscribe((data: { CandidateFields: FIELDS }) => {
       if (data) {
         const {
@@ -81,8 +82,8 @@ export class CandidateProfileComponent implements OnInit {
     const [file] = files;
     console.log(file);
     const fileInfo: FILE = await this.fileService.uploadResume(file);
-    const { originalName, uploadDate } = fileInfo;
-
+    //const { originalName, uploadDate } = fileInfo;
+    this.fileService.fileInfo = Map<string, string>(fileInfo);
     console.log(fileInfo);
   }
 }

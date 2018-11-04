@@ -12,7 +12,14 @@ export class CandidateFilesComponent implements OnInit {
   };
   @Input()
   fileInfo: Map<string, string>;
+  originalName: string;
+  uploadDate: string;
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(`originalname: ${this.fileInfo.get("originalName")}`);
+    const { fileInfo } = this;
+    this.originalName = fileInfo.get("originalName");
+    this.uploadDate = fileInfo.get("uploadDate");
+  }
 }

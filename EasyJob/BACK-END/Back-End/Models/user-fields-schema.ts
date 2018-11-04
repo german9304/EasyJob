@@ -187,7 +187,7 @@ const candidateFields = async (_id: string): Promise<Fields> => {
     user: { _id: `${_id}`}
   });
   const fileInfo = await getCandidateResume(_id);
-
+  
   return {
     education,
     experience,
