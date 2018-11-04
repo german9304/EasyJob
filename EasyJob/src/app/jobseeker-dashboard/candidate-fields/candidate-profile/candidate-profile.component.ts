@@ -49,7 +49,7 @@ export class CandidateProfileComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.log(this.fileService.fileInfo.toObject());
+    //console.log(this.fileService.fileInfo.toObject());
     this.route.data.subscribe((data: { CandidateFields: FIELDS }) => {
       if (data) {
         const {
@@ -70,7 +70,7 @@ export class CandidateProfileComponent implements OnInit {
           const fInfoObj = { originalName, uploadDate };
           this.fileService.fileInfo = Map<string, string>(fInfoObj);
           const { fileInfo: fi } = this.fileService;
-          console.log(fi.toObject());
+          // console.log(fi.toObject());
         }
       }
       console.log("ng init");
