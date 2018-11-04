@@ -2,7 +2,7 @@ export interface FILE {
   length?: number;
   chunkSize: number;
   uploadDate: Date;
-  originalname: string;
+  originalName: string;
   filename: string;
   metadata: {
     user: {

@@ -60,10 +60,10 @@ export class CandidateProfileComponent implements OnInit {
         this.fsedu.EDUCATION = List<EDUCATION>(education);
         const fInfo: FILE = fileInfo;
         const {
-          originalname,
+          originalName,
           uploadDate
-        }: { originalname: string; uploadDate: string } = fInfo;
-        const fInfoObj = { originalname, uploadDate };
+        }: { originalName: string; uploadDate: string } = fInfo;
+        const fInfoObj = { originalName, uploadDate };
         this.fileService.fileInfo = Map<string, string>(fInfoObj);
         const { fileInfo: fi } = this.fileService;
         console.log(fi.toObject());
@@ -80,7 +80,7 @@ export class CandidateProfileComponent implements OnInit {
     const [file] = files;
     console.log(file);
     const fileInfo: FILE = await this.fileService.uploadResume(file);
-    const { originalname, uploadDate } = fileInfo;
+    const { originalName, uploadDate } = fileInfo;
 
     console.log(fileInfo);
   }

@@ -42,7 +42,7 @@ export interface FILE {
       _id: string;
     };
   };
-  originalname: string;
+  originalName: string;
   md5: string;
   contentType: string;
 }
