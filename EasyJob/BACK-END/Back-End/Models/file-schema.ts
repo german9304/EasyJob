@@ -39,7 +39,13 @@ const gridFsFiles: Model<FileDocument> = mongoose.model<FileDocument>(
   gridFsSchema
 );
 
-const FileInfo = (filename: string, _id: string, bucketName: string) => {
+const FileInfo = (
+  { originalname: originalName }: { originalname: string },
+  buf: Buffer,
+  _id: string,
+  bucketName: string
+) => {
+  const filename: string = `${buf.toString("hex")}${extname(originalName)}`;
   return {
     filename,
     metadata: {
@@ -56,15 +62,11 @@ const file: (req, file) => Promise<{}> = (req, file): Promise<{}> => {
         if (err) {
           return reject(err);
         }
-        const { originalname: originalName }: { originalname: string } = file;
-        const filename: string = `${buf.toString("hex")}${extname(
-          originalName
-        )}`;
         //console.log(file);
         const { user } = req;
         const { _id }: { _id: string } = user;
         // console.log(user);
-        const fileInfo = FileInfo(filename, _id, "uploads");
+        const fileInfo = FileInfo(file, buf, _id, "uploads");
         console.log(fileInfo);
         resolve(fileInfo);
       });

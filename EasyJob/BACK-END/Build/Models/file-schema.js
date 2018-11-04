@@ -65,7 +65,9 @@ db_connection_1.default.once("open", function () {
     console.log("connction open");
 });
 var gridFsFiles = mongoose.model("uploads", gridFsSchema);
-var FileInfo = function (filename, _id, bucketName) {
+var FileInfo = function (_a, buf, _id, bucketName) {
+    var originalName = _a.originalname;
+    var filename = "" + buf.toString("hex") + path_1.extname(originalName);
     return {
         filename: filename,
         metadata: {
@@ -80,13 +82,11 @@ var file = function (req, file) {
             if (err) {
                 return reject(err);
             }
-            var originalName = file.originalname;
-            var filename = "" + buf.toString("hex") + path_1.extname(originalName);
             //console.log(file);
             var user = req.user;
             var _id = user._id;
             // console.log(user);
-            var fileInfo = FileInfo(filename, _id, "uploads");
+            var fileInfo = FileInfo(file, buf, _id, "uploads");
             console.log(fileInfo);
             resolve(fileInfo);
         });
