@@ -51,12 +51,14 @@ export class CandidateFilesService {
   }
 
   get userFileResume(): Observable<FILE> {
-    return this.http.get<FILE>(`/api/files/resume`).pipe(
-      catchError(err => {
-        console.log(`the error is ${err}`);
-        return of(err);
-      })
-    );
+    return this.http
+      .get<FILE>(`/api/files/resume`, this.auth.UserHeaders)
+      .pipe(
+        catchError(err => {
+          console.log(`the error is ${err}`);
+          return of(err);
+        })
+      );
   }
 }
 
