@@ -1,5 +1,7 @@
 .file-info {
   // border: solid 1px black;
+  margin: 10px 0 0 0;
+  font-family: "Montserrat", sans-serif;
   padding: 0;
   .file {
     margin: 0;
@@ -11,6 +13,10 @@
     }
     #namefile {
       font-weight: bolder;
+      margin: 0 0 10px 0;
+    }
+    #datefile {
+      font-weight: lighter;
     }
   }
 }
