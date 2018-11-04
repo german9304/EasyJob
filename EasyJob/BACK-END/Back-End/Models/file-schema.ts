@@ -39,36 +39,41 @@ const gridFsFiles: Model<FileDocument> = mongoose.model<FileDocument>(
   gridFsSchema
 );
 
+const FileInfo = (filename: string, _id: string, bucketName: string) => {
+  return {
+    filename,
+    metadata: {
+      user: { _id }
+    },
+    bucketName
+  };
+};
+
+const file: (req, file) => Promise<{}> = (req, file): Promise<{}> => {
+  return new Promise(
+    (resolve, reject): void => {
+      randomBytes(16, (err: Error, buf: Buffer) => {
+        if (err) {
+          return reject(err);
+        }
+        const { originalname: originalName }: { originalname: string } = file;
+        const filename: string = `${buf.toString("hex")}${extname(
+          originalName
+        )}`;
+        //console.log(file);
+        const { user } = req;
+        const { _id }: { _id: string } = user;
+        // console.log(user);
+        const fileInfo = FileInfo(filename, _id, "uploads");
+        console.log(fileInfo);
+        resolve(fileInfo);
+      });
+    }
+  );
+};
 const fileStorage: GridFsStorage = new GridFsStorage({
   db,
-  file: (req, file): Promise<{}> => {
-    return new Promise(
-      (resolve, reject): void => {
-        randomBytes(16, (err: Error, buf: Buffer) => {
-          if (err) {
-            return reject(err);
-          }
-          const { originalname: originalName }: { originalname: string } = file;
-          const filename: string = `${buf.toString("hex")}${extname(
-            originalName
-          )}`;
-          //console.log(file);
-          const { user } = req;
-          const { _id }: { _id: string } = user;
-          // console.log(user);
-          const fileInfo = {
-            filename,
-            metadata: {
-              user: { _id }
-            },
-            bucketName: "uploads"
-          };
-          console.log(fileInfo);
-          resolve(fileInfo);
-        });
-      }
-    );
-  }
+  file
 });
 
 const getCandidateFiles = async () => {
