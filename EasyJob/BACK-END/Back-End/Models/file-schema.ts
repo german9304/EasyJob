@@ -59,8 +59,7 @@ const fileStorage: GridFsStorage = new GridFsStorage({
           const fileInfo = {
             filename,
             metadata: {
-              user: { _id },
-              originalName
+              user: { _id }
             },
             bucketName: "uploads"
           };
