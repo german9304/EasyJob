@@ -73,15 +73,17 @@ var fileStorage = new GridFsStorage({
                 if (err) {
                     return reject(err);
                 }
-                var filename = "" + buf.toString("hex") + path_1.extname(file.originalname);
-                console.log(file);
+                var originalName = file.originalname;
+                var filename = "" + buf.toString("hex") + path_1.extname(originalName);
+                //console.log(file);
                 var user = req.user;
                 var _id = user._id;
                 // console.log(user);
                 var fileInfo = {
                     filename: filename,
                     metadata: {
-                        user: { _id: _id }
+                        user: { _id: _id },
+                        originalName: originalName
                     },
                     bucketName: "uploads"
                 };
