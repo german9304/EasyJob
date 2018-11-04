@@ -15,7 +15,7 @@ export class CandidateProfileViewComponent implements OnInit {
   @Input()
   trackByExp;
   @Input()
-  fileInfo: File;
+  fileInfo: Map<string, string>;
   @Input()
   file;
   @Output()

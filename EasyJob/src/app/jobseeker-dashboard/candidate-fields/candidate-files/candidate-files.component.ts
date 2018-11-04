@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Map } from "immutable";
-import { EXPERIENCE, EDUCATION, FILE } from "../../../job";
 @Component({
   selector: "candidate-files",
   templateUrl: "./candidate-files.component.html",
@@ -12,7 +11,7 @@ export class CandidateFilesComponent implements OnInit {
     date: "01/02"
   };
   @Input()
-  fileInfo: FILE;
+  fileInfo: Map<string, string>;
   constructor() {}
 
   ngOnInit() {}
