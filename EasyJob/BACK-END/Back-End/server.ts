@@ -2,14 +2,17 @@ import * as express from "express";
 import cookieSession = require("cookie-session");
 import { SECRET_KEY } from "./client-auth";
 import "./create-account-auth";
-import "./jwt-auth";
+// import "./jwt-auth";
 import { categoryModel, jobSearch } from "./Models/jobs-Schema";
 import * as passport from "passport";
-import { session, initialize, authenticate } from "passport";
+// import { session, initialize, authenticate } from "passport";
+
 import "./Models/db-connection";
 import auth from "./auth-server";
 import { Request, Response } from "express";
 import crudFields from "./crud-candidate-fields/crud.operations.fields";
+import fileServer from "./crud-files/files.server";
+
 const app = express();
 app.use(
   cookieSession({
@@ -25,6 +28,7 @@ app.use(passport.session());
 
 app.use("/auth", auth);
 app.use("/api/fields", crudFields);
+app.use("/api/files", fileServer);
 
 app.get("/", (req, res) => {
   res.send("home");
@@ -78,9 +82,9 @@ app.get(
   }
 );
 
-app.get("/jwt", authenticate("jwt", { session: false }), (req, res) => {
-  res.send("data");
-});
+// app.get("/jwt", authenticate("jwt", { session: false }), (req, res) => {
+//   res.send("data");
+// });
 
 app.post("/api/post/job", (req, res) => {});
 

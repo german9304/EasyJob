@@ -5,9 +5,9 @@ import { RouterModule, Routes } from "@angular/router";
 // import { NewComponent } from "../new/new.component";
 import { TestComponent } from "../testing/test.component";
 
-import { DataFieldsService } from "../../data-fields.resolver.service";
+import { DataFieldsService } from "../../services/data-fields.resolver.service";
 import { GetExperienceFieldService } from "../get-experience-field.service";
-
+import { CandidateResumeComponent} from "../candidate-files/candidate-resume/candidate-resume.component"
 import { CandidateProfileComponent } from "../candidate-profile/candidate-profile.component";
 import { NewExperienceComponent } from "../experience/new-experience/new-experience.component";
 import { NewEducationComponent } from "../education/new-education/new-education.component";
@@ -50,6 +50,10 @@ const candidateFieldsRoutes: Routes = [
             resolve: { field: GetEducationFieldService }
           }
         ]
+      },
+      {
+        path: "view/resume",
+        component: CandidateResumeComponent
       }
     ]
   },

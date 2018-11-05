@@ -1,12 +1,12 @@
 .navbarview-container-profiles {
   // border: solid 3px black;
   // display: flex;
-  padding: 10px 40px 10px 40px;
+  padding: 8px 40px 8px 40px;
   box-sizing: border-box;
   // background-color: #285679;
   background-color: #3d9970;
   // align-items: center;
-  color: white;
+  // color: white;
   nav {
     margin: 0;
     display: flex;
@@ -16,11 +16,12 @@
 
     align-items: center;
     .search-bar {
-      // border: solid 1px black;
+      // border: solid 3px black;
       flex: 0 1 500px;
       // align-items: center;
 
       #frm-search-address {
+        font-weight: bold;
         display: flex;
         // flex: 1;
         flex-wrap: wrap;
@@ -28,9 +29,9 @@
         // border: solid 3px rosybrown;
 
         .frm {
-          flex: 2;
+          flex: 3;
           font-size: 16px;
-
+          // border: solid 3px rosybrown;
           .material-icons {
             // padding: 5px;
             display: flex;
@@ -46,12 +47,13 @@
           }
           input {
             // display: block;
-
-            padding: 10px;
-            font-size: 15px;
+            font-family: "Raleway", sans-serif;
+            padding: 6px 10px 6px 10px;
+            font-size: 14px;
             width: 100%;
             // font-size: 10px;
             box-sizing: border-box;
+            font-weight: lighter;
             // outline-width: 2px;
             // border: solid 1px #dddddd;
             transition: all 0.9s;
@@ -95,48 +97,65 @@
     box-sizing: border-box;
     // flex-wrap: wrap;
     flex: 1;
-    // justify-content: flex-end;
+    justify-content: flex-end;
     // border: solid 1px white;
+
     .item {
-      font-size: 16px;
+      font-size: 15px;
       text-align: center;
+      box-sizing: border-box;
       font-family: "Raleway", sans-serif;
       // font-weight: 100;
-      // padding: 5px;
-      // border: solid 1px rosybrown;
+      // padding: 15px;
+      margin: 0 3px 0 3px;
+      // border: solid 1px black;
       list-style: none;
-      flex: 1;
-      box-sizing: border-box;
+      flex-basis: 130px;
+      //  box-sizing: border-box;
       // padding: 10px;
       // flex:1;
+      // padding: 10px 0 10px 0;
       a {
+        // border: solid 5x black;
+        border-bottom: solid 3px #3d9970;
         text-decoration: none;
-        color: white;
+        color: #dddddd;
+        //background-color: #2ecc40;
         display: block;
-        padding: 10px;
-        transition: all 0.5s;
+
+        padding: 8px 0 8px 0;
+        box-sizing: border-box;
+        font-weight: 100;
+        transition: color 0.5s ease-out;
       }
       a:hover {
-        color: #bac3cb;
+        color: white;
+        border-bottom: 3px solid #2ecc40;
       }
       .active {
-        background-color: #2ecc40;
-        border-radius: 5px;
+        //  background-color: #2ecc4060;
+        border-bottom: 3px solid #2ecc40;
+        //border-radius: 5px;
+        color: #ffff;
         // color: #b9c7d5;
       }
     }
+    // li {
+    //   border: solid 5x black;
+    // }
   }
   .remove {
     display: none;
   }
   .jobseeker-profile-menu {
-    // border:  solid 5px gray;
-    justify-content: center;
-    flex: 1;
+    // border: solid 5px gray;
+    // justify-content: center;
+    // flex: 2;
     display: flex;
     cursor: pointer;
     position: relative;
     flex-wrap: wrap;
+    color: white;
     .icons {
       // border: solid 1px white;
       display: flex;
@@ -167,7 +186,9 @@
       position: absolute;
       box-sizing: border-box;
       right: 20px;
-      border: solid 1px #dddddd;
+      //border: solid 1px #dddddd;
+      box-shadow: 0 0 5px 1px  #dddddd;
+      border-radius: 2px;
       // padding: 20px;
       // border: solid 1px gray;
       background-color: white;
@@ -175,49 +196,55 @@
       .items-profile {
         padding: 0;
         /*border: solid 1px blue;*/
+         // box-shadow: 0 0 5px 1px  #dddddd;
         margin: 0;
         p {
           color: #111111;
           // border: solid 1px red;
-
+          // padding: 8px 15px 8px 15px;
           margin: 0;
-          font-size: 15px;
+          font-size: 14px;
           font-family: "Roboto", sans-serif;
         }
         .email-signing {
-          padding: 10px;
+         // border: solid 1px red;
+          padding: 8px 15px 8px 15px;
         }
         #signin {
-          padding: 0 0 8px 0;
+         // border: solid 1px red;
+          padding: 0 0 5px 0;
         }
         .email {
-          font-size: 15px;
+          font-size: 12px;
           font-weight: bolder;
           font-family: "Raleway", sans-serif;
         }
         li {
           box-sizing: border-box;
           list-style: none;
-          width: 200px;
+          width: 180px;
 
           // border-bottom: solid 1px #948f8e;
           // padding: 10px;
           a {
-            padding: 10px;
+            padding: 8px 15px 8px 15px;
             // border: solid 1px blue;
             box-sizing: border-box;
             display: block;
             color: black;
             text-decoration: none;
             font-weight: lighter;
-            font-size: 15px;
+            font-size: 14px;
             font-family: "Roboto", sans-serif;
           }
           a:hover {
             color: white;
-            background-color: #517bab;
+          //  background-color: #517bab;
           }
         }
+         li:hover a{
+            background-color: #517bab;
+          }
         // .profile:hover {
         //   background-color: #517bab;
         // }

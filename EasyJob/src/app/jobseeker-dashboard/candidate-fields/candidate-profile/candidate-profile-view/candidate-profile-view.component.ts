@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from "@angular/core";
-import { EXPERIENCE, EDUCATION } from "../../../../job";
+import { Component, OnInit, Output, Input, EventEmitter } from "@angular/core";
+import { EXPERIENCE, EDUCATION, FILE } from "../../../../job";
 import { List, Map } from "immutable";
+import { FormControl } from "@angular/forms";
 @Component({
   selector: "candidate-profile-view",
   templateUrl: "./candidate-profile-view.component.html",
@@ -13,7 +14,15 @@ export class CandidateProfileViewComponent implements OnInit {
   education: List<EDUCATION>;
   @Input()
   trackByExp;
+  @Input()
+  fileInfo: Map<string, string>;
+  @Input()
+  file;
+  @Output()
+  fileChosen: EventEmitter<any> = new EventEmitter<any>();
   constructor() {}
-
   ngOnInit() {}
+  fileSubmit(event) {
+    this.fileChosen.emit(event);
+  }
 }

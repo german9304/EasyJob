@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { EXPERIENCE, EDUCATION, FIELDS } from "../../job";
 import { Observable } from "rxjs";
-import { CandidateFieldsService } from ".././candidate-fields.service";
+import { FieldsService } from ".././services/fields.service";
 import {
   Router,
   Resolve,
@@ -11,13 +11,13 @@ import {
 
 @Injectable()
 export class GetEducationFieldService implements Resolve<EDUCATION> {
-  constructor(private fs: CandidateFieldsService) {}
+  constructor(private fs: FieldsService<EDUCATION>) {}
   resolve(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<EDUCATION> {
     const id = route.paramMap.get("id");
-
-    return this.fs.getEducation(id);
+    const url: string = `/api/fields/education/${id}`;
+    return this.fs.getField(url);
   }
 }

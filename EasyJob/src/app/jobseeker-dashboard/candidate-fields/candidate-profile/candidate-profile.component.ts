@@ -1,7 +1,9 @@
 import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
 import { map, filter } from "rxjs/operators";
-import { EXPERIENCE, FIELDS, EDUCATION } from "../../../job";
-import { CandidateFieldsService } from "../../candidate-fields.service";
+import { EXPERIENCE, FIELDS, EDUCATION, FILE } from "../../../job";
+import { FormControl } from "@angular/forms";
+import { CandidateFieldsService } from "../../services/candidate-fields.service";
+import { FieldsService } from "../../services/fields.service";
 import {
   Router,
   ActivatedRoute,
@@ -11,7 +13,8 @@ import {
   ChildActivationEnd
 } from "@angular/router";
 import { List, Map } from "immutable";
-
+import { CandidateFilesService } from "../../services/candidate-files.service";
+//import { FILE } from "../.././file";
 @Component({
   selector: "candidate-profile",
 
@@ -19,9 +22,12 @@ import { List, Map } from "immutable";
   template: `
     <div class="candidateprofile">
       <candidate-profile-view 
-      [experience]="fields.EXPERIENCE" 
-      [education]="fields.EDUCATION"
-       [trackByExp]="trackByExperience">
+      [experience]="fsexp.EXPERIENCE" 
+      [education]="fsedu.EDUCATION"
+       [trackByExp]="trackByExperience"
+       [file]="fileUpload"
+       (fileChosen)="uploadFile($event)"
+       [fileInfo]="fileService.fileInfo">
       </candidate-profile-view>
       <router-outlet></router-outlet>
     </div>
@@ -32,54 +38,55 @@ import { List, Map } from "immutable";
   ]
 })
 export class CandidateProfileComponent implements OnInit {
-  // MOCK_LIST: EDUCATION[] = [
-  //   {
-  //     _id: "123",
-  //     school: "CSU CHICO",
-  //     degree: "Compuer Science",
-  //     majorField: "Google",
-  //     date: { start: "01/2000", end: "02/2005" },
-  //     description: "I work For 3 months"
-  //   },
-  //   {
-  //     _id: "123",
-  //     school: "CSU SACRAMENTO",
-  //     degree: "Business",
-  //     majorField: "Google",
-  //     date: { start: "01/2000", end: "02/2005" },
-  //     description: "I work For 3 months"
-  //   }
-  // ];
-
-  // EXPERIENCE: EXPERIENCE[] = this.fields.EXPERIENCE;
+  fileUpload: FormControl = new FormControl("");
   constructor(
     private fields: CandidateFieldsService,
+    private fsedu: FieldsService<EDUCATION>,
+    private fsexp: FieldsService<EXPERIENCE>,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private fileService: CandidateFilesService
   ) {}
 
   ngOnInit() {
+    //console.log(this.fileService.fileInfo.toObject());
     this.route.data.subscribe((data: { CandidateFields: FIELDS }) => {
       if (data) {
         const {
-          CandidateFields: { experience, education }
-        } = data;
-        console.log(experience);
-        this.fields.EXPERIENCE = List<EXPERIENCE>(experience);
-        this.fields.EDUCATION = List<EDUCATION>(education);
+          CandidateFields: { experience, education, fileInfo }
+        }: { CandidateFields: FIELDS } = data;
+        // console.log(data);
+
+        this.fsexp.EXPERIENCE = List<EXPERIENCE>(experience);
+        // console.log(this.fsexp.FIELD);
+        this.fsedu.EDUCATION = List<EDUCATION>(education);
+        const fInfo: FILE = fileInfo;
+        console.log(`fileinfo: ${fileInfo}`);
+        if (fileInfo) {
+          const {
+            originalName,
+            uploadDate
+          }: { originalName: string; uploadDate: string } = fInfo;
+          const fInfoObj = { originalName, uploadDate };
+          this.fileService.fileInfo = Map<string, string>(fInfoObj);
+          const { fileInfo: fi } = this.fileService;
+          // console.log(fi.toObject());
+        }
       }
       console.log("ng init");
     });
-    // this.router.events
-    //   .pipe(filter(route => route instanceof ChildActivationStart))
-    //   .subscribe(event => console.log(event));
-    // this.router.events
-    //   .pipe(filter(route => route instanceof ChildActivationEnd))
-    //   .subscribe(event => console.log(event));
-    //this.route.paramMap.subscribe(param => console.log(param));
   }
   trackByExperience(index: number, experience: EXPERIENCE): string {
     //console.log(`id: ${experience._id}`);
     return experience._id;
+  }
+  async uploadFile(event): Promise<void> {
+    const { files } = event.target;
+    const [file] = files;
+    console.log(file);
+    const fileInfo: FILE = await this.fileService.uploadResume(file);
+    //const { originalName, uploadDate } = fileInfo;
+    this.fileService.fileInfo = Map<string, string>(fileInfo);
+    console.log(fileInfo);
   }
 }

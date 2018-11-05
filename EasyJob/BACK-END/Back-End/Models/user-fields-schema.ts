@@ -3,6 +3,8 @@ import { model, Schema, Document, Model } from "mongoose";
 import { Fields, Field, Education, Experience, FieldModel } from "./fields";
 // import db from "./db-connection";
 import { User } from "../user";
+import { ObjectId } from "mongodb";
+import { getCandidateResume } from "./file-schema";
 
 const experienceSchema: Schema = new mongoose.Schema(
   {
@@ -177,18 +179,22 @@ const deleteCandidateField = async (_id: string, model: Model<FieldModel>) => {
   }
 };
 
-const candidateFields = async (id: string): Promise<Fields> => {
+const candidateFields = async (_id: string): Promise<Fields> => {
   const education: Array<Education> = await userEducation.find({
-    user: { _id: `${id}` }
+    user: { _id: `${_id}` }
   });
   const experience: Array<Experience> = await userExperience.find({
-    user: { _id: `${id}` }
+    user: { _id: `${_id}`}
   });
+  const fileInfo = await getCandidateResume(_id);
+  
   return {
     education,
-    experience
+    experience,
+    fileInfo
   };
 };
+
 const candidateFieldById = async (
   id: string = "",
   model: Model<FieldModel>

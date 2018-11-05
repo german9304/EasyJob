@@ -112,7 +112,7 @@ var deleteField = function (model) { return function (req, res) { return __await
 }); }; };
 exports.deleteField = deleteField;
 var getCandidateFields = function (req, res) { return __awaiter(_this, void 0, void 0, function () {
-    var user, _id, fields, education, experience, err, err_4;
+    var user, _id, fields, education, experience, fileInfo, err, err_4;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -124,8 +124,8 @@ var getCandidateFields = function (req, res) { return __awaiter(_this, void 0, v
             case 1:
                 fields = _a.sent();
                 if (fields) {
-                    education = fields.education, experience = fields.experience;
-                    return [2 /*return*/, res.json({ education: education, experience: experience })];
+                    education = fields.education, experience = fields.experience, fileInfo = fields.fileInfo;
+                    return [2 /*return*/, res.json({ education: education, experience: experience, fileInfo: fileInfo })];
                 }
                 _a.label = 2;
             case 2:

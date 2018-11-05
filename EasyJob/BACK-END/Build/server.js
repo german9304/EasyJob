@@ -4,13 +4,14 @@ var express = require("express");
 var cookieSession = require("cookie-session");
 var client_auth_1 = require("./client-auth");
 require("./create-account-auth");
-require("./jwt-auth");
+// import "./jwt-auth";
 var jobs_Schema_1 = require("./Models/jobs-Schema");
 var passport = require("passport");
-var passport_1 = require("passport");
+// import { session, initialize, authenticate } from "passport";
 require("./Models/db-connection");
 var auth_server_1 = require("./auth-server");
 var crud_operations_fields_1 = require("./crud-candidate-fields/crud.operations.fields");
+var files_server_1 = require("./crud-files/files.server");
 var app = express();
 app.use(cookieSession({
     name: "session",
@@ -22,6 +23,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use("/auth", auth_server_1.default);
 app.use("/api/fields", crud_operations_fields_1.default);
+app.use("/api/files", files_server_1.default);
 app.get("/", function (req, res) {
     res.send("home");
 });
@@ -65,9 +67,9 @@ app.get("/api/candidate/jobs", function (req, res) {
         res.json(data);
     });
 });
-app.get("/jwt", passport_1.authenticate("jwt", { session: false }), function (req, res) {
-    res.send("data");
-});
+// app.get("/jwt", authenticate("jwt", { session: false }), (req, res) => {
+//   res.send("data");
+// });
 app.post("/api/post/job", function (req, res) { });
 app.get("/api/job/categories", function (req, res) {
     var search = req.query.search;

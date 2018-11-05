@@ -5,17 +5,21 @@
   grid-gap: 60px;
 
   // justify-content: center;
-  // border: solid 2px black;
+  //  border: solid 2px black;
   /* autoprefixer: off */
   .skills {
     // border: solid 2px #dddddd;
     // border-radius: 10px;
-    // border: solid 2px black;
+    // border: solid 2px red;
     // padding: 20px;
+    // width: 500px;
     // background-color: #ffff;
     // border: solid 1px #dddddd32;
     .item {
+      // border: solid 2px red;
+      //  width: 50%;
       // border: solid 1px #dddddd;
+      box-shadow: 0 0 5px 1px  #dddddd;
       margin: 0 0 15px 0;
       background-color: #ffff;
       border: solid 1px #dddddd;
@@ -26,6 +30,19 @@
       // }
       // border: solid 1px black;
       //padding: 0;
+      .add {
+        transition: all 0.5s;
+      }
+      .add:hover {
+        border-radius: 5px;
+        // border: solid 1px black;
+        background-color: #0074d932;
+        // color: white;
+        //   background-color: rebeccapurple;
+        .material-icons {
+          color: #001f3f;
+        }
+      }
     }
     // .item.experience {
     //   border-radius: 7px 7px 0 0;
@@ -48,6 +65,9 @@
       color: #0074d9;
       // border: solid 1px #0074d9;
       justify-content: space-between;
+      // h2 {
+      //font-size: 10px;
+      //}
       a {
         display: flex;
         align-items: center;
@@ -74,14 +94,48 @@
         margin: 0;
         font-family: "Muli", sans-serif;
         // border: solid 1px black;
-        font-size: 23px;
-        font-weight: 500;
+        font-size: 18px;
+        font-weight: 400;
         // color: #0074d9;
       }
       // .icon {
       //  border: solid 1px black;
       // }
+      #add-icon-resume {
+        position: relative;
+        // border: solid 1px black;
+        display: flex;
+        align-content: center;
+        cursor: pointer;
+        overflow: hidden;
+        // #file-label {
+        //   cursor: pointer;
+        //   border: solid 1px black;
+        //   margin: 0;
+        // border: solid 2px red;
+        // z-index: 1;
+        // }
+        #file-upload {
+          position: absolute;
+          // z-index: 2;
+          box-sizing: border-box;
+          padding: 50px;
+          opacity: 0;
+          left: 0;
+          // right: 0;
+          // overflow: hidden;
+          font-size: 0;
+          top: 0;
+          cursor: pointer;
+          // bottom: 0;
+          border: solid 2px black;
+        }
+      }
     }
+    // #add-icon-resume:hover {
+    //   background-color: #001f3f;
+    //   color: red;
+    // }
     // .inner.experience {
     // border: solid 2px black;
     // h2 {
@@ -90,7 +144,7 @@
     // }
   }
   .candidate-information {
-    // border: solid 1px brown;
+    //border: solid 1px brown;
     // justify-content: center;
     // align-items: flex-start;
     .profile.name {
