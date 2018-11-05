@@ -5,14 +5,13 @@
       <div class="inner resume">
         <h2> Resume </h2>
         <div class="add field-resume" id="add-icon-resume">
-          <label id="file-label">
-            <i class="material-icons">
-              add
-            </i>
-          </label>
-          <input type="file" (input)="fileSubmit($event)" [formControl]="file" name="avatar" id="file-upload">
+          <i class="material-icons">
+            add
+          </i>
+          <input type="file" (input)="fileSubmit($event)" [formControl]="file" name="file" id="file-upload">
         </div>
       </div>
+      <candidate-files [fileInfo]="fileInfo" *ngIf="fileInfo"></candidate-files>
     </div>
 
     <div class="item experience">
@@ -45,9 +44,6 @@
         <education-list [EDUCATION]="education"></education-list>
       </div>
     </div>
-
-
-
 
   </div>
   <div class="candidate-information">

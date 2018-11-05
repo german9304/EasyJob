@@ -1,9 +1,8 @@
-import { Component, OnInit, Output, Input, EventEmitter } from "@angular/core";
-import { FormGroup, FormControl } from "@angular/forms";
+import { Component, OnInit, } from "@angular/core";
 import { FormBuilder } from "@angular/forms";
 import { EXPERIENCE } from "../../../../job";
-import { CandidateFieldsService } from "../../../candidate-fields.service";
 import { Router, ActivatedRoute } from "@angular/router";
+import { FieldsService } from "../../../services/fields.service";
 
 @Component({
   selector: "new-experience",
@@ -27,7 +26,7 @@ export class NewExperienceComponent implements OnInit {
   constructor(
     private router: Router,
     private fb: FormBuilder,
-    private fs: CandidateFieldsService
+    private fieldServiceExperience: FieldsService<EXPERIENCE>
   ) {}
 
   ngOnInit() {
@@ -35,14 +34,22 @@ export class NewExperienceComponent implements OnInit {
     // console.log('position: ',this.position);
   }
   submitForm() {
-    const { value } = this.experienceForm;
-    console.log(value);
-    this.fs.createExperience(value).subscribe((res: EXPERIENCE) => {
-      console.log(`res inside ${JSON.stringify(res)}`);
-      console.log(this.fs.EXPERIENCE === this.fs.EXPERIENCE.push(res));
-      this.fs.EXPERIENCE = this.fs.EXPERIENCE.push(res);
-      this.experienceForm.reset();
-      this.fs.goBackToProfile();
-    });
+    const { value }: { value: EXPERIENCE } = this.experienceForm;
+    // console.log(value);
+    const url: string = "/api/fields/experience";
+    this.fieldServiceExperience
+      .createField(url, value)
+      .subscribe((res: EXPERIENCE) => {
+        //console.log(`res inside ${JSON.stringify(res)}`);
+        console.log(
+          this.fieldServiceExperience.EXPERIENCE ===
+            this.fieldServiceExperience.EXPERIENCE.push(res)
+        );
+        this.fieldServiceExperience.EXPERIENCE = this.fieldServiceExperience.EXPERIENCE.push(
+          res
+        );
+        this.experienceForm.reset();
+        this.fieldServiceExperience.goBackToProfile();
+      });
   }
 }

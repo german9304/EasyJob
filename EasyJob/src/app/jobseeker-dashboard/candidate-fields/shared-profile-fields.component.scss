@@ -1,7 +1,7 @@
-#profile-fields {
+.profile-fields {
   // border: solid 2px red;
-  background-color: #11111132;
-
+  //background-color: #11111132;
+  background-color: rgba(0,0,0,.5);
   position: absolute;
   top: 0;
   right: 0;
@@ -14,6 +14,7 @@
 }
 
 .fields-container {
+  box-shadow: 0 0 3px 2px rgba(0,0,0,.5);
   // border: solid 10px black;
   width: 400px;
   border: solid 1px #dddddd;
@@ -133,6 +134,7 @@
       .delete:hover {
         color: black;
         background-color: #c6c6c6;
+        border-color:  #111111;
         box-shadow: 0 0 5px 0 #c6c6c6;
       }
       .delete {

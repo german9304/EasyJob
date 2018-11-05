@@ -4,7 +4,7 @@ import { SECRET_KEY } from "./client-auth";
 import "./create-account-auth";
 // import "./jwt-auth";
 import { categoryModel, jobSearch } from "./Models/jobs-Schema";
-import { session, initialize } from "passport";
+import * as passport from "passport";
 // import { session, initialize, authenticate } from "passport";
 
 import "./Models/db-connection";
@@ -23,8 +23,8 @@ app.use(
 );
 
 app.use(express.json());
-app.use(initialize());
-app.use(session());
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use("/auth", auth);
 app.use("/api/fields", crudFields);

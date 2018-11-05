@@ -1,10 +1,11 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder } from "@angular/forms";
 import { EDUCATION, FIELDS } from "../../../../job";
-import { CandidateFieldsService } from "../../../candidate-fields.service";
-import { Router, ActivatedRoute } from "@angular/router";
+import { CandidateFieldsService } from "../../../services/candidate-fields.service";
+import { Router, ActivatedRoute, ParamMap } from "@angular/router";
 import { switchMap } from "rxjs/operators";
-import { List, Map } from "immutable";
+import { FieldsService } from "../../../services/fields.service";
+import { List } from "immutable";
 
 @Component({
   selector: "edit-education",
@@ -31,16 +32,20 @@ export class EditEducationComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private fb: FormBuilder,
-    private fs: CandidateFieldsService
+    private cfs: CandidateFieldsService,
+    private fieldServiceEducation: FieldsService<EDUCATION>,
+    private fields: FieldsService<FIELDS>
   ) {}
 
   ngOnInit() {
     this.updateEducation();
-    this.route.paramMap.subscribe(param => (this._id = param.get("id")));
+    this.route.paramMap.subscribe(
+      (param: ParamMap) => (this._id = param.get("id"))
+    );
   }
 
   updateEducation() {
-    this.route.data.subscribe(({ field }) => {
+    this.route.data.subscribe(({ field }: { field: EDUCATION }) => {
       const { school, degree, majorField, date, description } = field;
       this.educationForm.setValue({
         school,
@@ -53,37 +58,38 @@ export class EditEducationComponent implements OnInit {
   }
 
   save() {
-    const { value } = this.educationForm;
-    const { _id } = this;
-    this.fs
-      .updateEducation(_id, value)
+    const { value }: { value: EDUCATION } = this.educationForm;
+    const { _id }: { _id: string } = this;
+    const url: string = `/api/fields/education/${_id}`;
+    this.fieldServiceEducation
+      .updateField(url, value)
       .pipe(
         switchMap(data => {
           //console.log(`data received: ${JSON.stringify(data)}`);
-          return this.fs.getFields();
+          return this.fields.getFields();
         })
       )
-      .subscribe(({ education }: FIELDS) => {
-        this.fs.EDUCATION = List<EDUCATION>(education);
-        this.fs.goBackToProfile();
+      .subscribe(({ education }: { education: Array<EDUCATION> }) => {
+        this.fieldServiceEducation.EDUCATION = List<EDUCATION>(education);
+        this.fieldServiceEducation.goBackToProfile();
       });
   }
   delete() {
-    // const { value } = this.educationForm;
-    const { _id } = this;
-    console.log(this.educationForm.value);
-    this.fs
-      .deleteEducation(_id)
+    const { _id }: { _id: string } = this;
+    //console.log(this.educationForm.value);
+    const url: string = `/api/fields/education/${_id}`;
+    this.fieldServiceEducation
+      .deleteField(url)
       .pipe(
         switchMap(data => {
-          //console.log(`data received: ${JSON.stringify(data)}`);
-          return this.fs.getFields();
+          //  console.log(`data received: ${JSON.stringify(data)}`);
+          return this.fields.getFields();
         })
       )
-      .subscribe(({ education }: FIELDS) => {
-        this.fs.EDUCATION = List<EDUCATION>(education);
-        this.fs.goBackToProfile();
+      .subscribe(({ education }: { education: Array<EDUCATION> }) => {
+        this.fieldServiceEducation.EDUCATION = List<EDUCATION>(education);
+        this.fieldServiceEducation.goBackToProfile();
       });
-    console.log("delete");
+    // console.log("delete");
   }
 }

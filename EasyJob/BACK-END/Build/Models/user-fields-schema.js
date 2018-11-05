@@ -37,6 +37,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
 var mongoose = require("mongoose");
+var file_schema_1 = require("./file-schema");
 var experienceSchema = new mongoose.Schema({
     user: {
         _id: String
@@ -195,23 +196,27 @@ var deleteCandidateField = function (_id, model) { return __awaiter(_this, void 
     });
 }); };
 exports.deleteCandidateField = deleteCandidateField;
-var candidateFields = function (id) { return __awaiter(_this, void 0, void 0, function () {
-    var education, experience;
+var candidateFields = function (_id) { return __awaiter(_this, void 0, void 0, function () {
+    var education, experience, fileInfo;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, userEducation.find({
-                    user: { _id: "" + id }
+                    user: { _id: "" + _id }
                 })];
             case 1:
                 education = _a.sent();
                 return [4 /*yield*/, userExperience.find({
-                        user: { _id: "" + id }
+                        user: { _id: "" + _id }
                     })];
             case 2:
                 experience = _a.sent();
+                return [4 /*yield*/, file_schema_1.getCandidateResume(_id)];
+            case 3:
+                fileInfo = _a.sent();
                 return [2 /*return*/, {
                         education: education,
-                        experience: experience
+                        experience: experience,
+                        fileInfo: fileInfo
                     }];
         }
     });

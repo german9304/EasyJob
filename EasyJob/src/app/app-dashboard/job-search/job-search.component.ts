@@ -4,7 +4,7 @@ import { JobDataService } from "../../services/job-data.service";
 import { tap, map, switchMap } from "rxjs/operators";
 import { FormBuilder } from "@angular/forms";
 import { JOB } from "../../job";
-import { DataFieldsService } from "../../jobseeker-dashboard/data-fields.resolver.service";
+import { DataFieldsService } from "../../jobseeker-dashboard/services/data-fields.resolver.service";
 @Component({
   selector: "job-search",
   templateUrl: "./job-search.component.html",
@@ -42,7 +42,7 @@ export class JobSearchComponent implements OnInit {
     const search = this.route.snapshot.paramMap.get("search");
     console.log(job);
     console.log(` ${location}  ${search}`);
-     this.router.navigate(["/jobseeker/job/search", { search, location }]);
+    this.router.navigate(["/jobseeker/job/search", { search, location }]);
   }
   searchJobs() {
     const { field, location } = this.searchForm.value;

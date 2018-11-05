@@ -6,7 +6,7 @@ var client_auth_1 = require("./client-auth");
 require("./create-account-auth");
 // import "./jwt-auth";
 var jobs_Schema_1 = require("./Models/jobs-Schema");
-var passport_1 = require("passport");
+var passport = require("passport");
 // import { session, initialize, authenticate } from "passport";
 require("./Models/db-connection");
 var auth_server_1 = require("./auth-server");
@@ -19,8 +19,8 @@ app.use(cookieSession({
     maxAge: 24 * 60 * 60 * 1000 // 24 hours
 }));
 app.use(express.json());
-app.use(passport_1.initialize());
-app.use(passport_1.session());
+app.use(passport.initialize());
+app.use(passport.session());
 app.use("/auth", auth_server_1.default);
 app.use("/api/fields", crud_operations_fields_1.default);
 app.use("/api/files", files_server_1.default);

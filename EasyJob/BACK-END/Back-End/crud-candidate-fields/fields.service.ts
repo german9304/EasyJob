@@ -17,6 +17,7 @@ import {
 import { FieldModel, Field } from "../Models/fields";
 import { Router } from "express";
 import { Model } from "mongoose";
+import { User } from "../user";
 
 const createField = (model: fieldFunction) => async (
   req: Request,
@@ -83,10 +84,11 @@ const getCandidateFields = async (
     if (req.user) {
       const { user } = req;
       const { _id } = user;
+      // console.log(user);
       const fields = await candidateFields(_id);
       if (fields) {
-        const { education, experience } = fields;
-        return res.json({ education, experience });
+        const { education, experience, fileInfo } = fields;
+        return res.json({ education, experience, fileInfo });
       }
     }
     const err: string = "not found";
