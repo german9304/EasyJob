@@ -17,6 +17,7 @@ import { EditExperienceComponent } from "./experience/edit-experience/edit-exper
 import { EditEducationComponent } from "./education/edit-education/edit-education.component";
 import { NewEducationComponent } from "./education/new-education/new-education.component";
 import { CandidateFilesComponent } from './candidate-files/candidate-files.component';
+import { CandidateResumeComponent } from './candidate-files/candidate-resume/candidate-resume.component';
 
 @NgModule({
   imports: [
@@ -35,7 +36,8 @@ import { CandidateFilesComponent } from './candidate-files/candidate-files.compo
     EditExperienceComponent,
     EditEducationComponent,
     NewEducationComponent,
-    CandidateFilesComponent
+    CandidateFilesComponent,
+    CandidateResumeComponent
   ],
   exports: []
 })
