@@ -23,19 +23,25 @@
       outline: none;
     }
   }
-  .close-btn {
+  .close-a {
     display: flex;
     justify-content: center;
     margin: 10px 0 10px 0;
-    #btn {
+    #anchor {
+      display: block;
+      font-weight: bolder;
+      text-align: center;
       padding: 10px;
-      font-size: 17px;
+      font-size: 20px;
       width: 100px;
       border-radius: 10px;
+      text-decoration: none;
       cursor: pointer;
       transition: all .5s;
+      border: solid 1px #AAAAAA;
+      color: #726a6a;
     }
-     #btn:hover{
+     #anchor:hover{
       background-color: #DDDDDD;
      }
   }
