@@ -10,7 +10,7 @@ const upload = multer({ storage: fileStorage });
 
 router.get("/", getFiles);
 
-router.get("/resume", authenticate("jwt", { session: false }), getResume);
+router.get("/resume", getResume);
 
 router.post(
   "/upload",
