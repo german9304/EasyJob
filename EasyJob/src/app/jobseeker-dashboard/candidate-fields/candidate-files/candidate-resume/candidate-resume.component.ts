@@ -5,7 +5,7 @@ import { Component, OnInit } from "@angular/core";
   templateUrl: "./candidate-resume.component.html",
   styleUrls: [
     "../../shared-profile-fields.component.scss",
-    "./candidate-resume.component.css"
+    "./candidate-resume.component.scss"
   ]
 })
 export class CandidateResumeComponent implements OnInit {
