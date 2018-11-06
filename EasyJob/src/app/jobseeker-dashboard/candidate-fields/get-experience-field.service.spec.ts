@@ -1,15 +1,15 @@
-import { TestBed, inject } from "@angular/core/testing";
+import { TestBed, inject } from '@angular/core/testing';
 
-import { GetExperienceFieldService } from "./get-experience-field.service";
+import { GetExperienceFieldService } from './get-experience-field.service';
 
-describe("GetExperienceFieldService", () => {
+describe('GetExperienceFieldService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [GetExperienceFieldService]
     });
   });
 
-  it("should be created", inject(
+  it('should be created', inject(
     [GetExperienceFieldService],
     (service: GetExperienceFieldService) => {
       expect(service).toBeTruthy();
