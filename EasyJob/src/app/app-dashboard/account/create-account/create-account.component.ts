@@ -1,19 +1,19 @@
-import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
-import { AuthService } from "../../../services/auth.service";
-import { RouterModule, Routes, Router, ActivatedRoute } from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { AuthService } from '../../../services/auth.service';
+import { RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
 @Component({
-  selector: "create-account",
-  templateUrl: "./create-account.component.html",
+  selector: 'app-create-account',
+  templateUrl: './create-account.component.html',
   styleUrls: [
-    "../../sharedstyle.component.scss",
-    "./create-account.component.scss"
+    '../../sharedstyle.component.scss',
+    './create-account.component.scss'
   ]
 })
 export class CreateAccountComponent implements OnInit {
   createAccountForm = this.fb.group({
-    email: [""],
-    password: [""]
+    email: [''],
+    password: ['']
   });
 
   constructor(
@@ -38,18 +38,18 @@ export class CreateAccountComponent implements OnInit {
     const { value } = this.createAccountForm;
     this.auth.authenticate(value).subscribe(res => {
       // console.log(res);
-      localStorage.setItem("option", option);
-      if (option === "jobseeker") {
-        return this.router.navigate(["/jobseeker"]);
+      localStorage.setItem('option', option);
+      if (option === 'jobseeker') {
+        return this.router.navigate(['/jobseeker']);
       } else {
-        return this.router.navigate(["/employer"]);
+        return this.router.navigate(['/employer']);
       }
     });
   }
   get Email() {
-    return this.createAccountForm.get("email") as FormControl;
+    return this.createAccountForm.get('email') as FormControl;
   }
   get Password() {
-    return this.createAccountForm.get("password") as FormControl;
+    return this.createAccountForm.get('password') as FormControl;
   }
 }
