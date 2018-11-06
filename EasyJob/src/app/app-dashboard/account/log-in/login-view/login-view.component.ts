@@ -5,15 +5,15 @@ import {
   EventEmitter,
   Output,
   Optional
-} from "@angular/core";
-import { FormGroup, FormControl } from "@angular/forms";
+} from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
-  selector: "login-view",
-  templateUrl: "./login-view.component.html",
+  selector: 'app-login-view',
+  templateUrl: './login-view.component.html',
   styleUrls: [
-    "../../../sharedstyle.component.scss",
-    "./login-view.component.scss"
+    '../../../sharedstyle.component.scss',
+    './login-view.component.scss'
   ]
 })
 export class LoginViewComponent implements OnInit {
