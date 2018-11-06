@@ -7,8 +7,8 @@ import { Request, Response, Router } from 'express';
 import {
   createCandidateField,
   updateCandidateField,
-  fieldFunction,
-  updateModelFunction,
+  FieldFunction,
+  UpdateModelFunction,
   deleteCandidateField,
   candidateFields,
   candidateFieldById,
@@ -19,7 +19,7 @@ import { FieldModel, Field } from '../Models/fields';
 import { Model } from 'mongoose';
 import { User } from '../user';
 
-const createField = (model: fieldFunction) => async (
+const createField = (model: FieldFunction) => async (
   req: Request,
   res: Response,
 ): Promise<Response> => {
@@ -35,7 +35,7 @@ const createField = (model: fieldFunction) => async (
 
 const updateField = (
   model: Model<FieldModel>,
-  updateFunction: updateModelFunction,
+  updateFunction: UpdateModelFunction,
 ) => async (req: Request, res: Response): Promise<Response> => {
   try {
     const { user, body, params } = req;
