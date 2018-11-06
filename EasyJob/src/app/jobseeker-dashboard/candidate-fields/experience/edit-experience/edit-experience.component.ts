@@ -1,31 +1,31 @@
-import { Component, OnInit } from "@angular/core";
-import { FormGroup } from "@angular/forms";
-import { FormBuilder } from "@angular/forms";
-import { EXPERIENCE, FIELDS } from "../../../../job";
-import { CandidateFieldsService } from "../../../services/candidate-fields.service";
-import { Router, ActivatedRoute, ParamMap } from "@angular/router";
-import { switchMap } from "rxjs/operators";
-import { List} from "immutable";
-import { FieldsService } from "../../../services/fields.service";
+import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
+import { EXPERIENCE, FIELDS } from '../../../../job';
+import { CandidateFieldsService } from '../../../services/candidate-fields.service';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
+import { List} from 'immutable';
+import { FieldsService } from '../../../services/fields.service';
 @Component({
-  selector: "edit-experience",
-  templateUrl: "./edit-experience.component.html",
+  selector: 'app-edit-experience',
+  templateUrl: './edit-experience.component.html',
   styleUrls: [
-    "../../shared-profile-fields.component.scss",
-    "./edit-experience.component.scss"
+    '../../shared-profile-fields.component.scss',
+    './edit-experience.component.scss'
   ]
 })
 export class EditExperienceComponent implements OnInit {
   _id: string;
   experienceForm: FormGroup = this.fb.group({
-    position: [""],
-    company: [""],
-    location: [""],
+    position: [''],
+    company: [''],
+    location: [''],
     date: this.fb.group({
-      start: [""],
-      end: [""]
+      start: [''],
+      end: ['']
     }),
-    description: [""]
+    description: ['']
   });
   constructor(
     private router: Router,
@@ -39,7 +39,7 @@ export class EditExperienceComponent implements OnInit {
   ngOnInit() {
     this.updateExperience();
     this.route.paramMap.subscribe(
-      (param: ParamMap) => (this._id = param.get("id"))
+      (param: ParamMap) => (this._id = param.get('id'))
     );
   }
   updateExperience() {
@@ -57,7 +57,7 @@ export class EditExperienceComponent implements OnInit {
   save() {
     const { value }: { value: EXPERIENCE } = this.experienceForm;
     const { _id }: { _id: string } = this;
-    const url: string = `/api/fields/experience/${_id}`;
+    const url = `/api/fields/experience/${_id}`;
     this.fieldSeriviceExperience
       .updateField(url, value)
       .pipe(
@@ -74,13 +74,13 @@ export class EditExperienceComponent implements OnInit {
   delete() {
     // const { value } = this.experienceForm;
     const { _id }: {_id: string} = this;
-    //console.log(this.experienceForm.value);
-    const url: string = `/api/fields/experience/${_id}`;
+    // console.log(this.experienceForm.value);
+    const url = `/api/fields/experience/${_id}`;
     this.fieldSeriviceExperience
       .deleteField(url)
       .pipe(
         switchMap(data => {
-          //console.log(`data received: ${JSON.stringify(data)}`);
+          // console.log(`data received: ${JSON.stringify(data)}`);
           return this.fieldService.getFields();
         })
       )
@@ -88,6 +88,6 @@ export class EditExperienceComponent implements OnInit {
         this.fieldSeriviceExperience.EXPERIENCE = List<EXPERIENCE>(experience);
         this.fieldSeriviceExperience.goBackToProfile();
       });
-    console.log("delete");
+    console.log('delete');
   }
 }
