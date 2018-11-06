@@ -1,15 +1,15 @@
-import { Request, Response } from "express";
-import { GridFSBucketReadStream } from "mongodb";
+import { Request, Response } from 'express';
+import { GridFSBucketReadStream } from 'mongodb';
 import {
   getCandidateFiles,
   getCandidateFile,
-  findFileByIdUpdate
-} from "../Models/file-schema";
-import { FILE } from "../Models/file";
+  findFileByIdUpdate,
+} from '../Models/file-schema';
+import { FILE } from '../Models/file';
 
 const getFiles = async (req: Request, res: Response): Promise<Response> => {
   const files = await getCandidateFiles();
-  //files.then(files => console.log(files));
+  // files.then(files => console.log(files));
   return res.json(files);
 };
 const getResume = async (req: Request, res: Response): Promise<Response> => {
