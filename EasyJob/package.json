@@ -61,6 +61,8 @@
     "request": "^2.88.0",
     "request-promise": "^4.2.2",
     "rxjs": "^6.3.3",
+    "tslint-config-airbnb": "^5.11.0",
+    "tsutils": "^3.3.1",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
