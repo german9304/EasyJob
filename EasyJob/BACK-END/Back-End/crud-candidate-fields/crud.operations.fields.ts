@@ -8,7 +8,7 @@ import {
 } from '../Models/user-fields-schema';
 
 import { authenticate } from 'passport';
-import { responseRequest } from '../response';
+import { ResponseRequest } from '../response';
 import {
   createField,
   updateField,
@@ -28,13 +28,13 @@ const router: Router = Router();
 * GET Field, Education, Experience
 */
 
-const experienceFieldById: responseRequest = getFieldById(userExperience);
+const experienceFieldById:ResponseRequest = getFieldById(userExperience);
 
-const educationFieldById: responseRequest = getFieldById(userEducation);
+const educationFieldById:ResponseRequest = getFieldById(userEducation);
 
-const experienceField: responseRequest = getField(userExperience);
+const experienceField:ResponseRequest = getField(userExperience);
 
-const educationField: responseRequest = getField(userEducation);
+const educationField:ResponseRequest = getField(userEducation);
 
 /*
 * Get all experiences
@@ -61,9 +61,9 @@ router.get('/candidate', getCandidateFields);
 * Create New Field, Education, Experience
 */
 
-const createExperience: responseRequest = createField(experienceModel);
+const createExperience:ResponseRequest = createField(experienceModel);
 
-const createEducation: responseRequest = createField(educationModel);
+const createEducation:ResponseRequest = createField(educationModel);
 
 router.post(
   '/experience',
@@ -102,9 +102,9 @@ router.put(
 * Http Method:  DELETE
 * Delete Field, Education, Experience
 */
-const deleteExperience: responseRequest = deleteField(userExperience);
+const deleteExperience:ResponseRequest = deleteField(userExperience);
 
-const deleteEducation: responseRequest = deleteField(userEducation);
+const deleteEducation:ResponseRequest = deleteField(userEducation);
 
 router.delete(
   '/experience/:id',
