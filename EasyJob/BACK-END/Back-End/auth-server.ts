@@ -2,58 +2,57 @@
  Authentication Routes
 */
 
-import { Request, Response, NextFunction } from "express";
-import * as passport from "passport";
-import * as express from "express";
-import "./google-auth";
-import { Router } from "express";
-const router: Router = express.Router();
+import { Request, Response, NextFunction, Router } from 'express';
+import * as passport from 'passport';
+import './google-auth';
 
-import { findUserById } from "./Models/user-schema";
+const router: Router = Router();
+
+import { findUserById } from './Models/user-schema';
 
 router.get(
-  "/google",
+  '/google',
   (req: Request, res: Response, next): void => {
     console.log(req.query);
     next();
-  }
+  },
 );
 
 router.get(
-  "/google",
-  passport.authenticate("google", {
-    scope: ["profile", "email"]
-  })
+  '/google',
+  passport.authenticate('google', {
+    scope: ['profile', 'email'],
+  }),
 );
 
 router.get(
-  "/google/redirect",
-  passport.authenticate("google"),
+  '/google/redirect',
+  passport.authenticate('google'),
   (req: Request, res: Response, next: NextFunction): void => {
-    //console.log("redirect out");
+    // console.log("redirect out");
     //  console.log("req user: ", req.user);
-    res.redirect("http://localhost:4200/");
+    res.redirect('http://localhost:4200/');
     // res.redirect("/");
-  }
+  },
 );
 
 router.post(
-  "/create/user",
-  passport.authenticate("createUser"),
+  '/create/user',
+  passport.authenticate('createUser'),
   (req: Request, res: Response): void => {
     // console.log(req.authInfo);
     const { user: id } = req;
     const usr = findUserById(id);
-    usr.then(data => {
+    usr.then((data) => {
       const { _id, email, jwt } = data;
-      res.json({ user: { _id, email, jwt } });
+      return res.json({ user: { _id, email, jwt } });
     });
-  }
+  },
 );
 
 router.post(
-  "/login",
-  passport.authenticate("loginUser"),
+  '/login',
+  passport.authenticate('loginUser'),
   (req: Request, res: Response): void => {
     // console.log(req.body);
     try {
@@ -63,7 +62,7 @@ router.post(
     } catch (error) {
       console.log(error);
     }
-  }
+  },
 );
 
 export default router;
