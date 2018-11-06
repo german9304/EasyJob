@@ -1,9 +1,9 @@
-import * as mongoose from "mongoose";
-import { Schema } from "mongoose";
+import * as mongoose from 'mongoose';
+import Schema  = mongoose.Schema;
 // import db from "./db-connection";
-import * as cheerio from "cheerio";
-import * as request from "request";
-import * as rp from "request-promise";
+import * as cheerio from 'cheerio';
+import * as request from 'request';
+import * as rp from 'request-promise';
 /*
 Jobs Schema
 */
@@ -11,43 +11,43 @@ const jobsSchema: Schema = new mongoose.Schema(
   {
     category: {
       _id: String,
-      name: String
+      name: String,
     },
     title: String,
     companyName: String,
     location: String,
-    description: String
+    description: String,
   },
-  { collection: "jobs", versionKey: false }
+  { collection: 'jobs', versionKey: false }
 );
 
 const categorySchema: Schema = new mongoose.Schema(
   {
-    category: String
+    category: String,
   },
-  { collection: "categories", versionKey: false }
+  { collection: 'categories', versionKey: false }
 );
 
-const jobsModel = mongoose.model("jobs", jobsSchema);
-const categoryModel = mongoose.model("category", categorySchema);
+const jobsModel = mongoose.model('jobs', jobsSchema);
+const categoryModel = mongoose.model('category', categorySchema);
 
 const createAJob = ({
   category,
   title,
   companyName,
   location,
-  description
+  description,
 }) => {
   const { _id, name } = category;
   return new jobsModel({
-    category: {
-      _id,
-      name
-    },
     title,
     companyName,
     location,
-    description
+    description,
+    category: {
+      _id,
+      name,
+    },
   });
 };
 
