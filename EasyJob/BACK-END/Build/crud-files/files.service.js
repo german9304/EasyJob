@@ -44,7 +44,7 @@ var getFiles = function (req, res) { return __awaiter(_this, void 0, void 0, fun
             case 0: return [4 /*yield*/, file_schema_1.getCandidateFiles()];
             case 1:
                 files = _a.sent();
-                //files.then(files => console.log(files));
+                // files.then(files => console.log(files));
                 return [2 /*return*/, res.json(files)];
         }
     });

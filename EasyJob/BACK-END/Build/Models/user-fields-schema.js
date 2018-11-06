@@ -36,31 +36,32 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
-var mongoose = require("mongoose");
+// import * as mongoose from "mongoose";
+var mongoose_1 = require("mongoose");
 var file_schema_1 = require("./file-schema");
-var experienceSchema = new mongoose.Schema({
+var experienceSchema = new mongoose_1.Schema({
     user: {
-        _id: String
+        _id: String,
     },
     position: String,
     company: String,
     location: String,
     date: { start: String, end: String },
-    description: String
-}, { collection: "experience", versionKey: false });
-var educationSchema = new mongoose.Schema({
+    description: String,
+}, { collection: 'experience', versionKey: false });
+var educationSchema = new mongoose_1.Schema({
     user: {
-        _id: String
+        _id: String,
     },
     school: String,
     degree: String,
     majorField: String,
     date: { start: String, end: String },
-    description: String
-}, { collection: "education", versionKey: false });
-var userEducation = mongoose.model("education", educationSchema);
+    description: String,
+}, { collection: 'education', versionKey: false });
+var userEducation = mongoose_1.model('education', educationSchema);
 exports.userEducation = userEducation;
-var userExperience = mongoose.model("experience", experienceSchema);
+var userExperience = mongoose_1.model('experience', experienceSchema);
 exports.userExperience = userExperience;
 var experienceModel = function (_a) {
     var user = _a.user, position = _a.position, company = _a.company, location = _a.location, date = _a.date, description = _a.description;
@@ -70,7 +71,7 @@ var experienceModel = function (_a) {
         company: company,
         location: location,
         date: date,
-        description: description
+        description: description,
     });
 };
 exports.experienceModel = experienceModel;
@@ -82,7 +83,7 @@ var educationModel = function (_a) {
         degree: degree,
         majorField: majorField,
         date: date,
-        description: description
+        description: description,
     });
 };
 exports.educationModel = educationModel;
@@ -93,7 +94,7 @@ var updateEducationField = function (model, _a) {
         degree: degree,
         majorField: majorField,
         date: date,
-        description: description
+        description: description,
     });
 };
 exports.updateEducationField = updateEducationField;
@@ -104,7 +105,7 @@ var updateExperienceField = function (model, _a) {
         company: company,
         location: location,
         date: date,
-        description: description
+        description: description,
     });
 };
 exports.updateExperienceField = updateExperienceField;
@@ -138,13 +139,13 @@ exports.createCandidateField = createCandidateField;
 *  Update  field
 *
 */
-var updateCandidateField = function (_id, field, model, updateModel) { return __awaiter(_this, void 0, void 0, function () {
+var updateCandidateField = function (id, field, model, updateModel) { return __awaiter(_this, void 0, void 0, function () {
     var findField, updatedField, err_2;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 4, , 5]);
-                return [4 /*yield*/, model.findById(_id)];
+                return [4 /*yield*/, model.findById(id)];
             case 1:
                 findField = _a.sent();
                 if (!findField) return [3 /*break*/, 3];
@@ -168,23 +169,23 @@ exports.updateCandidateField = updateCandidateField;
 var err = function (err) {
     if (err)
         console.error(err);
-    console.log("successful");
+    console.log('successful');
 };
 /*
 *  Delete  field
 *
 */
-var deleteCandidateField = function (_id, model) { return __awaiter(_this, void 0, void 0, function () {
+var deleteCandidateField = function (id, model) { return __awaiter(_this, void 0, void 0, function () {
     var findField, err_3;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                return [4 /*yield*/, model.findById(_id)];
+                return [4 /*yield*/, model.findById(id)];
             case 1:
                 findField = _a.sent();
                 if (findField) {
-                    model.deleteOne({ _id: _id }, err);
+                    model.deleteOne({ _id: id }, err);
                 }
                 return [2 /*return*/, findField];
             case 2:
@@ -196,34 +197,34 @@ var deleteCandidateField = function (_id, model) { return __awaiter(_this, void 
     });
 }); };
 exports.deleteCandidateField = deleteCandidateField;
-var candidateFields = function (_id) { return __awaiter(_this, void 0, void 0, function () {
+var candidateFields = function (id) { return __awaiter(_this, void 0, void 0, function () {
     var education, experience, fileInfo;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, userEducation.find({
-                    user: { _id: "" + _id }
+                    user: { _id: "" + id },
                 })];
             case 1:
                 education = _a.sent();
                 return [4 /*yield*/, userExperience.find({
-                        user: { _id: "" + _id }
+                        user: { _id: "" + id },
                     })];
             case 2:
                 experience = _a.sent();
-                return [4 /*yield*/, file_schema_1.getCandidateResume(_id)];
+                return [4 /*yield*/, file_schema_1.getCandidateResume(id)];
             case 3:
                 fileInfo = _a.sent();
                 return [2 /*return*/, {
                         education: education,
                         experience: experience,
-                        fileInfo: fileInfo
+                        fileInfo: fileInfo,
                     }];
         }
     });
 }); };
 exports.candidateFields = candidateFields;
 var candidateFieldById = function (id, model) {
-    if (id === void 0) { id = ""; }
+    if (id === void 0) { id = ''; }
     return __awaiter(_this, void 0, void 0, function () {
         var field, err_4;
         return __generator(this, function (_a) {

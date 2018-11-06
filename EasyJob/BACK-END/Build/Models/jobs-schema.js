@@ -46,45 +46,45 @@ Jobs Schema
 var jobsSchema = new mongoose.Schema({
     category: {
         _id: String,
-        name: String
+        name: String,
     },
     title: String,
     companyName: String,
     location: String,
-    description: String
-}, { collection: "jobs", versionKey: false });
+    description: String,
+}, { collection: 'jobs', versionKey: false });
 var categorySchema = new mongoose.Schema({
-    category: String
-}, { collection: "categories", versionKey: false });
-var jobsModel = mongoose.model("jobs", jobsSchema);
-var categoryModel = mongoose.model("category", categorySchema);
+    category: String,
+}, { collection: 'categories', versionKey: false });
+var jobsModel = mongoose.model('jobs', jobsSchema);
+var categoryModel = mongoose.model('category', categorySchema);
 exports.categoryModel = categoryModel;
 var createAJob = function (_a) {
     var category = _a.category, title = _a.title, companyName = _a.companyName, location = _a.location, description = _a.description;
     var _id = category._id, name = category.name;
     return new jobsModel({
-        category: {
-            _id: _id,
-            name: name
-        },
         title: title,
         companyName: companyName,
         location: location,
-        description: description
+        description: description,
+        category: {
+            _id: _id,
+            name: name,
+        },
     });
 };
 exports.createAJob = createAJob;
 var createAcategory = function (_a) {
     var name = _a.name;
     return new categoryModel({
-        name: name
+        name: name,
     });
 };
 exports.createAcategory = createAcategory;
 var jobSearch = function (_a) {
     var field = _a.search, location = _a.location;
     return __awaiter(_this, void 0, void 0, function () {
-        var url, options, $_1, jobslist_1, error_1;
+        var url, options, $, jobslist;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
@@ -93,40 +93,36 @@ var jobSearch = function (_a) {
                         uri: url,
                         transform: function (body) {
                             return cheerio.load(body);
-                        }
+                        },
                     };
-                    _b.label = 1;
-                case 1:
-                    _b.trys.push([1, 3, , 4]);
                     return [4 /*yield*/, rp(options)];
-                case 2:
-                    $_1 = _b.sent();
-                    jobslist_1 = [];
-                    $_1("#job_list .job_results article").each(function (i, elem) {
-                        var job_content = $_1(this).children(".job_content");
-                        var title = job_content.find(".just_job_title");
-                        // console.log(title.text());
-                        var companyName = job_content.find(".t_org_link.name");
-                        // console.log(companyName.text());
-                        var location = job_content.find(".t_location_link.location");
-                        // console.log(location.text());
-                        var description = job_content.find(".job_snippet a");
-                        // console.log(description.text());
-                        var job = {
-                            title: title.text(),
-                            company: companyName.text(),
-                            location: location.text(),
-                            description: description.text().trim()
-                        };
-                        // console.log("res: ", job);
-                        jobslist_1.push(job);
-                    });
-                    return [2 /*return*/, jobslist_1];
-                case 3:
-                    error_1 = _b.sent();
-                    console.error(error_1);
-                    return [3 /*break*/, 4];
-                case 4: return [2 /*return*/];
+                case 1:
+                    $ = _b.sent();
+                    jobslist = [];
+                    try {
+                        $('#job_list .job_results article').each(function () {
+                            var jobContent = $(this).children('.job_content');
+                            var title = jobContent.find('.just_job_title');
+                            // console.log(title.text());
+                            var companyName = jobContent.find('.t_org_link.name');
+                            // console.log(companyName.text());
+                            var location = jobContent.find('.t_location_link.location');
+                            // console.log(location.text());
+                            var description = jobContent.find('.job_snippet a');
+                            // console.log(description.text());
+                            var job = {
+                                title: title.text(),
+                                company: companyName.text(),
+                                location: location.text(),
+                                description: description.text().trim(),
+                            };
+                            // console.log("res: ", job);
+                            jobslist.push(job);
+                        });
+                    }
+                    catch (error) {
+                    }
+                    return [2 /*return*/, jobslist];
             }
         });
     });

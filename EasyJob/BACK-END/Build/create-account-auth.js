@@ -41,81 +41,77 @@ var passport_local_1 = require("passport-local");
 var client_auth_1 = require("./client-auth");
 var user_schema_1 = require("./Models/user-schema");
 // const localStrategy = LocalStrategy.Strategy;
-passport_1.serializeUser(function (userId, done) {
-    done(null, userId);
-});
+passport_1.serializeUser(function (userId, done) { return done(null, userId); });
 passport_1.deserializeUser(function (id, done) {
-    user_schema_1.userModel.findById(id).then(function (user) {
-        done(null, user);
-    });
+    user_schema_1.userModel.findById(id).then(function (user) { return done(null, user); });
 });
-passport_1.use("createUser", new passport_local_1.Strategy({
-    usernameField: "email",
-    passwordField: "password"
-}, function (email, password, done) {
-    user_schema_1.userModel.findOne({ email: email }, function (err, user) {
-        return __awaiter(this, void 0, void 0, function () {
-            var jwt, newUser, newToken, usr, err_1;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (!!user) return [3 /*break*/, 4];
-                        _a.label = 1;
-                    case 1:
-                        _a.trys.push([1, 3, , 4]);
-                        jwt = "1123";
-                        newUser = user_schema_1.createUser({ email: email, password: password, jwt: jwt });
-                        newToken = JWT.sign({ email: newUser.email, _id: newUser._id }, client_auth_1.JWT_SECRET_KEY.key);
-                        newUser.jwt = newToken;
-                        return [4 /*yield*/, newUser.save()];
-                    case 2:
-                        usr = _a.sent();
-                        return [2 /*return*/, done(null, usr._id)];
-                    case 3:
-                        err_1 = _a.sent();
-                        console.log(err_1);
-                        return [3 /*break*/, 4];
-                    case 4: 
-                    // const {password: hash} = user;
-                    // // console.log('hash: ',hash);
-                    // const checkpsswrd = user.comparePasswords(password, hash);
-                    // if(checkpsswrd){
-                    //    return done(null, user, { message: 1});
-                    // }
-                    return [2 /*return*/, done(null, false, { message: "user already exists" })];
-                }
-            });
+function createUserStrategy(email, password, done) {
+    var _this = this;
+    user_schema_1.userModel.findOne({ email: email }, function (err, user) { return __awaiter(_this, void 0, void 0, function () {
+        var jwt, newUser, newToken, usr, err_1;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    if (!!user) return [3 /*break*/, 4];
+                    _a.label = 1;
+                case 1:
+                    _a.trys.push([1, 3, , 4]);
+                    jwt = '1123';
+                    newUser = user_schema_1.createUser({ email: email, password: password, jwt: jwt });
+                    newToken = JWT.sign({ email: newUser.email, _id: newUser._id }, client_auth_1.JWT_SECRET_KEY.key);
+                    newUser.jwt = newToken;
+                    return [4 /*yield*/, newUser.save()];
+                case 2:
+                    usr = _a.sent();
+                    return [2 /*return*/, done(null, usr._id)];
+                case 3:
+                    err_1 = _a.sent();
+                    console.log(err_1);
+                    return [3 /*break*/, 4];
+                case 4: 
+                // const {password: hash} = user;
+                // // console.log('hash: ',hash);
+                // const checkpsswrd = user.comparePasswords(password, hash);
+                // if(checkpsswrd){
+                //    return done(null, user, { message: 1});
+                // }
+                return [2 /*return*/, done(null, false, { message: 'user already exists' })];
+            }
         });
-    });
+    }); });
     //   return done(null, { username }, { message: "Username Already Exists" });
-}));
-passport_1.use("loginUser", new passport_local_1.Strategy({
-    usernameField: "email",
-    passwordField: "password"
-}, function (email, password, done) {
-    user_schema_1.userModel.findOne({ email: email }, function (err, user) {
-        return __awaiter(this, void 0, void 0, function () {
-            var hash, checkpsswrd;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        if (err) {
-                            console.error(err);
-                        }
-                        if (!user) {
-                            return [2 /*return*/, done(null, false)];
-                        }
-                        hash = user.password;
-                        return [4 /*yield*/, user.comparePasswords(password, hash)];
-                    case 1:
-                        checkpsswrd = _a.sent();
-                        if (checkpsswrd) {
-                            return [2 /*return*/, done(null, user)];
-                        }
+}
+function loginUserStrategy(email, password, done) {
+    var _this = this;
+    user_schema_1.userModel.findOne({ email: email }, function (err, user) { return __awaiter(_this, void 0, void 0, function () {
+        var hash, checkpsswrd;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    if (err) {
+                        console.error(err);
+                    }
+                    if (!user) {
                         return [2 /*return*/, done(null, false)];
-                }
-            });
+                    }
+                    hash = user.password;
+                    return [4 /*yield*/, user.comparePasswords(password, hash)];
+                case 1:
+                    checkpsswrd = _a.sent();
+                    if (checkpsswrd) {
+                        return [2 /*return*/, done(null, user)];
+                    }
+                    return [2 /*return*/, done(null, false)];
+            }
         });
-    });
+    }); });
     //   return done(null, { username }, { message: "Username Already Exists" });
-}));
+}
+passport_1.use('createUser', new passport_local_1.Strategy({
+    usernameField: 'email',
+    passwordField: 'password',
+}, createUserStrategy));
+passport_1.use('loginUser', new passport_local_1.Strategy({
+    usernameField: 'email',
+    passwordField: 'password',
+}, loginUserStrategy));

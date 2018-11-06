@@ -50,30 +50,30 @@ var gridFsSchema = new mongoose.Schema({
     filename: String,
     metadata: {
         user: {
-            _id: String
-        }
+            _id: String,
+        },
     },
     originalName: String,
     md5: String,
-    contentType: String
-}, { collection: "uploads.files", versionKey: false });
+    contentType: String,
+}, { collection: 'uploads.files', versionKey: false });
 var bucketName;
-db_connection_1.default.once("open", function () {
+db_connection_1.default.once('open', function () {
     bucketName = new mongodb_1.GridFSBucket(db_connection_1.default.db, {
-        bucketName: "uploads"
+        bucketName: 'uploads',
     });
-    console.log("connction open");
+    console.log('connction open');
 });
-var gridFsFiles = mongoose.model("uploads", gridFsSchema);
-var FileInfo = function (_a, buf, _id, bucketName) {
+var gridFsFiles = mongoose.model('uploads', gridFsSchema);
+var fileInfo = function (_a, buf, id, bucketName) {
     var originalName = _a.originalname;
-    var filename = "" + buf.toString("hex") + path_1.extname(originalName);
+    var filename = "" + buf.toString('hex') + path_1.extname(originalName);
     return {
         filename: filename,
+        bucketName: bucketName,
         metadata: {
-            user: { _id: _id }
+            user: { _id: id },
         },
-        bucketName: bucketName
     };
 };
 var file = function (req, file) {
@@ -82,19 +82,19 @@ var file = function (req, file) {
             if (err) {
                 return reject(err);
             }
-            //console.log(file);
+            // console.log(file);
             var user = req.user;
             var _id = user._id;
             // console.log(user);
-            var fileInfo = FileInfo(file, buf, _id, "uploads");
-            console.log(fileInfo);
-            resolve(fileInfo);
+            var fileI = fileInfo(file, buf, _id, 'uploads');
+            console.log(fileI);
+            resolve(fileI);
         });
     });
 };
 var fileStorage = new GridFsStorage({
+    file: file,
     db: db_connection_1.default,
-    file: file
 });
 exports.fileStorage = fileStorage;
 var getCandidateFiles = function () { return __awaiter(_this, void 0, void 0, function () {
@@ -109,12 +109,12 @@ var getCandidateFiles = function () { return __awaiter(_this, void 0, void 0, fu
     });
 }); };
 exports.getCandidateFiles = getCandidateFiles;
-var getCandidateResume = function (_id) { return __awaiter(_this, void 0, void 0, function () {
+var getCandidateResume = function (id) { return __awaiter(_this, void 0, void 0, function () {
     var gridFile;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, gridFsFiles.findOne({
-                    metadata: { user: { _id: "" + _id } }
+                    metadata: { user: { _id: "" + id } },
                 })];
             case 1:
                 gridFile = _a.sent();
@@ -123,15 +123,15 @@ var getCandidateResume = function (_id) { return __awaiter(_this, void 0, void 0
     });
 }); };
 exports.getCandidateResume = getCandidateResume;
-var getCandidateFile = function (_id) { return __awaiter(_this, void 0, void 0, function () {
+var getCandidateFile = function (id) { return __awaiter(_this, void 0, void 0, function () {
     var gridFile, filename, file_1, err_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                console.log(_id);
+                console.log(id);
                 return [4 /*yield*/, gridFsFiles.findOne({
-                        metadata: { user: { _id: _id } }
+                        metadata: { user: { _id: id } },
                     })];
             case 1:
                 gridFile = _a.sent();
@@ -151,18 +151,18 @@ var getCandidateFile = function (_id) { return __awaiter(_this, void 0, void 0, 
     });
 }); };
 exports.getCandidateFile = getCandidateFile;
-var findFileByIdUpdate = function (_id, originalName) { return __awaiter(_this, void 0, void 0, function () {
+var findFileByIdUpdate = function (id, originalName) { return __awaiter(_this, void 0, void 0, function () {
     var gridFile, err_2;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 4, , 5]);
-                return [4 /*yield*/, gridFsFiles.findById(_id)];
+                return [4 /*yield*/, gridFsFiles.findById(id)];
             case 1:
                 gridFile = _a.sent();
                 if (!gridFile) return [3 /*break*/, 3];
                 gridFile.set({
-                    originalName: originalName
+                    originalName: originalName,
                 });
                 return [4 /*yield*/, gridFile.save()];
             case 2: return [2 /*return*/, _a.sent()];

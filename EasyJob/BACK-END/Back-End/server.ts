@@ -109,7 +109,7 @@ app.get(
         res.json(data);
       },
     );
-  }
+  },
 );
 app.get(
   '/api/categories',
@@ -120,7 +120,7 @@ app.get(
       }
       res.json(data);
     });
-  }
+  },
 );
 
 app.get('*', (req, res) => {
