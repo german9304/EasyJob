@@ -1,32 +1,31 @@
-import { Component, OnInit } from "@angular/core";
-import { FormBuilder } from "@angular/forms";
-import { CandidateFieldsService } from "../../services/candidate-fields.service";
-import { EXPERIENCE } from "../../../job";
-import { Router, ActivatedRoute } from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+import { CandidateFieldsService } from '../../services/candidate-fields.service';
+import { EXPERIENCE } from '../../../job';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: "experience",
+  selector: 'app-experience',
   // templateUrl: "./experience.component.html",
   template: `
     <div id="profile-fields">
-    
     </div>
   `,
   styleUrls: [
-    "../shared-profile-fields.component.scss",
-    "./experience.component.css"
+    '../shared-profile-fields.component.scss',
+    './experience.component.css'
   ]
 })
 export class ExperienceComponent implements OnInit {
   experienceForm = this.fb.group({
-    position: [""],
-    company: [""],
-    location: [""],
+    position: [''],
+    company: [''],
+    location: [''],
     date: this.fb.group({
-      start: [""],
-      end: [""]
+      start: [''],
+      end: ['']
     }),
-    description: [""]
+    description: ['']
   });
   constructor(
     private router: Router,
@@ -44,7 +43,7 @@ export class ExperienceComponent implements OnInit {
     });
 
     this.experienceForm.reset();
-    this.router.navigate(["../jobseeker/profile"]);
+    this.router.navigate(['../jobseeker/profile']);
   }
   // get Position() {
   //   return this.experienceForm.get("position");

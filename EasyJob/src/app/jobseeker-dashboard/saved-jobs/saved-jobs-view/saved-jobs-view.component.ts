@@ -1,9 +1,9 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: "saved-jobs-view",
-  templateUrl: "./saved-jobs-view.component.html",
-  styleUrls: ["./saved-jobs-view.component.css"]
+  selector: 'app-saved-jobs-view',
+  templateUrl: './saved-jobs-view.component.html',
+  styleUrls: ['./saved-jobs-view.component.css']
 })
 export class SavedJobsViewComponent implements OnInit {
   constructor() {}
