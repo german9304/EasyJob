@@ -2,20 +2,9 @@
 // import { genSalt, hash, compare } from "bcrypt";
 import * as bycrpt from 'bcrypt';
 import { Document, Schema, model, Model } from 'mongoose';
-import { User, GoogleUser } from '../user';
+import { IUser, User, GoogleUser } from '../user';
 // import { ISize } from 'selenium-webdriver";
 const SALT_ROUNDS = 10;
-
-export interface IUser extends Document {
-  name: String;
-  candidate: Boolean;
-  employer: Boolean;
-  email: String;
-  googleId: String;
-  password: String;
-  jwt: String;
-  comparePasswords(userPassword, hash): Promise<boolean>;
-}
 
 export interface UserName {
   usr: IUser;
