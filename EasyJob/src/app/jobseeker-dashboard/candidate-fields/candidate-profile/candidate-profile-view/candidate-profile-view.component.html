@@ -11,7 +11,7 @@
           <input type="file" (input)="fileSubmit($event)" [formControl]="file" name="file" id="file-upload">
         </div>
       </div>
-      <candidate-files [fileInfo]="fileInfo" *ngIf="fileInfo"></candidate-files>
+      <app-candidate-files [fileInfo]="fileInfo" *ngIf="fileInfo"></app-candidate-files>
     </div>
 
     <div class="item experience">
@@ -24,7 +24,7 @@
         </a>
       </div>
       <div class="experience-lists">
-        <experience-list [EXPERIENCE]="experience" [trackById]="trackByExp"></experience-list>
+        <app-experience-list [EXPERIENCE]="experience" [trackById]="trackByExp"></app-experience-list>
       </div>
     </div>
 
@@ -41,7 +41,7 @@
         </div>
       </div>
       <div class="education-lists">
-        <education-list [EDUCATION]="education"></education-list>
+        <app-education-list [EDUCATION]="education"></app-education-list>
       </div>
     </div>
 

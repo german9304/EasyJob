@@ -55,24 +55,24 @@ export class FIELDS {
 export const JOBS: JOB[] = [
   {
     category: {
-      _id: "",
-      name: ""
+      _id: '',
+      name: ''
     },
-    title: "SOFTWARE ENGINEER",
-    company: "MICROSOFT",
-    location: "Monterey By",
+    title: 'SOFTWARE ENGINEER',
+    company: 'MICROSOFT',
+    location: 'Monterey By',
     description:
-      "  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut, velit."
+      '  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut, velit.'
   },
   {
     category: {
-      _id: "",
-      name: ""
+      _id: '',
+      name: ''
     },
-    title: "BACK-END",
-    company: "GOOGLE",
-    location: "San Diego",
+    title: 'BACK-END',
+    company: 'GOOGLE',
+    location: 'San Diego',
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat quos est natus deleniti magni, libero blanditiis. Qui voluptasconsectetur quod!"
+      'Lorem ipsum dolor'
   }
 ];

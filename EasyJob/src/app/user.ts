@@ -1,11 +1,11 @@
-export interface contact {
+export interface Contact {
   username: string;
   email: string;
   auth: boolean;
   jwt: string;
 }
 
-export class USER implements contact {
+export class USER implements Contact {
   constructor(
     public username: string,
     public email: string,

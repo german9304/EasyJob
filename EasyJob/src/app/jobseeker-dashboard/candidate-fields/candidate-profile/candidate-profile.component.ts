@@ -21,14 +21,14 @@ import { CandidateFilesService } from '../../services/candidate-files.service';
   // templateUrl: "./candidate-profile.component.html",
   template: `
     <div class="candidateprofile">
-      <candidate-profile-view
+      <app-candidate-profile-view
       [experience]="fsexp.EXPERIENCE"
       [education]="fsedu.EDUCATION"
        [trackByExp]="trackByExperience"
        [file]="fileUpload"
        (fileChosen)="uploadFile($event)"
        [fileInfo]="fileService.fileInfo">
-      </candidate-profile-view>
+      </app-candidate-profile-view>
       <router-outlet></router-outlet>
     </div>
   `,
