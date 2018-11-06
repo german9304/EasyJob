@@ -1,12 +1,7 @@
 import { GOOGLE_CLIENT, JWT_SECRET_KEY  } from './client-auth';
 import { serializeUser, use, deserializeUser } from 'passport';
-// import * as passport from 'passport';
-
 import { sign } from 'jsonwebtoken';
-// import * as jwt from "jsonwebtoken";
-// import { JWT_SECRET_KEY } from './client-auth';
 import { Strategy } from 'passport-google-oauth2';
-// import { promise } from "selenium-webdriver";
 
 import {
   userModel,
