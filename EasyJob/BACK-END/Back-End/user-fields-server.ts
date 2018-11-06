@@ -1,5 +1,5 @@
-import * as express from "express";
-import "./google-auth";
+import * as express from 'express';
+import './google-auth';
 import * as passport from "passport";
 import { Request, Response, IRoute } from "express";
 import "./jwt-auth";
@@ -26,7 +26,7 @@ appRoutes
       // console.log(req.query);
       const { id } = req.query;
       try {
-        let experience: Experience;
+        const experience: Experience;
         // = await getExperience(id);
         // console.log(id);
         //res.json(experience);
