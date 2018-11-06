@@ -1,4 +1,4 @@
-import { Document } from "mongoose";
+import { Document } from 'mongoose';
 
 export interface FILE {
   id?: string;
@@ -11,6 +11,7 @@ export interface FILE {
       _id: string;
     };
   };
+  bucketName?:string;
   originalname?: string;
   md5?: string;
   contentType?: string;
