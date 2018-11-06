@@ -1,15 +1,15 @@
-import { Component, OnInit } from "@angular/core";
-import { AuthService } from "./services/auth.service";
-import { USER } from "./user";
-import { RouterModule, Routes, Router, ActivatedRoute } from "@angular/router";
-import { StyleServiceService } from "./services/style-service.service";
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from './services/auth.service';
+import { USER } from './user';
+import { RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
+import { StyleServiceService } from './services/style-service.service';
 @Component({
-  selector: "root",
-  templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.css"]
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = "app";
+  title = 'app';
   constructor(
     private auth: AuthService,
     private router: Router,
