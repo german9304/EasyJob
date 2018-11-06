@@ -1,14 +1,14 @@
-import { Component, OnInit } from "@angular/core";
-import { Router, ActivatedRoute, ParamMap } from "@angular/router";
-import { JobDataService } from "../../services/job-data.service";
-import { tap, map, switchMap } from "rxjs/operators";
-import { FormBuilder } from "@angular/forms";
-import { JOB } from "../../job";
-import { DataFieldsService } from "../../jobseeker-dashboard/services/data-fields.resolver.service";
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { JobDataService } from '../../services/job-data.service';
+import { tap, map, switchMap } from 'rxjs/operators';
+import { FormBuilder } from '@angular/forms';
+import { JOB } from '../../job';
+import { DataFieldsService } from '../../jobseeker-dashboard/services/data-fields.resolver.service';
 @Component({
-  selector: "job-search",
-  templateUrl: "./job-search.component.html",
-  styleUrls: ["./job-search.component.scss"]
+  selector: 'app-job-search',
+  templateUrl: './job-search.component.html',
+  styleUrls: ['./job-search.component.scss']
 })
 export class JobSearchComponent implements OnInit {
   JOBS: JOB[] = [];
@@ -19,15 +19,15 @@ export class JobSearchComponent implements OnInit {
     private fb: FormBuilder
   ) {}
   searchForm = this.fb.group({
-    field: [""],
-    location: [""]
+    field: [''],
+    location: ['']
   });
   ngOnInit() {
     this.getJobList();
   }
   getJobList() {
     this.route.paramMap.subscribe(data => {
-      const str = data.get("search");
+      const str = data.get('search');
 
       // console.log("data: ");
     });
@@ -38,18 +38,18 @@ export class JobSearchComponent implements OnInit {
   }
   getSearchJobs(job: JOB) {
     // const params = this.route.paramMap.subscribe(param => console.log(param));
-    const location = this.route.snapshot.paramMap.get("location");
-    const search = this.route.snapshot.paramMap.get("search");
+    const location = this.route.snapshot.paramMap.get('location');
+    const search = this.route.snapshot.paramMap.get('search');
     console.log(job);
     console.log(` ${location}  ${search}`);
-    this.router.navigate(["/jobseeker/job/search", { search, location }]);
+    this.router.navigate(['/jobseeker/job/search', { search, location }]);
   }
   searchJobs() {
     const { field, location } = this.searchForm.value;
 
     this.js.goHome(field, location)
-      ? this.router.navigate(["../"])
-      : this.router.navigate(["./jobs", { search: field, location }]);
+      ? this.router.navigate(['../'])
+      : this.router.navigate(['./jobs', { search: field, location }]);
   }
 }
 

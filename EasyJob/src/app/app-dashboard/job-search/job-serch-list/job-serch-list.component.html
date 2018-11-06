@@ -1,5 +1,5 @@
 <div class="job-list-view">
-  <div class="job job{{i}}" *ngFor="let job of JOBS; let i= index">
+  <div class="job job{{i}}" *ngFor="let job of jobs; let i= index">
     <div class="item title" id="save-job-title">
       <h2 id="title-name"> {{job.title}} </h2>
       <i (click)="clickAdd(job)" class="material-icons">
