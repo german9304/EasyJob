@@ -6,14 +6,10 @@ import { JWT_SECRET_KEY } from './client-auth';
 import { userModel, createUser } from './Models/user-schema';
 
 // const localStrategy = LocalStrategy.Strategy;
-serializeUser((userId, done) => {
-  done(null, userId);
-});
+serializeUser((userId, done) => done(null, userId));
 
 deserializeUser((id, done) => {
-  userModel.findById(id).then((user) => {
-    return done(null, user);
-  });
+  userModel.findById(id).then(user => done(null, user));
 });
 
 function createUserStrategy(email, password, done) {
