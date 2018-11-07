@@ -98,10 +98,10 @@
     // flex-wrap: wrap;
     flex: 1;
     justify-content: flex-end;
-    // border: solid 1px white;
+    border: solid 1px white;
 
     .item {
-      font-size: 15px;
+      font-size: 16px;
       text-align: center;
       box-sizing: border-box;
       font-family: "Raleway", sans-serif;
@@ -124,7 +124,7 @@
         //background-color: #2ecc40;
         display: block;
         font-weight: lighter;
-        padding: 2px 0 2px 0;
+        padding: 0 0 6px 0;
         box-sizing: border-box;
       //  font-weight: 100;
         transition: color 0.5s ease-out;
