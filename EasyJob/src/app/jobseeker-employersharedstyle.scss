@@ -107,13 +107,14 @@
       font-family: "Raleway", sans-serif;
       // font-weight: 100;
       // padding: 15px;
-      margin: 0 3px 0 3px;
+      margin: 0 ;
       // border: solid 1px black;
       list-style: none;
-      flex-basis: 130px;
+      flex-basis: 110px;
       //  box-sizing: border-box;
       // padding: 10px;
       // flex:1;
+      
       // padding: 10px 0 10px 0;
       a {
         // border: solid 5x black;
@@ -122,21 +123,21 @@
         color: white;
         //background-color: #2ecc40;
         display: block;
-        font-weight: 500;
-        padding: 8px 0 8px 0;
+        font-weight: lighter;
+        padding: 2px 0 2px 0;
         box-sizing: border-box;
         font-weight: 100;
         transition: color 0.5s ease-out;
       }
       a:hover {
         color: #dddddd;
-        border-bottom: 3px solid #2ecc40;
+        //border-bottom: 3px solid #2ecc40;
       }
       .active {
         //  background-color: #2ecc4060;
-        border-bottom: 3px solid #2ecc40;
+        border-bottom: 3px solid white;
         //border-radius: 5px;
-        color: #ffff;
+      //  color: #ffff;
         // color: #b9c7d5;
       }
     }
