@@ -119,17 +119,17 @@
         // border: solid 5x black;
         border-bottom: solid 3px #3d9970;
         text-decoration: none;
-        color: #dddddd;
+        color: white;
         //background-color: #2ecc40;
         display: block;
-
+        font-weight: 500;
         padding: 8px 0 8px 0;
         box-sizing: border-box;
         font-weight: 100;
         transition: color 0.5s ease-out;
       }
       a:hover {
-        color: white;
+        color: #dddddd;
         border-bottom: 3px solid #2ecc40;
       }
       .active {
