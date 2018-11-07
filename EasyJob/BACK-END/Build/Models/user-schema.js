@@ -36,9 +36,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
-var mongoose = require("mongoose");
+// import * as mongoose from 'mongoose';
 // import { genSalt, hash, compare } from "bcrypt";
 var bycrpt = require("bcrypt");
+var mongoose_1 = require("mongoose");
+// import { ISize } from 'selenium-webdriver";
 var SALT_ROUNDS = 10;
 // interface IUserModel extends IUser, Document {
 //   comparePasswords(userPassword, hash): Promise<boolean>;
@@ -46,38 +48,37 @@ var SALT_ROUNDS = 10;
 /*
 USER SCHEMA
  */
-var userSchema = new mongoose.Schema({
+var userSchema = new mongoose_1.Schema({
     name: String,
     candidate: Boolean,
     employer: Boolean,
     email: String,
     googleId: String,
     password: String,
-    jwt: String
-}, { collection: "users", versionKey: false });
-userSchema.pre("save", function () {
+    jwt: String,
+}, { collection: 'users', versionKey: false });
+userSchema.pre('save', function () {
     return __awaiter(this, void 0, void 0, function () {
-        var user, gen, bcrypthash, err_1;
+        var gen, bcrypthash, err_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    user = this;
-                    if (!user.password) return [3 /*break*/, 5];
-                    if (!(user.isModified("password") || user.isNew)) return [3 /*break*/, 5];
+                    if (!this.password) return [3 /*break*/, 5];
+                    if (!(this.isModified('password') || this.isNew)) return [3 /*break*/, 5];
                     _a.label = 1;
                 case 1:
                     _a.trys.push([1, 4, , 5]);
                     return [4 /*yield*/, bycrpt.genSalt(SALT_ROUNDS)];
                 case 2:
                     gen = _a.sent();
-                    return [4 /*yield*/, bycrpt.hash(user.password, gen)];
+                    return [4 /*yield*/, bycrpt.hash(this.password, gen)];
                 case 3:
                     bcrypthash = _a.sent();
-                    user.password = bcrypthash;
+                    this.password = bcrypthash;
                     return [3 /*break*/, 5];
                 case 4:
                     err_1 = _a.sent();
-                    console.log("res: ", err_1);
+                    console.log('res: ', err_1);
                     return [3 /*break*/, 5];
                 case 5: return [2 /*return*/];
             }
@@ -100,7 +101,7 @@ userSchema.methods.comparePasswords = function (userPassword, hash) {
         });
     });
 };
-var userModel = mongoose.model("user", userSchema);
+var userModel = mongoose_1.model('user', userSchema);
 exports.userModel = userModel;
 var findGoogleUser = function (id) { return __awaiter(_this, void 0, void 0, function () {
     var user, _id, error_1;
@@ -131,7 +132,7 @@ var createUserGoogle = function (_a) {
     return new userModel({
         email: email,
         googleId: googleId,
-        jwt: jwt
+        jwt: jwt,
     });
 };
 exports.createUserGoogle = createUserGoogle;
@@ -140,7 +141,7 @@ var createUser = function (_a) {
     return new userModel({
         email: email,
         password: password,
-        jwt: jwt
+        jwt: jwt,
     });
 };
 exports.createUser = createUser;
@@ -178,14 +179,14 @@ var findUserName = function (_a) {
                     console.log(usr, res);
                     return [2 /*return*/, {
                             usr: usr,
-                            res: res
+                            res: res,
                         }];
                 case 3:
-                    console.log("error not user found");
+                    console.log('error not user found');
                     return [3 /*break*/, 5];
                 case 4:
                     err_2 = _b.sent();
-                    console.log("res: ", err_2);
+                    console.log('res: ', err_2);
                     return [3 /*break*/, 5];
                 case 5: return [2 /*return*/];
             }

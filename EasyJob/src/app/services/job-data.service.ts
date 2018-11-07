@@ -1,14 +1,14 @@
-import { Injectable, ErrorHandler } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { HttpHeaders } from "@angular/common/http";
-import { Observable, of } from "rxjs";
-import { map, tap, catchError } from "rxjs/operators";
+import { Injectable, ErrorHandler } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+import { map, tap, catchError } from 'rxjs/operators';
 
-import { CATEGORY, JOB } from "../job";
+import { CATEGORY, JOB } from '../job';
 
 @Injectable()
 export class JobDataService {
-  jobcreateUrl: string = ``;
+  jobcreateUrl = ``;
   constructor(private http: HttpClient) {}
 
   createAJob(job): Observable<any> {
@@ -22,7 +22,7 @@ export class JobDataService {
     // console.log("res: ", data);
     return this.http
       .get<CATEGORY[]>(`api/job/categories?search=${data}`)
-      .pipe(tap(data => console.log(data), catchError(err => of(err))));
+      .pipe(tap(categories => console.log(categories), catchError(err => of(err))));
   }
 
   getJobs({ field, location }): Observable<JOB[]> {

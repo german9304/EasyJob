@@ -1,43 +1,50 @@
-import * as express from "express";
-import cookieSession = require("cookie-session");
-import { SECRET_KEY } from "./client-auth";
-import "./create-account-auth";
-// import "./jwt-auth";
-import { categoryModel, jobSearch } from "./Models/jobs-Schema";
-import * as passport from "passport";
-// import { session, initialize, authenticate } from "passport";
+import * as express from 'express';
+import Request = express.Request;
+import Response = express.Response;
 
-import "./Models/db-connection";
-import auth from "./auth-server";
-import { Request, Response } from "express";
-import crudFields from "./crud-candidate-fields/crud.operations.fields";
-import fileServer from "./crud-files/files.server";
+import cookieSession = require('cookie-session');
+import { SECRET_KEY } from './client-auth';
+import './create-account-auth';
+// import "./jwt-auth";
+
+import { categoryModel, jobSearch } from './Models/jobs-Schema';
+import * as passport from 'passport';
+// import { session, initialize, authenticate } from "passport";
+import './Models/db-connection';
+import authServer from './auth-server';
+
+// import * as express from 'express';
+// import {Request, Response} from 'express';
+
+import crudOperationsFields from './crud-candidate-fields/crud.operations.fields';
+import filesServer from './crud-files/files.server';
 
 const app = express();
+const request = app.request;
 app.use(
   cookieSession({
-    name: "session",
+    name: 'session',
     keys: [SECRET_KEY.key],
-    maxAge: 24 * 60 * 60 * 1000 // 24 hours
-  })
+    maxAge: 24 * 60 * 60 * 1000, // 24 hours,
+  }),
 );
 
 app.use(express.json());
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use("/auth", auth);
-app.use("/api/fields", crudFields);
-app.use("/api/files", fileServer);
+app.use('/auth', authServer);
+app.use('/api/fields', crudOperationsFields);
+app.use('/api/files', filesServer);
 
-app.get("/", (req, res) => {
-  res.send("home");
+app.get('/', (req, res) => {
+  res.send('home');
 });
-app.get("/test", (req, res) => {
-  res.send("middleware");
+app.get('/test', (req, res) => {
+  res.send('middleware');
 });
 
-app.get("/user", (req: Request, res: Response) => {
+app.get('/user', (req: Request, res: Response) => {
   // console.log(req.user);
   // const { user } = req;
   if (req.user) {
@@ -46,7 +53,7 @@ app.get("/user", (req: Request, res: Response) => {
       const user = {
         email,
         jwt,
-        auth: true
+        auth: true,
       };
       res.json(user);
     } catch (error) {
@@ -58,41 +65,39 @@ app.get("/user", (req: Request, res: Response) => {
 });
 
 app.get(
-  "/logout",
+  '/logout',
   (req: Request, res: Response): void => {
     req.logout();
 
-    res.redirect("/");
-  }
+    res.redirect('/');
+  },
 );
-app.post("/api", (req, res) => {
+app.post('/api', (req, res) => {
   const { body: user } = req;
   // console.log(user);
   res.json(user);
 });
 
 app.get(
-  "/api/candidate/jobs",
+  '/api/candidate/jobs',
   (req, res): void => {
     const { query } = req;
     const listjobs = jobSearch(query);
-    listjobs.then(data => {
-      res.json(data);
-    });
-  }
+    listjobs.then(data => res.json(data));
+  },
 );
 
 // app.get("/jwt", authenticate("jwt", { session: false }), (req, res) => {
 //   res.send("data");
 // });
 
-app.post("/api/post/job", (req, res) => {});
+app.post('/api/post/job', (req, res) => {});
 
 app.get(
-  "/api/job/categories",
+  '/api/job/categories',
   (req, res): void => {
     const {
-      query: { search }
+      query: { search },
     } = req;
     const searchRegex = new RegExp(`^${search}`);
     categoryModel.find(
@@ -102,12 +107,12 @@ app.get(
           return console.log(err);
         }
         res.json(data);
-      }
+      },
     );
-  }
+  },
 );
 app.get(
-  "/api/categories",
+  '/api/categories',
   (req, res): void => {
     categoryModel.find({}, (err, data) => {
       if (err) {
@@ -115,11 +120,11 @@ app.get(
       }
       res.json(data);
     });
-  }
+  },
 );
 
-app.get("*", (req, res) => {
-  res.redirect("/");
+app.get('*', (req, res) => {
+  res.redirect('/');
 });
 
-app.listen(3000, () => console.log("app listening on port 3000!"));
+app.listen(3000, () => console.log('app listening on port 3000!'));

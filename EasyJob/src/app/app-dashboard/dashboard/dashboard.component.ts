@@ -1,26 +1,26 @@
-import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
-import { CATEGORY } from "../../job";
-import { StyleServiceService } from "../../services/style-service.service";
-import { Router, ActivatedRoute } from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { CATEGORY } from '../../job';
+import { StyleServiceService } from '../../services/style-service.service';
+import { Router, ActivatedRoute } from '@angular/router';
 import {
   map,
   tap,
   debounceTime,
   switchMap,
   distinctUntilChanged
-} from "rxjs/operators";
-import { of, Observable } from "rxjs";
-import { JobDataService } from "../../services/job-data.service";
+} from 'rxjs/operators';
+import { of, Observable } from 'rxjs';
+import { JobDataService } from '../../services/job-data.service';
 @Component({
-  selector: "app-dashboard",
-  templateUrl: "./dashboard.component.html",
-  styleUrls: ["./dashboard.component.css"]
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
   searchForm = this.fb.group({
-    category: [""],
-    location: [""]
+    category: [''],
+    location: ['']
   });
   constructor(
     private fb: FormBuilder,
@@ -30,18 +30,18 @@ export class DashboardComponent implements OnInit {
   ) {}
   MOCK_LIST: Array<any> = [
     {
-      category: "software"
+      category: 'software'
     },
     {
-      category: "business"
+      category: 'business'
     },
     {
-      category: "education"
+      category: 'education'
     }
   ];
 
   CATEGORIES: CATEGORY[] = [];
-  clicked: boolean = false;
+  clicked = false;
   ngOnInit() {
     this.getList();
   }
@@ -82,11 +82,11 @@ export class DashboardComponent implements OnInit {
 
   clickSearch() {
     const { category, location } = this.searchForm.value;
-    //console.log(value);
-    this.router.navigate(["/jobs", { search: category, location }]);
+    // console.log(value);
+    this.router.navigate(['/jobs', { search: category, location }]);
   }
 
   get Category() {
-    return this.searchForm.get("category") as FormControl;
+    return this.searchForm.get('category') as FormControl;
   }
 }

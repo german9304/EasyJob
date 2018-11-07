@@ -1,47 +1,47 @@
-import * as mongoose from "mongoose";
-import { model, Schema, Document, Model } from "mongoose";
-import { Fields, Field, Education, Experience, FieldModel } from "./fields";
+// import * as mongoose from "mongoose";
+import { model, Schema, Document, Model } from 'mongoose';
+import { Fields, Field, Education, Experience, FieldModel } from './fields';
 // import db from "./db-connection";
-import { User } from "../user";
-import { ObjectId } from "mongodb";
-import { getCandidateResume } from "./file-schema";
+import { User } from '../user';
+import { ObjectId } from 'mongodb';
+import { getCandidateResume } from './file-schema';
 
-const experienceSchema: Schema = new mongoose.Schema(
+const experienceSchema: Schema = new Schema(
   {
     user: {
-      _id: String
+      _id: String,
     },
     position: String,
     company: String,
     location: String,
     date: { start: String, end: String },
-    description: String
+    description: String,
   },
-  { collection: "experience", versionKey: false }
+  { collection: 'experience', versionKey: false },
 );
 
-const educationSchema: Schema = new mongoose.Schema(
+const educationSchema: Schema = new Schema(
   {
     user: {
-      _id: String
+      _id: String,
     },
     school: String,
     degree: String,
     majorField: String,
     date: { start: String, end: String },
-    description: String
+    description: String,
   },
-  { collection: "education", versionKey: false }
+  { collection: 'education', versionKey: false },
 );
 
-const userEducation: Model<FieldModel> = mongoose.model<FieldModel>(
-  "education",
-  educationSchema
+const userEducation: Model<FieldModel> = model<FieldModel>(
+  'education',
+  educationSchema,
 );
 
-const userExperience: Model<FieldModel> = mongoose.model<FieldModel>(
-  "experience",
-  experienceSchema
+const userExperience: Model<FieldModel> = model<FieldModel>(
+  'experience',
+  experienceSchema,
 );
 
 const experienceModel = ({
@@ -50,7 +50,7 @@ const experienceModel = ({
   company,
   location,
   date,
-  description
+  description,
 }: Field): FieldModel => {
   return new userExperience({
     user,
@@ -58,7 +58,7 @@ const experienceModel = ({
     company,
     location,
     date,
-    description
+    description,
   });
 };
 
@@ -68,7 +68,7 @@ const educationModel = ({
   degree,
   majorField,
   date,
-  description
+  description,
 }: Field): FieldModel => {
   return new userEducation({
     user,
@@ -76,39 +76,39 @@ const educationModel = ({
     degree,
     majorField,
     date,
-    description
+    description,
   });
 };
 
 const updateEducationField = (
   model: FieldModel,
-  { school, degree, majorField, date, description }: Field
+  { school, degree, majorField, date, description }: Field,
 ): FieldModel => {
   return model.set({
     school,
     degree,
     majorField,
     date,
-    description
+    description,
   });
 };
 const updateExperienceField = (
   model: FieldModel,
-  { position, company, location, date, description }: Field
+  { position, company, location, date, description }: Field,
 ): FieldModel => {
   return model.set({
     position,
     company,
     location,
     date,
-    description
+    description,
   });
 };
 
-interface fieldFunction {
+interface FieldFunction {
   (field: Field): FieldModel;
 }
-interface updateModelFunction {
+interface UpdateModelFunction {
   (model: FieldModel, {  }: Field): FieldModel;
 }
 
@@ -119,7 +119,7 @@ interface updateModelFunction {
 const createCandidateField = async (
   user: User,
   field: Field,
-  model: fieldFunction
+  model: FieldFunction,
 ): Promise<FieldModel> => {
   try {
     const { _id } = user;
@@ -137,13 +137,13 @@ const createCandidateField = async (
 *
 */
 const updateCandidateField = async (
-  _id: string,
+  id: string,
   field: Field,
   model: Model<FieldModel>,
-  updateModel: updateModelFunction
+  updateModel: UpdateModelFunction,
 ): Promise<FieldModel> => {
   try {
-    const findField: FieldModel = await model.findById(_id);
+    const findField: FieldModel = await model.findById(id);
     if (findField) {
       const updatedField: FieldModel = updateModel(findField, field);
       return await updatedField.save();
@@ -158,20 +158,20 @@ const updateCandidateField = async (
 *  Error Checking when delete field
 *
 */
-const err: (err: any) => void = err => {
+const err: (err: any) => void = (err) => {
   if (err) console.error(err);
-  console.log("successful");
+  console.log('successful');
 };
 
 /*
 *  Delete  field
 *
 */
-const deleteCandidateField = async (_id: string, model: Model<FieldModel>) => {
+const deleteCandidateField = async (id: string, model: Model<FieldModel>) => {
   try {
-    const findField: FieldModel = await model.findById(_id);
+    const findField: FieldModel = await model.findById(id);
     if (findField) {
-      model.deleteOne({ _id }, err);
+      model.deleteOne({ _id: id }, err);
     }
     return findField;
   } catch (err) {
@@ -179,25 +179,25 @@ const deleteCandidateField = async (_id: string, model: Model<FieldModel>) => {
   }
 };
 
-const candidateFields = async (_id: string): Promise<Fields> => {
-  const education: Array<Education> = await userEducation.find({
-    user: { _id: `${_id}` }
+const candidateFields = async (id: string): Promise<Fields> => {
+  const education: Education[] = await userEducation.find({
+    user: { _id: `${id}` },
   });
-  const experience: Array<Experience> = await userExperience.find({
-    user: { _id: `${_id}`}
+  const experience: Experience[] = await userExperience.find({
+    user: { _id: `${id}` },
   });
-  const fileInfo = await getCandidateResume(_id);
-  
+  const fileInfo = await getCandidateResume(id);
+
   return {
     education,
     experience,
-    fileInfo
+    fileInfo,
   };
 };
 
 const candidateFieldById = async (
-  id: string = "",
-  model: Model<FieldModel>
+  id: string = '',
+  model: Model<FieldModel>,
 ): Promise<Field> => {
   try {
     const field: Field = await model.findById(id);
@@ -208,17 +208,17 @@ const candidateFieldById = async (
 };
 
 const candidateField = async (
-  model: Model<FieldModel>
-): Promise<Array<Field>> => {
+  model: Model<FieldModel>,
+): Promise<Field[]> => {
   try {
-    const field: Array<Field> = await model.find({});
+    const field: Field[] = await model.find({});
     return field;
   } catch (err) {
     console.error(err);
   }
 };
 export {
-  fieldFunction,
+  FieldFunction,
   experienceModel,
   educationModel,
   createCandidateField,
@@ -229,7 +229,7 @@ export {
   userEducation,
   userExperience,
   candidateFields,
-  updateModelFunction,
+  UpdateModelFunction,
   candidateFieldById,
-  candidateField
+  candidateField,
 };

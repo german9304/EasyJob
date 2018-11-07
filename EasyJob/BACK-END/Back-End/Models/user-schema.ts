@@ -1,21 +1,10 @@
-import * as mongoose from "mongoose";
+// import * as mongoose from 'mongoose';
 // import { genSalt, hash, compare } from "bcrypt";
-import * as bycrpt from "bcrypt";
-import { Document, Schema, model, Model } from "mongoose";
-import { User, GoogleUser } from "../user";
-import { ISize } from "selenium-webdriver";
+import * as bycrpt from 'bcrypt';
+import { Document, Schema, model, Model } from 'mongoose';
+import { IUser, User, GoogleUser } from '../user';
+// import { ISize } from 'selenium-webdriver";
 const SALT_ROUNDS = 10;
-
-export interface IUser extends Document {
-  name: String;
-  candidate: Boolean;
-  employer: Boolean;
-  email: String;
-  googleId: String;
-  password: String;
-  jwt: String;
-  comparePasswords(userPassword, hash): Promise<boolean>;
-}
 
 export interface UserName {
   usr: IUser;
@@ -28,7 +17,7 @@ export interface UserName {
 /*
 USER SCHEMA
  */
-const userSchema: Schema = new mongoose.Schema(
+const userSchema: Schema = new Schema(
   {
     name: String,
     candidate: Boolean,
@@ -36,21 +25,22 @@ const userSchema: Schema = new mongoose.Schema(
     email: String,
     googleId: String,
     password: String,
-    jwt: String
+    jwt: String,
   },
-  { collection: "users", versionKey: false }
+  { collection: 'users', versionKey: false },
 );
 
-userSchema.pre<IUser>("save", async function(): Promise<void> {
-  const user = this;
-  if (user.password) {
-    if (user.isModified("password") || user.isNew) {
+userSchema.pre<IUser>('save', async function (): Promise<void> {
+  // const user = this;
+  // const {password} = this;
+  if (this.password) {
+    if (this.isModified('password') || this.isNew) {
       try {
         const gen: string = await bycrpt.genSalt(SALT_ROUNDS);
-        const bcrypthash: string = await bycrpt.hash(user.password, gen);
-        user.password = bcrypthash;
+        const bcrypthash: string = await bycrpt.hash(this.password, gen);
+        this.password = bcrypthash;
       } catch (err) {
-        console.log("res: ", err);
+        console.log('res: ', err);
       }
     }
   }
@@ -60,15 +50,15 @@ userSchema.pre<IUser>("save", async function(): Promise<void> {
 /*
 Compare Passwords
 */
-userSchema.methods.comparePasswords = async function(
+userSchema.methods.comparePasswords = async function (
   userPassword,
-  hash
+  hash,
 ): Promise<boolean> {
   const result: boolean = await bycrpt.compare(userPassword, hash);
   return result;
 };
 
-const userModel: Model<IUser> = mongoose.model<IUser>("user", userSchema);
+const userModel: Model<IUser> = model<IUser>('user', userSchema);
 
 const findGoogleUser = async (id: string) => {
   try {
@@ -88,7 +78,7 @@ const createUserGoogle = ({ googleId, email, jwt }: GoogleUser): IUser => {
   return new userModel({
     email,
     googleId,
-    jwt
+    jwt,
   });
 };
 
@@ -96,7 +86,7 @@ const createUser = ({ email, password, jwt }: User): IUser => {
   return new userModel({
     email,
     password,
-    jwt
+    jwt,
   });
 };
 
@@ -113,12 +103,12 @@ const findUserName = async ({ email, password }: User): Promise<UserName> => {
       console.log(usr, res);
       return {
         usr,
-        res
+        res,
       };
     }
-    console.log("error not user found");
+    console.log('error not user found');
   } catch (err) {
-    console.log("res: ", err);
+    console.log('res: ', err);
   }
 };
 
@@ -129,5 +119,5 @@ export {
   userModel,
   findGoogleUser,
   createUser,
-  findUserById
+  findUserById,
 };

@@ -17,38 +17,38 @@ var educationField = fields_service_1.getField(user_fields_schema_1.userEducatio
 /*
 * Get all experiences
 */
-router.get("/experience", experienceField);
+router.get('/experience', experienceField);
 /*
 * Get all educations
 */
-router.get("/education", educationField);
-router.get("/experience/:id", experienceFieldById);
-router.get("/education/:id", educationFieldById);
-router.get("/candidate/experiences", passport_1.authenticate("jwt", { session: false }));
-router.get("/candidate/educations", passport_1.authenticate("jwt", { session: false }));
-router.get("/candidate", fields_service_1.getCandidateFields);
+router.get('/education', educationField);
+router.get('/experience/:id', experienceFieldById);
+router.get('/education/:id', educationFieldById);
+router.get('/candidate/experiences', passport_1.authenticate('jwt', { session: false }));
+router.get('/candidate/educations', passport_1.authenticate('jwt', { session: false }));
+router.get('/candidate', fields_service_1.getCandidateFields);
 /*
 * Http Method:  POST
 * Create New Field, Education, Experience
 */
 var createExperience = fields_service_1.createField(user_fields_schema_1.experienceModel);
 var createEducation = fields_service_1.createField(user_fields_schema_1.educationModel);
-router.post("/experience", passport_1.authenticate("jwt", { session: false }), createExperience);
-router.post("/education", passport_1.authenticate("jwt", { session: false }), createEducation);
+router.post('/experience', passport_1.authenticate('jwt', { session: false }), createExperience);
+router.post('/education', passport_1.authenticate('jwt', { session: false }), createEducation);
 /*
 * Http Method:  PUT
 * Update  Field, Education, Experience
 */
 var updateExperience = fields_service_1.updateField(user_fields_schema_1.userExperience, user_fields_schema_1.updateExperienceField);
 var updateEducation = fields_service_1.updateField(user_fields_schema_1.userEducation, user_fields_schema_1.updateEducationField);
-router.put("/experience/:id", passport_1.authenticate("jwt", { session: false }), updateExperience);
-router.put("/education/:id", passport_1.authenticate("jwt", { session: false }), updateEducation);
+router.put('/experience/:id', passport_1.authenticate('jwt', { session: false }), updateExperience);
+router.put('/education/:id', passport_1.authenticate('jwt', { session: false }), updateEducation);
 /*
 * Http Method:  DELETE
 * Delete Field, Education, Experience
 */
 var deleteExperience = fields_service_1.deleteField(user_fields_schema_1.userExperience);
 var deleteEducation = fields_service_1.deleteField(user_fields_schema_1.userEducation);
-router.delete("/experience/:id", passport_1.authenticate("jwt", { session: false }), deleteExperience);
-router.delete("/education/:id", passport_1.authenticate("jwt", { session: false }), deleteEducation);
+router.delete('/experience/:id', passport_1.authenticate('jwt', { session: false }), deleteExperience);
+router.delete('/education/:id', passport_1.authenticate('jwt', { session: false }), deleteEducation);
 exports.default = router;

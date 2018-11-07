@@ -1,23 +1,23 @@
-import { Injectable, OnInit } from "@angular/core";
+import { Injectable, OnInit } from '@angular/core';
 import {
   HttpClient,
   HttpHeaders,
   HttpErrorResponse
-} from "@angular/common/http";
-import { Router, Route, ActivatedRoute } from "@angular/router";
+} from '@angular/common/http';
+import { Router, Route, ActivatedRoute } from '@angular/router';
 
-import { Observable, of, throwError } from "rxjs";
-import { tap, catchError } from "rxjs/operators";
-import { EXPERIENCE, FIELDS, EDUCATION, FILE } from "../../job";
-import { USER } from "../../user";
-import { List, Map } from "immutable";
-//import { FILE } from ".././file";
-import { AuthService } from "../../services/auth.service";
+import { Observable, of, throwError } from 'rxjs';
+import { tap, catchError } from 'rxjs/operators';
+import { EXPERIENCE, FIELDS, EDUCATION, FILE } from '../../job';
+import { USER } from '../../user';
+import { List, Map } from 'immutable';
+// import { FILE } from ".././file";
+import { AuthService } from '../../services/auth.service';
 
 @Injectable()
 export class CandidateFilesService {
   fileInfo: Map<string, string>;
-  imgSrc: string = "/api/files/resume";
+  imgSrc = '/api/files/resume';
 
   constructor(private http: HttpClient, private auth: AuthService) {}
   async uploadResume(file): Promise<FILE> {
@@ -25,15 +25,15 @@ export class CandidateFilesService {
     const credentials: USER = this.auth.getUserCredentials() as USER;
     const { jwt }: { jwt: string } = credentials;
     const formData: FormData = new FormData();
-    formData.append("file", file);
+    formData.append('file', file);
     const fetchOptions: PROMISEOPTIONS = this.createPromiseOptions(
-      "POST",
+      'POST',
       `Bearer ${jwt}`,
       formData
     );
-    const data: Response = await fetch("/api/files/upload", fetchOptions);
+    const data: Response = await fetch('/api/files/upload', fetchOptions);
     const fileInfo: FILE = await data.json();
-    //console.log(fileInfo);
+    // console.log(fileInfo);
     return fileInfo;
   }
 

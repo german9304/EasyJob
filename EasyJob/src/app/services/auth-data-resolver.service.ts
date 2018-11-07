@@ -1,15 +1,15 @@
-import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
-import { AuthService } from "./auth.service";
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { AuthService } from './auth.service';
 import {
   Router,
   Resolve,
   RouterStateSnapshot,
   ActivatedRouteSnapshot
-} from "@angular/router";
-import { map, take } from "rxjs/operators";
+} from '@angular/router';
+import { map, take } from 'rxjs/operators';
 
-import { USER } from "../user";
+import { USER } from '../user';
 
 @Injectable()
 export class DataResolverService implements Resolve<USER> {
@@ -27,7 +27,7 @@ export class DataResolverService implements Resolve<USER> {
           if (!credentials) {
             this.auth.createUserCredentials(user);
           }
-          return this.router.navigate(["/jobseeker"]);
+          return this.router.navigate(['/jobseeker']);
         } else {
           if (credentials) {
             this.auth.clearCredentials();

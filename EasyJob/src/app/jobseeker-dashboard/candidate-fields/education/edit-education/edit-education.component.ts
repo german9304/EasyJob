@@ -1,31 +1,31 @@
-import { Component, OnInit } from "@angular/core";
-import { FormBuilder } from "@angular/forms";
-import { EDUCATION, FIELDS } from "../../../../job";
-import { CandidateFieldsService } from "../../../services/candidate-fields.service";
-import { Router, ActivatedRoute, ParamMap } from "@angular/router";
-import { switchMap } from "rxjs/operators";
-import { FieldsService } from "../../../services/fields.service";
-import { List } from "immutable";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+import { EDUCATION, FIELDS } from '../../../../job';
+import { CandidateFieldsService } from '../../../services/candidate-fields.service';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
+import { FieldsService } from '../../../services/fields.service';
+import { List } from 'immutable';
 
 @Component({
-  selector: "edit-education",
-  templateUrl: "./edit-education.component.html",
+  selector: 'app-edit-education',
+  templateUrl: './edit-education.component.html',
   styleUrls: [
-    "../../shared-profile-fields.component.scss",
-    "./edit-education.component.scss"
+    '../../shared-profile-fields.component.scss',
+    './edit-education.component.scss'
   ]
 })
 export class EditEducationComponent implements OnInit {
   _id: string;
   educationForm = this.fb.group({
-    school: [""],
-    degree: [""],
-    majorField: [""],
+    school: [''],
+    degree: [''],
+    majorField: [''],
     date: this.fb.group({
-      start: [""],
-      end: [""]
+      start: [''],
+      end: ['']
     }),
-    description: [""]
+    description: ['']
   });
 
   constructor(
@@ -40,7 +40,7 @@ export class EditEducationComponent implements OnInit {
   ngOnInit() {
     this.updateEducation();
     this.route.paramMap.subscribe(
-      (param: ParamMap) => (this._id = param.get("id"))
+      (param: ParamMap) => (this._id = param.get('id'))
     );
   }
 
@@ -60,12 +60,12 @@ export class EditEducationComponent implements OnInit {
   save() {
     const { value }: { value: EDUCATION } = this.educationForm;
     const { _id }: { _id: string } = this;
-    const url: string = `/api/fields/education/${_id}`;
+    const url = `/api/fields/education/${_id}`;
     this.fieldServiceEducation
       .updateField(url, value)
       .pipe(
         switchMap(data => {
-          //console.log(`data received: ${JSON.stringify(data)}`);
+          // console.log(`data received: ${JSON.stringify(data)}`);
           return this.fields.getFields();
         })
       )
@@ -76,8 +76,8 @@ export class EditEducationComponent implements OnInit {
   }
   delete() {
     const { _id }: { _id: string } = this;
-    //console.log(this.educationForm.value);
-    const url: string = `/api/fields/education/${_id}`;
+    // console.log(this.educationForm.value);
+    const url = `/api/fields/education/${_id}`;
     this.fieldServiceEducation
       .deleteField(url)
       .pipe(

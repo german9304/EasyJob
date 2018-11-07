@@ -37,29 +37,19 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var client_auth_1 = require("./client-auth");
 var passport_1 = require("passport");
-var passport = require("passport");
-var jwt = require("jsonwebtoken");
-var client_auth_2 = require("./client-auth");
-var gooogleStrategy = require("passport-google-oauth2");
+var jsonwebtoken_1 = require("jsonwebtoken");
+var passport_google_oauth2_1 = require("passport-google-oauth2");
 var user_schema_1 = require("./Models/user-schema");
-passport.serializeUser(function (userId, done) {
-    done(null, userId);
+passport_1.serializeUser(function (userId, done) { return done(null, userId); });
+passport_1.deserializeUser(function (id, done) {
+    user_schema_1.userModel.findById(id).then((function (user) { return done(null, user); }));
 });
-passport.deserializeUser(function (id, done) {
-    user_schema_1.userModel.findById(id).then(function (user) {
-        done(null, user);
-    });
-});
-var candidate_employer = function (req, res, next) {
+var candidateEmployer = function (req, res, next) {
     var query = req.query;
     req.session = query;
     next();
 };
-passport_1.use(new gooogleStrategy.Strategy({
-    clientID: client_auth_1.GOOGLE_CLIENT.client_id,
-    clientSecret: client_auth_1.GOOGLE_CLIENT.client_secret,
-    callbackURL: client_auth_1.GOOGLE_CLIENT.redirect_uris[0]
-}, function (accessToken, refreshToken, profile, done) {
+function googleStrategy(accessToken, refreshToken, profile, done) {
     return __awaiter(this, void 0, void 0, function () {
         var id, displayName, emails, email, googleUser, googleId, user, addedUser, token, newuser, err_1;
         return __generator(this, function (_a) {
@@ -78,10 +68,10 @@ passport_1.use(new gooogleStrategy.Strategy({
                     user = {
                         googleId: googleId,
                         email: email,
-                        jwt: ""
+                        jwt: '',
                     };
                     addedUser = user_schema_1.createUserGoogle(user);
-                    token = jwt.sign({ addedUser: addedUser }, client_auth_2.JWT_SECRET_KEY.key);
+                    token = jsonwebtoken_1.sign({ addedUser: addedUser }, client_auth_1.JWT_SECRET_KEY.key);
                     addedUser.jwt = token;
                     return [4 /*yield*/, addedUser.save()];
                 case 3:
@@ -96,4 +86,9 @@ passport_1.use(new gooogleStrategy.Strategy({
             }
         });
     });
-}));
+}
+passport_1.use(new passport_google_oauth2_1.Strategy({
+    clientID: client_auth_1.GOOGLE_CLIENT.client_id,
+    clientSecret: client_auth_1.GOOGLE_CLIENT.client_secret,
+    callbackURL: client_auth_1.GOOGLE_CLIENT.redirect_uris[0],
+}, googleStrategy));

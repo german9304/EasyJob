@@ -1,8 +1,8 @@
-import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
-import { CATEGORY } from "../../../job";
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { CATEGORY } from '../../../job';
 
 @Component({
-  selector: "categories-view",
+  selector: 'app-categories-view',
   template: `
     <ul id="categories" [class.active]="categories.length > 0" >
       <li class="item category{{i}}" *ngFor="let category of categories ;  let i= index">
@@ -11,8 +11,8 @@ import { CATEGORY } from "../../../job";
     </ul>
   `,
   styleUrls: [
-    "../dashboard-view/dashboard-view.component.scss",
-    "./categories-view.component.scss"
+    '../dashboard-view/dashboard-view.component.scss',
+    './categories-view.component.scss'
   ]
 })
 export class CategoriesViewComponent implements OnInit {

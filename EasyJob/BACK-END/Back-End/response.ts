@@ -1,5 +1,5 @@
-import { Response, Request } from "express";
+import { Response, Request } from 'express';
 
-export interface responseRequest {
+export interface ResponseRequest {
   (req: Request, res: Response): Promise<Response>;
 }

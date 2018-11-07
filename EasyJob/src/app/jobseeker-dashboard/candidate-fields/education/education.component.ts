@@ -1,35 +1,35 @@
-import { Component, OnInit } from "@angular/core";
-import { FormBuilder } from "@angular/forms";
-import { CandidateFieldsService } from "../../services/candidate-fields.service";
-import { EDUCATION } from "../../../job";
-import { Router, ActivatedRoute } from "@angular/router";
-import { FieldsService } from "../../services/fields.service";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+import { CandidateFieldsService } from '../../services/candidate-fields.service';
+import { EDUCATION } from '../../../job';
+import { Router, ActivatedRoute } from '@angular/router';
+import { FieldsService } from '../../services/fields.service';
 @Component({
-  selector: "education",
+  selector: 'app-education',
   // templateUrl: "./education.component.html",
   template: `
     <div id="profile-fields">
-      <education-view 
-      (educationCeate)="addEducation()" 
+      <app-education-view
+      (educationCeate)="addEducation()"
       [educationForm]="educationForm">
-      </education-view>
+      <app-/education-view>
     </div>
   `,
   styleUrls: [
-    "../shared-profile-fields.component.scss",
-    "./education.component.css"
+    '../shared-profile-fields.component.scss',
+    './education.component.css'
   ]
 })
 export class EducationComponent implements OnInit {
   educationForm = this.fb.group({
-    school: [""],
-    degree: [""],
-    majorField: [""],
+    school: [''],
+    degree: [''],
+    majorField: [''],
     date: this.fb.group({
-      start: [""],
-      end: [""]
+      start: [''],
+      end: ['']
     }),
-    description: [""]
+    description: ['']
   });
   constructor(
     private router: Router,
@@ -44,6 +44,6 @@ export class EducationComponent implements OnInit {
 
     this.cf.createEducation(value).subscribe((edu: EDUCATION) => {});
     this.educationForm.reset();
-    this.router.navigate(["../jobseeker/profile"]);
+    this.router.navigate(['../jobseeker/profile']);
   }
 }

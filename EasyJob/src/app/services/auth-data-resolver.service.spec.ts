@@ -1,15 +1,15 @@
-import { TestBed, inject } from "@angular/core/testing";
+import { TestBed, inject } from '@angular/core/testing';
 
-import { DataResolverService } from "./auth-data-resolver.service";
+import { DataResolverService } from './auth-data-resolver.service';
 
-describe("DataResolverService", () => {
+describe('DataResolverService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [DataResolverService]
     });
   });
 
-  it("should be created", inject(
+  it('should be created', inject(
     [DataResolverService],
     (service: DataResolverService) => {
       expect(service).toBeTruthy();

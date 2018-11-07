@@ -2,14 +2,14 @@ import {
   HttpClient,
   HttpHeaders,
   HttpErrorResponse
-} from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { EXPERIENCE, FIELDS, EDUCATION } from "../../job";
-import { Observable, of, throwError } from "rxjs";
-import { List, Map } from "immutable";
-import { AuthService } from "../../services/auth.service";
-import { tap, catchError } from "rxjs/operators";
-import { Router, Route, ActivatedRoute } from "@angular/router";
+} from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { EXPERIENCE, FIELDS, EDUCATION } from '../../job';
+import { Observable, of, throwError } from 'rxjs';
+import { List, Map } from 'immutable';
+import { AuthService } from '../../services/auth.service';
+import { tap, catchError } from 'rxjs/operators';
+import { Router, Route, ActivatedRoute } from '@angular/router';
 
 @Injectable()
 export class FieldsService<T> {
@@ -75,10 +75,10 @@ export class FieldsService<T> {
   }
 
   goBackToProfile() {
-    this.router.navigate(["../jobseeker/profile"]);
+    this.router.navigate(['../jobseeker/profile']);
   }
   private handleError(error: HttpErrorResponse) {
     console.log(`error ${error.error} ${error.status}`);
-    return throwError("Something bad happened; please try again later.");
+    return throwError('Something bad happened; please try again later.');
   }
 }

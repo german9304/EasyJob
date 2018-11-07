@@ -1,42 +1,42 @@
-import { Injectable } from "@angular/core";
-import { Observable, of, throwError } from "rxjs";
-import { map, tap, catchError } from "rxjs/operators";
-import { USER } from "../user";
+import { Injectable } from '@angular/core';
+import { Observable, of, throwError } from 'rxjs';
+import { map, tap, catchError } from 'rxjs/operators';
+import { USER } from '../user';
 import {
   HttpClient,
   HttpHeaders,
   HttpErrorResponse
-} from "@angular/common/http";
+} from '@angular/common/http';
 
 @Injectable()
 export class AuthService {
-  isLoggedin: boolean = false;
-  url: string = `/login`;
-  userUrl: string = `/user`;
+  isLoggedin = false;
+  url = `/login`;
+  userUrl = `/user`;
   user: any;
   httpOptions = {};
   httHeaderpOptions: { headers: HttpHeaders } = {
     headers: new HttpHeaders({
-      "Content-Type": "application/json"
+      'Content-Type': 'application/json'
     })
   };
   constructor(private http: HttpClient) {}
 
-  authenticate(user): Observable<any> {
+  authenticate(authUser): Observable<any> {
     return this.http
-      .post<any>("/auth/create/user", user, this.httHeaderpOptions)
+      .post<any>('/auth/create/user', authUser, this.httHeaderpOptions)
       .pipe(
         tap(({ user }) => {
-          console.log("create account: ", user);
+          console.log('create account: ', user);
         }),
         catchError(val => {
           return of(`I caught: ${val.status}`);
         })
       );
   }
-  login(user): Observable<any> {
+  login(authUser): Observable<any> {
     return this.http
-      .post<any>("/auth/login", user, this.httHeaderpOptions)
+      .post<any>('/auth/login', authUser, this.httHeaderpOptions)
       .pipe(
         tap(({ user }) => {
           this.createUserCredentials(user);
@@ -53,7 +53,7 @@ export class AuthService {
       catchError(error => {
         console.log(error.error);
         // return of(error);
-        //this.handleError(error);
+        // this.handleError(error);
         return of(null);
       })
       // tap(user => console.log(`user ${JSON.stringify(user)}`))
@@ -65,19 +65,19 @@ export class AuthService {
 
   set HttpHeaders({ jwt, httpOptions }) {
     // console.log(jwt);
-    httpOptions.set("", "");
+    httpOptions.set('', '');
   }
   createUserCredentials(user: USER): USER {
     try {
       const { email, auth, jwt } = user;
-      const usr = new USER("", email, auth, jwt);
-      console.log("user: ", usr);
-      localStorage.setItem("token", JSON.stringify(user));
+      const usr = new USER('', email, auth, jwt);
+      console.log('user: ', usr);
+      localStorage.setItem('token', JSON.stringify(user));
       // const httpOpts = {
       //   jwt,
       //   httpOptions: this.httpOptions
       // };
-      //this.HttpHeaders(httpOpts);
+      // this.HttpHeaders(httpOpts);
       return usr;
     } catch (error) {
       console.error(error);
@@ -86,7 +86,7 @@ export class AuthService {
   getUserCredentials(): boolean | USER {
     try {
       // const user = JSON.parse(localStorage.getItem("token"));
-      const token = localStorage.getItem("token");
+      const token = localStorage.getItem('token');
       // console.log("user credentials ", localStorage.getItem("token"));
       if (token) {
         // console.log("token: ", token);
@@ -100,7 +100,7 @@ export class AuthService {
     }
   }
   clearCredentials() {
-    localStorage.removeItem("token");
+    localStorage.removeItem('token');
   }
 
   get UserHeaders(): { headers: HttpHeaders } {
@@ -110,7 +110,7 @@ export class AuthService {
     // console.log(jwt);
     const httHeaderpOptions: { headers: HttpHeaders } = {
       headers: new HttpHeaders({
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
         Authorization: `Bearer ${jwt}`
       })
     };
@@ -124,7 +124,7 @@ export class AuthService {
     // console.log(jwt);
     const httHeaderpOptions: { headers: HttpHeaders } = {
       headers: new HttpHeaders({
-        "Content-Type": "application/",
+        'Content-Type': 'application/',
         Authorization: `Bearer ${jwt}`
       })
     };

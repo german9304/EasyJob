@@ -1,27 +1,27 @@
-import { Injectable, OnInit } from "@angular/core";
+import { Injectable, OnInit } from '@angular/core';
 import {
   HttpClient,
   HttpHeaders,
   HttpErrorResponse
-} from "@angular/common/http";
-import { Router, Route, ActivatedRoute } from "@angular/router";
+} from '@angular/common/http';
+import { Router, Route, ActivatedRoute } from '@angular/router';
 
-import { Observable, of, throwError } from "rxjs";
-import { tap, catchError } from "rxjs/operators";
-import { EXPERIENCE, FIELDS, EDUCATION } from "../../job";
-import { USER } from "../../user";
-import { List, Map } from "immutable";
-import { AuthService } from "../../services/auth.service";
+import { Observable, of, throwError } from 'rxjs';
+import { tap, catchError } from 'rxjs/operators';
+import { EXPERIENCE, FIELDS, EDUCATION } from '../../job';
+import { USER } from '../../user';
+import { List, Map } from 'immutable';
+import { AuthService } from '../../services/auth.service';
 
 @Injectable()
 export class CandidateFieldsService implements OnInit {
   EXPERIENCE: List<EXPERIENCE> = List();
   EDUCATION: List<EDUCATION> = List();
   credentials: USER = this.auth.getUserCredentials() as USER;
-  jwt: string = "";
+  jwt = '';
   httpOptions = {};
   ngOnInit() {
-    //console.log("on init service");
+    // console.log("on init service");
   }
   constructor(
     private http: HttpClient,
@@ -33,7 +33,7 @@ export class CandidateFieldsService implements OnInit {
     const jwt: string = user.jwt;
     this.httpOptions = {
       headers: new HttpHeaders({
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
         Authorization: `Bearer ${jwt}`
       })
     };
@@ -42,8 +42,8 @@ export class CandidateFieldsService implements OnInit {
   /*
   *
   * Creates experience
-  * 
-  * 
+  *
+  *
   */
   createExperience(experience: EXPERIENCE): Observable<EXPERIENCE> {
     // console.log(this.httpOptions.headers.get("Authorization"));
@@ -63,9 +63,9 @@ export class CandidateFieldsService implements OnInit {
   }
   /*
   *
-  * Updates Experience 
-  * 
-  * 
+  * Updates Experience
+  *
+  *
   */
   updateExperience(id: string, experience: EXPERIENCE): Observable<EXPERIENCE> {
     return this.http
@@ -97,8 +97,8 @@ export class CandidateFieldsService implements OnInit {
   /*
   *
   * Deletes Experience
-  * 
-  * 
+  *
+  *
   */
   deleteExperience(id: string): Observable<{}> {
     return this.http
@@ -175,10 +175,10 @@ export class CandidateFieldsService implements OnInit {
   }
 
   goBackToProfile() {
-    this.router.navigate(["../jobseeker/profile"]);
+    this.router.navigate(['../jobseeker/profile']);
   }
   private handleError(error: HttpErrorResponse) {
     console.log(`error ${error.error} ${error.status}`);
-    return throwError("Something bad happened; please try again later.");
+    return throwError('Something bad happened; please try again later.');
   }
 }

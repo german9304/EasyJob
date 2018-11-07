@@ -71,11 +71,8 @@ var updateField = function (model, updateFunction) { return function (req, res) 
                 if (field) {
                     return [2 /*return*/, res.json(field)];
                 }
-                else {
-                    err = "not found";
-                    return [2 /*return*/, res.status(404).json({ err: err })];
-                }
-                return [3 /*break*/, 3];
+                err = 'not found';
+                return [2 /*return*/, res.status(404).json({ err: err })];
             case 2:
                 err_2 = _a.sent();
                 console.error(err_2);
@@ -100,7 +97,7 @@ var deleteField = function (model) { return function (req, res) { return __await
                 if (deleteField_1) {
                     return [2 /*return*/, res.json({ sucess: true })];
                 }
-                err = "not found";
+                err = 'not found';
                 return [2 /*return*/, res.status(404).json({ err: err })];
             case 2:
                 err_3 = _a.sent();
@@ -129,7 +126,7 @@ var getCandidateFields = function (req, res) { return __awaiter(_this, void 0, v
                 }
                 _a.label = 2;
             case 2:
-                err = "not found";
+                err = 'not found';
                 return [2 /*return*/, res.status(404).json({ err: err })];
             case 3:
                 err_4 = _a.sent();
@@ -153,7 +150,7 @@ var getFieldById = function (model) { return function (req, res) { return __awai
                 if (field) {
                     return [2 /*return*/, res.json(field)];
                 }
-                err = "not found";
+                err = 'not found';
                 return [2 /*return*/, res.status(404).json({ err: err })];
             case 2:
                 err_5 = _a.sent();

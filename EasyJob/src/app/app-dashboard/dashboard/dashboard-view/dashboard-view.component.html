@@ -8,7 +8,7 @@
         <div class="search category">
           <input type="text" name="" id="search-input" (click)="showList($event)" formControlName="category" placeholder="Search job title">
           <!-- <p> {{ sts.searchForm| json}}</p> -->
-          <categories-view (clickCategories)="clickCat($event)" [categories]="CATEGORIES"></categories-view>
+          <app-categories-view (clickCategories)="clickCat($event)" [categories]="categories"></app-categories-view>
         </div>
         <div class="search location">
           <input type="text" name="" id="search-city" formControlName="location" placeholder="City, State, Zip">

@@ -1,17 +1,17 @@
-import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
-import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
-import { StyleServiceService } from "../../../services/style-service.service";
-import { CATEGORY } from "../../../job";
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { StyleServiceService } from '../../../services/style-service.service';
+import { CATEGORY } from '../../../job';
 @Component({
-  selector: "dashboard-view",
-  templateUrl: "./dashboard-view.component.html",
-  styleUrls: ["./dashboard-view.component.scss"]
+  selector: 'app-dashboard-view',
+  templateUrl: './dashboard-view.component.html',
+  styleUrls: ['./dashboard-view.component.scss']
 })
 export class DashboardViewComponent implements OnInit {
   @Input()
   searchForm: FormGroup;
-  @Input("categories")
-  CATEGORIES: CATEGORY[];
+  @Input()
+  categories: CATEGORY[];
   @Output()
   clickInputSearch = new EventEmitter<null>();
   @Output()
@@ -19,8 +19,8 @@ export class DashboardViewComponent implements OnInit {
   @Output()
   search: EventEmitter<null> = new EventEmitter<null>();
 
-  imgurl1: string = "../../assets/resume.jpg";
-  imgurl2: string = "../../assets/searchjobs.jpg";
+  imgurl1 = '../../assets/resume.jpg';
+  imgurl2 = '../../assets/searchjobs.jpg';
   constructor(private sts: StyleServiceService) {}
 
   ngOnInit() {}

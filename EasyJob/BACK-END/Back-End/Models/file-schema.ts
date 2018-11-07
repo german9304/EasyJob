@@ -1,13 +1,15 @@
 // const mongoose = require("mongoose");
-import * as mongoose from "mongoose";
-import { randomBytes } from "crypto";
-import { extname } from "path";
-import * as GridFsStorage from "multer-gridfs-storage";
-import db from "./db-connection";
-import { User } from "../user";
-import { Schema, Document, Model } from "mongoose";
-import { FileDocument, FILE } from "./file";
-import { GridFSBucket, GridFSBucketReadStream, ObjectId } from "mongodb";
+import * as mongoose from 'mongoose';
+import Schema = mongoose.Schema;
+import Document = mongoose.Document;
+import Model = mongoose.Model;
+import { randomBytes } from 'crypto';
+import { extname } from 'path';
+import * as GridFsStorage from 'multer-gridfs-storage';
+import dbConnection from './db-connection';
+import { User } from '../user';
+import { FileDocument, FILE } from './file';
+import { GridFSBucket, GridFSBucketReadStream, ObjectId } from 'mongodb';
 
 const gridFsSchema: Schema = new mongoose.Schema(
   {
@@ -17,41 +19,41 @@ const gridFsSchema: Schema = new mongoose.Schema(
     filename: String,
     metadata: {
       user: {
-        _id: String
-      }
+        _id: String,
+      },
     },
     originalName: String,
     md5: String,
-    contentType: String
+    contentType: String,
   },
-  { collection: "uploads.files", versionKey: false }
+  { collection: 'uploads.files', versionKey: false },
 );
 let bucketName: GridFSBucket;
-db.once("open", () => {
-  bucketName = new GridFSBucket(db.db, {
-    bucketName: "uploads"
+dbConnection.once('open', () => {
+  bucketName = new GridFSBucket(dbConnection.db, {
+    bucketName: 'uploads',
   });
-  console.log("connction open");
+  console.log('connction open');
 });
 
 const gridFsFiles: Model<FileDocument> = mongoose.model<FileDocument>(
-  "uploads",
-  gridFsSchema
+  'uploads',
+  gridFsSchema,
 );
 
-const FileInfo = (
+const fileInfo = (
   { originalname: originalName }: { originalname: string },
   buf: Buffer,
-  _id: string,
-  bucketName: string
-) => {
-  const filename: string = `${buf.toString("hex")}${extname(originalName)}`;
+  id: string,
+  bucketName: string,
+): FILE => {
+  const filename: string = `${buf.toString('hex')}${extname(originalName)}`;
   return {
     filename,
+    bucketName,
     metadata: {
-      user: { _id }
+      user: { _id: id },
     },
-    bucketName
   };
 };
 
@@ -62,20 +64,20 @@ const file: (req, file) => Promise<{}> = (req, file): Promise<{}> => {
         if (err) {
           return reject(err);
         }
-        //console.log(file);
+        // console.log(file);
         const { user }: { user: User } = req;
         const { _id } = user;
         // console.log(user);
-        const fileInfo: FILE = FileInfo(file, buf, _id, "uploads");
-        console.log(fileInfo);
-        resolve(fileInfo);
+        const fileI: FILE = fileInfo(file, buf, _id, 'uploads');
+        console.log(fileI);
+        resolve(fileI);
       });
-    }
+    },
   );
 };
 const fileStorage: GridFsStorage = new GridFsStorage({
-  db,
-  file
+  file,
+  db: dbConnection,
 });
 
 const getCandidateFiles = async () => {
@@ -83,25 +85,25 @@ const getCandidateFiles = async () => {
   return getAllFiles;
 };
 
-const getCandidateResume = async (_id: string): Promise<FileDocument> => {
+const getCandidateResume = async (id: string): Promise<FileDocument> => {
   const gridFile = await gridFsFiles.findOne({
-    metadata: { user: { _id: `${_id}` } }
+    metadata: { user: { _id: `${id}` } },
   });
   return gridFile;
 };
 const getCandidateFile = async (
-  _id: ObjectId
+  id: ObjectId,
 ): Promise<GridFSBucketReadStream> => {
   try {
-    console.log(_id);
+    console.log(id);
     const gridFile: FileDocument = await gridFsFiles.findOne({
-      metadata: { user: { _id } }
+      metadata: { user: { _id: id } },
     });
     console.log(gridFile);
     if (gridFile) {
       const { filename } = gridFile;
       const file: GridFSBucketReadStream = bucketName.openDownloadStreamByName(
-        filename
+        filename,
       );
       return file;
     }
@@ -110,12 +112,12 @@ const getCandidateFile = async (
   }
 };
 
-const findFileByIdUpdate = async (_id: string, originalName: string) => {
+const findFileByIdUpdate = async (id: string, originalName: string) => {
   try {
-    const gridFile: FileDocument = await gridFsFiles.findById(_id);
+    const gridFile: FileDocument = await gridFsFiles.findById(id);
     if (gridFile) {
       gridFile.set({
-        originalName
+        originalName,
       });
       return await gridFile.save();
     }
@@ -130,5 +132,5 @@ export {
   findFileByIdUpdate,
   getCandidateFile,
   fileStorage,
-  getCandidateResume
+  getCandidateResume,
 };

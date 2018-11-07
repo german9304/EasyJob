@@ -1,12 +1,12 @@
-import { Component, OnInit, Input, EventEmitter, Output } from "@angular/core";
-import { FormGroup, FormControl } from "@angular/forms";
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
-  selector: "create-account-view",
-  templateUrl: "./create-account-view.component.html",
+  selector: 'app-create-account-view',
+  templateUrl: './create-account-view.component.html',
   styleUrls: [
-    "../../../sharedstyle.component.scss",
-    "./create-account-view.component.scss"
+    '../../../sharedstyle.component.scss',
+    './create-account-view.component.scss'
   ]
 })
 export class CreateAccountViewComponent implements OnInit {
@@ -15,7 +15,7 @@ export class CreateAccountViewComponent implements OnInit {
   @Output()
   submitted = new EventEmitter<string>();
   fieldSelected: string;
-  selected: boolean = false;
+  selected = false;
   i: number;
 
   constructor() {}
