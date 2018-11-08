@@ -51,6 +51,8 @@
             font-size: 14px;
             width: 100%;
             flex:1;
+            margin: 0 5px 0 0;
+            
             // font-size: 10px;
             box-sizing: border-box;
             font-weight: lighter;
@@ -59,7 +61,8 @@
             transition: all 0.9s;
             outline: none;
             border: none;
-            padding: 8px;
+            padding: 5px;
+            background-color: #DDDDDD80;
             // outline: solid 2px;
           }
           // input[id="search"] {
@@ -72,10 +75,14 @@
             // outline-style: solid;
             // border-color: #0074d9;
             // box-shadow: 0 2px 2px 2px gray;
-            // background-color: #dddddd;
+          background-color: #ffff;
             // transform: scale(1.1);
             border-color: #0074d9;
             // outline-color: white;
+          }
+          input:hover{
+            //box-shadow: 0 0 5px 5px #4c8fc9;
+            background-color: #ffff;
           }
         }
         #frm-search-address > *{
@@ -94,6 +101,7 @@
           .material-icons{
             background-color: #5082b7;
             //flex:1;
+            cursor: pointer;
             display: flex;
            align-items: center;
            justify-content: center;
