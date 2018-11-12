@@ -10,7 +10,7 @@ import { AuthGuardService } from '../../services/auth-guard.service';
 */
 import { CandidateSuggestedJobsComponent } from '../candidate-suggested-jobs/candidate-suggested-jobs.component';
 import { JobseekerNavbarComponent } from '../candidate-navbar/jobseeker-navbar.component';
-import { CandidateProfileComponent } from '../candidate-fields/candidate-profile/candidate-profile.component';
+// import { CandidateProfileComponent } from '../candidate-fields/candidate-profile/candidate-profile.component';
 import { AppliedJobsComponent } from '../applied-jobs/applied-jobs.component';
 import { SavedJobsComponent } from '../saved-jobs/saved-jobs.component';
 import { CandidateSearchJobsComponent } from '../candidate-search-jobs/candidate-search-jobs.component';
