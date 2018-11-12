@@ -4,7 +4,7 @@ import {
   Input,
   ChangeDetectionStrategy
 } from '@angular/core';
-import { EXPERIENCE } from '../../../job';
+import { EXPERIENCE } from '../../../../job';
 import { List, Map } from 'immutable';
 @Component({
   selector: 'app-experience-list',

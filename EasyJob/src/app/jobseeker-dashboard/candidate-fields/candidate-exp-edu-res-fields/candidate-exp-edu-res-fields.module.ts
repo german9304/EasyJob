@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { RouterModule, Routes, RouterLinkActive } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 import { CandidateProfileComponent } from './candidate-profile/candidate-profile.component';
@@ -11,23 +12,23 @@ import { EducationListComponent } from './education-list/education-list.componen
 import { ExperienceListComponent } from './experience-list/experience-list.component';
 import { EditExperienceComponent } from './experience/edit-experience/edit-experience.component';
 import { EditEducationComponent } from './education/edit-education/edit-education.component';
-import { NewEducationComponent } from './education/new-education/new-education.component';
 import { CandidateFilesComponent } from './candidate-files/candidate-files.component';
 import { CandidateResumeComponent } from './candidate-files/candidate-resume/candidate-resume.component';
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule, ReactiveFormsModule, RouterModule
   ],
   declarations: [
+    CandidateProfileComponent,
+    CandidateProfileViewComponent,
+    EducationComponent,
     EducationViewComponent,
     EducationListComponent,
     ExperienceListComponent,
     EditExperienceComponent,
     EditEducationComponent,
-    NewEducationComponent,
     CandidateFilesComponent,
     CandidateResumeComponent
-
   ]
 })
 export class CandidateExpEduResFieldsModule { }
