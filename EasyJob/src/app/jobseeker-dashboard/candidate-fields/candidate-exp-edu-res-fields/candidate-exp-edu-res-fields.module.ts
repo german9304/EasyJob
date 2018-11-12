@@ -18,6 +18,16 @@ import { CandidateResumeComponent } from './candidate-files/candidate-resume/can
   imports: [
     CommonModule
   ],
-  declarations: []
+  declarations: [
+    EducationViewComponent,
+    EducationListComponent,
+    ExperienceListComponent,
+    EditExperienceComponent,
+    EditEducationComponent,
+    NewEducationComponent,
+    CandidateFilesComponent,
+    CandidateResumeComponent
+
+  ]
 })
 export class CandidateExpEduResFieldsModule { }
