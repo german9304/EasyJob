@@ -21,23 +21,23 @@ import { CandidateFilesService } from '../../../services/candidate-files.service
   // templateUrl: "./candidate-profile.component.html",
   template: `
     <div class="candidateprofile">
-      <app-candidate-profile-view
+      <app-cand-fields-jobs-view
       [experience]="fsexp.EXPERIENCE"
       [education]="fsedu.EDUCATION"
        [trackByExp]="trackByExperience"
        [file]="fileUpload"
        (fileChosen)="uploadFile($event)"
        [fileInfo]="fileService.fileInfo">
-      </app-candidate-profile-view>
+      </app-cand-fields-jobs-view>
       <router-outlet></router-outlet>
     </div>
   `,
   styleUrls: [
     // "../shared-profile-fields.component.scss",
-    './candidate-profile.component.css'
+    './candidate-exp-edu-res-fields.component.css'
   ]
 })
-export class CandidateProfileComponent implements OnInit {
+export class CandExpEduResComponent implements OnInit {
   fileUpload: FormControl = new FormControl('');
   constructor(
     private fields: CandidateFieldsService,

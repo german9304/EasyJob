@@ -4,8 +4,9 @@ import { RouterModule, Routes, RouterLinkActive } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
-import { CandidateProfileComponent } from './candidate-profile/candidate-profile.component';
-import { CandidateProfileViewComponent } from './candidate-profile/candidate-profile-view/candidate-profile-view.component';
+import { CandExpEduResComponent } from './cand-exp-edu-fields/cand-fields-jobs';
+import { CandExpEduResViewComponent } from './cand-exp-edu-fields/cand-exp-edu-res-fields-view/cand-fields-jobs-view.component';
+
 import { EducationListComponent } from './education-list/education-list.component';
 import { ExperienceListComponent } from './experience-list/experience-list.component';
 import { EditExperienceComponent } from './experience/edit-experience/edit-experience.component';
@@ -17,8 +18,8 @@ import { CandidateResumeComponent } from './candidate-files/candidate-resume/can
     CommonModule, ReactiveFormsModule, RouterModule
   ],
   declarations: [
-    CandidateProfileComponent,
-    CandidateProfileViewComponent,
+    CandExpEduResComponent ,
+    CandExpEduResViewComponent,
     EducationListComponent,
     ExperienceListComponent,
     EditExperienceComponent,

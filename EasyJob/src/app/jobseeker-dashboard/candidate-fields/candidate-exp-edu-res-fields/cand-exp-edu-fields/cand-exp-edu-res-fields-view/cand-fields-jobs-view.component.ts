@@ -3,11 +3,11 @@ import { EXPERIENCE, EDUCATION, FILE } from '../../../../../job';
 import { List, Map } from 'immutable';
 import { FormControl } from '@angular/forms';
 @Component({
-  selector: 'app-candidate-profile-view',
+  selector: 'app-cand-fields-jobs-view',
   templateUrl: './candidate-profile-view.component.html',
   styleUrls: ['./candidate-profile-view.component.scss']
 })
-export class CandidateProfileViewComponent implements OnInit {
+export class CandExpEduResViewComponent implements OnInit {
   @Input()
   experience: List<EXPERIENCE>;
   @Input()
