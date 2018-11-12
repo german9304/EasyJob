@@ -7,6 +7,7 @@ var client_auth_1 = require("./client-auth");
 var user_schema_1 = require("./Models/user-schema");
 function jwtPayloadStrategy(jwtPayload, done) {
     var _id = jwtPayload._id, email = jwtPayload.email;
+    console.log(jwtPayload);
     user_schema_1.userModel.findById(_id, function (err, user) {
         if (err)
             console.log(err);

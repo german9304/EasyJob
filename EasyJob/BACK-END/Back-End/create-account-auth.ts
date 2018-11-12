@@ -14,6 +14,9 @@ deserializeUser((id, done) => {
 
 function createUserStrategy(email, password, done) {
   userModel.findOne({ email }, async (err, user) => {
+    if (err) {
+      console.error(err);
+    }
     if (!user) {
       try {
         const jwt = '1123';

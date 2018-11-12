@@ -52,6 +52,9 @@ function createUserStrategy(email, password, done) {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
+                    if (err) {
+                        console.error(err);
+                    }
                     if (!!user) return [3 /*break*/, 4];
                     _a.label = 1;
                 case 1:

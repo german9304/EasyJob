@@ -104,7 +104,7 @@ userSchema.methods.comparePasswords = function (userPassword, hash) {
 var userModel = mongoose_1.model('user', userSchema);
 exports.userModel = userModel;
 var findGoogleUser = function (id) { return __awaiter(_this, void 0, void 0, function () {
-    var user, _id, error_1;
+    var user, error_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -112,11 +112,6 @@ var findGoogleUser = function (id) { return __awaiter(_this, void 0, void 0, fun
                 return [4 /*yield*/, userModel.findOne({ googleId: id })];
             case 1:
                 user = _a.sent();
-                if (user) {
-                    _id = user._id;
-                    // console.log(_id);
-                    return [2 /*return*/, _id];
-                }
                 return [2 /*return*/, user];
             case 2:
                 error_1 = _a.sent();

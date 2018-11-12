@@ -42,7 +42,7 @@ var passport_google_oauth2_1 = require("passport-google-oauth2");
 var user_schema_1 = require("./Models/user-schema");
 passport_1.serializeUser(function (userId, done) { return done(null, userId); });
 passport_1.deserializeUser(function (id, done) {
-    user_schema_1.userModel.findById(id).then((function (user) { return done(null, user); }));
+    user_schema_1.userModel.findById(id).then(function (user) { return done(null, user); });
 });
 var candidateEmployer = function (req, res, next) {
     var query = req.query;
@@ -71,8 +71,10 @@ function googleStrategy(accessToken, refreshToken, profile, done) {
                         jwt: '',
                     };
                     addedUser = user_schema_1.createUserGoogle(user);
-                    token = jsonwebtoken_1.sign({ addedUser: addedUser }, client_auth_1.JWT_SECRET_KEY.key);
-                    addedUser.jwt = token;
+                    token = jsonwebtoken_1.sign({ email: addedUser.email, _id: addedUser._id }, client_auth_1.JWT_SECRET_KEY.key);
+                    addedUser.set({
+                        jwt: token,
+                    });
                     return [4 /*yield*/, addedUser.save()];
                 case 3:
                     newuser = _a.sent();

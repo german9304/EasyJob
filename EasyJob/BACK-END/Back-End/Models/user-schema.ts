@@ -62,12 +62,7 @@ const userModel: Model<IUser> = model<IUser>('user', userSchema);
 
 const findGoogleUser = async (id: string) => {
   try {
-    const user = await userModel.findOne({ googleId: id });
-    if (user) {
-      const { _id } = user;
-      // console.log(_id);
-      return _id;
-    }
+    const user: IUser = await userModel.findOne({ googleId: id });
     return user;
   } catch (error) {
     console.log(error);
