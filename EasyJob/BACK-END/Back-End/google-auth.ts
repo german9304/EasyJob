@@ -41,9 +41,11 @@ async function googleStrategy(
         jwt: '',
       };
       const addedUser: IUser = createUserGoogle(user);
-      const token = sign({ addedUser }, JWT_SECRET_KEY.key);
-      addedUser.jwt = token;
-      const newuser = await addedUser.save();
+      const token = sign({ email: addedUser.email, _id: addedUser._id }, JWT_SECRET_KEY.key);
+      addedUser.set({
+        jwt: token,
+      });
+      const newuser: IUser = await addedUser.save();
       return done(null, newuser);
     }
     return done(null, googleUser);

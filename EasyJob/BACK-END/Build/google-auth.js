@@ -71,8 +71,10 @@ function googleStrategy(accessToken, refreshToken, profile, done) {
                         jwt: '',
                     };
                     addedUser = user_schema_1.createUserGoogle(user);
-                    token = jsonwebtoken_1.sign({ addedUser: addedUser }, client_auth_1.JWT_SECRET_KEY.key);
-                    addedUser.jwt = token;
+                    token = jsonwebtoken_1.sign({ email: addedUser.email, _id: addedUser._id }, client_auth_1.JWT_SECRET_KEY.key);
+                    addedUser.set({
+                        jwt: token,
+                    });
                     return [4 /*yield*/, addedUser.save()];
                 case 3:
                     newuser = _a.sent();

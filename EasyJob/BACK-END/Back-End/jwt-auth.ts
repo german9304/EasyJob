@@ -7,6 +7,7 @@ import { User } from './user';
 
 function jwtPayloadStrategy(jwtPayload, done) {
   const { _id, email } = jwtPayload;
+  console.log(jwtPayload);
   userModel.findById(_id, (err, user) => {
     if (err) console.log(err);
     return user
