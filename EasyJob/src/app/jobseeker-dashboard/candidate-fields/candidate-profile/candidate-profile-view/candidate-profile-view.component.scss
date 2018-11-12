@@ -1,14 +1,11 @@
 .candidate-profile-view {
   margin: 15px 40px 5px 40px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 60px;
 
   // justify-content: center;
-  //  border: solid 2px black;
+   border: solid 2px black;
   /* autoprefixer: off */
   .skills {
-    // border: solid 2px #dddddd;
+     border: solid 2px #dddddd;
     // border-radius: 10px;
     // border: solid 2px red;
     // padding: 20px;
