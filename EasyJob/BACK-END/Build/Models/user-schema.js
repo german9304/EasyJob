@@ -88,19 +88,17 @@ userSchema.pre('save', function () {
 /*
 Compare Passwords
 */
-userSchema.methods.comparePasswords = function (userPassword, hash) {
-    return __awaiter(this, void 0, void 0, function () {
-        var result;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, bycrpt.compare(userPassword, hash)];
-                case 1:
-                    result = _a.sent();
-                    return [2 /*return*/, result];
-            }
-        });
+userSchema.methods.comparePasswords = function (userPassword, hash) { return __awaiter(_this, void 0, void 0, function () {
+    var result;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, bycrpt.compare(userPassword, hash)];
+            case 1:
+                result = _a.sent();
+                return [2 /*return*/, result];
+        }
     });
-};
+}); };
 var userModel = mongoose_1.model('user', userSchema);
 exports.userModel = userModel;
 var findGoogleUser = function (id) { return __awaiter(_this, void 0, void 0, function () {
