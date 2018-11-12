@@ -8,7 +8,10 @@ import { DataFieldsService } from '../../services/data-fields.resolver.service';
 const candidateFieldsRoutes: Routes = [
   {
     path: '',
-    component: CandExpEduResComponent
+    component: CandExpEduResComponent,
+    resolve: {
+      CandidateFields: DataFieldsService
+    },
   },
   {
     path: '',
