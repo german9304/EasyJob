@@ -5,19 +5,19 @@
   box-sizing: border-box;
   // background-color: #285679;
   background-color: #3d9970;
-  // align-items: center;
+  align-items: center;
   // color: white;
   nav {
     margin: 0;
     display: flex;
     flex-wrap: wrap;
-    flex: 1;
-    // border: solid 5px white;
+    //flex: 1;
+   // border: solid 2px white;
 
-    align-items: center;
+    // align-items: center;
     .search-bar {
-      // border: solid 3px black;
-      flex: 0 1 500px;
+      //border: solid 1px black;
+      flex: 1;
       // align-items: center;
 
       #frm-search-address {
@@ -25,40 +25,45 @@
         display: flex;
         // flex: 1;
         flex-wrap: wrap;
-        // align-items: center;
-        // border: solid 3px rosybrown;
+        /// align-items: center;
+        //  border: solid 1px rosybrown;
 
         .frm {
-          flex: 3;
-          font-size: 16px;
-          // border: solid 3px rosybrown;
-          .material-icons {
-            // padding: 5px;
-            display: flex;
-            // border-radius: 5px 0 0 5px;
-            flex: 1;
-            // padding: 8px;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            background-color: #5082b7;
-            color: #b5cae0;
-            // width: 50px;
-          }
+          // font-size: 16px;
+          // border: solid 1px rosybrown;
+          // .material-icons {
+          //   // padding: 5px;
+          display: flex;
+          //   // border-radius: 5px 0 0 5px;
+          flex: 1;
+          //   // padding: 8px;
+          //   justify-content: center;
+          //   align-items: center;
+          //   cursor: pointer;
+          //   background-color: #5082b7;
+          //   color: #b5cae0;
+          //   // width: 50px;
+          // }
           input {
             // display: block;
-            font-family: "Raleway", sans-serif;
-            padding: 6px 10px 6px 10px;
-            font-size: 14px;
+            font-family: 'Raleway', sans-serif;
+            //padding: 6px 10px 6px 10px;
+            font-size: 15px;
             width: 100%;
+            flex: 1;
+            margin: 0 5px 0 0;
+
             // font-size: 10px;
             box-sizing: border-box;
-            font-weight: lighter;
+            font-weight: 400;
             // outline-width: 2px;
             // border: solid 1px #dddddd;
             transition: all 0.9s;
+            // color: white;
             outline: none;
             border: none;
+            padding: 10px;
+            background-color: #dddddd;
             // outline: solid 2px;
           }
           // input[id="search"] {
@@ -67,26 +72,50 @@
           // #search {
           //   border-radius: 5px;
           // }
+          ::placeholder {
+            /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: #001f3f;
+            opacity: 1; /* Firefox */
+          }
+
           input:focus {
             // outline-style: solid;
             // border-color: #0074d9;
             // box-shadow: 0 2px 2px 2px gray;
-            // background-color: #dddddd;
+            background-color: #ffff;
             // transform: scale(1.1);
             border-color: #0074d9;
+
             // outline-color: white;
           }
+          input:hover {
+            //box-shadow: 0 0 5px 5px #4c8fc9;
+            background-color: #ffff;
+          }
         }
-        .frm.srch {
-          margin: 0 5px 0 0;
-        }
-        .frm.icon {
-          padding: 0;
-          display: flex;
-          // align-items: center;
-          // justify-content: center;
+        #frm-search-address > * {
           flex: 1;
+        }
+        // .frm.srch {
+        //   margin: 0 5px 0 0;
+        // }
+        .frm.icon {
+          // padding: 0;
+
+          //  flex-basis: 50px;
+          //flex:1;
           // border: solid 1px white;
+          .material-icons {
+            background-color: #5082b7;
+            //flex:1;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 10px 0 10px;
+            color: white;
+            //  border: solid 1px red;
+          }
         }
       }
     }
@@ -96,38 +125,45 @@
     display: flex;
     box-sizing: border-box;
     // flex-wrap: wrap;
+    padding: 0;
     flex: 1;
     justify-content: flex-end;
-    border: solid 1px white;
+    // border: solid 1px red;
 
     .item {
       font-size: 16px;
       text-align: center;
       box-sizing: border-box;
-      font-family: "Raleway", sans-serif;
+      font-family: 'Raleway', sans-serif;
       // font-weight: 100;
       // padding: 15px;
-      margin: 0 ;
+      display: flex;
+      padding: 0;
+      margin: 0;
       // border: solid 1px black;
       list-style: none;
       flex-basis: 110px;
       //  box-sizing: border-box;
       // padding: 10px;
       // flex:1;
-      
+
       // padding: 10px 0 10px 0;
       a {
-        // border: solid 5x black;
-        border-bottom: solid 3px #3d9970;
+        //  border: solid 1px red;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        //  border-bottom: solid 3px #3d9970;
         text-decoration: none;
         color: white;
         //background-color: #2ecc40;
-        display: block;
+        // display: block;
         font-weight: lighter;
-        padding: 0 0 6px 0;
+        // padding: 0 0 6px 0;
         box-sizing: border-box;
-      //  font-weight: 100;
-        transition: color 0.5s ease-out;
+        //  font-weight: 100;
+        transition: color 0.5s ease-in;
       }
       a:hover {
         color: #dddddd;
@@ -137,7 +173,7 @@
         //  background-color: #2ecc4060;
         border-bottom: 3px solid white;
         //border-radius: 5px;
-      //  color: #ffff;
+        //  color: #ffff;
         // color: #b9c7d5;
       }
     }
@@ -149,7 +185,7 @@
     display: none;
   }
   .jobseeker-profile-menu {
-    // border: solid 5px gray;
+    //  border: solid 1px gray;
     // justify-content: center;
     // flex: 2;
     display: flex;
@@ -165,7 +201,7 @@
       .item {
         display: flex;
         font-size: 15px;
-        font-family: "Raleway", sans-serif;
+        font-family: 'Raleway', sans-serif;
         justify-content: flex-end;
         // border: solid 1px white;
       }
@@ -179,7 +215,7 @@
       /*border:  solid 1px red;*/
       width: 100px;
       font-size: 20px;
-      font-family: "Raleway", sans-serif;
+      font-family: 'Raleway', sans-serif;
     }
     .profile-menu {
       top: 40px;
@@ -188,7 +224,7 @@
       box-sizing: border-box;
       right: 20px;
       //border: solid 1px #dddddd;
-      box-shadow: 0 0 5px 1px  #dddddd;
+      box-shadow: 0 0 5px 1px #dddddd;
       border-radius: 2px;
       // padding: 20px;
       // border: solid 1px gray;
@@ -197,7 +233,7 @@
       .items-profile {
         padding: 0;
         /*border: solid 1px blue;*/
-         // box-shadow: 0 0 5px 1px  #dddddd;
+        // box-shadow: 0 0 5px 1px  #dddddd;
         margin: 0;
         p {
           color: #111111;
@@ -205,20 +241,20 @@
           // padding: 8px 15px 8px 15px;
           margin: 0;
           font-size: 14px;
-          font-family: "Roboto", sans-serif;
+          font-family: 'Roboto', sans-serif;
         }
         .email-signing {
-         // border: solid 1px red;
+          // border: solid 1px red;
           padding: 8px 15px 8px 15px;
         }
         #signin {
-         // border: solid 1px red;
+          // border: solid 1px red;
           padding: 0 0 5px 0;
         }
         .email {
           font-size: 12px;
           font-weight: bolder;
-          font-family: "Raleway", sans-serif;
+          font-family: 'Raleway', sans-serif;
         }
         li {
           box-sizing: border-box;
@@ -236,16 +272,16 @@
             text-decoration: none;
             font-weight: lighter;
             font-size: 14px;
-            font-family: "Roboto", sans-serif;
+            font-family: 'Roboto', sans-serif;
           }
           a:hover {
             color: white;
-          //  background-color: #517bab;
+            //  background-color: #517bab;
           }
         }
-         li:hover a{
-            background-color: #517bab;
-          }
+        li:hover a {
+          background-color: #517bab;
+        }
         // .profile:hover {
         //   background-color: #517bab;
         // }

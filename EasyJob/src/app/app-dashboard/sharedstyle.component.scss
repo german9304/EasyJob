@@ -6,6 +6,7 @@
   background-color: #cfd1d032;
   align-content: center;
   // margin: 20px 0 20px 0;
+  //border: solid 1px black;
 }
 
 .form {
@@ -13,7 +14,7 @@
   margin-bottom: 5px;
   padding: 10px;
   font-weight: bold;
-  font-family: "Arimo", sans-serif;
+  font-family: 'Arimo', sans-serif;
 
   label {
     display: block;
@@ -23,11 +24,14 @@
     padding: 10px;
     font-size: 15px;
     display: block;
+    border: solid 1px #dddddd;
+    outline: none;
     box-sizing: border-box;
   }
   input:focus {
-    outline-style: solid;
-    outline-color: #808b9632;
+    // outline-style: solid;
+    // outline-color: #7bd8ae80;
+    box-shadow: 0 0 5px 1px #2b9766;
   }
   #btn-submit {
     padding: 10px;

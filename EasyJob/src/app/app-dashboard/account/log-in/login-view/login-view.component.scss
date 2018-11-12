@@ -2,7 +2,7 @@ $back-ground-color: white;
 
 .form-container {
   margin: 20px 0 0 0;
-  // border: solid 1px rgb(206, 24, 24);
+  //border: solid 1px rgb(206, 24, 24);
 }
 
 #login-form {
@@ -11,9 +11,10 @@ $back-ground-color: white;
   background-color: $back-ground-color;
   padding: 15px 10px 10px 10px;
   /*height: 300px;*/
-  /*border: solid 1px red;*/
+  box-shadow: 0 0 5px 1px rgb(236, 230, 230);
+  //border: solid 1px red;
   h2 {
-    font-family: "Quicksand", sans-serif;
+    font-family: 'Quicksand', sans-serif;
     text-align: center;
   }
 }
@@ -52,14 +53,14 @@ p {
   color: #556a7b;
 }
 a {
-  font-family: "Quicksand", sans-serif;
+  font-family: 'Quicksand', sans-serif;
   text-decoration: none;
   color: #556a7b;
   cursor: pointer;
 }
 #not-member {
   font-size: 20px;
-  font-family: "Quicksand", sans-serif;
+  font-family: 'Quicksand', sans-serif;
 }
 #not-member a:hover {
   color: #517bab;
