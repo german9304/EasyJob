@@ -2,7 +2,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { DataFieldsService } from '../../../services/data-fields.resolver.service';
 import { CandidateResumeComponent} from '../candidate-files/candidate-resume/candidate-resume.component';
-import { CandidateProfileComponent } from '../candidate-profile/candidate-profile.component';
+import { CandExpEduResComponent } from '../cand-fields-jobs/cand-fields-jobs.component';
 import { NewExperienceComponent } from '../experience/new-experience/new-experience.component';
 import { NewEducationComponent } from '../education/new-education/new-education.component';
 import { EditExperienceComponent } from '../experience/edit-experience/edit-experience.component';
@@ -13,7 +13,7 @@ import { GetExperienceFieldService } from '../get-experience-field.service';
 export const candidateFieldsRoutes: Routes = [
   {
     path: '',
-    component: CandidateProfileComponent,
+    component: CandExpEduResComponent,
     resolve: {
       CandidateFields: DataFieldsService
     },

@@ -11,7 +11,7 @@ import { List } from 'immutable';
   selector: 'app-edit-education',
   templateUrl: './edit-education.component.html',
   styleUrls: [
-    '../../shared-profile-fields.component.scss',
+    '../../../shared-profile-fields.component.scss',
     './edit-education.component.scss'
   ]
 })

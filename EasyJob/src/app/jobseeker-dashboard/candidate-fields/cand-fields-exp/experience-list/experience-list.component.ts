@@ -10,7 +10,7 @@ import { List, Map } from 'immutable';
   selector: 'app-experience-list',
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './experience-list.component.html',
-  styleUrls: ['../shared-fields-style.scss', './experience-list.component.scss']
+  styleUrls: ['../../shared-fields-style.scss', './experience-list.component.scss']
 })
 export class ExperienceListComponent implements OnInit {
   @Input()

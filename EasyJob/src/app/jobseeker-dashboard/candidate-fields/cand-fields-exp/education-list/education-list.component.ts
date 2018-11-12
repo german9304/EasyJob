@@ -5,7 +5,7 @@ import { Map, List } from 'immutable';
 @Component({
   selector: 'app-education-list',
   templateUrl: './education-list.component.html',
-  styleUrls: ['../shared-fields-style.scss', './education-list.component.scss']
+  styleUrls: ['../../shared-fields-style.scss', './education-list.component.scss']
 })
 export class EducationListComponent implements OnInit {
   @Input()

@@ -16,7 +16,7 @@ import { List, Map } from 'immutable';
 import { CandidateFilesService } from '../../../services/candidate-files.service';
 // import { FILE } from "../.././file";
 @Component({
-  selector: 'app-candidate-profile',
+  selector: 'app-cand-fields-jobs',
 
   // templateUrl: "./candidate-profile.component.html",
   template: `
@@ -34,7 +34,7 @@ import { CandidateFilesService } from '../../../services/candidate-files.service
   `,
   styleUrls: [
     // "../shared-profile-fields.component.scss",
-    './candidate-exp-edu-res-fields.component.css'
+    './cand-fields-jobs.component.css'
   ]
 })
 export class CandExpEduResComponent implements OnInit {

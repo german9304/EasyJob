@@ -8,7 +8,7 @@ import { FieldsService } from '../../../../services/fields.service';
   selector: 'app-new-experience',
   templateUrl: './new-experience.component.html',
   styleUrls: [
-    '../../shared-profile-fields.component.scss',
+    '../../../shared-profile-fields.component.scss',
     './new-experience.component.scss'
   ]
 })

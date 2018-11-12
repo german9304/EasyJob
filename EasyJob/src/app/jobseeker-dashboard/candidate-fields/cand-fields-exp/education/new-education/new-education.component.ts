@@ -9,7 +9,7 @@ import { FieldsService } from '../../../../services/fields.service';
   selector: 'app-new-education',
   templateUrl: './new-education.component.html',
   styleUrls: [
-    '../../shared-profile-fields.component.scss',
+    '../../../shared-profile-fields.component.scss',
     './new-education.component.scss'
   ]
 })

@@ -11,7 +11,7 @@ import { FieldsService } from '../../../../services/fields.service';
   selector: 'app-edit-experience',
   templateUrl: './edit-experience.component.html',
   styleUrls: [
-    '../../shared-profile-fields.component.scss',
+    '../../../shared-profile-fields.component.scss',
     './edit-experience.component.scss'
   ]
 })

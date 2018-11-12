@@ -4,8 +4,8 @@ import { List, Map } from 'immutable';
 import { FormControl } from '@angular/forms';
 @Component({
   selector: 'app-cand-fields-jobs-view',
-  templateUrl: './candidate-profile-view.component.html',
-  styleUrls: ['./candidate-profile-view.component.scss']
+  templateUrl: './cand-fields-jobs-view..component.html',
+  styleUrls: ['./cand-fields-jobs-view..component.scss']
 })
 export class CandExpEduResViewComponent implements OnInit {
   @Input()

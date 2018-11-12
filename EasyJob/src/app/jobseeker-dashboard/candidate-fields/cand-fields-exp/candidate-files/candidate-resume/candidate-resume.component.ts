@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-candidate-resume',
   templateUrl: './candidate-resume.component.html',
   styleUrls: [
-    '../../shared-profile-fields.component.scss',
+    '../../../shared-profile-fields.component.scss',
     './candidate-resume.component.scss'
   ]
 })
