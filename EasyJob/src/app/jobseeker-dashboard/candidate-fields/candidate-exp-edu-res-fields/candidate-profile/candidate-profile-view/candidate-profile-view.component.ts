@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
-import { EXPERIENCE, EDUCATION, FILE } from '../../../../job';
+import { EXPERIENCE, EDUCATION, FILE } from '../../../../../job';
 import { List, Map } from 'immutable';
 import { FormControl } from '@angular/forms';
 @Component({

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { EDUCATION, FIELDS } from '../../../../job';
-import { CandidateFieldsService } from '../../../services/candidate-fields.service';
+import { EDUCATION, FIELDS } from '../../../../../job';
+import { CandidateFieldsService } from '../../../../services/candidate-fields.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
-import { FieldsService } from '../../../services/fields.service';
+import { FieldsService } from '../../../../services/fields.service';
 import { List } from 'immutable';
 
 @Component({

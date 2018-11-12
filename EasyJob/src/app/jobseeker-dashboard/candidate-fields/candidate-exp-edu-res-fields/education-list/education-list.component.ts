@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { EDUCATION } from '../../../job';
+import { EDUCATION } from '../../../../job';
 import { Map, List } from 'immutable';
 
 @Component({

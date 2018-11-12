@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { EXPERIENCE, EDUCATION, FIELDS } from '../../job';
+import { EXPERIENCE, EDUCATION, FIELDS } from '../../../job';
 import { Observable } from 'rxjs';
-import { CandidateFieldsService } from '.././services/candidate-fields.service';
-import { FieldsService } from '.././services/fields.service';
+import { CandidateFieldsService } from '../.././services/candidate-fields.service';
+import { FieldsService } from '../.././services/fields.service';
 import {
   Router,
   Resolve,
