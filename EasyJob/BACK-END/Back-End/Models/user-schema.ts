@@ -50,10 +50,11 @@ userSchema.pre<IUser>('save', async function (): Promise<void> {
 /*
 Compare Passwords
 */
-userSchema.methods.comparePasswords = async function (
+
+userSchema.methods.comparePasswords = async (
   userPassword,
   hash,
-): Promise<boolean> {
+): Promise<boolean> => {
   const result: boolean = await bycrpt.compare(userPassword, hash);
   return result;
 };

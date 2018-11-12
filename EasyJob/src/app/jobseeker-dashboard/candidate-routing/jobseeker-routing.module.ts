@@ -39,6 +39,7 @@ const appRoutes: Routes = [
       },
       {
         path: 'profile',
+        resolve: {},
         loadChildren:
           '../candidate-fields/candidate-fields.module#CandidateFieldsModule'
       },
@@ -56,4 +57,3 @@ const appRoutes: Routes = [
   exports: [RouterModule]
 })
 export class JobseekerRoutingModule {}
-
