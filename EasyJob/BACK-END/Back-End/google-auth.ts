@@ -1,7 +1,8 @@
-import { GOOGLE_CLIENT, JWT_SECRET_KEY  } from './client-auth';
+import { GOOGLE_CLIENT, JWT_SECRET_KEY } from './client-auth';
 import { serializeUser, use, deserializeUser } from 'passport';
 import { sign } from 'jsonwebtoken';
 import { Strategy } from 'passport-google-oauth2';
+import { IUser, GoogleUser } from './user';
 
 import {
   userModel,
@@ -12,7 +13,7 @@ import {
 serializeUser((userId, done) => done(null, userId));
 
 deserializeUser((id, done) => {
-  userModel.findById(id).then((user => done(null, user)));
+  userModel.findById(id).then(user => done(null, user));
 });
 
 const candidateEmployer = (req, res, next) => {
@@ -21,20 +22,25 @@ const candidateEmployer = (req, res, next) => {
   next();
 };
 
-async function googleStrategy(accessToken, refreshToken, profile, done): Promise<void> {
+async function googleStrategy(
+  accessToken,
+  refreshToken,
+  profile,
+  done,
+): Promise<void> {
   // console.log("profile: ", profile);
   const { id, displayName, emails } = profile;
   const { value: email } = emails[0];
   try {
-    const googleUser = await findGoogleUser(id);
+    const googleUser: IUser = await findGoogleUser(id);
     if (!googleUser) {
       const googleId = id;
-      const user = {
+      const user:  GoogleUser = {
         googleId,
         email,
         jwt: '',
       };
-      const addedUser = createUserGoogle(user);
+      const addedUser: IUser = createUserGoogle(user);
       const token = sign({ addedUser }, JWT_SECRET_KEY.key);
       addedUser.jwt = token;
       const newuser = await addedUser.save();
