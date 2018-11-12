@@ -14,43 +14,43 @@ export const candidateFieldsRoutes: Routes = [
   {
     path: '',
     component: CandExpEduResComponent,
-    resolve: {
-      CandidateFields: DataFieldsService
-    },
-    children: [
-      {
-        path: 'create',
-        children: [
-          {
-            path: 'experience',
-            component: NewExperienceComponent
-          },
-          {
-            path: 'education',
-            component: NewEducationComponent
-          }
-        ]
-      },
-      {
-        path: 'update',
-        children: [
-          {
-            path: 'experience/:id',
-            component: EditExperienceComponent,
-            resolve: { field: GetExperienceFieldService }
-          },
-          {
-            path: 'education/:id',
-            component: EditEducationComponent,
-            resolve: { field: GetEducationFieldService }
-          }
-        ]
-      },
-      {
-        path: 'view/resume',
-        component: CandidateResumeComponent
-      }
-    ]
+    // resolve: {
+    //   CandidateFields: DataFieldsService
+    // },
+    // children: [
+    //   {
+    //     path: 'create',
+    //     children: [
+    //       {
+    //         path: 'experience',
+    //         component: NewExperienceComponent
+    //       },
+    //       {
+    //         path: 'education',
+    //         component: NewEducationComponent
+    //       }
+    //     ]
+    //   },
+    //   {
+    //     path: 'update',
+    //     children: [
+    //       {
+    //         path: 'experience/:id',
+    //         component: EditExperienceComponent,
+    //         resolve: { field: GetExperienceFieldService }
+    //       },
+    //       {
+    //         path: 'education/:id',
+    //         component: EditEducationComponent,
+    //         resolve: { field: GetEducationFieldService }
+    //       }
+    //     ]
+    //   },
+    //   {
+    //     path: 'view/resume',
+    //     component: CandidateResumeComponent
+    //   }
+    // ]
   },
   {
     path: '',
