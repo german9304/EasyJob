@@ -51,6 +51,7 @@ export class CandExpEduResComponent implements OnInit {
   ngOnInit() {
     // console.log(this.fileService.fileInfo.toObject());
     this.route.data.subscribe((data: { CandidateFields: FIELDS }) => {
+      console.log(data);
       if (data) {
         const {
           CandidateFields: { experience, education, fileInfo }

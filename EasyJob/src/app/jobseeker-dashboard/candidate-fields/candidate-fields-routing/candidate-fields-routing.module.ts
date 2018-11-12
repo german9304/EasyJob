@@ -2,13 +2,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { TestComponent } from '../testing/test.component';
-
+import {CandExpEduResComponent} from '../cand-fields-exp/cand-fields-jobs/cand-fields-jobs.component';
 import { DataFieldsService } from '../../services/data-fields.resolver.service';
 
 const candidateFieldsRoutes: Routes = [
   {
     path: '',
-    redirectTo: '/',
+    component: CandExpEduResComponent
+  },
+  {
+    path: '',
+    redirectTo: '',
     pathMatch: 'full'
   }
 ];

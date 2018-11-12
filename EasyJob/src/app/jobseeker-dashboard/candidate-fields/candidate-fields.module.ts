@@ -12,7 +12,6 @@ import { CandidateExpEduResFieldsModule } from './cand-fields-exp/cand-fields-ex
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    RouterModule,
     CandidateFieldsRoutingModule,
     CandidateExpEduResFieldsModule
   ],
