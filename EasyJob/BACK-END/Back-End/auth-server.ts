@@ -9,11 +9,12 @@ import './google-auth';
 const router: Router = Router();
 
 import { findUserById } from './Models/user-schema';
+import { IUser } from './user';
 
 router.get(
   '/google',
   (req: Request, res: Response, next): void => {
-    console.log(req.query);
+    // console.log(req.query);
     next();
   },
 );
@@ -42,8 +43,8 @@ router.post(
   (req: Request, res: Response): void => {
     // console.log(req.authInfo);
     const { user: id } = req;
-    const usr = findUserById(id);
-    usr.then((data) => {
+    const usr: Promise<IUser> = findUserById(id);
+    usr.then((data: IUser) => {
       const { _id, email, jwt } = data;
       return res.json({ user: { _id, email, jwt } });
     });

@@ -9,7 +9,7 @@ require("./google-auth");
 var router = express_1.Router();
 var user_schema_1 = require("./Models/user-schema");
 router.get('/google', function (req, res, next) {
-    console.log(req.query);
+    // console.log(req.query);
     next();
 });
 router.get('/google', passport.authenticate('google', {
