@@ -1,11 +1,5 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
-#GOOGLE-AUTH
-BACK-END/build
-
-BACK-END/Back-End/client-auth.ts
-
-BACK-END/node_modules
 
 # compiled output
 /dist
