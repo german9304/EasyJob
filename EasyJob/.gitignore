@@ -1,7 +1,7 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 #GOOGLE-AUTH
-/Back-End/client-auth.js
+BACK-END/build
 
 BACK-END/Back-End/client-auth.ts
 
