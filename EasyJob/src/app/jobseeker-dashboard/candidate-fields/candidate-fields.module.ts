@@ -5,7 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CandidateFieldsRoutingModule } from './candidate-fields-routing/candidate-fields-routing.module';
 import { TestComponent } from './testing/test.component';
 import { TestViewComponent } from './testing/test-view/test-view.component';
-import { CandidateExpEduResFieldsModule } from './cand-fields-exp/cand-fields-exp.module';
+import { CandFieldsExpModule } from './cand-fields-exp/cand-fields-exp.module';
 
 
 @NgModule({
@@ -13,7 +13,7 @@ import { CandidateExpEduResFieldsModule } from './cand-fields-exp/cand-fields-ex
     CommonModule,
     ReactiveFormsModule,
     CandidateFieldsRoutingModule,
-    CandidateExpEduResFieldsModule
+    CandFieldsExpModule
   ],
   declarations: [
   ],
