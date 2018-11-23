@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CandidateFieldsRoutingModule } from './candidate-fields-routing/candidate-fields-routing.module';
 import { CandFieldsExpModule } from './cand-fields-exp/cand-fields-exp.module';
 import { ContactInfoModule } from './candidate-info/candidate-info.module';
+import { ProfileInfoExtraModule } from './profile-info-extra/profile-info-extra.module';
 
 import { TestComponent } from './testing/test.component';
 import { TestViewComponent } from './testing/test-view/test-view.component';
@@ -16,7 +17,8 @@ import { CandidateFieldsComponent } from './candidate-fields/candidate-fields.co
     ReactiveFormsModule,
     CandidateFieldsRoutingModule,
     CandFieldsExpModule,
-    ContactInfoModule
+    ContactInfoModule,
+    ProfileInfoExtraModule
   ],
   declarations: [CandidateFieldsComponent],
   exports: []

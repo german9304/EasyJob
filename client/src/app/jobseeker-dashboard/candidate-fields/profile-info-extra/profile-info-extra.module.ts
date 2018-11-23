@@ -5,9 +5,12 @@ import { ProfilePercentComponent } from './profile-percent/profile-percent.compo
 import { ProfileExtraComponent } from './profile-extra/profile-extra.component';
 
 @NgModule({
-  imports: [
-    CommonModule
+  imports: [CommonModule],
+  declarations: [
+    CandSkillsComponent,
+    ProfilePercentComponent,
+    ProfileExtraComponent
   ],
-  declarations: [CandSkillsComponent, ProfilePercentComponent, ProfileExtraComponent]
+  exports: [ProfileExtraComponent]
 })
-export class ProfileInfoExtraModule { }
+export class ProfileInfoExtraModule {}
