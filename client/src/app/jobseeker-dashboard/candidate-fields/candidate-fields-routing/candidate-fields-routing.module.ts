@@ -4,11 +4,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { TestComponent } from '../testing/test.component';
 import {CandExpEduResComponent} from '../cand-fields-exp/cand-fields-jobs/cand-fields-jobs.component';
 import { DataFieldsService } from '../../services/data-fields.resolver.service';
+import {CandidateFieldsComponent} from '../candidate-fields/candidate-fields.component';
 
 const candidateFieldsRoutes: Routes = [
   {
     path: '',
-    component: CandExpEduResComponent,
+    component: CandidateFieldsComponent,
     resolve: {
       CandidateFields: DataFieldsService
     },
