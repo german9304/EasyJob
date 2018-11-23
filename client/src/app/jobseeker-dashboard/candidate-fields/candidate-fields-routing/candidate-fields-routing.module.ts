@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { TestComponent } from '../testing/test.component';
+
 import {CandExpEduResComponent} from '../cand-fields-exp/cand-fields-jobs/cand-fields-jobs.component';
 import { DataFieldsService } from '../../services/data-fields.resolver.service';
 import {CandidateFieldsComponent} from '../candidate-fields/candidate-fields.component';
 import { NewExperienceComponent } from '../cand-fields-exp/experience/new-experience/new-experience.component';
 import { NewEducationComponent } from '../cand-fields-exp/education/new-education/new-education.component';
+import { EditExperienceComponent } from '../cand-fields-exp/experience/edit-experience/edit-experience.component';
+import { EditEducationComponent } from '../cand-fields-exp/education/edit-education/edit-education.component';
 
 const candidateFieldsRoutes: Routes = [
   {
@@ -26,6 +28,21 @@ const candidateFieldsRoutes: Routes = [
           {
             path: 'education',
             component: NewEducationComponent
+          }
+        ]
+      },
+         {
+        path: 'update',
+        children: [
+          {
+            path: 'experience/:id',
+            component: EditExperienceComponent,
+            // resolve: { field: GetExperienceFieldService }
+          },
+          {
+            path: 'education/:id',
+            component: EditEducationComponent,
+            // resolve: { field: GetEducationFieldService }
           }
         ]
       },

@@ -19,20 +19,20 @@ export const candidateFieldsRoutes: Routes = [
     // resolve: {
     //   CandidateFields: DataFieldsService
     // },
-    // children: [
-      // {
-      //   path: 'create',
-      //   children: [
-      //     {
-      //       path: 'experience',
-      //       component: NewExperienceComponent
-      //     },
-      //     {
-      //       path: 'education',
-      //       component: NewEducationComponent
-      //     }
-      //   ]
-      // },
+    //  children: [
+    //   {
+    //     path: 'create',
+    //     children: [
+    //       {
+    //         path: 'experience',
+    //         component: NewExperienceComponent
+    //       },
+    //       {
+    //         path: 'education',
+    //         component: NewEducationComponent
+    //       }
+    //     ]
+    //   },
     //   {
     //     path: 'update',
     //     children: [
@@ -52,8 +52,8 @@ export const candidateFieldsRoutes: Routes = [
     //     path: 'view/resume',
     //     component: CandidateResumeComponent
     //   }
-    // ]
- // },
+  //    ]
+  // },
   // {
   //   path: '',
   //   redirectTo: '/',
