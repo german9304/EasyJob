@@ -38,21 +38,23 @@
     </div>
   </section>
 
-  <div>
-    <section class="inner education">
+  <section>
+    <header class="section-header education">
       <h2>Education</h2>
-      <div class="icon" id="add-icon-education">
-        <a
-          class="add field-education"
-          routerLink="./create/education"
-          routerLinkActive="active"
-        >
+      <a
+        class="add field-education"
+        routerLink="./create/education"
+        routerLinkActive="active"
+      >
+        <span class="icon add-education">
           <i class="material-icons"> add </i>
-        </a>
+        </span>
+      </a>
+    </header>
+    <div class="section-content">
+      <div class="education-lists">
+        <app-education-list [EDUCATION]="education"></app-education-list>
       </div>
-    </section>
-    <div class="education-lists">
-      <app-education-list [EDUCATION]="education"></app-education-list>
     </div>
-  </div>
+  </section>
 </div>
