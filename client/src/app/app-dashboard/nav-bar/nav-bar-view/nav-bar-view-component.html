@@ -1,0 +1,21 @@
+<nav class="menu">
+    <ul id="menu-list">
+        <li class="item item1">
+            <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"> Search Jobs </a>
+        </li>
+        <li class="item item2 ">
+            <a routerLink="/post/job" routerLinkActive="active "> Post Jobs</a>
+        </li>
+        <li class="item item3">
+            <!-- <p> {{user | json}} </p> -->
+            <!-- <p> {{Profile | json}} </p> -->
+            <a routerLink="/account/login" [hidden]="auth " routerLinkActive="active "> Sign in</a>
+        </li>
+        <!-- <li class=" item item4 ">
+            <p> {{user | json}} </p>
+            <p> {{Profile | json}} </p>
+            <a routerLink="/jobseeker " routerLinkActive="active "> userdash</a>
+        </li> -->
+        <!-- <p> {{login? 'is login' : 'not login' }} </p> -->
+    </ul>
+</nav>

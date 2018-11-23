@@ -1,0 +1,177 @@
+// .navbarview-container-profiles {
+
+// }
+
+// .jobseeker-navbarview {
+//   /*border: solid 3px white;*/
+//   display: flex;
+//   padding: 20px;
+//   // background-color: #285679;
+//   background-color: #3d9970;
+//   align-items: center;
+//   color: white;
+//   nav {
+//     display: flex;
+//     flex-wrap: wrap;
+//     flex: 1;
+//      // border: solid 5px white;
+//     align-items: center;
+//     .search-bar {
+//       display: flex;
+//       flex: 1;
+//       // flex-wrap: wrap;
+//       // border: solid 2px gray;
+//       .material-icons {
+//         padding: 10px;
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         cursor: pointer;
+//         background-color: #5082b7;
+//         color: #b5cae0;
+//         // width: 50px;
+//         flex: 2 1 50px;
+//       }
+//       input {
+//         border-radius: 5px 0 0 5px;
+//         padding: 10px;
+//         flex: 2 1 300px;
+//         font-size: 15px;
+//         box-sizing: border-box;
+//         // outline-width: 2px;
+//         border: solid 1px #dddddd;
+//         transition: all 0.9s;
+//         outline: none;
+//         // border: none;
+//         // outline: solid 2px;
+//         margin: 0 0 0 5px;
+//       }
+//       #search{
+//         border-radius: 5px;
+//       }
+//       input:focus {
+//         // outline-style: solid;
+//         // border-color: #0074d9;
+//         // box-shadow: 0 2px 2px 2px gray;
+//         // background-color: #dddddd;
+//         // transform: scale(1.1);
+//         border-color: #0074d9;
+//         // outline-color: white;
+//       }
+//     }
+//   }
+//   .items {
+//     margin: 0;
+//     display: flex;
+//     box-sizing: border-box;
+//      // flex-wrap: wrap;
+//     flex: 1;
+//     // justify-content: flex-end;
+//      // border: solid 1px white;
+//     .item {
+//       font-size: 15px;
+//       text-align: center;
+//       font-family: "Raleway", sans-serif;
+//       // font-weight: 100;
+//       padding: 5px;
+//        // border: solid 1px rosybrown;
+//       list-style: none;
+//       flex:1;
+//       box-sizing: border-box;
+//       // padding: 10px;
+//       // flex:1;
+//       a {
+//         text-decoration: none;
+//         color: white;
+//         display: block;
+//         padding: 10px;
+//         transition: all .5s;
+//       }
+//       a:hover {
+//         color: #bac3cb;
+//       }
+//       .active {
+//         background-color:  #2ECC40;
+//         border-radius: 5px;
+//         // color: #b9c7d5;
+//       }
+//     }
+//   }
+//   .remove {
+//     display: none;
+//   }
+//   .jobseeker-profile-menu {
+//      // border:  solid 5px gray;
+//     justify-content: center;
+//     flex: 1;
+//     display: flex;
+//     cursor: pointer;
+//     position: relative;
+//     flex-wrap: wrap;
+//     .icons {
+//       // border: solid 1px white;
+//       display: flex;
+//       align-items: center;
+
+//       .item {
+//         display: flex;
+//         font-size: 15px;
+//         font-family: "Raleway", sans-serif;
+//         justify-content: flex-end;
+//         // border: solid 1px white;
+//       }
+//     }
+//     .icons > * {
+//       flex: 1;
+//       box-sizing: border-box;
+//       /*border: solid 3px gray;*/
+//     }
+//     .item {
+//       /*border:  solid 1px red;*/
+//       width: 100px;
+//       font-size: 20px;
+//       font-family: "Raleway", sans-serif;
+//     }
+//     .profile-menu {
+//       top: 40px;
+//       /* height: 200px;*/
+//       position: absolute;
+//       right: 20px;
+//       border: solid 1px #dddddd;
+//       // border: solid 1px gray;
+//       background-color: white;
+//       width: 200px;
+//       .items-profile {
+//         padding: 0;
+//         /*border: solid 1px blue;*/
+//         margin: 0;
+//         p {
+//           text-align: center;
+//           color: black;
+//           margin: 5px;
+//           font-family: "Roboto", sans-serif;
+//         }
+//         li {
+//           box-sizing: border-box;
+//           list-style: none;
+//           // border-bottom: solid 1px #948f8e;
+//           padding: 10px;
+//           a {
+//             box-sizing: border-box;
+//             display: block;
+//             padding: 5px;
+//             color: black;
+//             text-decoration: none;
+//             font-weight: lighter;
+//             font-size: 15px;
+//             font-family: "Roboto", sans-serif;
+//           }
+//           a:hover {
+//             color: white;
+//             background-color: #517bab;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }

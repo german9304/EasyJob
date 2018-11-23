@@ -1,0 +1,69 @@
+<div class="navbarview-container-profiles">
+	<!-- {{selectedClasses | json}}-->
+	<nav class="menu">
+		<div class="search-bar">
+			<form [formGroup]="searchForm" action="" id="frm-search-address">
+				<div class="frm srch">
+					<input type="text" id="search" class="text" placeholder="Search job">
+				</div>
+				<div class="frm addrss">
+					<input type="text" id="address" class="text" placeholder="City, Zip">
+				</div>
+				<div class="frm icon">
+					<i class="material-icons">
+						search
+					</i>
+				</div>
+			</form>
+		</div>
+		<ul class="items">
+			<li class="item item1">
+				<a routerLink="./saved-jobs" routerLinkActive="active">
+					My Jobs </a>
+			</li>
+			<li class="item item2">
+				<a routerLink="./suggested-jobs" routerLinkActive="active">
+					Jobs For You </a>
+			</li>
+			<li class="item item3">
+				<a routerLink="./applied-jobs" routerLinkActive="active"> Applied Jobs</a>
+			</li>
+			<li class="jobseeker-profile-menu">
+				<!--  <div class="arrow">
+
+            </div> -->
+
+				<div class="icons" (click)="clickArrow()">
+					<div class="item">
+						Me
+					</div>
+					<i class="material-icons ">
+						expand_more
+					</i>
+				</div>
+				<!-- <div class="profile-menu"> -->
+				<div [ngClass]="selectedClasses">
+					<ul class="items-profile ">
+						<li class="email-signing">
+							<p id="signin"> Signed in as: </p>
+							<p class="email "> {{email}}</p>
+						</li>
+						<li class="profile itemp">
+							<a routerLink="./profile"> Your Profile </a>
+						</li>
+						<li class="profile itemd">
+							<a routerLink="./"> Your Dashboard </a>
+						</li>
+						<li class="profile itemu">
+							<a routerLink="#"> Upload Resume </a>
+						</li>
+						<li class="profile iteml">
+							<a href="/logout "> Sign Out </a>
+						</li>
+					</ul>
+				</div>
+
+			</li>
+		</ul>
+	</nav>
+</div>

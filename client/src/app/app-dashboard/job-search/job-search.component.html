@@ -1,0 +1,19 @@
+<div class="container-job-search">
+  <div class="search-input">
+    <!-- {{searchForm.value| json}} -->
+    <form [formGroup]="searchForm" (ngSubmit)="searchJobs()" class="inner inpt">
+      <div class="frm form-field">
+        <input id="field" formControlName="field" type="text" placeholder="Search job title">
+      </div>
+      <div class="frm form-location">
+        <input id="location" formControlName="location" type="text" placeholder="City, Street , Zip">
+      </div>
+      <div class="btn">
+        <button type="submit"> Search Jobs</button>
+      </div>
+    </form>
+  </div>
+  <div id="container-joblist">
+    <app-job-serch-list (add)="getSearchJobs($event)" [jobs]="JOBS"></app-job-serch-list>
+  </div>
+</div>

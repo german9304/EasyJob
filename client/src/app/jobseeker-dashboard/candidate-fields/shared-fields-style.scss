@@ -1,0 +1,76 @@
+.items-fields {
+  margin: 0;
+  padding: 0;
+  // border: solid 1px red;
+  .item > * {
+    // border: solid 1px black;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 5px 5px 5px 0;
+    font-size: 18px;
+    font-weight: 300;
+    font-family: "Montserrat", sans-serif;
+  }
+  .item p {
+    font-size: 16px;
+    color: #313f58;
+  }
+  .item #inner-header {
+    font-family: "Muli", sans-serif;
+    // border: solid 2px rosybrown;
+    // padding: 0 2px 0 2px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    font-size: 12px;
+    justify-content: space-between;
+    h2 {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      padding: 0;
+      // border: solid 1px blue;
+    }
+    #icon-edit {
+      box-sizing: border-box;
+
+      // border: solid 1px blue;
+      cursor: pointer;
+      color: #0074d9;
+      transition: all 0.5s;
+      //padding: 5px;
+      border-radius: 10px;
+    }
+    #icon-edit:hover {
+      color: black;
+      background-color: #dddddd;
+    }
+  }
+  .item #inner-header > * {
+    margin: 0;
+    // border: solid 1px rosybrown;
+  }
+  .item {
+    margin: 10px 0 10px 0;
+    // border: solid 1px black;
+    // border-style: solid;
+    // border-width: 0 0 1px 0;
+    // padding: 10px 20px 10px 20px;
+    // border: solid 1px #babcbf;
+    // border-bottom: solid 1px #0000;
+    // margin: 0 0 5px 0;
+    #company {
+      font-weight: bold;
+    }
+    #degree {
+      font-weight: bold;
+    }
+    .inner #description {
+      // border: solid 2px black;
+      margin: 0;
+    }
+    #description-field {
+      padding: 2px;
+    }
+  }
+}

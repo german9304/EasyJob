@@ -1,0 +1,65 @@
+<div class="container-menu-dashboard-view">
+  <!--- MENU BAR -->
+  <!--- JOB SEARCH BAR  -->
+  <section class="job-search">
+    <div class="search-job-form">
+      <p> Find Your Job </p>
+      <form class="search-forms" [formGroup]="searchForm">
+        <div class="search category">
+          <input type="text" name="" id="search-input" (click)="showList($event)" formControlName="category" placeholder="Search job title">
+          <!-- <p> {{ sts.searchForm| json}}</p> -->
+          <app-categories-view (clickCategories)="clickCat($event)" [categories]="categories"></app-categories-view>
+        </div>
+        <div class="search location">
+          <input type="text" name="" id="search-city" formControlName="location" placeholder="City, State, Zip">
+        </div>
+        <div class="search icon">
+          <button type="button" (click)="searchJobs()" id="search-jobs">
+            <i class="material-icons">
+              search
+            </i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+  <!--- JOB SITE INFORMATION -->
+  <section class="job-site">
+    <div class="inner upload-resume">
+      <div class="information">
+        <h2>Upload Your Resume</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto, molestiae.</p>
+      </div>
+      <div class="information-img">
+        <img class="myimg" [src]="imgurl1">
+      </div>
+    </div>
+
+    <div class="inner search-jobs">
+      <div class="information">
+        <h2>Search For Jobs</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro unde aspernatur ab magnam consequuntur eum incidunt
+          modi dolores, soluta est!</p>
+      </div>
+      <div class="information-img">
+        <img class="myimg" [src]="imgurl2">
+      </div>
+    </div>
+  </section>
+
+  <!-- <section class="explanation">
+        <h2> Lorem, ipsum dolor.</h2>
+
+    </section>
+    <section class="reviews-section">
+       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, laudantium. </p>
+    </section> -->
+
+  <!--- JOB SITE FOOTER -->
+  <!--   <footer class="job-footer">
+        <div class="text-history">
+            Easy job will help you to build your career by finding the right job for you.
+        </div>
+    </footer> -->
+
+</div>

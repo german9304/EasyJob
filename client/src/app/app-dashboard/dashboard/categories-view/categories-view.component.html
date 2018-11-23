@@ -1,0 +1,5 @@
+<ul id="categories">
+  <li class="item category{{i}}" *ngFor="let category of CATEGORIES ;  let i= index">
+    <span class="link-category" (click)="onCategoryClick(category.category)"> {{category.category}}</span>
+  </li>
+</ul>

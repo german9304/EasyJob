@@ -1,0 +1,42 @@
+<div class="profile-fields">
+  <div class="fields-container">
+    <form action="" [formGroup]="experienceForm" (ngSubmit)="submitForm()" class="experience-form">
+      <!--  <p> {{ expForm.value| json}}</p> -->
+      <div class="headers">
+        <div class="addexperience">
+          <h2>Add Experience</h2>
+          <a routerLink="../../" routerLinkActive="active">
+            <i class="material-icons">
+              clear
+            </i>
+          </a>
+        </div>
+      </div>
+      <div class="frm exp">
+        <label for="position">Position</label>
+        <input type="text" formControlName="position" id="position" placeholder="Ex. Intern" />
+      </div>
+      <div class="frm cmp">
+        <label for="company">Company</label>
+        <input type="text" formControlName="company" id="company" placeholder="Ex. Google" />
+      </div>
+      <div class="frm loc">
+        <label for="location">Location</label>
+        <input type="text" formControlName="location" id="location" placeholder="Ex. Chico CA" />
+      </div>
+
+      <div formGroupName="date" class="frm date">
+        <input type="text" formControlName="start" id="strt" placeholder="Ex. 02/2001" />
+        <input type="text" formControlName="end" id="end" placeholder="Ex. 03/2005" />
+      </div>
+      <div class="frm desc">
+        <label for="description">Description</label>
+        <textarea type="text" rows="5" formControlName="description" id="description" placeholder="">
+        </textarea>
+      </div>
+      <div class="frm btns">
+        <button class="save" type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

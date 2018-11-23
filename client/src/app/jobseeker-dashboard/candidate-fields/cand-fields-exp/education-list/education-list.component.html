@@ -1,0 +1,17 @@
+<div class="items-fields">
+    <div class="item exp" *ngFor="let item of EDUCATION">
+        <div class="inner field" id="inner-header">
+            <h2> {{item.school}} </h2>
+            <a id="icon-edit" [routerLink]="['./update/education', item._id]" routerLinkActive="active">
+                <i class="material-icons">
+                    edit
+                </i>
+            </a>
+        </div>
+        <p class="inner field" id="degree"> {{item.degree}} </p>
+        <p class="inner field" id="location"> {{item.majorField}} </p>
+        <p class="inner field" id="dates"> {{item.date.start}} - {{item.date.end}} </p>
+        <div id="description-field" class="inner field">
+            <p id="description"> {{item.description}} </div>
+    </div>
+</div>
