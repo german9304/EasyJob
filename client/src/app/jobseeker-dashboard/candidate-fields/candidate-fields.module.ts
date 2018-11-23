@@ -6,6 +6,7 @@ import { CandidateFieldsRoutingModule } from './candidate-fields-routing/candida
 import { TestComponent } from './testing/test.component';
 import { TestViewComponent } from './testing/test-view/test-view.component';
 import { CandFieldsExpModule } from './cand-fields-exp/cand-fields-exp.module';
+import { CandidateFieldsComponent } from './candidate-fields/candidate-fields.component';
 
 
 @NgModule({
@@ -16,7 +17,7 @@ import { CandFieldsExpModule } from './cand-fields-exp/cand-fields-exp.module';
     CandFieldsExpModule
   ],
   declarations: [
-  ],
+  CandidateFieldsComponent],
   exports: []
 })
 export class CandidateFieldsModule {}
