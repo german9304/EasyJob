@@ -20,16 +20,20 @@
   </section>
 
   <section>
-    <h2>Experience</h2>
-    <div class="section-content">
+    <header class="section-header experience">
+      <h2>Experience</h2>
       <a
         class="add field-experience"
         routerLink="./create/experience"
         routerLinkActive="active"
       >
-        <i class="material-icons"> add </i>
+        <span class="icon add-experience">
+          <i class="material-icons"> add </i>
+        </span>
       </a>
-      <div class="experience-lists">
+    </header>
+    <div class="section-content">
+      <div class="experience-list">
         <app-experience-list
           [EXPERIENCE]="experience"
           [trackById]="trackByExp"
@@ -52,7 +56,7 @@
       </a>
     </header>
     <div class="section-content">
-      <div class="education-lists">
+      <div class="education-list">
         <app-education-list [EDUCATION]="education"></app-education-list>
       </div>
     </div>
