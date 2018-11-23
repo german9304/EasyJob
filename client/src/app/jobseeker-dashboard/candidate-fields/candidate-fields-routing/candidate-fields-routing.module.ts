@@ -18,9 +18,6 @@ const candidateFieldsRoutes: Routes = [
   {
     path: '',
     component: CandidateFieldsComponent,
-    //   resolve: {
-    //     CandidateFields: DataFieldsService
-    //   },
     children: [
       {
         path: 'create',
