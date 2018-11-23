@@ -10,10 +10,10 @@ const candidateFieldsRoutes: Routes = [
   {
     path: '',
     component: CandidateFieldsComponent,
-    resolve: {
-      CandidateFields: DataFieldsService
-    },
-  },
+  //   resolve: {
+  //     CandidateFields: DataFieldsService
+  //   },
+   },
   {
     path: '',
     redirectTo: '',

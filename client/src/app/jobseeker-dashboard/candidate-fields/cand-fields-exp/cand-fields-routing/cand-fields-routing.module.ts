@@ -13,9 +13,9 @@ import { GetExperienceFieldService } from '../get-experience-field.service';
 
 
 export const candidateFieldsRoutes: Routes = [
-  {
-    path: '',
-    component: CandExpEduResComponent,
+  // {
+    // path: '',
+    // component: CandExpEduResComponent,
     // resolve: {
     //   CandidateFields: DataFieldsService
     // },
@@ -53,12 +53,12 @@ export const candidateFieldsRoutes: Routes = [
     //     component: CandidateResumeComponent
     //   }
     // ]
-  },
-  {
-    path: '',
-    redirectTo: '/',
-    pathMatch: 'full'
-  }
+ // },
+  // {
+  //   path: '',
+  //   redirectTo: '/',
+  //   pathMatch: 'full'
+  // }
 ];
 
 @NgModule({
