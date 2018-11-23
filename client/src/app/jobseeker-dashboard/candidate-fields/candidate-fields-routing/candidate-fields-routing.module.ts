@@ -5,6 +5,8 @@ import { TestComponent } from '../testing/test.component';
 import {CandExpEduResComponent} from '../cand-fields-exp/cand-fields-jobs/cand-fields-jobs.component';
 import { DataFieldsService } from '../../services/data-fields.resolver.service';
 import {CandidateFieldsComponent} from '../candidate-fields/candidate-fields.component';
+import { NewExperienceComponent } from '../cand-fields-exp/experience/new-experience/new-experience.component';
+import { NewEducationComponent } from '../cand-fields-exp/education/new-education/new-education.component';
 
 const candidateFieldsRoutes: Routes = [
   {
@@ -13,6 +15,21 @@ const candidateFieldsRoutes: Routes = [
   //   resolve: {
   //     CandidateFields: DataFieldsService
   //   },
+    children: [
+      {
+        path: 'create',
+        children: [
+          {
+            path: 'experience',
+            component: NewExperienceComponent
+          },
+          {
+            path: 'education',
+            component: NewEducationComponent
+          }
+        ]
+      },
+    ]
    },
   {
     path: '',

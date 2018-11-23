@@ -20,19 +20,19 @@ export const candidateFieldsRoutes: Routes = [
     //   CandidateFields: DataFieldsService
     // },
     // children: [
-    //   {
-    //     path: 'create',
-    //     children: [
-    //       {
-    //         path: 'experience',
-    //         component: NewExperienceComponent
-    //       },
-    //       {
-    //         path: 'education',
-    //         component: NewEducationComponent
-    //       }
-    //     ]
-    //   },
+      // {
+      //   path: 'create',
+      //   children: [
+      //     {
+      //       path: 'experience',
+      //       component: NewExperienceComponent
+      //     },
+      //     {
+      //       path: 'education',
+      //       component: NewEducationComponent
+      //     }
+      //   ]
+      // },
     //   {
     //     path: 'update',
     //     children: [

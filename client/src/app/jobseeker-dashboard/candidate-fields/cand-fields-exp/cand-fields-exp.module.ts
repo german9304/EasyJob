@@ -32,6 +32,6 @@ import { CandidateResumeComponent } from './candidate-files/candidate-resume/can
     CandidateFilesComponent,
     CandidateResumeComponent
   ],
-  exports: [ CandExpEduResComponent ]
+  exports: [ CandExpEduResComponent, NewExperienceComponent, NewEducationComponent ]
 })
 export class CandFieldsExpModule { }
