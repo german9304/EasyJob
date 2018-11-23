@@ -12,6 +12,8 @@ import { NewEducationComponent } from '../cand-fields-exp/education/new-educatio
 import { EditExperienceComponent } from '../cand-fields-exp/experience/edit-experience/edit-experience.component';
 import { EditEducationComponent } from '../cand-fields-exp/education/edit-education/edit-education.component';
 
+import { CandidateResumeComponent } from '../cand-fields-exp/candidate-files/candidate-resume/candidate-resume.component';
+
 const candidateFieldsRoutes: Routes = [
   {
     path: '',
@@ -47,6 +49,10 @@ const candidateFieldsRoutes: Routes = [
             resolve: { field: GetEducationFieldService }
           }
         ]
+      },
+      {
+        path: 'view/resume',
+        component: CandidateResumeComponent
       }
     ]
   },
