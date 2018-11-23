@@ -7,3 +7,15 @@
 .cand {
   flex: 1;
 }
+
+.cand-profile {
+  border: solid 1px blue;
+}
+
+.cand-fields-job {
+  border: solid 1px red;
+}
+
+.cand-profile-extras {
+  border: solid 1px brown;
+}
