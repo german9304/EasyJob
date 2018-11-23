@@ -6,7 +6,11 @@ import { CandProfileComponent } from './cand-profile/cand-profile.component';
 
 @NgModule({
   imports: [CommonModule],
-
-  declarations: [ProfileInfoComponent, ContactInfoComponent, CandProfileComponent]
+  declarations: [
+    ProfileInfoComponent,
+    ContactInfoComponent,
+    CandProfileComponent
+  ],
+  exports: [CandProfileComponent]
 })
 export class ContactInfoModule {}
