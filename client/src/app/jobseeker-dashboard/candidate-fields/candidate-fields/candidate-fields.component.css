@@ -1,3 +1,9 @@
 .candidate-fields-container {
   padding: 15px 40px 5px 40px;
+  border: solid 1px blue;
+  display: flex;
+}
+
+.cand {
+  flex: 1;
 }
