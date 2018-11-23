@@ -1,7 +1,7 @@
 <div class="candidate-profile-view">
   <section>
     <h2>Resume</h2>
-    <div>
+    <div class="section-content">
       <div>
         <i class="material-icons"> add </i>
         <input
@@ -19,9 +19,9 @@
     </div>
   </section>
 
-  <div class="item experience">
-    <section class="inner experience">
-      <h2>Experience</h2>
+  <section>
+    <h2>Experience</h2>
+    <div class="section-content">
       <a
         class="add field-experience"
         routerLink="./create/experience"
@@ -29,16 +29,16 @@
       >
         <i class="material-icons"> add </i>
       </a>
-    </section>
-    <div class="experience-lists">
-      <app-experience-list
-        [EXPERIENCE]="experience"
-        [trackById]="trackByExp"
-      ></app-experience-list>
+      <div class="experience-lists">
+        <app-experience-list
+          [EXPERIENCE]="experience"
+          [trackById]="trackByExp"
+        ></app-experience-list>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div class="item education">
+  <div>
     <section class="inner education">
       <h2>Education</h2>
       <div class="icon" id="add-icon-education">
