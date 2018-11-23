@@ -1,11 +1,11 @@
 .candidate-profile-view {
-  margin: 15px 40px 5px 40px;
+  // margin: 15px 40px 5px 40px;
 
   // justify-content: center;
-   border: solid 2px black;
+  border: solid 2px black;
   /* autoprefixer: off */
   .skills {
-     border: solid 2px #dddddd;
+    border: solid 2px #dddddd;
     // border-radius: 10px;
     // border: solid 2px red;
     // padding: 20px;
@@ -16,7 +16,7 @@
       // border: solid 2px red;
       //  width: 50%;
       // border: solid 1px #dddddd;
-      box-shadow: 0 0 5px 1px  #dddddd;
+      box-shadow: 0 0 5px 1px #dddddd;
       margin: 0 0 15px 0;
       background-color: #ffff;
       border: solid 1px #dddddd;
@@ -89,7 +89,7 @@
       }
       h2 {
         margin: 0;
-        font-family: "Muli", sans-serif;
+        font-family: 'Muli', sans-serif;
         // border: solid 1px black;
         font-size: 18px;
         font-weight: 400;
@@ -160,7 +160,7 @@
         // border: solid 1px black;
         p {
           cursor: pointer;
-          font-family: "Muli", sans-serif;
+          font-family: 'Muli', sans-serif;
         }
       }
     }
