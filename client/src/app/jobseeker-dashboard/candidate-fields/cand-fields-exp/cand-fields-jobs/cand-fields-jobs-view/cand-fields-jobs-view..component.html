@@ -1,9 +1,11 @@
 <div class="candidate-profile-view">
   <section>
-    <h2>Resume</h2>
-    <div class="section-content">
-      <div>
-        <i class="material-icons"> add </i>
+    <header class="section-header resume">
+      <h2>Resume</h2>
+      <span class="resume-upload">
+        <span class="icon add-resume">
+          <i class="material-icons"> add </i>
+        </span>
         <input
           type="file"
           (input)="fileSubmit($event)"
@@ -11,7 +13,9 @@
           name="file"
           id="file-upload"
         />
-      </div>
+      </span>
+    </header>
+    <div class="section-content">
       <app-candidate-files
         [fileInfo]="fileInfo"
         *ngIf="fileInfo"
