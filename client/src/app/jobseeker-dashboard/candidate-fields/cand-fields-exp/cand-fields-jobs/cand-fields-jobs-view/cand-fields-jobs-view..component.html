@@ -1,6 +1,4 @@
 <div class="candidate-profile-view">
-  <!-- <div class="skills"> -->
-
   <div class="item resume">
     <section class="inner resume">
       <h2>Resume</h2>
@@ -22,7 +20,7 @@
   </div>
 
   <div class="item experience">
-    <div class="inner experience">
+    <section class="inner experience">
       <h2>Experience</h2>
       <a
         class="add field-experience"
@@ -31,7 +29,7 @@
       >
         <i class="material-icons"> add </i>
       </a>
-    </div>
+    </section>
     <div class="experience-lists">
       <app-experience-list
         [EXPERIENCE]="experience"
@@ -41,7 +39,7 @@
   </div>
 
   <div class="item education">
-    <div class="inner education">
+    <section class="inner education">
       <h2>Education</h2>
       <div class="icon" id="add-icon-education">
         <a
@@ -52,11 +50,9 @@
           <i class="material-icons"> add </i>
         </a>
       </div>
-    </div>
+    </section>
     <div class="education-lists">
       <app-education-list [EDUCATION]="education"></app-education-list>
     </div>
   </div>
-
-  <!-- </div> -->
 </div>
