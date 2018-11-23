@@ -1,0 +1,7 @@
+/build
+
+server/client-auth.ts
+
+/node_modules
+
+test.js

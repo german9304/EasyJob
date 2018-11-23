@@ -34,4 +34,4 @@ import { CandidateResumeComponent } from './candidate-files/candidate-resume/can
   ],
   exports: [ CandExpEduResComponent ]
 })
-export class CandidateExpEduResFieldsModule { }
+export class CandFieldsExpModule { }
