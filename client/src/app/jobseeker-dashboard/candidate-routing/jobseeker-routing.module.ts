@@ -39,7 +39,9 @@ const appRoutes: Routes = [
       },
       {
         path: 'profile',
-        resolve: {},
+        resolve: {
+          CandidateFields: DataFieldsService
+        },
         loadChildren:
           '../candidate-fields/candidate-fields.module#CandidateFieldsModule'
       },
