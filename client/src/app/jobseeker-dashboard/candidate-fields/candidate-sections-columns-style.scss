@@ -1,17 +1,23 @@
 .candidate-sections {
-  background-color: #ffff;
+  // background-color: #ffff;
   // border: solid 1px black;
 
   .section {
-    border: solid 1px black;
+   // border: solid 1px black;
     border-radius: 5px;
-    border: solid 1px #dddddd;
+    background-color: #ffff;
+    // border: solid 1px #dddddd;
     padding: 10px 20px 10px 20px;
+    margin: 0 0 10px 0;
     .section-header {
       border: solid 1px black;
     }
     .add-icon {
       display: flex;
+      justify-content: space-between;
+    }
+    .add-icon > * {
+      border: solid 1px blue;
     }
     h1 {
       color: #0074d9;
