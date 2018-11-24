@@ -1,7 +1,16 @@
 .candidate-sections {
-  background-color: white;
+  background-color: #ffff;
 
   .section {
     border: solid 1px black;
+    border-radius: 5px;
+    border: solid 1px #dddddd;
+    h1 {
+      margin: 0;
+      font-family: 'Muli', sans-serif;
+      //border: solid 1px black;
+      font-size: 18px;
+      font-weight: 400;
+    }
   }
 }
