@@ -1,12 +1,20 @@
 /* header {
   border: solid 1px blue;
 } */
+
 .section-content {
   display: flex;
-  /* border: solid 1px black; */
+  border: solid 1px black;
 }
 .section-content > div {
   flex: 1;
+}
+.item {
+  border: solid 1px brown;
+}
+h1 {
+  align-self: flex-start;
+  border: solid 1px rosybrown;
 }
 /* .items {
   border: solid 1px red;
@@ -17,12 +25,27 @@
 .section-header h1 {
   border: solid 1px blueviolet;
 } */
-
+.section-header {
+  border: solid 1px royalblue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.item a {
+  display: flex;
+  justify-content: center;
+}
+span {
+  display: block;
+  border: solid 1px red;
+}
 .section-header a {
   /* border-radius: 10px; */
+  /* display: flex;
+  justify-content: center; */
   width: 80px;
-  display: block;
-  /* border: solid 1px black; */
+  /* display: block; */
+  border: solid 1px black;
 }
 .section-header #img {
   width: 100%;
