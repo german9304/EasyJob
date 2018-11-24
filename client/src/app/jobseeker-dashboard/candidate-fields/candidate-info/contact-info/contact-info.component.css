@@ -1,3 +1,7 @@
-li {
-  padding: 5px 0 5px 0;
+.items span {
+  /* display: block; */
+  /* border: solid 1px red; */
+  margin: 0;
+  padding: 0 0 5px 0;
+  /* font-size: 1rem; */
 }
