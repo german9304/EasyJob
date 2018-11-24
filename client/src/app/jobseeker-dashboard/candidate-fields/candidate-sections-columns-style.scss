@@ -27,6 +27,20 @@
       text-decoration: none;
     }
     .add-icon .material-icons {
+      cursor: pointer;
+      transition: all 0.5s;
+    }
+    .add-icon .material-icons:hover {
+      border-radius: 5px;
+      // border: solid 1px black;
+      background-color: #0074d932;
+      // color: white;
+      //   background-color: rebeccapurple;
+      .material-icons {
+        color: #001f3f;
+      }
+    }
+    .add-icon .material-icons {
       display: flex;
       align-items: center;
       color: #0074d9;
