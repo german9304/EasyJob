@@ -1,6 +1,7 @@
 .profile-fields {
   // border: solid 2px red;
   //background-color: #11111132;
+  height: 110vh;
   background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
   top: 0;
@@ -36,7 +37,7 @@
       align-items: center;
       justify-content: space-between;
       h2 {
-        font-family: "Muli", sans-serif;
+        font-family: 'Muli', sans-serif;
         // margin: 0 0 5px 0;
         margin: 0;
         // border: solid 1px black;
@@ -64,7 +65,7 @@
       // margin: 5px;
       padding: 5px 0 5px 0;
       label {
-        font-family: "Muli", sans-serif;
+        font-family: 'Muli', sans-serif;
         font-weight: 300;
         font-size: 15px;
         display: block;
