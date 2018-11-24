@@ -1,0 +1,12 @@
+header {
+  border: solid 1px blue;
+}
+.section-content {
+  display: flex;
+}
+.section-content > ul {
+  flex: 1;
+}
+.profile {
+  border: solid 1px black;
+}
