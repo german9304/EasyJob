@@ -55,4 +55,16 @@
       font-weight: 400;
     }
   }
+  .section-content {
+    border: solid 1px black;
+    .items {
+      border: solid 1px red;
+      margin: 0;
+      padding: 0;
+      li {
+        list-style: none;
+        border: solid 1px black;
+      }
+    }
+  }
 }

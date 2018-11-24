@@ -3,14 +3,14 @@
 } */
 .section-content {
   display: flex;
-  border: solid 1px black;
+  /* border: solid 1px black; */
 }
 .section-content > div {
   flex: 1;
 }
-.items {
+/* .items {
   border: solid 1px red;
-}
+} */
 /* .profile {
   border: solid 1px black;
 }
