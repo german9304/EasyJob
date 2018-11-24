@@ -13,9 +13,11 @@
     // .section-header {
     //   border: solid 1px black;
     // }
-    .add-icon,
-    .edit-icon {
+    .header-icon {
       // border: solid 1px black;
+      // h1{
+      //   border: solid 1px black;
+      // }
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -35,24 +37,23 @@
         align-items: center;
       }
     }
-    .add-icon,
-    .edit-icon .icon-style {
+    .header-icon .icon-style {
       cursor: pointer;
       transition: all 0.5s;
     }
-    .add-icon .icon-style:hover {
+    .header-icon .icon-style:hover {
       border-radius: 5px;
       // border: solid 1px black;
       background-color: #0074d932;
       // color: white;
       //   background-color: rebeccapurple;
-      color: #001f3f;
-      // .material-icons {
-      //   color: #001f3f;
-      // }
+      // color: #001f3f;
+      .material-icons {
+        color: #001f3f;
+      }
     }
-    .add-icon,
-    .edit-icon .material-icons {
+    .header-icon .material-icons {
+      // border: solid 1px red;
       display: flex;
       align-items: center;
       color: #0074d9;
