@@ -1,10 +1,12 @@
 .candidate-sections {
   background-color: #ffff;
+  // border: solid 1px black;
 
   .section {
     border: solid 1px black;
     border-radius: 5px;
     border: solid 1px #dddddd;
+    padding: 10px 20px 10px 20px;
     h1 {
       margin: 0;
       font-family: 'Muli', sans-serif;
