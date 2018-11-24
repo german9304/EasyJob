@@ -3,7 +3,7 @@
   // border: solid 1px black;
 
   .section {
-   // border: solid 1px black;
+    // border: solid 1px black;
     border-radius: 5px;
     background-color: #ffff;
     // border: solid 1px #dddddd;
@@ -15,15 +15,25 @@
     .add-icon {
       display: flex;
       justify-content: space-between;
+      align-items: center;
     }
     .add-icon > * {
       border: solid 1px blue;
+    }
+    a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+    .add-icon .material-icons {
+      display: flex;
+      align-items: center;
     }
     h1 {
       color: #0074d9;
       margin: 0;
       font-family: 'Muli', sans-serif;
-      //border: solid 1px black;
+      // border: solid 1px black;
       font-size: 18px;
       font-weight: 400;
     }
