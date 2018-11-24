@@ -9,17 +9,17 @@
     // border: solid 1px #dddddd;
     padding: 10px 20px 10px 20px;
     margin: 0 0 10px 0;
-    .section-header {
-      border: solid 1px black;
-    }
+    // .section-header {
+    //   border: solid 1px black;
+    // }
     .add-icon {
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-    .add-icon > * {
-      border: solid 1px blue;
-    }
+    // .add-icon > * {
+    //   border: solid 1px blue;
+    // }
     a {
       display: flex;
       align-items: center;
@@ -28,6 +28,7 @@
     .add-icon .material-icons {
       display: flex;
       align-items: center;
+      color: #0074d9;
     }
     h1 {
       color: #0074d9;
