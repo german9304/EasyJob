@@ -4,7 +4,7 @@ header {
 .section-content {
   display: flex;
 }
-.section-content > ul {
+.section-content > div {
   flex: 1;
 }
 .profile {
