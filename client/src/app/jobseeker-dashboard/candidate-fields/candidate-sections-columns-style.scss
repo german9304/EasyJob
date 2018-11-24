@@ -7,6 +7,12 @@
     border-radius: 5px;
     border: solid 1px #dddddd;
     padding: 10px 20px 10px 20px;
+    .section-header {
+      border: solid 1px black;
+    }
+    .add-icon {
+      display: flex;
+    }
     h1 {
       color: #0074d9;
       margin: 0;
