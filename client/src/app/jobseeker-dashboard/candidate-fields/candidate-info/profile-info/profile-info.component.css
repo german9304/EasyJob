@@ -10,3 +10,20 @@ header {
 .profile {
   border: solid 1px black;
 }
+.section-header h1 {
+  border: solid 1px blueviolet;
+}
+
+.candidate-sections .candidate-avatar {
+  border: solid 1px red;
+  display: block;
+  padding: 10px;
+}
+.section-header a {
+  width: 100px;
+  display: block;
+  border: solid 1px black;
+}
+.section-header #img {
+  width: 100%;
+}
