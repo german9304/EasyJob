@@ -12,15 +12,15 @@
 
 .cand-profile {
   /* border: solid 1px blue; */
-  margin: 0 5px 0 0;
+  margin: 0 10px 0 0;
 }
 
 .cand-fields-job {
   /* border: solid 1px red; */
-  margin: 0 5px 0 5px;
+  margin: 0 10px 0 10px;
 }
 
 .cand-profile-extras {
   /* border: solid 1px brown; */
-  margin: 0 0 0 5px;
+  margin: 0 0 0 10px;
 }
