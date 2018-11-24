@@ -13,8 +13,7 @@
   border: solid 1px brown;
 } */
 .profile-header {
-  align-self: flex-start;
-  /* border: solid 1px rosybrown; */
+  border: solid 1px rosybrown;
 }
 .items {
   padding: 0;
@@ -32,10 +31,12 @@
   border: solid 1px blueviolet;
 } */
 .section-header {
-  /* border: solid 1px royalblue; */
+  border: solid 1px royalblue;
   display: flex;
   flex-direction: column;
-  align-items: center;
+}
+.section-header a {
+  align-self: center;
 }
 .profile-candidate .item {
   /* border: solid 1px black; */

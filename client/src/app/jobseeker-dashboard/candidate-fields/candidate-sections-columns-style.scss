@@ -13,7 +13,9 @@
     // .section-header {
     //   border: solid 1px black;
     // }
-    .add-icon {
+    .add-icon,
+    .edit-icon {
+      border: solid 1px black;
       display: flex;
       justify-content: space-between;
       align-items: center;
