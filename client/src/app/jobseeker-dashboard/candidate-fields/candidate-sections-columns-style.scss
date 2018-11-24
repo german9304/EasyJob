@@ -26,19 +26,20 @@
       align-items: center;
       text-decoration: none;
     }
-    .add-icon .material-icons {
+    .add-icon .icon-style {
       cursor: pointer;
       transition: all 0.5s;
     }
-    .add-icon .material-icons:hover {
+    .add-icon .icon-style:hover {
       border-radius: 5px;
       // border: solid 1px black;
       background-color: #0074d932;
       // color: white;
       //   background-color: rebeccapurple;
-      .material-icons {
-        color: #001f3f;
-      }
+      color: #001f3f;
+      // .material-icons {
+      //   color: #001f3f;
+      // }
     }
     .add-icon .material-icons {
       display: flex;

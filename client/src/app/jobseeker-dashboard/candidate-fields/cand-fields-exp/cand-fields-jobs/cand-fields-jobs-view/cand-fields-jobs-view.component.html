@@ -2,10 +2,8 @@
   <section class="section section-resume">
     <header class="section-header resume add-icon">
       <h1>Resume</h1>
-      <span class="resume-upload " id="add-icon-resume">
-        <span class="icon add-resume">
-          <i class="material-icons"> add </i>
-        </span>
+      <span class="icon-style resume-upload" id="add-icon-resume">
+        <span class="add-resume"> <i class="material-icons"> add </i> </span>
         <input
           type="file"
           (input)="fileSubmit($event)"
@@ -30,6 +28,7 @@
         class="add field-experience"
         routerLink="./create/experience"
         routerLinkActive="active"
+        class="icon-style"
       >
         <span class="icon add-experience">
           <i class="material-icons"> add </i>
@@ -53,6 +52,7 @@
         class="add field-education"
         routerLink="./create/education"
         routerLinkActive="active"
+        class="icon-style"
       >
         <span class="icon add-education">
           <i class="material-icons"> add </i>
