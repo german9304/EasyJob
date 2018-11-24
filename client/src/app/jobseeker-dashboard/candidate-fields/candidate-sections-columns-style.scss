@@ -70,14 +70,15 @@
     .items {
       //border: solid 1px red;
       margin: 8px 0 0 0;
-      a {
+      span {
+        cursor: pointer;
         color: #0074d9;
         font-family: 'Muli', sans-serif;
         font-weight: 450;
         font-size: 18px;
         transition: all 0.5s;
       }
-      a:hover {
+      span:hover {
         color: #001f3f;
       }
     }
