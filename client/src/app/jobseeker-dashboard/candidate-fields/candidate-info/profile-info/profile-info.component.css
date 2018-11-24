@@ -3,9 +3,13 @@
 } */
 .section-content {
   display: flex;
+  border: solid 1px black;
 }
 .section-content > div {
   flex: 1;
+}
+.items {
+  border: solid 1px red;
 }
 /* .profile {
   border: solid 1px black;
