@@ -135,10 +135,14 @@
   }
   // }
 }
-
+.section-header {
+  h1 {
+    border: solid 1px red;
+  }
+}
 #add-icon-resume {
   position: relative;
-  //border: solid 1px black;
+  // border: solid 1px black;
   display: flex;
   align-content: center;
   cursor: pointer;
