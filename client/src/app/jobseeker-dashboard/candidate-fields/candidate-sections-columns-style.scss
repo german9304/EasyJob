@@ -56,14 +56,30 @@
     }
   }
   .section-content {
-    border: solid 1px black;
-    .items {
-      border: solid 1px red;
-      margin: 0;
+    // border: solid 1px black;
+    ul {
       padding: 0;
+      padding: 0;
+    }
+    li {
+      list-style: none;
+      // border: solid 1px black;
+    }
+    .items {
+      //border: solid 1px red;
+      margin: 5px 0 0 0;
       li {
-        list-style: none;
-        border: solid 1px black;
+        padding: 5px 0 5px 0;
+        // border: solid 1px black;
+      }
+      a {
+        color: #001f3f;
+        font-family: 'Muli', sans-serif;
+        font-weight: 500;
+        transition: all 0.5s;
+      }
+      a:hover {
+        color: #0074d9;
       }
     }
   }
