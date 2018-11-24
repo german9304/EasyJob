@@ -71,11 +71,13 @@
       //border: solid 1px red;
       margin: 8px 0 0 0;
       span {
+        // border: solid 1px red;
         cursor: pointer;
         color: #0074d9;
         font-family: 'Muli', sans-serif;
         font-weight: 450;
         font-size: 18px;
+        display: block;
         transition: all 0.5s;
       }
       span:hover {
