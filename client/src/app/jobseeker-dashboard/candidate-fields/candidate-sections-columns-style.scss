@@ -69,13 +69,14 @@
       //border: solid 1px red;
       margin: 5px 0 0 0;
       a {
-        color: #001f3f;
+        color: #0074d9;
         font-family: 'Muli', sans-serif;
-        font-weight: 500;
+        font-weight: 450;
+        font-size: 18px;
         transition: all 0.5s;
       }
       a:hover {
-        color: #0074d9;
+        color: #001f3f;
       }
     }
   }
