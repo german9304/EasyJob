@@ -1,0 +1,26 @@
+/* header {
+  border: solid 1px blue;
+} */
+.section-content {
+  display: flex;
+}
+.section-content > div {
+  flex: 1;
+}
+/* .profile {
+  border: solid 1px black;
+}
+.section-header h1 {
+  border: solid 1px blueviolet;
+} */
+
+.section-header a {
+  /* border-radius: 10px; */
+  width: 100px;
+  display: block;
+  /* border: solid 1px black; */
+}
+.section-header #img {
+  width: 100%;
+  border-radius: 30px;
+}
