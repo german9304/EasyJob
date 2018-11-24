@@ -14,7 +14,7 @@
 } */
 .profile-header {
   align-self: flex-start;
-  border: solid 1px rosybrown;
+  /* border: solid 1px rosybrown; */
 }
 .items {
   padding: 0;
