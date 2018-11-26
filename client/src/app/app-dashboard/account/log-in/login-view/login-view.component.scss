@@ -72,12 +72,16 @@ a {
   cursor: pointer;
 }
 #not-member {
-  font-size: 15px;
+  font-size: 18px;
   margin: 20px 0 0 0;
   // border: solid 1px black
-  color: #556a7b;
+  font-weight: bolder;
+  color: #001f3f;
   text-align: center;
   font-family: 'Quicksand', sans-serif;
+  a {
+    color: #001f3f;
+  }
 }
 #not-member a:hover {
   color: #517bab;
