@@ -6,7 +6,7 @@ $back-ground-color: white;
 }
 #option-or {
   // border: solid 1px black;
-  margin: 4px 0 4px 0;
+  margin: 20px 0 20px 0;
   padding: 0;
   font-size: 15px;
   text-align: center;
@@ -21,7 +21,7 @@ $back-ground-color: white;
   /*height: 300px;*/
   box-shadow: 0 0 5px 1px rgb(236, 230, 230);
   // border: solid 1px red;
-  margin: 4px 0 4px 0;
+  margin: 20px 0 20px 0;
   h2 {
     font-family: 'Quicksand', sans-serif;
     text-align: center;
@@ -34,7 +34,7 @@ $back-ground-color: white;
   // border: solid 1px black;
   box-shadow: 0 0 5px 1px rgb(236, 230, 230);
   border: solid 1px rgb(236, 230, 230);
-  margin: 4px 0 0 0;
+  margin: 20px 0 20px 0;
   border-radius: 10px;
   font-size: 15px;
   display: flex;
@@ -73,7 +73,7 @@ a {
 }
 #not-member {
   font-size: 15px;
-  margin: 4px 0 0 0;
+  margin: 20px 0 0 0;
   // border: solid 1px black
   color: #556a7b;
   text-align: center;
@@ -94,7 +94,7 @@ a {
   display: flex;
   padding: 1px;
   // border: solid 1px blue;
-  margin: 0 0 4px 0;
+  margin: 0 0 20px 0;
   button {
     font-size: 15px;
     /* margin-right: 5px;*/
@@ -104,6 +104,8 @@ a {
     flex: 1;
     padding: 8px;
     background-color: #3d9970;
+
+    box-shadow: 0 0 5px 0 #3d9970;
     // border: solid 1px royalblue;
     outline: none;
     transition: all 0.5s;
