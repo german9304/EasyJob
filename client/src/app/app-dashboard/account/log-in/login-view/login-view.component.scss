@@ -5,9 +5,12 @@ $back-ground-color: white;
   //  border: solid 1px rgb(206, 24, 24);
 }
 #option-or {
-  //  border: solid 1px black;
-  margin: 8px 0 8px 0;
+  // border: solid 1px black;
+  margin: 4px 0 4px 0;
+  padding: 0;
   font-size: 15px;
+  text-align: center;
+  color: #556a7b;
 }
 
 #login-form {
@@ -17,7 +20,8 @@ $back-ground-color: white;
   padding: 15px 10px 10px 10px;
   /*height: 300px;*/
   box-shadow: 0 0 5px 1px rgb(236, 230, 230);
-  //border: solid 1px red;
+  // border: solid 1px red;
+  margin: 4px 0 4px 0;
   h2 {
     font-family: 'Quicksand', sans-serif;
     text-align: center;
@@ -30,7 +34,7 @@ $back-ground-color: white;
   // border: solid 1px black;
   box-shadow: 0 0 5px 1px rgb(236, 230, 230);
   border: solid 1px rgb(236, 230, 230);
-  margin: 0;
+  margin: 4px 0 0 0;
   border-radius: 10px;
   font-size: 15px;
   display: flex;
@@ -57,10 +61,10 @@ $back-ground-color: white;
   }
 }
 
-p {
-  text-align: center;
-  color: #556a7b;
-}
+// p {
+//   text-align: center;
+//   color: #556a7b;
+// }
 a {
   font-family: 'Quicksand', sans-serif;
   text-decoration: none;
@@ -69,8 +73,10 @@ a {
 }
 #not-member {
   font-size: 15px;
-  margin: 8px 0 0 0;
-  // border: solid 1px black;
+  margin: 4px 0 0 0;
+  // border: solid 1px black
+  color: #556a7b;
+  text-align: center;
   font-family: 'Quicksand', sans-serif;
 }
 #not-member a:hover {
@@ -86,9 +92,9 @@ a {
 
 .container.jobseeker {
   display: flex;
-  padding: 0;
+  padding: 1px;
   // border: solid 1px blue;
-  margin: 0 0 8px 0;
+  margin: 0 0 4px 0;
   button {
     font-size: 15px;
     /* margin-right: 5px;*/
