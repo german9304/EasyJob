@@ -1,6 +1,6 @@
 /build
 
-server/client-auth.ts
+/server/client-auth.ts
 
 /node_modules
 

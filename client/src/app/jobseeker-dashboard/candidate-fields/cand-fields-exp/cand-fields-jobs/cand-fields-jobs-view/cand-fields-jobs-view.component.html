@@ -1,11 +1,9 @@
 <div class="candidate-sections">
   <section class="section section-resume">
-    <header class="section-header resume">
-      <h2>Resume</h2>
-      <span class="resume-upload">
-        <span class="icon add-resume">
-          <i class="material-icons"> add </i>
-        </span>
+    <header class="section-header resume header-icon">
+      <h1>Resume</h1>
+      <div class="icon-style resume-upload" id="add-icon-resume">
+        <span class="add-resume"> <i class="material-icons"> add </i> </span>
         <input
           type="file"
           (input)="fileSubmit($event)"
@@ -13,7 +11,7 @@
           name="file"
           id="file-upload"
         />
-      </span>
+      </div>
     </header>
     <div class="section-content">
       <app-candidate-files
@@ -24,12 +22,13 @@
   </section>
 
   <section class="section section-experience">
-    <header class="section-header experience">
-      <h2>Experience</h2>
+    <header class="section-header experience header-icon">
+      <h1>Experience</h1>
       <a
         class="add field-experience"
         routerLink="./create/experience"
         routerLinkActive="active"
+        class="icon-style"
       >
         <span class="icon add-experience">
           <i class="material-icons"> add </i>
@@ -47,12 +46,13 @@
   </section>
 
   <section class="section section-education">
-    <header class="section-header education">
-      <h2>Education</h2>
+    <header class="section-header education header-icon">
+      <h1>Education</h1>
       <a
         class="add field-education"
         routerLink="./create/education"
         routerLinkActive="active"
+        class="icon-style"
       >
         <span class="icon add-education">
           <i class="material-icons"> add </i>
