@@ -82,16 +82,12 @@
       margin: 8px 0 0 0;
       span {
         // border: solid 1px red;
-        cursor: pointer;
         color: #8c9194;
         font-family: 'Muli', sans-serif;
         font-weight: 400;
         font-size: 18px;
         display: block;
         transition: all 0.5s;
-      }
-      span:hover {
-        color: #001f3f;
       }
     }
   }
