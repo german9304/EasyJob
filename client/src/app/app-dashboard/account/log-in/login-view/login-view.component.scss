@@ -2,9 +2,12 @@ $back-ground-color: white;
 
 .form-container {
   margin: 20px 0 0 0;
- //  border: solid 1px rgb(206, 24, 24);
+  //  border: solid 1px rgb(206, 24, 24);
 }
-
+#option-or {
+  // border: solid 1px black;
+  margin: 8px 0 8px 0;
+}
 #login-form {
   width: 400px;
   border: solid 1px rgb(236, 230, 230);
@@ -23,6 +26,7 @@ $back-ground-color: white;
   padding: 8px;
   background-color: white;
   // border: solid 1px black;
+  margin: 0;
   border-radius: 10px;
   font-size: 15px;
   display: flex;
@@ -60,7 +64,7 @@ a {
 }
 #not-member {
   font-size: 15px;
-  margin: 0;
+  margin: 8px 0 0 0;
   // border: solid 1px black;
   font-family: 'Quicksand', sans-serif;
 }
@@ -78,8 +82,8 @@ a {
 .container.jobseeker {
   display: flex;
   padding: 0;
-  /*border: solid 1px blue;*/
-  margin: 0 0 20px 0;
+  // border: solid 1px blue;
+  margin: 0 0 8px 0;
   button {
     font-size: 15px;
     /* margin-right: 5px;*/
