@@ -3,8 +3,17 @@
 }
 
 .menu {
+  display: flex;
   border: solid 2px black;
   .items {
+    display: flex;
     border: solid 2px brown;
+    li {
+      border: solid 2px blue;
+    }
   }
+}
+
+.inpt-search {
+  border: solid 1px black;
 }
