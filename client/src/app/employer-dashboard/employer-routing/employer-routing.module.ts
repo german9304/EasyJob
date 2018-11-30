@@ -1,15 +1,15 @@
-import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
-import { RouterModule, Routes } from "@angular/router";
-import { EmployerDashboardComponent } from "../dashboard/dashboard.component";
-import { EmployerNavbarComponent } from "../employer-navbar/employer-navbar.component";
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router';
+import { EmployerDashboardComponent } from '../dashboard/dashboard.component';
+import { EmployerNavbarComponent } from '../employer-navbar/employer-navbar.component';
 const appRoutes: Routes = [
   {
-    path: "employer",
+    path: 'employer',
     component: EmployerNavbarComponent,
     children: [
       {
-        path: "",
+        path: '',
         component: EmployerDashboardComponent
       }
     ]
