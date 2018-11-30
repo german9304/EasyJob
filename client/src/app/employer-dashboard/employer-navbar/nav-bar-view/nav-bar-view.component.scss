@@ -4,16 +4,29 @@
 
 .menu {
   display: flex;
-  border: solid 2px black;
+  padding: 0;
+  flex: 1;
+  border: solid 2px green;
   .items {
+    margin: 0;
+    padding: 0;
     display: flex;
     border: solid 2px brown;
+    flex: 1;
+    justify-content: center;
     li {
+      flex-basis: 100px;
+      padding: 0;
+      list-style: none;
       border: solid 2px blue;
+    }
+    a {
+      text-decoration: none;
     }
   }
 }
 
 .inpt-search {
+  padding: 0;
   border: solid 1px black;
 }
