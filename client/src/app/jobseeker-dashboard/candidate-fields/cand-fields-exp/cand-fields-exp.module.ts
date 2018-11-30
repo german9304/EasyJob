@@ -18,7 +18,7 @@ import { CandidateFilesComponent } from './candidate-files/candidate-files.compo
 import { CandidateResumeComponent } from './candidate-files/candidate-resume/candidate-resume.component';
 @NgModule({
   imports: [
-    CommonModule, ReactiveFormsModule, RouterModule, ExpEduResFieldsRoutingModule
+    CommonModule, ReactiveFormsModule, RouterModule, /*ExpEduResFieldsRoutingModule*/
   ],
   declarations: [
     CandExpEduResComponent ,
@@ -32,6 +32,6 @@ import { CandidateResumeComponent } from './candidate-files/candidate-resume/can
     CandidateFilesComponent,
     CandidateResumeComponent
   ],
-  exports: [ CandExpEduResComponent ]
+  exports: [ CandExpEduResComponent, /*NewExperienceComponent, NewEducationComponent*/ ]
 })
 export class CandFieldsExpModule { }

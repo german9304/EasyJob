@@ -1,0 +1,68 @@
+<div class="candidate-sections">
+  <section class="section section-resume">
+    <header class="section-header resume header-icon">
+      <h1>Resume</h1>
+      <div class="icon-style resume-upload" id="add-icon-resume">
+        <span class="add-resume"> <i class="material-icons"> add </i> </span>
+        <input
+          type="file"
+          (input)="fileSubmit($event)"
+          [formControl]="file"
+          name="file"
+          id="file-upload"
+        />
+      </div>
+    </header>
+    <div class="section-content">
+      <app-candidate-files
+        [fileInfo]="fileInfo"
+        *ngIf="fileInfo"
+      ></app-candidate-files>
+    </div>
+  </section>
+
+  <section class="section section-experience">
+    <header class="section-header experience header-icon">
+      <h1>Experience</h1>
+      <a
+        class="add field-experience"
+        routerLink="./create/experience"
+        routerLinkActive="active"
+        class="icon-style"
+      >
+        <span class="icon add-experience">
+          <i class="material-icons"> add </i>
+        </span>
+      </a>
+    </header>
+    <div class="section-content">
+      <div class="experience-list">
+        <app-experience-list
+          [EXPERIENCE]="experience"
+          [trackById]="trackByExp"
+        ></app-experience-list>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-education">
+    <header class="section-header education header-icon">
+      <h1>Education</h1>
+      <a
+        class="add field-education"
+        routerLink="./create/education"
+        routerLinkActive="active"
+        class="icon-style"
+      >
+        <span class="icon add-education">
+          <i class="material-icons"> add </i>
+        </span>
+      </a>
+    </header>
+    <div class="section-content">
+      <div class="education-list">
+        <app-education-list [EDUCATION]="education"></app-education-list>
+      </div>
+    </div>
+  </section>
+</div>

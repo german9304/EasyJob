@@ -29,7 +29,6 @@ import { CandidateFilesService } from '../../../services/candidate-files.service
        (fileChosen)="uploadFile($event)"
        [fileInfo]="fileService.fileInfo">
       </app-cand-fields-jobs-view>
-      <router-outlet></router-outlet>
     </div>
   `,
   styleUrls: [

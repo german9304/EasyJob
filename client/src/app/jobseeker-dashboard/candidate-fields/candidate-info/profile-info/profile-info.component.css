@@ -1,0 +1,72 @@
+/* header {
+  border: solid 1px blue;
+} */
+
+/* .section-content {
+  display: flex;
+  border: solid 1px black;
+} */
+/* .section-content > div {
+  flex: 1;
+} */
+/* .item {
+  border: solid 1px brown;
+} */
+/* .profile-header {
+  border: solid 1px rosybrown;
+}
+.profile-header span {
+  border: solid 1px blue;
+} */
+/* h1 {
+  border: solid 1px red;
+} */
+.items {
+  padding: 0;
+  /* border: solid 1px red; */
+}
+/* .item {
+  border: solid 1px black;
+  padding: 5px;
+} */
+/* .profile {
+  border: solid 1px black;
+}
+
+.section-header h1 {
+  border: solid 1px blueviolet;
+} */
+.section-header {
+  /* border: solid 1px royalblue; */
+  display: flex;
+  flex-direction: column;
+}
+.section-header #img-avatar {
+  align-self: center;
+}
+.profile-candidate .item {
+  /* border: solid 1px black; */
+  display: flex;
+  justify-content: center;
+}
+.items span {
+  /* display: block; */
+  /* border: solid 1px red; */
+  /* border: solid 1px black; */
+  margin: 0;
+  padding: 0 0 5px 0;
+  /* font-size: 1rem; */
+}
+.section-header #img-avatar {
+  /* border-radius: 10px; */
+  /* display: flex;
+  justify-content: center; */
+  width: 80px;
+  margin: 8px 0 0 0;
+  /* display: block; */
+  /* border: solid 1px black; */
+}
+.section-header #img {
+  width: 100%;
+  border-radius: 30px;
+}
