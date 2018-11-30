@@ -5,10 +5,11 @@ import { EmployerRoutingModule } from "./employer-routing/employer-routing.modul
 import { DashboardViewComponent } from "./dashboard/dashboard-view/dashboard-view.component";
 import { EmployerNavbarComponent } from './employer-navbar/employer-navbar.component';
 import { NavBarViewComponent } from './employer-navbar/nav-bar-view/nav-bar-view.component';
+import { ProfileDashboardComponent } from './profile-dashboard/profile-dashboard.component';
 
 @NgModule({
   imports: [CommonModule, EmployerRoutingModule],
-  declarations: [EmployerDashboardComponent, DashboardViewComponent, EmployerNavbarComponent, NavBarViewComponent],
+  declarations: [EmployerDashboardComponent, DashboardViewComponent, EmployerNavbarComponent, NavBarViewComponent, ProfileDashboardComponent],
   exports: [EmployerDashboardComponent]
 })
 export class EmployerDashboardModule {}
