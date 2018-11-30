@@ -1,4 +1,9 @@
 .search-bar {
   padding: 0;
   border: solid 1px blueviolet;
+  display: flex;
+  align-items: center;
+}
+.material-icons {
+  border: solid 1px black;
 }

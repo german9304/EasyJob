@@ -14,6 +14,7 @@
     border: solid 2px brown;
     flex: 2;
     justify-content: center;
+    align-items: center;
     li {
       flex-basis: 150px;
       padding: 0;
@@ -27,10 +28,10 @@
       text-decoration: none;
       border: solid 1px red;
     }
+    .inpt-search {
+      padding: 0;
+      flex-basis: 180px;
+      border: solid 1px black;
+    }
   }
-}
-
-.inpt-search {
-  padding: 0;
-  border: solid 1px black;
 }
