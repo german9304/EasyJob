@@ -2,21 +2,22 @@
   <!-- {{selectedClasses | json}} -->
   <nav class="menu">
     <div class="search-bar">
-      <input type="text" id="search" class="text" placeholder="Search" />
-      <input type="text" id="address" class="text" placeholder="City, Zip" />
+      <input
+        type="text"
+        id="search"
+        class="text"
+        placeholder="Search for candidates"
+      />
       <i class="material-icons"> search </i>
     </div>
     <ul class="items">
       <li class="item item1">
-        <a routerLink="./saved-jobs" routerLinkActive="active"> My Jobs </a>
+        <a routerLink="./saved-jobs" routerLinkActive="active"> Dashboard </a>
       </li>
       <li class="item item2">
         <a routerLink="./suggested-jobs" routerLinkActive="active">
-          Jobs For You
+          Candidates
         </a>
-      </li>
-      <li class="item item3">
-        <a routerLink="#" routerLinkActive="active"> Applied Jobs</a>
       </li>
       <li class="jobseeker-profile-menu">
         <app-profile-dashboard></app-profile-dashboard>
