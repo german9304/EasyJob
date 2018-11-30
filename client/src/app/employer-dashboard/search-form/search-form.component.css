@@ -3,6 +3,7 @@
   border: solid 1px blueviolet;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .material-icons {
   border: solid 1px black;
