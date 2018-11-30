@@ -1,10 +1,10 @@
 .search-bar {
   padding: 0;
-  border: solid 1px blueviolet;
+  /* border: solid 1px blueviolet; */
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.material-icons {
+/* .material-icons {
   border: solid 1px black;
-}
+} */
