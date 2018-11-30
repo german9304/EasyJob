@@ -7,10 +7,11 @@ import { EmployerNavbarComponent } from './employer-navbar/employer-navbar.compo
 import { NavBarViewComponent } from './employer-navbar/nav-bar-view/nav-bar-view.component';
 import { ProfileDashboardComponent } from './profile-dashboard/profile-dashboard.component';
 import { SearchFormComponent } from './search-form/search-form.component';
+import { PostJobComponent } from './post-job/post-job.component';
 
 @NgModule({
   imports: [CommonModule, EmployerRoutingModule],
-  declarations: [EmployerDashboardComponent, DashboardViewComponent, EmployerNavbarComponent, NavBarViewComponent, ProfileDashboardComponent, SearchFormComponent],
+  declarations: [EmployerDashboardComponent, DashboardViewComponent, EmployerNavbarComponent, NavBarViewComponent, ProfileDashboardComponent, SearchFormComponent, PostJobComponent],
   exports: [EmployerDashboardComponent]
 })
 export class EmployerDashboardModule {}
