@@ -1,6 +1,7 @@
-.employer-container {
-  border: solid 2px red;
-}
+// .employer-container {
+//   //   border: solid 2px red;
+//   display: flex;
+// }
 
 .menu {
   display: flex;
@@ -11,8 +12,8 @@
     margin: 0;
     padding: 0;
     display: flex;
-    border: solid 2px brown;
-    flex: 2;
+    // border: solid 2px brown;
+    flex: 1;
     justify-content: center;
     align-items: center;
     li {
@@ -39,4 +40,7 @@
       border: solid 1px black;
     }
   }
+}
+.employer-profile {
+  border: solid 1px black;
 }
