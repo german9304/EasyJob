@@ -8,10 +8,11 @@ import { NavBarViewComponent } from './employer-navbar/nav-bar-view/nav-bar-view
 import { ProfileDashboardComponent } from './profile-dashboard/profile-dashboard.component';
 import { SearchFormComponent } from './search-form/search-form.component';
 import { PostJobComponent } from './post-job/post-job.component';
+import { CandidatesComponent } from './candidates/candidates.component';
 
 @NgModule({
   imports: [CommonModule, EmployerRoutingModule],
-  declarations: [EmployerDashboardComponent, DashboardViewComponent, EmployerNavbarComponent, NavBarViewComponent, ProfileDashboardComponent, SearchFormComponent, PostJobComponent],
+  declarations: [EmployerDashboardComponent, DashboardViewComponent, EmployerNavbarComponent, NavBarViewComponent, ProfileDashboardComponent, SearchFormComponent, PostJobComponent, CandidatesComponent],
   exports: [EmployerDashboardComponent]
 })
 export class EmployerDashboardModule {}
