@@ -1,5 +1,5 @@
 .post-job-container {
-  border: solid 1px blue;
+  /* border: solid 1px blue; */
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -8,31 +8,33 @@
 .post-form-section {
   width: 800px;
   margin: 100px 0 0 0;
-  border: solid 1px black;
+  /* border: solid 1px black; */
   background-color: white;
   padding: 10px;
 }
-.post-form-section input {
-  border: solid 1px black;
+input {
+  /* border: solid 1px black; */
   box-sizing: border-box;
   width: 100%;
   padding: 15px 5px 15px 5px;
   font-size: 15px;
   font-family: 'Muli', sans-serif;
   font-weight: 300;
+  border: solid 1px #001f3f;
 }
 .section-content > * {
   font-size: 15px;
 }
 label {
-  border: solid 1px black;
+  /* border: solid 1px black; */
   font-family: 'Muli', sans-serif;
   font-weight: 300;
 }
 .post-form-header {
-  border: solid 1px black;
+  /* border: solid 1px black; */
   font-size: 20px;
   font-family: 'Muli', sans-serif;
+  margin: 0 0 10px 0;
 }
 .post-job-row {
   display: flex;
@@ -41,9 +43,9 @@ label {
 .post-job-row > * {
   flex: 1;
 }
-.post-job-row row2 {
+/* .post-job-row row2 {
   border: solid 1px brown;
 }
 .post-col {
   border: solid 2px green;
-}
+} */

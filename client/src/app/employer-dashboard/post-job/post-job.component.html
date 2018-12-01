@@ -3,38 +3,8 @@
     <header class="post-form-header">Post a Job</header>
     <div class="section-content">
       <form action="">
-        <div class="post-job-row row1">
-          <div class="post-col col1">
-            <label for="title"> Job title</label>
-            <input type="text" id="title" class="input job-title" />
-          </div>
-          <div class="post-col col2">
-            <label for="location"> Location</label>
-            <input type="text" id="location" class="input job-location" />
-          </div>
-          <div class="post-col col3">
-            <label for="category"> Category</label>
-            <input type="text" id="category" class="input job-category" />
-          </div>
-        </div>
-        <div class="post-job-row row2">
-          <div class="post-col col1">
-            <label for="company" class="company-label"> Company</label>
-            <input type="text" id="company" class="input company-name" />
-          </div>
-          <div class="post-col col2">
-            <label for="industry" class="company-label">
-              Company industry</label
-            >
-            <input type="text" id="industry" class="input company-industry" />
-          </div>
-          <div class="post-col col2">
-            <label for="why" class="company-label">
-              Reason to work at this company</label
-            >
-            <input type="text" id="why" class="input company-why" />
-          </div>
-        </div>
+        <app-form-row1></app-form-row1>
+        <app-form-row2></app-form-row2>
       </form>
     </div>
   </section>
