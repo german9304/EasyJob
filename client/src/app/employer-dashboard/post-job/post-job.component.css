@@ -20,7 +20,10 @@ input {
   font-size: 15px;
   font-family: 'Muli', sans-serif;
   font-weight: 300;
-  border: solid 1px #001f3f;
+  border: solid 1px #3d9970;
+}
+input:focus {
+  outline-color: #3d9970;
 }
 .section-content > * {
   font-size: 15px;
@@ -49,3 +52,16 @@ label {
 .post-col {
   border: solid 2px green;
 } */
+/* .row1 {
+  border: solid 1px red;
+} */
+.col1 {
+  margin: 0 15px 15px 0;
+}
+.col2 {
+  margin: 0 15px 0 15px;
+}
+
+.col3 {
+  margin: 0 0 0 15px;
+}
