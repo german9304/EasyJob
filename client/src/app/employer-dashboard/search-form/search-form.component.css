@@ -11,14 +11,14 @@
   /* border: solid 1px black; */
   display: flex;
   cursor: pointer;
-  background-color: #aaaaaa;
+  background-color: #aaaaaaa6;
 }
 .material-icons {
   padding: 0 5px 0 5px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: #001f3f;
   flex: 1;
   /* border: solid 1px white; */
 }
