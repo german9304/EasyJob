@@ -8,3 +8,26 @@
 /* .material-icons {
   border: solid 1px black;
 } */
+
+input {
+  /* // display: block; */
+  font-family: 'Raleway', sans-serif;
+  /* //padding: 6px 10px 6px 10px; */
+  font-size: 15px;
+  width: 100%;
+  flex: 1;
+  margin: 0 5px 0 0;
+
+  /* // font-size: 10px; */
+  box-sizing: border-box;
+  font-weight: 400;
+  /* // outline-width: 2px;
+  // border: solid 1px #dddddd; */
+  transition: all 0.9s;
+  /* // color: white; */
+  outline: none;
+  border: none;
+  padding: 10px;
+  background-color: #dddddd;
+  /* // outline: solid 2px; */
+}
