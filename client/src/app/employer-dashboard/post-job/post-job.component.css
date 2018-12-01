@@ -10,7 +10,7 @@
   margin: 100px 0 0 0;
   /* border: solid 1px black; */
   background-color: white;
-  padding: 10px;
+  padding: 15px;
 }
 input {
   /* border: solid 1px black; */
@@ -22,6 +22,24 @@ input {
   font-weight: 300;
   border: solid 1px #3d9970;
 }
+textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px 5px 15px 5px;
+  font-size: 15px;
+  font-family: 'Muli', sans-serif;
+  font-weight: 300;
+  border: solid 1px #3d9970;
+}
+select {
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 16px;
+  padding: 15px;
+  font-family: 'Muli', sans-serif;
+  font-weight: 300;
+}
+
 input:focus {
   outline-color: #3d9970;
 }
@@ -32,6 +50,8 @@ label {
   /* border: solid 1px black; */
   font-family: 'Muli', sans-serif;
   font-weight: 300;
+  margin: 0 0 5px 0;
+  display: block;
 }
 .post-form-header {
   /* border: solid 1px black; */
@@ -64,4 +84,28 @@ label {
 
 .col3 {
   margin: 0 0 0 15px;
+}
+/* .row2 > * {
+  flex: 1;
+}
+.row2 .col3 {
+  flex: 2;
+} */
+
+/* .row3 {
+  border: solid 1px black;
+} */
+/* .row3 .col1 {
+  border: solid 1px black;
+} */
+
+.description.post-job-row.row3 {
+  /* border: solid 1px blue; */
+  display: flex;
+  padding: 0;
+  flex: 1;
+  margin: 0 0 10px 0;
+}
+.description.post-job-row.row3 .col1 {
+  margin: 0;
 }
