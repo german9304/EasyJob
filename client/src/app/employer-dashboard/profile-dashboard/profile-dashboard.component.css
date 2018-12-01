@@ -6,7 +6,7 @@
   padding: 0;
   /* padding: 20px;
   order: solid 1px gray; */
-  /* display: none; */
+  display: none;
 }
 .profile-menu {
   box-shadow: 0 0 5px 1px #dddddd;
