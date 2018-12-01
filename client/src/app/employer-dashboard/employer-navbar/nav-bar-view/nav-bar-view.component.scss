@@ -1,6 +1,7 @@
 .employer-container {
   //   border: solid 2px red;
   padding: 8px 40px 8px 40px;
+  font-size: 16px;
   background-color: #3d9970;
 }
 
@@ -24,7 +25,7 @@
       list-style: none;
       //   border: solid 2px blue;
       //   .app.profile {
-      border: solid 1px white;
+      // border: solid 1px white;
       //   }
       display: flex;
     }
@@ -41,6 +42,7 @@
     }
     a span {
       //   border: solid 1px black;
+
       display: block;
     }
     a:hover {
@@ -60,10 +62,18 @@
   }
 }
 .employer-profile {
-  border: solid 1px white;
+  // border: solid 1px blue;
   position: relative;
+  display: flex;
+  // justify-content: center;
+  // align-items: center;
   .open-menu {
     display: flex;
+    flex: 1;
+    // border: solid 1px white;
+    color: white;
+    justify-content: center;
+    align-items: center;
   }
 }
 // .employer-profile > * {

@@ -7,6 +7,9 @@
   /* align-items: center; */
   /* justify-content: center; */
 }
+/* .inpt-search-form {
+  border: solid 1px white;
+} */
 .icon-container {
   /* border: solid 1px black; */
   display: flex;
@@ -41,6 +44,9 @@ input {
   outline: none;
   border: none;
   padding: 10px;
-  /* background-color: #3d9932; */
+  background-color: #dddddd;
   /* // outline: solid 2px; */
+}
+input:focus {
+  background-color: white;
 }
