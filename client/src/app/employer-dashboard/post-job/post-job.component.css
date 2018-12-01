@@ -4,10 +4,9 @@
   justify-content: center;
   align-items: flex-start;
   height: 100vh;
-  font-size: 15px;
 }
 .post-form-section {
-  flex-basis: 500px;
+  width: 800px;
   margin: 100px 0 0 0;
   border: solid 1px black;
   background-color: white;
@@ -18,6 +17,12 @@
   box-sizing: border-box;
   width: 100%;
   padding: 15px 5px 15px 5px;
+  font-size: 15px;
+  font-family: 'Muli', sans-serif;
+  font-weight: 300;
+}
+.section-content > * {
+  font-size: 15px;
 }
 label {
   border: solid 1px black;
@@ -26,10 +31,15 @@ label {
 }
 .post-form-header {
   border: solid 1px black;
+  font-size: 20px;
+  font-family: 'Muli', sans-serif;
 }
-.post-job-row.row1 {
+.post-job-row {
   display: flex;
-  border: solid 1px gray;
+  /* border: solid 1px greenyellow; */
+}
+.post-job-row > * {
+  flex: 1;
 }
 .post-job-row row2 {
   border: solid 1px brown;
