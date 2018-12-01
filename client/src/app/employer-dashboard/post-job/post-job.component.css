@@ -4,6 +4,8 @@
   justify-content: center;
   align-items: flex-start;
   height: 100vh;
+  font-family: 'Muli', sans-serif;
+  font-weight: 300;
 }
 .post-form-section {
   width: 800px;
@@ -37,10 +39,6 @@ textarea:focus {
 select {
   box-sizing: border-box;
   width: 100%;
-  font-size: 16px;
-  padding: 15px;
-  font-family: 'Muli', sans-serif;
-  font-weight: 300;
 }
 
 input:focus {
@@ -111,4 +109,21 @@ label {
 }
 .description.post-job-row.row3 .col1 {
   margin: 0;
+}
+
+/* .submit-btn {
+  border: solid 1px black;
+} */
+#btn {
+  cursor: pointer;
+  background-color: #3d9970;
+  color: white;
+  font-size: 20px;
+  font-family: 'Muli', sans-serif;
+  font-weight: 300;
+  padding: 15px 20px 15px 20px;
+  border-radius: 10px;
+}
+#btn:hover {
+  background-color: #3d9932;
 }
