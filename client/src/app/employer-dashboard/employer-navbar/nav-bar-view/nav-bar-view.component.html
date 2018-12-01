@@ -3,15 +3,15 @@
   <nav class="menu">
     <ul class="items">
       <li class="item item1">
-        <a routerLink="#" routerLinkActive="active">
+        <a routerLink="./" routerLinkActive="active">
           <span> Dashboard</span>
         </a>
       </li>
       <li class="item item2">
-        <a href=""> <span> Post a job</span></a>
+        <a routerLink="./post-job"> <span> Post a job</span></a>
       </li>
       <li class="item item2">
-        <a routerLink="#" routerLinkActive="active">
+        <a routerLink="./candidates" routerLinkActive="active">
           <span>Candidates</span>
         </a>
       </li>
@@ -20,8 +20,12 @@
       </li>
     </ul>
     <div class="employer-profile">
-      <div class="app profile">profile app</div>
-      <!-- <app-profile-dashboard></app-profile-dashboard> -->
+      <!-- <div class="app profile">profile app</div> -->
+      <div class="open-menu">
+        <div class="item ">Me</div>
+        <i class="material-icons "> expand_more </i>
+      </div>
+      <app-profile-dashboard></app-profile-dashboard>
     </div>
   </nav>
 </div>

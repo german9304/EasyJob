@@ -24,7 +24,7 @@
       list-style: none;
       //   border: solid 2px blue;
       //   .app.profile {
-      //   border: solid 1px white;
+      border: solid 1px white;
       //   }
       display: flex;
     }
@@ -59,6 +59,15 @@
     }
   }
 }
-// .employer-profile {
-//   border: solid 1px black;
+.employer-profile {
+  border: solid 1px white;
+  position: relative;
+  .open-menu {
+    display: flex;
+  }
+}
+// .employer-profile > * {
+//   position: absolute;
+//   top: 50px;
+//   right: 30px;
 // }
