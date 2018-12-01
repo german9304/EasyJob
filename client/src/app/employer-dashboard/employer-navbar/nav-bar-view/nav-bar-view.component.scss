@@ -14,7 +14,7 @@
     margin: 0;
     padding: 0;
     display: flex;
-    border: solid 2px brown;
+    // border: solid 2px brown;
     flex: 1;
     justify-content: center;
 
@@ -22,9 +22,9 @@
       flex-basis: 120px;
       padding: 0;
       list-style: none;
-      border: solid 2px blue;
+      //   border: solid 2px blue;
       //   .app.profile {
-      // border: solid 1px white;
+      //   border: solid 1px white;
       //   }
       display: flex;
     }
@@ -33,7 +33,7 @@
       justify-content: center;
       text-decoration: none;
       align-items: center;
-      border: solid 1px red;
+      //   border: solid 1px red;
       font-family: 'Raleway', sans-serif;
       color: white;
       flex: 1;
@@ -43,13 +43,22 @@
       //   border: solid 1px black;
       display: block;
     }
+    a:hover {
+      color: #dddddd;
+    }
     .inpt-search {
+      display: flex;
+      justify-content: flex-end;
       padding: 0;
-      flex-basis: 200px;
-      //   border: solid 1px black;
+      flex-basis: 280px;
+      margin: 0 0 0 20px;
+      //   border: solid 1px red;
+    }
+    .inpt-search > * {
+      flex: 1;
     }
   }
 }
-.employer-profile {
-  border: solid 1px black;
-}
+// .employer-profile {
+//   border: solid 1px black;
+// }
