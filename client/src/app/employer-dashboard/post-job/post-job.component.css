@@ -132,8 +132,8 @@ label {
   /* border: solid 1px black; */
   display: flex;
   /* align-items: center; */
-  justify-content: space-between;
-  width: 230px;
+  /* justify-content: space-between; */
+  width: 300px;
 }
 /* .form-content > * {
   border: solid 1px blue;
@@ -151,6 +151,7 @@ label {
   /* border: solid 1px black; */
   display: flex;
   align-items: center;
+  /* flex: 1; */
 }
 
 .btn-frm-add-skill .material-icons {
@@ -161,11 +162,16 @@ label {
   font-weight: 300;
   border-radius: 4px;
   cursor: pointer;
-  padding: 3px;
+  padding: 4px;
   background-color: #3d9970;
 }
+.inpt-form {
+  flex: 1;
+  margin: 0 5px 0 0;
+  /* border: solid 1px black; */
+}
 .inpt-form input {
-  padding: 8px;
+  padding: 10px;
 }
 /* .form.add-skill .btn-frm-add-skill {
   border: solid 1px blue;
