@@ -12,10 +12,11 @@ import { CandidatesComponent } from './candidates/candidates.component';
 import { FormRow1Component } from './post-job/form-row1/form-row1.component';
 import { FormRow2Component } from './post-job/form-row2/form-row2.component';
 import { JobListComponent } from './job-list/job-list.component';
+import { CandidateListComponent } from './candidate-list/candidate-list.component';
 
 @NgModule({
   imports: [CommonModule, EmployerRoutingModule],
-  declarations: [EmployerDashboardComponent, DashboardViewComponent, EmployerNavbarComponent, NavBarViewComponent, ProfileDashboardComponent, SearchFormComponent, PostJobComponent, CandidatesComponent, FormRow1Component, FormRow2Component, JobListComponent],
+  declarations: [EmployerDashboardComponent, DashboardViewComponent, EmployerNavbarComponent, NavBarViewComponent, ProfileDashboardComponent, SearchFormComponent, PostJobComponent, CandidatesComponent, FormRow1Component, FormRow2Component, JobListComponent, CandidateListComponent],
   exports: [EmployerDashboardComponent]
 })
 export class EmployerDashboardModule {}

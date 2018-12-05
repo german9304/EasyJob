@@ -3,12 +3,18 @@
   <nav class="menu">
     <ul class="items">
       <li class="item item1">
-        <a routerLink="./" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-          <span> Dashboard</span>
+        <a
+          routerLink="./"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <span> Jobs</span>
         </a>
       </li>
       <li class="item item2">
-        <a routerLink="./post-job" routerLinkActive="active"> <span> Post a job</span></a>
+        <a routerLink="./post-job" routerLinkActive="active">
+          <span> Post a job</span></a
+        >
       </li>
       <li class="item item2">
         <a routerLink="./candidates" routerLinkActive="active">
