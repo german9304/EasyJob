@@ -113,16 +113,60 @@ label {
 /* .submit-btn {
   border: solid 1px black;
 } */
-#btn {
+.btn {
   cursor: pointer;
   background-color: #3d9970;
   color: white;
-  font-size: 20px;
   font-family: 'Muli', sans-serif;
   font-weight: 300;
-  padding: 15px 20px 15px 20px;
-  border-radius: 10px;
 }
-#btn:hover {
+.btn:hover {
   background-color: #3d9932;
 }
+.submit-btn .btn {
+  padding: 15px 20px 15px 20px;
+  font-size: 20px;
+  border-radius: 10px;
+}
+.form.add-skill .form-content {
+  /* border: solid 1px black; */
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-between;
+  width: 230px;
+}
+/* .form-content > * {
+  border: solid 1px blue;
+} */
+/* .form.add-skill > * {
+  border: solid 1px blue;
+} */
+/* .form.add-skill .inpt-form {
+  flex: 1;
+}
+.btn-frm-add-skill {
+  flex: 2;
+} */
+.btn-frm-add-skill {
+  /* border: solid 1px black; */
+  display: flex;
+  align-items: center;
+}
+
+.btn-frm-add-skill .material-icons {
+  /* border: solid 1px blue; */
+  color: white;
+  flex: 1;
+  font-size: 1.8em;
+  font-weight: 300;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 3px;
+  background-color: #3d9970;
+}
+.inpt-form input {
+  padding: 8px;
+}
+/* .form.add-skill .btn-frm-add-skill {
+  border: solid 1px blue;
+} */
