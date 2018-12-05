@@ -1,20 +1,24 @@
-<section class="post-form-section">
-  <header class="post-form-header">Post a Job</header>
-  <form action="">
-    <div class="post-job-row row1">
-      <div class="post-col col1">
-        <input type="text" class="input job-title" />
-      </div>
-      <div class="post-col col2">
-        <input type="text" class="input job-location" />
-      </div>
-      <div class="post-col col3">
-        <input type="text" class="input job-category" />
-      </div>
+<div class="post-job-container">
+  <section class="post-form-section">
+    <header class="post-form-header">Post a Job</header>
+    <div class="section-content">
+      <form>
+        <app-form-row1></app-form-row1>
+        <app-form-row2></app-form-row2>
+        <div class="post-job-row row3">
+            <div class="post-col col1">
+              <label for="skills">Skills</label>
+              <input type="text" id="skills">
+            </div>
+          </div>
+        <div class="post-job-row row4">
+          <div class="post-col col1">
+            <label for="description">Job description</label>
+            <textarea name="" id="description" rows="5"></textarea>
+          </div>
+        </div>
+        <div class="submit-btn"><button id="btn">save</button></div>
+      </form>
     </div>
-    <div class="post-job-row row2">
-      <label for="" class="company-label"></label>
-      <input type="text" class="input company-name" />
-    </div>
-  </form>
-</section>
+  </section>
+</div>

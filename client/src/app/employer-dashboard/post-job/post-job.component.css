@@ -1,0 +1,128 @@
+.post-job-container {
+  /* border: solid 1px blue; */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  font-family: 'Muli', sans-serif;
+  font-weight: 300;
+}
+.post-form-section {
+  width: 800px;
+  margin: 50px 0 0 0;
+  /* border: solid 1px black; */
+  background-color: white;
+  padding: 15px;
+}
+input {
+  /* border: solid 1px black; */
+  box-sizing: border-box;
+  width: 100%;
+  padding: 15px 5px 15px 10px;
+  font-size: 15px;
+  font-family: 'Muli', sans-serif;
+  font-weight: 300;
+  border: solid 1px #3d9970;
+}
+textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px 5px 15px 10px;
+  font-size: 15px;
+  font-family: 'Muli', sans-serif;
+  font-weight: 300;
+  border: solid 1px #3d9970;
+}
+textarea:focus {
+  outline-color: #3d9970;
+}
+select {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+input:focus {
+  outline-color: #3d9970;
+}
+.section-content > * {
+  font-size: 15px;
+}
+label {
+  /* border: solid 1px black; */
+  font-family: 'Muli', sans-serif;
+  font-weight: 300;
+  margin: 0 0 5px 0;
+  display: block;
+}
+.post-form-header {
+  /* border: solid 1px black; */
+  font-size: 25px;
+  text-align: center;
+  font-family: 'Muli', sans-serif;
+  margin: 0 0 10px 0;
+}
+.post-job-row {
+  display: flex;
+  /* border: solid 1px greenyellow; */
+}
+.post-job-row > * {
+  flex: 1;
+}
+/* .post-job-row row2 {
+  border: solid 1px brown;
+}
+.post-col {
+  border: solid 2px green;
+} */
+/* .row1 {
+  border: solid 1px red;
+} */
+.col1 {
+  margin: 0 15px 0 0;
+}
+.col2 {
+  margin: 0 15px 0 15px;
+}
+
+.col3 {
+  margin: 0 0 0 15px;
+}
+.post-job-row {
+  margin: 15px 0 15px 0;
+}
+/* .row2 > * {
+  flex: 1;
+}
+.row2 .col3 {
+  flex: 2;
+} */
+
+/* .row3 {
+  border: solid 1px black;
+} */
+/* .row3 .col1 {
+  border: solid 1px black;
+} */
+
+.post-job-row.row4 .col1 {
+  margin: 0;
+}
+.post-job-row.row3 .col1 {
+  margin: 0;
+}
+/* .submit-btn {
+  border: solid 1px black;
+} */
+#btn {
+  cursor: pointer;
+  background-color: #3d9970;
+  color: white;
+  font-size: 20px;
+  font-family: 'Muli', sans-serif;
+  font-weight: 300;
+  padding: 15px 20px 15px 20px;
+  border-radius: 10px;
+}
+#btn:hover {
+  background-color: #3d9932;
+}
