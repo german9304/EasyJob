@@ -1,4 +1,7 @@
 <div class="employer navbarcontainer">
-  <app-nav-bar-view></app-nav-bar-view>
+  <app-nav-bar-view
+    (clickEmployer)="handleProfile()"
+    [isClicked]="clickedProfile"
+  ></app-nav-bar-view>
   <router-outlet></router-outlet>
 </div>

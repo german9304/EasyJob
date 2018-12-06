@@ -2,11 +2,11 @@
   /* border: solid 1px white; */
   position: absolute;
   top: 40px;
-  right: 30px;
+  right: 10px;
   padding: 0;
   /* padding: 20px;
   order: solid 1px gray; */
-  display: none;
+  /* display: none; */
 }
 .profile-menu {
   box-shadow: 0 0 5px 1px #dddddd;

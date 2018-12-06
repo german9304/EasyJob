@@ -1,5 +1,5 @@
 <div class="employer-container">
-  <!-- {{selectedClasses | json}} -->
+  <!-- {{ isClicked | json }} -->
   <nav class="menu">
     <ul class="items">
       <li class="item item1">
@@ -25,13 +25,13 @@
         <app-search-form></app-search-form>
       </li>
     </ul>
-    <div class="employer-profile">
+    <div (click)="handleEmployer()" class="employer-profile">
       <!-- <div class="app profile">profile app</div> -->
       <div class="open-menu">
         <div class="item "><span> Me</span></div>
         <i class="material-icons "> expand_more </i>
       </div>
-      <app-profile-dashboard></app-profile-dashboard>
+      <app-profile-dashboard [clicked]="isClicked"></app-profile-dashboard>
     </div>
   </nav>
 </div>

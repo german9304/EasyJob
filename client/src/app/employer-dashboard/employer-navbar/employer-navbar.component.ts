@@ -6,7 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./employer-navbar.component.scss']
 })
 export class EmployerNavbarComponent implements OnInit {
+  clickedProfile = false;
   constructor() {}
 
   ngOnInit() {}
+  handleProfile() {
+    this.clickedProfile = !this.clickedProfile;
+  }
 }
