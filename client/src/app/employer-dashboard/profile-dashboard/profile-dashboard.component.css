@@ -49,3 +49,7 @@ a:hover {
 li:hover a {
   background-color: #517bab;
 }
+
+.removeprofile {
+  display: none;
+}
