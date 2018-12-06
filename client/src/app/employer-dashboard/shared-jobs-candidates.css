@@ -11,8 +11,8 @@
       border: solid 2px rgb(230, 40, 40);
     } */
 .dashboard-sections {
-  background-color: white;
-  /* box-shadow: 0 0 3px 1px #3d9970; */
+  background-color: #ffff;
+  box-shadow: 0 0 5px 1px #dddddd;
   border: solid 1px #aaaaaa;
   width: 800px;
   padding: 15px;
