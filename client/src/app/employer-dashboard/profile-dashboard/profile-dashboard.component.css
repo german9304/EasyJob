@@ -9,10 +9,15 @@
   /* display: none; */
 }
 .profile-menu {
-  box-shadow: 0 0 5px 1px #dddddd;
+  box-shadow: 0 0 5px 2px #dddddd;
   border-radius: 2px;
-  background-color: white;
+  background-color: #fff;
+  border: solid 1px #aaaaaa;
   margin: 0;
+}
+.email-signin {
+  border-bottom: solid 1px #aaaaaa;
+  margin: 0 0 10px 0;
 }
 ul {
   /* border: solid 1px black; */
