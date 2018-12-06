@@ -1,29 +1,30 @@
 <div class="container-view-jobs">
   <div class="dashboard-sections">
     <section class="section section-filters">
-      <header class="section-header"><h1 class="header">All Jobs</h1></header>
+      <header class="section-header">
+        <h1 class="header">All Candidates</h1>
+      </header>
       <div class="section-content filter-content">
         <ul class="filter-list">
           <li class="item item1">
             <a id="all" href="#"> <span>All</span></a>
           </li>
           <li class="item item1">
-            <a id="active" href="#"> <span>Active</span></a>
+            <a id="macth" href="#"> <span>Match</span></a>
           </li>
           <li class="item item2">
-            <a id="closed" href="#"><span>Closed</span></a>
-          </li>
-          <li class="item item3">
-            <a id="draft" href="#"> <span>Draft</span> </a>
+            <a id="new" href="#"><span>New</span></a>
           </li>
         </ul>
       </div>
     </section>
     <section class="section section-jobs">
       <header class="section-header jobs">
-        <h1 class="header">No Jobs found</h1>
+        <h1 class="header">No Candidates found</h1>
       </header>
-      <div class="section-content"><app-job-list></app-job-list></div>
+      <div class="section-content">
+        <app-candidate-list></app-candidate-list>
+      </div>
     </section>
   </div>
 </div>
