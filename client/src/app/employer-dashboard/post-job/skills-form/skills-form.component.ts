@@ -12,7 +12,8 @@ export class SkillsFormComponent implements OnInit {
   @Input() parentSkills: SKILL[];
   @Output() clickSkill: EventEmitter<null> = new EventEmitter<null>();
   constructor() {}
-  handleAddSkill() {
+  handleAddSkill(i) {
+    console.log(i);
     this.clickSkill.emit(null);
   }
   ngOnInit() {}
