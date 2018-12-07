@@ -13,6 +13,7 @@
         <app-skills-form
           [parentForm]="postJobForm"
           [parentSkills]="skills"
+          (clickSkill)="handleSkill()"
         ></app-skills-form>
         <app-description-form [parentForm]="postJobForm"></app-description-form>
         <div class="submit-btn"><button class="btn">save</button></div>

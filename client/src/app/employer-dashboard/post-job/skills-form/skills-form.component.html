@@ -3,10 +3,10 @@
     <label for="inpt-skills">Skills</label>
     <div class="skills-container">
       <ul class="skills">
-        <li *ngFor="let skill of parentSkills">
-          <span class="span-skill-job"> {{ skill }} </span>
-          <span class="remove-skill"
-            ><i class="material-icons"> clear </i>
+        <li *ngFor="let skill of parentSkills; let i = index">
+          <span class="span-skill-job"> {{ skill.skill }} </span>
+          <span class="remove-skill">
+            <i class="material-icons"> clear </i>
           </span>
         </li>
       </ul>
@@ -19,7 +19,9 @@
           id="inpt-skills"
           formControlName="skill"
         />
-        <div class="btn-frm-add-skill"><i class="material-icons"> add </i></div>
+        <div class="btn-frm-add-skill" (click)="handleAddSkill()">
+          <i class="material-icons"> add </i>
+        </div>
       </div>
     </div>
   </div>
