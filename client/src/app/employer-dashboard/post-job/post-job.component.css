@@ -24,7 +24,9 @@ input {
   font-size: 15px;
   font-family: 'Muli', sans-serif;
   font-weight: 300;
-  border: solid 1px #3d9970;
+  border: solid 1px #181d1b;
+  /* outline-width: 1px; */
+  transition: outline 0.5s ease-in-out;
 }
 textarea {
   box-sizing: border-box;
@@ -33,10 +35,11 @@ textarea {
   font-size: 15px;
   font-family: 'Muli', sans-serif;
   font-weight: 300;
-  border: solid 1px #3d9970;
+  transition: outline 0.5s ease-in-out;
+  border: solid 1px #181d1b;
 }
 textarea:focus {
-  outline-color: #3d9970;
+  outline: 2px solid #3d9970;
 }
 select {
   box-sizing: border-box;
@@ -44,7 +47,7 @@ select {
 }
 
 input:focus {
-  outline-color: #3d9970;
+  outline: 2px solid #3d9970;
 }
 .section-content > * {
   font-size: 15px;
@@ -55,10 +58,11 @@ label {
   font-weight: 300;
   margin: 0 0 5px 0;
   display: block;
+  color: #181d1b;
 }
 .post-form-header {
   /* border: solid 1px black; */
-  font-size: 25px;
+  font-size: 2em;
   text-align: center;
   font-family: 'Muli', sans-serif;
   margin: 0 0 10px 0;
