@@ -16,6 +16,7 @@ import { FormRow2Component } from './post-job/form-row2/form-row2.component';
 import { JobListComponent } from './job-list/job-list.component';
 import { CandidateListComponent } from './candidate-list/candidate-list.component';
 import { JobsSectionComponent } from './jobs-section/jobs-section.component';
+import { SkillsFormComponent } from './post-job/skills-form/skills-form.component';
 
 @NgModule({
   imports: [CommonModule, ReactiveFormsModule, EmployerRoutingModule],
@@ -32,7 +33,8 @@ import { JobsSectionComponent } from './jobs-section/jobs-section.component';
     FormRow2Component,
     JobListComponent,
     CandidateListComponent,
-    JobsSectionComponent
+    JobsSectionComponent,
+    SkillsFormComponent
   ],
   exports: [EmployerDashboardComponent]
 })

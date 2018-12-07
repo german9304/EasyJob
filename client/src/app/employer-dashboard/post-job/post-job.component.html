@@ -6,27 +6,7 @@
       <form class="frm-post-job" [formGroup]="postJobForm">
         <app-form-row1 [parentForm]="postJobForm"></app-form-row1>
         <app-form-row2 [parentForm]="postJobForm"></app-form-row2>
-        <div class="post-job-row row3">
-          <div class="post-col col1">
-            <div class="form add-skill">
-              <label for="inpt-skills">Skills</label>
-              <!--
-                <ul class="skills">
-                  <li class="skill">skill1</li>
-                  <li class="skill">skill2</li>
-                </ul>
-              -->
-              <div class="form-content">
-                <div class="inpt-form">
-                  <input type="text" id="inpt-skills" />
-                </div>
-                <div class="btn-frm-add-skill">
-                  <i class="material-icons"> add </i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <app-skills-form></app-skills-form>
         <div class="post-job-row row4">
           <div class="post-col col1">
             <label for="description">Job description</label>
