@@ -10,7 +10,10 @@
       >
         <app-form-row1 [parentForm]="postJobForm"></app-form-row1>
         <app-form-row2 [parentForm]="postJobForm"></app-form-row2>
-        <app-skills-form [parentForm]="postJobForm"></app-skills-form>
+        <app-skills-form
+          [parentForm]="postJobForm"
+          [parentSkills]="skills"
+        ></app-skills-form>
         <app-description-form [parentForm]="postJobForm"></app-description-form>
         <div class="submit-btn"><button class="btn">save</button></div>
       </form>

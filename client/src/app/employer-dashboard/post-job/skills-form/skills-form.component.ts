@@ -8,6 +8,7 @@ import { FormGroup } from '@angular/forms';
 })
 export class SkillsFormComponent implements OnInit {
   @Input() parentForm: FormGroup;
+  @Input() parentSkills: string[];
   constructor() {}
 
   ngOnInit() {}

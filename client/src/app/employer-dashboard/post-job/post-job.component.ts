@@ -7,7 +7,7 @@ import { EmployerService } from '../employer.service';
   styleUrls: ['./post-job.component.css']
 })
 export class PostJobComponent implements OnInit {
-  skills: string[] = [];
+  skills: string[] = ['python', 'visual studio', 'c++'];
   formRows: Fbgroups = {
     row1: this.fb.group({
       title: [''],
@@ -34,7 +34,7 @@ export class PostJobComponent implements OnInit {
     const { value } = this.postJobForm;
     console.log(value);
   }
-  handleAddSkills() {}
+  AddSkills() {}
 
   get Row1() {
     return this.postJobForm.get('row1') as FormControl;

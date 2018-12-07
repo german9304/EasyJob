@@ -24,7 +24,7 @@ input {
   font-size: 15px;
   font-family: 'Muli', sans-serif;
   font-weight: 300;
-  border: solid 1px #181d1b;
+  border: solid 2px #cecccc;
   /* outline-width: 1px; */
   outline: none;
   transition: all 0.5s;
@@ -39,6 +39,7 @@ textarea {
   font-weight: 300;
   outline: none;
   transition: all 0.4s;
+  border: solid 2px #cecccc;
   border-radius: 2px;
 }
 textarea:focus {
@@ -147,6 +148,9 @@ label {
   /* justify-content: space-between; */
   width: 300px;
 }
+/* .form-content {
+  border: solid 1px blue;
+} */
 /* .form-content > * {
   border: solid 1px blue;
 } */
@@ -162,7 +166,7 @@ label {
 .btn-frm-add-skill {
   /* border: solid 1px black; */
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   /* flex: 1; */
 }
 
@@ -185,8 +189,8 @@ label {
   margin: 0 5px 0 0;
   /* border: solid 1px black; */
 }
-.inpt-form input {
-  padding: 10px;
+.form-content input {
+  padding: 8px;
 }
 /* .form.add-skill .btn-frm-add-skill {
   border: solid 1px blue;
