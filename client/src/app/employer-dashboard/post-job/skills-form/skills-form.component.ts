@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-skills-form',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['../post-job.component.css', './skills-form.component.css']
 })
 export class SkillsFormComponent implements OnInit {
+  @Input() parentForm: FormGroup;
   constructor() {}
 
   ngOnInit() {}

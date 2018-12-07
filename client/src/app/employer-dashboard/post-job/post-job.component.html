@@ -6,7 +6,7 @@
       <form class="frm-post-job" [formGroup]="postJobForm">
         <app-form-row1 [parentForm]="postJobForm"></app-form-row1>
         <app-form-row2 [parentForm]="postJobForm"></app-form-row2>
-        <app-skills-form></app-skills-form>
+        <app-skills-form [parentForm]="postJobForm"></app-skills-form>
         <div class="post-job-row row4">
           <div class="post-col col1">
             <label for="description">Job description</label>

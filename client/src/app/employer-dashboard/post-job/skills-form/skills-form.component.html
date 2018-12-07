@@ -1,15 +1,11 @@
-<div class="post-job-row row3">
+<div class="post-job-row row3" [formGroup]="parentForm">
   <div class="post-col col1">
     <div class="form add-skill">
       <label for="inpt-skills">Skills</label>
-      <!--
-        <ul class="skills">
-          <li class="skill">skill1</li>
-          <li class="skill">skill2</li>
-        </ul>
-      -->
       <div class="form-content">
-        <div class="inpt-form"><input type="text" id="inpt-skills" /></div>
+        <div class="inpt-form">
+          <input type="text" id="inpt-skills" formControlName="skills" />
+        </div>
         <div class="btn-frm-add-skill"><i class="material-icons"> add </i></div>
       </div>
     </div>
