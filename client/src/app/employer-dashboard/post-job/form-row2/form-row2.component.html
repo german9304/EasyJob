@@ -20,9 +20,18 @@
         />
       </div>
       <div class="post-col col3">
-        <label for="why" class="company-label"> Employment type </label>
-        <select name="carlist" form="carform" formControlName="type">
-          <option *ngFor="let option of es.types"> {{ option }}</option>
+        <label for="employment-types" class="company-label">
+          Employment type
+        </label>
+        <select
+          name="type"
+          id="employment-types"
+          form="carform"
+          formControlName="type"
+        >
+          <option class="options-types" *ngFor="let option of es.types">
+            {{ option }}</option
+          >
         </select>
       </div>
     </div>
