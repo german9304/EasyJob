@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
+import { USER } from '../../user';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-employer-navbar',
@@ -7,10 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployerNavbarComponent implements OnInit {
   clickedProfile = false;
-  constructor() {}
+  constructor(private auth: AuthService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.User.subscribe((user: USER) => console.log(user));
+  }
   handleProfile() {
     this.clickedProfile = !this.clickedProfile;
+  }
+  get User(): Observable<USER> {
+    return this.auth.getUSER();
   }
 }
