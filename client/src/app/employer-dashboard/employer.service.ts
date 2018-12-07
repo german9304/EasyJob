@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class EmployerService {
+  JOBS = [];
   types: string[] = [
     'select one',
     'full time',
@@ -13,4 +14,5 @@ export class EmployerService {
     'internship'
   ];
   constructor() {}
+  createJob() {}
 }
