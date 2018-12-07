@@ -38,7 +38,7 @@ li span {
   align-items: flex-end;
   cursor: pointer;
   padding: 0;
-  margin: 0;
+  margin: 0 0 0 5px;
 }
 .span-skill-job {
   color: var(--span-color);
@@ -48,6 +48,6 @@ li span {
 }
 .remove-skill > * {
   /* border: solid 1px black; */
-  font-size: 1.3em;
+  font-size: 1em;
   font-weight: 600;
 }
