@@ -11,6 +11,7 @@ import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 export class NavBarViewComponent implements OnInit {
   @Output() clickEmployer: EventEmitter<null> = new EventEmitter();
   @Input() isClicked: boolean;
+  @Input() userEmail: string;
   constructor() {}
 
   ngOnInit() {}

@@ -10,10 +10,11 @@ import { Observable } from 'rxjs';
 })
 export class EmployerNavbarComponent implements OnInit {
   clickedProfile = false;
+  email: string;
   constructor(private auth: AuthService) {}
 
   ngOnInit() {
-    this.User.subscribe((user: USER) => console.log(user));
+    this.User.subscribe((user: USER) => (this.email = user ? user.email : ''));
   }
   handleProfile() {
     this.clickedProfile = !this.clickedProfile;

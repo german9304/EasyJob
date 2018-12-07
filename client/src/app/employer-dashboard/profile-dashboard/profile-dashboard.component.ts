@@ -7,7 +7,7 @@ import { AuthService } from '../../services/auth.service';
 })
 export class ProfileDashboardComponent implements OnInit {
   @Input() clicked: boolean;
-  email: string;
+  @Input() email: string;
   constructor() {}
   ngOnInit() {}
 }

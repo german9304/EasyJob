@@ -31,7 +31,10 @@
         <div class="item "><span> Me</span></div>
         <i class="material-icons "> expand_more </i>
       </div>
-      <app-profile-dashboard [clicked]="isClicked"></app-profile-dashboard>
+      <app-profile-dashboard
+        [clicked]="isClicked"
+        [email]="userEmail"
+      ></app-profile-dashboard>
     </div>
   </nav>
 </div>
