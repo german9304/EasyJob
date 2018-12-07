@@ -11,10 +11,13 @@ export class SkillsFormComponent implements OnInit {
   @Input() parentForm: FormGroup;
   @Input() parentSkills: SKILL[];
   @Output() clickSkill: EventEmitter<null> = new EventEmitter<null>();
+  @Output() removeSkill: EventEmitter<number> = new EventEmitter<number>();
   constructor() {}
-  handleAddSkill(i) {
-    console.log(i);
+  handleAddSkill() {
     this.clickSkill.emit(null);
+  }
+  handleRemoveSkill(id: number) {
+    this.removeSkill.emit(id);
   }
   ngOnInit() {}
 }

@@ -14,6 +14,7 @@
           [parentForm]="postJobForm"
           [parentSkills]="skills"
           (clickSkill)="handleSkill()"
+          (removeSkill)="handleRemoveSkill($event)"
         ></app-skills-form>
         <app-description-form [parentForm]="postJobForm"></app-description-form>
         <div class="submit-btn"><button class="btn">save</button></div>

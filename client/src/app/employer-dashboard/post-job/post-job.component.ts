@@ -44,7 +44,9 @@ export class PostJobComponent implements OnInit {
     };
     this.skills = [...this.skills, skill];
   }
-
+  handleRemoveSkill(id: number) {
+    console.log(`id: ${id}`);
+  }
   get Row1() {
     return this.postJobForm.get('row1') as FormControl;
   }
