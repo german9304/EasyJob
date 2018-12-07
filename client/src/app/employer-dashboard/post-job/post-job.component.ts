@@ -6,12 +6,29 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./post-job.component.css']
 })
 export class PostJobComponent implements OnInit {
-  postJobForm: FormGroup = this.fb.group({
-    row1: this.fb.group({}),
-    row2: this.fb.group({}),
-    row3: this.fb.group({})
-  });
+  formRows: Fbgroups = {
+    row1: this.fb.group({
+      jobTitle: [''],
+      location: [''],
+      category: ['']
+    }),
+    row2: this.fb.group({
+      company: [''],
+      companyIndustry: [''],
+      employmentType: ['']
+    }),
+    skills: [''],
+    jobDescription: ['']
+  };
+  postJobForm: FormGroup = this.fb.group(this.formRows);
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {}
+}
+
+interface Fbgroups {
+  row1: FormGroup;
+  row2: FormGroup;
+  skills: string[];
+  jobDescription: string[];
 }
