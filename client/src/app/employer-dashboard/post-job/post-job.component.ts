@@ -7,6 +7,7 @@ import { EmployerService } from '../employer.service';
   styleUrls: ['./post-job.component.css']
 })
 export class PostJobComponent implements OnInit {
+  skills: string[] = [];
   formRows: Fbgroups = {
     row1: this.fb.group({
       title: [''],
@@ -18,7 +19,7 @@ export class PostJobComponent implements OnInit {
       industry: [''],
       type: ['select one']
     }),
-    skills: [''],
+    skill: [''],
     description: ['']
   };
   postJobForm: FormGroup = this.fb.group(this.formRows);
@@ -29,18 +30,23 @@ export class PostJobComponent implements OnInit {
 
   ngOnInit() {}
 
-  get Row1() {
-    return this.postJobForm.get('row1') as FormControl;
-  }
   handleSubmit() {
     const { value } = this.postJobForm;
     console.log(value);
+  }
+  handleAddSkills() {}
+
+  get Row1() {
+    return this.postJobForm.get('row1') as FormControl;
+  }
+  get Skill() {
+    return this.postJobForm.get('skill') as FormControl;
   }
 }
 
 interface Fbgroups {
   row1: FormGroup;
   row2: FormGroup;
-  skills: string[];
+  skill: string[];
   description: string[];
 }
