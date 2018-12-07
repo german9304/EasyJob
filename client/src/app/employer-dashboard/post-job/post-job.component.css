@@ -140,9 +140,10 @@ label {
   background-color: #3d9932;
 }
 .submit-btn .btn {
-  padding: 15px 20px 15px 20px;
+  padding: 10px 20px 10px 20px;
   font-size: 20px;
   border-radius: 10px;
+  /* border: solid 1px red; */
 }
 .form.add-skill .form-content {
   /* border: solid 1px black; */

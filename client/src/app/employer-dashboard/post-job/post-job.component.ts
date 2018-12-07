@@ -7,7 +7,7 @@ import { EmployerService } from '../employer.service';
   styleUrls: ['./post-job.component.css']
 })
 export class PostJobComponent implements OnInit {
-  skills: string[] = ['python', 'visual studio', 'c++'];
+  skills: string[] = [];
   formRows: Fbgroups = {
     row1: this.fb.group({
       title: [''],
