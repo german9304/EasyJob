@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 @Component({
   selector: 'app-post-job',
   templateUrl: './post-job.component.html',
@@ -8,27 +8,33 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class PostJobComponent implements OnInit {
   formRows: Fbgroups = {
     row1: this.fb.group({
-      jobTitle: [''],
+      title: [''],
       location: [''],
       category: ['']
     }),
     row2: this.fb.group({
       company: [''],
-      companyIndustry: [''],
-      employmentType: ['']
+      industry: [''],
+      type: ['']
     }),
     skills: [''],
-    jobDescription: ['']
+    description: ['']
   };
   postJobForm: FormGroup = this.fb.group(this.formRows);
   constructor(private fb: FormBuilder) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.Row1);
+  }
+
+  get Row1() {
+    return this.postJobForm.get('row1') as FormControl;
+  }
 }
 
 interface Fbgroups {
   row1: FormGroup;
   row2: FormGroup;
   skills: string[];
-  jobDescription: string[];
+  description: string[];
 }

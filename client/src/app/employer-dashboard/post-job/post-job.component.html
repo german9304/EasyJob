@@ -2,6 +2,7 @@
   <section class="post-form-section">
     <header class="post-form-header">Post a Job</header>
     <div class="section-content">
+      <p>{{ postJobForm.value | json }}</p>
       <form class="frm-post-job" [formGroup]="postJobForm">
         <app-form-row1 [parentForm]="postJobForm"></app-form-row1>
         <app-form-row2 [parentForm]="postJobForm"></app-form-row2>
