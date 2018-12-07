@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { EmployerDashboardComponent } from './dashboard/dashboard.component';
 import { EmployerRoutingModule } from './employer-routing/employer-routing.module';
@@ -17,7 +18,7 @@ import { CandidateListComponent } from './candidate-list/candidate-list.componen
 import { JobsSectionComponent } from './jobs-section/jobs-section.component';
 
 @NgModule({
-  imports: [CommonModule, EmployerRoutingModule],
+  imports: [CommonModule, ReactiveFormsModule, EmployerRoutingModule],
   declarations: [
     EmployerDashboardComponent,
     DashboardViewComponent,
