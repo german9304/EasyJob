@@ -1,5 +1,8 @@
 .post-job-container {
   /* border: solid 1px blue; */
+  --span-color: #fff;
+  --display-flex: flex;
+  --green-background: #3d9970;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -43,8 +46,8 @@ textarea {
   border-radius: 2px;
 }
 textarea:focus {
-  border-color: #3d9970;
-  box-shadow: 0 0 0 1.8px #3d9970;
+  border-color: var(--green-background);
+  box-shadow: 0 0 0 1.8px var(--green-background);
 }
 select {
   box-sizing: border-box;
@@ -52,8 +55,8 @@ select {
 }
 
 input:focus {
-  border-color: #3d9970;
-  box-shadow: 0 0 0 1.8px #3d9970;
+  border-color: var(--green-background);
+  box-shadow: 0 0 0 1.8px var(--green-background);
 }
 .section-content > * {
   font-size: 15px;
@@ -74,7 +77,7 @@ label {
   margin: 0 0 10px 0;
 }
 .post-job-row {
-  display: flex;
+  display: var(--display-flex);
   /* border: solid 1px greenyellow; */
 }
 .post-job-row > * {
@@ -128,7 +131,7 @@ label {
 } */
 .btn {
   cursor: pointer;
-  background-color: #3d9970;
+  background-color: var(--green-background);
   color: white;
   font-family: 'Muli', sans-serif;
   font-weight: 300;
@@ -143,7 +146,7 @@ label {
 }
 .form.add-skill .form-content {
   /* border: solid 1px black; */
-  display: flex;
+  display: var(--display-flex);
   /* align-items: center; */
   /* justify-content: space-between; */
   width: 300px;
@@ -165,7 +168,7 @@ label {
 } */
 .btn-frm-add-skill {
   /* border: solid 1px black; */
-  display: flex;
+  display: var(--display-flex);
   /* align-items: center; */
   /* flex: 1; */
 }
@@ -179,8 +182,8 @@ label {
   border-radius: 4px;
   cursor: pointer;
   padding: 4px;
-  background-color: #3d9970;
-  display: flex;
+  background-color: var(--green-background);
+  display: var(--display-flex);
   justify-content: center;
   align-items: center;
 }
