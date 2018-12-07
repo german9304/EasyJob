@@ -26,7 +26,8 @@ input {
   font-weight: 300;
   border: solid 1px #181d1b;
   /* outline-width: 1px; */
-  transition: outline 0.5s;
+  outline: none;
+  transition: all 0.5s;
   border-radius: 2px;
 }
 textarea {
@@ -36,13 +37,13 @@ textarea {
   font-size: 15px;
   font-family: 'Muli', sans-serif;
   font-weight: 300;
-  transition: outline 0.5s;
-  border: solid 1px #181d1b;
+  outline: none;
+  transition: all 0.4s;
   border-radius: 2px;
 }
 textarea:focus {
-  outline-color: #3d9970;
-  outline-style: solid;
+  border-color: #3d9970;
+  box-shadow: 0 0 0 2px #3d9970;
 }
 select {
   box-sizing: border-box;
@@ -50,8 +51,8 @@ select {
 }
 
 input:focus {
-  outline-color: #3d9970;
-  outline-style: solid;
+  border-color: #3d9970;
+  box-shadow: 0 0 0 1.8px #3d9970;
 }
 .section-content > * {
   font-size: 15px;
