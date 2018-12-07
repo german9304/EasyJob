@@ -7,12 +7,7 @@
         <app-form-row1 [parentForm]="postJobForm"></app-form-row1>
         <app-form-row2 [parentForm]="postJobForm"></app-form-row2>
         <app-skills-form [parentForm]="postJobForm"></app-skills-form>
-        <div class="post-job-row row4">
-          <div class="post-col col1">
-            <label for="description">Job description</label>
-            <textarea name="" id="description" rows="5"></textarea>
-          </div>
-        </div>
+        <app-description-form [parentForm]="postJobForm"></app-description-form>
         <div class="submit-btn"><button class="btn">save</button></div>
       </form>
     </div>
