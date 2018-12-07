@@ -7,6 +7,7 @@
 } */
 .skills {
   display: flex;
+  --span-color: #fff;
   /* border: solid 1px green; */
   font-family: 'Muli', sans-serif;
   font-weight: 600;
@@ -40,10 +41,10 @@ li span {
   margin: 0;
 }
 .span-skill-job {
-  color: #fff;
+  color: var(--span-color);
 }
 .remove-skill:hover {
-  color: #fff;
+  color: var(--span-color);
 }
 .remove-skill > * {
   /* border: solid 1px black; */
