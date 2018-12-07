@@ -27,12 +27,14 @@ export class PostJobComponent implements OnInit {
     private employerSrvce: EmployerService
   ) {}
 
-  ngOnInit() {
-    console.log(this.Row1);
-  }
+  ngOnInit() {}
 
   get Row1() {
     return this.postJobForm.get('row1') as FormControl;
+  }
+  handleSubmit() {
+    const { value } = this.postJobForm;
+    console.log(value);
   }
 }
 
