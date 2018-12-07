@@ -17,6 +17,7 @@ import { JobListComponent } from './job-list/job-list.component';
 import { CandidateListComponent } from './candidate-list/candidate-list.component';
 import { JobsSectionComponent } from './jobs-section/jobs-section.component';
 import { SkillsFormComponent } from './post-job/skills-form/skills-form.component';
+import { DescriptionFormComponent } from './post-job/description-form/description-form.component';
 
 @NgModule({
   imports: [CommonModule, ReactiveFormsModule, EmployerRoutingModule],
@@ -34,7 +35,8 @@ import { SkillsFormComponent } from './post-job/skills-form/skills-form.componen
     JobListComponent,
     CandidateListComponent,
     JobsSectionComponent,
-    SkillsFormComponent
+    SkillsFormComponent,
+    DescriptionFormComponent
   ],
   exports: [EmployerDashboardComponent]
 })
