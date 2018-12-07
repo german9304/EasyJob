@@ -1,39 +1,37 @@
 <div class="form-control-row2" [formGroup]="parentForm">
   <div class="post-job-row row2" formGroupName="row2">
-    <div class="post-job-row row2">
-      <div class="post-col col1">
-        <label for="company" class="company-label"> Company</label>
-        <input
-          type="text"
-          id="company"
-          class="input company-name"
-          formControlName="company"
-        />
-      </div>
-      <div class="post-col col2">
-        <label for="industry" class="company-label"> Company industry</label>
-        <input
-          type="text"
-          id="industry"
-          class="input company-industry"
-          formControlName="industry"
-        />
-      </div>
-      <div class="post-col col3">
-        <label for="employment-types" class="company-label">
-          Employment type
-        </label>
-        <select
-          name="type"
-          id="employment-types"
-          form="carform"
-          formControlName="type"
+    <div class="post-col col1">
+      <label for="company" class="company-label"> Company</label>
+      <input
+        type="text"
+        id="company"
+        class="input company-name"
+        formControlName="company"
+      />
+    </div>
+    <div class="post-col col2">
+      <label for="industry" class="company-label"> Company industry</label>
+      <input
+        type="text"
+        id="industry"
+        class="input company-industry"
+        formControlName="industry"
+      />
+    </div>
+    <div class="post-col col3">
+      <label for="employment-types" class="company-label">
+        Employment type
+      </label>
+      <select
+        name="type"
+        id="employment-types"
+        form="carform"
+        formControlName="type"
+      >
+        <option class="options-types" *ngFor="let option of es.types">
+          {{ option }}</option
         >
-          <option class="options-types" *ngFor="let option of es.types">
-            {{ option }}</option
-          >
-        </select>
-      </div>
+      </select>
     </div>
   </div>
 </div>
