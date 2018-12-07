@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { EmployerService } from '../../employer.service';
 @Component({
   selector: 'app-form-row2',
   templateUrl: './form-row2.component.html',
@@ -7,7 +8,7 @@ import { FormGroup } from '@angular/forms';
 })
 export class FormRow2Component implements OnInit {
   @Input() parentForm: FormGroup;
-  constructor() {}
+  constructor(private es: EmployerService) {}
 
   ngOnInit() {}
 }

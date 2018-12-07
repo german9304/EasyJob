@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { EmployerService } from '../employer.service';
 @Component({
   selector: 'app-post-job',
   templateUrl: './post-job.component.html',
@@ -15,13 +16,16 @@ export class PostJobComponent implements OnInit {
     row2: this.fb.group({
       company: [''],
       industry: [''],
-      type: ['']
+      type: ['select one']
     }),
     skills: [''],
     description: ['']
   };
   postJobForm: FormGroup = this.fb.group(this.formRows);
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private employerSrvce: EmployerService
+  ) {}
 
   ngOnInit() {
     console.log(this.Row1);

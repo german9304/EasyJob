@@ -22,12 +22,7 @@
       <div class="post-col col3">
         <label for="why" class="company-label"> Employment type </label>
         <select name="carlist" form="carform" formControlName="type">
-          <option value="select-one">Select one...</option>
-          <option value="Fulle-time">Full-time</option>
-          <option value="Part-time">Part-time</option>
-          <option value="contract">Contract</option>
-          <option value="temporaty">Temporary</option>
-          <option value="internship">Internship</option>
+          <option *ngFor="let option of es.types"> {{ option }}</option>
         </select>
       </div>
     </div>
