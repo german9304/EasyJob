@@ -170,7 +170,7 @@ label {
   /* flex: 1; */
 }
 
-.material-icons {
+.add-skill .btn-frm-add-skill .material-icons {
   /* border: solid 1px blue; */
   color: white;
   flex: 1;
@@ -180,8 +180,11 @@ label {
   cursor: pointer;
   padding: 4px;
   background-color: #3d9970;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.material-icons:hover {
+.add-skill .btn-frm-add-skill .material-icons:hover {
   background-color: #053a1c71;
 }
 .inpt-form {

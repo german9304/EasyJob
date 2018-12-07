@@ -1,7 +1,17 @@
 <div class="post-job-row row3" [formGroup]="parentForm">
   <div class="post-col col1">
     <label for="inpt-skills">Skills</label>
-    <section class="form add-skill">
+    <div class="skills-container">
+      <ul class="skills">
+        <li *ngFor="let skill of parentSkills">
+          <span class="span-skill-job"> {{ skill }} </span>
+          <span class="remove-skill"
+            ><i class="material-icons"> clear </i>
+          </span>
+        </li>
+      </ul>
+    </div>
+    <div class="form add-skill">
       <div class="form-content">
         <input
           type="text"
@@ -11,6 +21,6 @@
         />
         <div class="btn-frm-add-skill"><i class="material-icons"> add </i></div>
       </div>
-    </section>
+    </div>
   </div>
 </div>
