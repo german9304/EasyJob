@@ -2,18 +2,19 @@
   <div class="go-back-jobs">
     <a id="go-back" routerLink="../../"> <span> back to jobs</span></a>
   </div>
-  <form action="" class="job-information">
-    <div class="row1-content">
-
+  <section>
+    <header class="section-header"><h1 id="header">Update Job</h1></header>
+    <div class="section-content">
+      <form action="" class="job-information" [formGroup]="updateJobForm">
+        <div class="row1-content">
+          <p>{{ job.title }}</p>
+          <p>{{ job.location }}</p>
+          <p>{{ job.category.name }}</p>
+        </div>
+        <div class="row2-content"></div>
+        <div class="skills-content"></div>
+        <div class="description-content"></div>
+      </form>
     </div>
-    <div class="row2-content">
-
-    </div>
-    <div class="skills-content">
-
-    </div>
-    <div class="description-content">
-      
-    </div>
-  </form>
+  </section>
 </div>
