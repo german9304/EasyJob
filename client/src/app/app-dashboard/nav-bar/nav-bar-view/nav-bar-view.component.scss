@@ -3,7 +3,8 @@
   // background-color: #001f3f;
   // border-bottom: solid 5px red;
   // box-shadow: 0 5px 0 0 #aaaaaa;
-  padding: 5px 40px 5px 0;
+  // border: solid 2px black;
+  padding: 20px 40px 20px 0;
 }
 #menu-list {
   // border: solid 2px black;
@@ -14,8 +15,8 @@
 }
 
 .item {
-  font-size: 16px;
-  font-family: "Quicksand", sans-serif;
+  font-size: 0.9em;
+  font-family: 'Quicksand', sans-serif;
   list-style-type: none;
   flex-basis: 120px;
   text-align: center;
@@ -41,9 +42,10 @@
     color: #aaaaaa;
   }
   .active {
-    border-radius: 10px;
+    // border-radius: 10px;
     /* color: #f2ebea;*/
-    background-color: #0f749a;
+    // background-color: #0f749a;
+    border-bottom: solid 3px #fff;
     color: white;
   }
 }
