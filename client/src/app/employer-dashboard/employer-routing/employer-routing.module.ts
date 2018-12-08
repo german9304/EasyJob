@@ -14,7 +14,7 @@ const appRoutes: Routes = [
     children: [
       {
         path: 'jobs-section',
-        component: JobsSectionComponent
+        loadChildren: '../employer-jobs/employer-jobs.module#EmployerJobsModule'
       },
       {
         path: 'post-job',
