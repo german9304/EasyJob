@@ -22,20 +22,24 @@
   // font-size: 60px;
   margin: 0;
   flex-basis: 80%;
-  // border: solid 1px black;
-  font-family: "Open Sans", sans-serif;
+  border: solid 1px black;
+  font-family: 'Open Sans', sans-serif;
   font-weight: bold;
+  .section-header {
+    border: solid 1px black;
+    h1 {
+      text-align: center;
+      font-size: 3em;
+      flex: 1;
+      // color: #3d9970;
+      color: #111111;
+      /* border:  solid 1px black; */
+      margin: 0 0 20px 0;
+    }
+  }
   /* color: white;
     background: #3d9970; */
-  p {
-    text-align: center;
-    font-size: 60px;
-    flex: 1;
-    // color: #3d9970;
-    color: #111111;
-    /* border:  solid 1px black; */
-    margin: 0 0 20px 0;
-  }
+
   // border: solid 2px black;
   border-radius: 10px 10px 10px 10px;
   .search-forms {
@@ -91,7 +95,7 @@
         box-shadow: 0 0 5px 0 #4c8fc9;
         border-color: #0074d9;
       }
-      input:hover{
+      input:hover {
         box-shadow: 0 0 5px 0 #4c8fc9;
         border-color: #0074d9;
       }
@@ -196,7 +200,7 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  font-family: "Quicksand", sans-serif;
+  font-family: 'Quicksand', sans-serif;
   // border: solid 1px #2b3137;
 }
 .job-site .inner.upload-resume {
@@ -212,7 +216,7 @@
   // color: #3d9970;
   color: #111111;
   border-radius: 15px;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   padding: 10px;
   /* border:  solid 1px black; */
 }
@@ -235,7 +239,7 @@
   */ /*  font-weight: lighter; */
   color: #515e68;
   line-height: 32px;
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   padding: 5px;
 }
 .inner .information-img {
