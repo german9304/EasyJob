@@ -8,7 +8,7 @@ export const POSTEDJOBS: JOB[] = [
       name: 'software'
     },
     title: 'Full Stack Engineering',
-    company: 'local company',
+    company: 'Local company',
     industry: 'software',
     location: 'Chico, CA',
     skills: [

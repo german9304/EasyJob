@@ -1,31 +1,39 @@
 .employer-jobs {
-  border: solid 1px black;
+  /* border: solid 1px black; */
   padding: 0;
 }
 
 .employer-jobs li {
-  border: solid 1px red;
+  /* border: solid 1px red; */
+  margin: 0 0 10px 0;
+  padding: 0;
   list-style: none;
+  /* background-color: gray; */
+  /* background-color: #01ff6329; */
+  /* background-color: rgb(#cc3e3e, green, #0074d9); */
 }
 
 .job-title {
-  border: solid 1px rgb(223, 69, 69);
+  /* border-bottom: solid 1px rgb(223, 69, 69); */
+  margin: 0 0 5px 0;
 }
 .job-title .title-location {
-  border: solid 1px blue;
+  /* border: solid 1px blue; */
   margin: 0;
 }
 span {
-  margin: 0;
-  border: solid 1px brown;
+  margin: 0 10px 0 0;
+  /* border: solid 1px brown; */
   font-family: 'Raleway', sans-serif;
   font-size: 0.9em;
   font-weight: 800;
 }
 
 a {
+  text-decoration: none;
   padding: 0;
-  border: solid 1px green;
+  color: #0074d9;
+  /* border: solid 1px green; */
 }
 
 .job-list-content {
@@ -33,6 +41,7 @@ a {
 }
 p {
   padding: 0;
-  font-weight: 200;
+  font-weight: 400;
   margin: 0;
+  color: #111111;
 }
