@@ -22,7 +22,8 @@ export class EmployerService {
     return of(job);
   }
 
-  getJObs(): Observable<JOB[]> {
+  getJobs(): Observable<JOB[]> {
+    console.log(this.JOBS);
     return of(this.JOBS);
   }
 }

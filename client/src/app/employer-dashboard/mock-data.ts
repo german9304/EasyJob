@@ -76,6 +76,7 @@ export const POSTEDJOBS: JOB[] = [
     description: 'We value our clients'
   }
 ];
+export const name = 'john';
 
 interface Postedjobs {
   title: string;
