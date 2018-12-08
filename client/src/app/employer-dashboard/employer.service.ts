@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { JOB, SKILL } from '../job';
-import { observable, Observable, of } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { POSTEDJOBS } from './mock-data';
+
 @Injectable()
 export class EmployerService {
-  JOBS: JOB[] = [];
+  JOBS: JOB[] = POSTEDJOBS;
   types: string[] = [
     'select one',
     'full time',
