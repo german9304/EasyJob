@@ -6,7 +6,7 @@
   border: solid 1px red;
 } */
 .skills {
-  display: flex;
+  display: var(--display-flex);
   /* border: solid 1px green; */
   font-family: 'Muli', sans-serif;
   font-weight: 600;
@@ -50,4 +50,8 @@ li span {
   /* border: solid 1px black; */
   font-size: 1.3em;
   font-weight: 600;
+}
+
+.form-content input {
+  padding: 10px;
 }
