@@ -1,4 +1,9 @@
 <div class="employer navbarcontainer">
-  <nav-bar-view></nav-bar-view>
+  <app-nav-bar-view
+    (clickEmployer)="handleProfile()"
+    [isClicked]="clickedProfile"
+    [userEmail]="email"
+    [searchForm]="searchCandidates"
+  ></app-nav-bar-view>
   <router-outlet></router-outlet>
 </div>

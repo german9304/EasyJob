@@ -22,10 +22,8 @@ export class JobseekerNavbarComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.auth.getUSER().subscribe(user => {
-      if (user) {
-        this.email = user.email;
-      }
-    });
+    this.auth
+      .getUSER()
+      .subscribe((user: USER) => (this.email = user ? user.email : ''));
   }
 }

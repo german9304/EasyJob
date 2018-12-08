@@ -1,0 +1,24 @@
+<div class="post-job-container">
+  <section class="post-form-section">
+    <header class="post-form-header">Post a Job</header>
+    <div class="section-content">
+      <!-- <p>{{ postJobForm.value | json }}</p> -->
+      <form
+        class="frm-post-job"
+        (ngSubmit)="handleSubmit()"
+        [formGroup]="postJobForm"
+      >
+        <app-form-row1 [parentForm]="postJobForm"></app-form-row1>
+        <app-form-row2 [parentForm]="postJobForm"></app-form-row2>
+        <app-skills-form
+          [parentForm]="postJobForm"
+          [parentSkills]="skills"
+          (clickSkill)="handleSkill()"
+          (removeSkill)="handleRemoveSkill($event)"
+        ></app-skills-form>
+        <app-description-form [parentForm]="postJobForm"></app-description-form>
+        <div class="submit-btn"><button class="btn">save</button></div>
+      </form>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,19 @@
+<div class="employer-joblist">
+  <ul class="employer-jobs">
+    <li *ngFor="let job of JOBS">
+      <section class="job job-item">
+        <header class="job-title">
+          <h1 class="title-location">
+            <a [routerLink]="['./job', job._id]">
+              <span id="title">{{ job.title }} </span>
+              <span id="location">{{ job.location }} </span>
+            </a>
+          </h1>
+        </header>
+        <div class="job-list-content">
+          <p>{{ job.company }}</p>
+        </div>
+      </section>
+    </li>
+  </ul>
+</div>

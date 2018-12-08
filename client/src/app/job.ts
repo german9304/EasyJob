@@ -1,11 +1,14 @@
 export class JOB {
+  _id?: number;
   category: {
-    _id: string;
+    _id?: number;
     name: string;
   };
   title: string;
   company: string;
+  industry: string;
   location: string;
+  skills: SKILL[];
   description: string;
 }
 
@@ -47,32 +50,14 @@ export interface FILE {
   contentType: string;
 }
 export class FIELDS {
-  experience: Array<EXPERIENCE>;
-  education: Array<EDUCATION>;
+  experience: EXPERIENCE[];
+  education: EDUCATION[];
   fileInfo: FILE;
 }
 
-export const JOBS: JOB[] = [
-  {
-    category: {
-      _id: '',
-      name: ''
-    },
-    title: 'SOFTWARE ENGINEER',
-    company: 'MICROSOFT',
-    location: 'Monterey By',
-    description:
-      '  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut, velit.'
-  },
-  {
-    category: {
-      _id: '',
-      name: ''
-    },
-    title: 'BACK-END',
-    company: 'GOOGLE',
-    location: 'San Diego',
-    description:
-      'Lorem ipsum dolor'
-  }
-];
+export interface SKILL {
+  id: number;
+  skill: string;
+}
+
+export const JOBS: JOB[] = [];
