@@ -6,10 +6,13 @@
   display: flex;
   justify-content: center;
   margin: 0;
-  // border: solid 2px black;
+  border: solid 2px black;
   align-items: center;
-  // margin: 0 0 40px 0;
-  height: 300px;
+  margin: 0 0 40px 0;
+  height: 500px;
+  background-image: url('../../../../assets/desk-jobs.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 /* .job-search > *{
     border:  solid 1px red;
@@ -20,13 +23,14 @@
 // }
 .search-job-form {
   // font-size: 60px;
+  padding: 10px;
   margin: 0;
   flex-basis: 80%;
   border: solid 1px black;
   font-family: 'Open Sans', sans-serif;
   font-weight: bold;
   .section-header {
-    border: solid 1px black;
+    // border: solid 1px black;
     h1 {
       text-align: center;
       font-size: 3em;
