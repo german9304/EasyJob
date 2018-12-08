@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { SKILL } from '../post-job.component';
+import { SKILL } from '../../../job';
 
 @Component({
   selector: 'app-skills-form',
