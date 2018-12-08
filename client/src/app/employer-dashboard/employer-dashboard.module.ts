@@ -33,9 +33,9 @@ import { DescriptionFormComponent } from './post-job/description-form/descriptio
     CandidatesComponent,
     FormRow1Component,
     FormRow2Component,
-    JobListComponent,
+    // JobListComponent,
     CandidateListComponent,
-    JobsSectionComponent,
+    // JobsSectionComponent,
     SkillsFormComponent,
     DescriptionFormComponent
   ],
