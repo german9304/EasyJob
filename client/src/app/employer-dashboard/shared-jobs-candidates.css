@@ -1,8 +1,9 @@
 .container-employer {
-  /* border: solid 1px rosybrown; */
+  /* border: solid 1px black; */
   font-size: 15px;
-  margin: 50px 0 0 0;
+  /* padding: 8px 40px 8px 40px; */
   display: flex;
+  margin: 50px 0 0 0;
   justify-content: center;
   align-items: flex-start;
   height: 100vh;
@@ -16,6 +17,7 @@
   border: solid 1px #cecccc;
   width: 800px;
   padding: 15px;
+  /* flex: 1; */
 }
 .filter-content {
   display: flex;
