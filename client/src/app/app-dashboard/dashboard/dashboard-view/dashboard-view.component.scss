@@ -199,16 +199,16 @@
   */
 .job-site {
   display: flex;
-  flex-direction: column;
-  // border: solid 2px black;
+  // flex-direction: column;
+  border: solid 2px black;
 }
 .job-site .inner {
-  /* border: solid 2px blue; */
+  border: solid 2px blue;
   flex: 1;
   box-sizing: border-box;
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  // justify-content: center;
+  // flex-wrap: wrap;
   font-family: 'Quicksand', sans-serif;
   // border: solid 1px #2b3137;
 }
@@ -258,7 +258,7 @@
 
 img {
   box-sizing: border-box;
-  width: 400px;
+  width: 100%;
 }
 
 .explanation {
