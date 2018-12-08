@@ -10,7 +10,7 @@ import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 })
 export class JobComponent implements OnInit {
   job: JOB;
-  updateJobForm: FormGroup = this.fb.group({
+  jobForm: FormGroup = this.fb.group({
     title: [''],
     location: [''],
     category: [''],
@@ -28,6 +28,7 @@ export class JobComponent implements OnInit {
 
   ngOnInit() {
     this.getJob();
+    this.updateJobForm();
   }
   getJob() {
     const { JOBS } = this.employerService;
@@ -37,5 +38,26 @@ export class JobComponent implements OnInit {
       const jobResult: JOB = JOBS.find(({ _id }) => _id === id);
       this.job = jobResult;
     });
+  }
+  updateJobForm() {
+    const {
+      title,
+      location,
+      company,
+      category: { name },
+      description,
+      industry,
+      skills
+    } = this.job;
+    this.jobForm.setValue({
+      title,
+      location,
+      category: name,
+      company,
+      industry,
+      skill: '',
+      description
+    });
+    console.log(this.jobForm.value);
   }
 }
