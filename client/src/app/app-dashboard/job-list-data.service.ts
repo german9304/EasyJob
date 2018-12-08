@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import {
   Resolve,
   Router,
@@ -6,11 +6,11 @@ import {
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
   ParamMap
-} from "@angular/router";
-import { JobDataService } from "../services/job-data.service";
-import { JOB } from "../job";
-import { Observable } from "rxjs";
-import { switchMap, map, take } from "rxjs/operators";
+} from '@angular/router';
+import { JobDataService } from '../services/job-data.service';
+import { JOB } from '../job';
+import { Observable } from 'rxjs';
+import { switchMap, map, take } from 'rxjs/operators';
 
 @Injectable()
 export class JobListDataService implements Resolve<JOB[]> {
@@ -23,8 +23,8 @@ export class JobListDataService implements Resolve<JOB[]> {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<JOB[]> {
-    const field = route.paramMap.get("search");
-    const location = route.paramMap.get("location");
+    const field = route.paramMap.get('search');
+    const location = route.paramMap.get('location');
     const obj = {
       field,
       location

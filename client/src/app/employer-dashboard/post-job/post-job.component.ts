@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { EmployerService } from '../employer.service';
+import { SKILL } from '../../job';
 @Component({
   selector: 'app-post-job',
   templateUrl: './post-job.component.html',
@@ -37,7 +38,7 @@ export class PostJobComponent implements OnInit {
   }
   handleSkill() {
     const { value } = this.Skill;
-    console.log(`skill ${value}`);
+    // console.log(`skill ${value}`);
     const skill: SKILL = {
       id: this.id++,
       skill: value
@@ -45,7 +46,11 @@ export class PostJobComponent implements OnInit {
     this.skills = [...this.skills, skill];
   }
   handleRemoveSkill(id: number) {
-    console.log(`id: ${id}`);
+    const { skills } = this;
+    // console.log(`id: ${id}`);
+    // console.log(skills);
+    const resultRemoveSkill = skills.filter(skill => skill.id !== id);
+    this.skills = resultRemoveSkill;
   }
   get Row1() {
     return this.postJobForm.get('row1') as FormControl;
@@ -60,9 +65,4 @@ interface Fbgroups {
   row2: FormGroup;
   skill: string[];
   description: string[];
-}
-
-export interface SKILL {
-  id: number;
-  skill: string;
 }
