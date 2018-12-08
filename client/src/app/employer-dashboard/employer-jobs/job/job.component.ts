@@ -1,12 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router, ActivatedRoute } from '@angular/router';
+import { JOB } from '../../../job';
+import { EmployerService } from '../../employer.service';
 @Component({
   selector: 'app-job',
   templateUrl: './job.component.html',
-  styleUrls: ['../../shared-jobs-candidates.css', './job.component.css']
+  styleUrls: ['./job.component.css']
 })
 export class JobComponent implements OnInit {
-  constructor() {}
+  job: JOB;
+  constructor(
+    private employerService: EmployerService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getJob();
+  }
+  getJob() {
+    const { JOBS } = this.employerService;
+    this.route.paramMap.subscribe(params => {
+      console.log(params.get('id'));
+      const id: number = +params.get('id');
+      const jobResult: JOB = JOBS.find(({ _id }) => _id === id);
+      this.job = jobResult;
+    });
+  }
 }
