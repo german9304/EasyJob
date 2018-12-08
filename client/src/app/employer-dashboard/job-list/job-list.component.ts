@@ -6,6 +6,7 @@ import { JOB } from '../../job';
   styleUrls: ['./job-list.component.css']
 })
 export class JobListComponent implements OnInit {
+  @Input() JOBS: JOB[];
   constructor() {}
 
   ngOnInit() {}
