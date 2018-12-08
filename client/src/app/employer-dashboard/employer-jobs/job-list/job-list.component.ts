@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { JOB } from '../../job';
+import { JOB } from '../../../job';
 @Component({
   selector: 'app-job-list',
   templateUrl: './job-list.component.html',

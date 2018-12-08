@@ -14,9 +14,7 @@ import { PostJobComponent } from './post-job/post-job.component';
 import { CandidatesComponent } from './candidates/candidates.component';
 import { FormRow1Component } from './post-job/form-row1/form-row1.component';
 import { FormRow2Component } from './post-job/form-row2/form-row2.component';
-import { JobListComponent } from './job-list/job-list.component';
 import { CandidateListComponent } from './candidate-list/candidate-list.component';
-import { JobsSectionComponent } from './jobs-section/jobs-section.component';
 import { SkillsFormComponent } from './post-job/skills-form/skills-form.component';
 import { DescriptionFormComponent } from './post-job/description-form/description-form.component';
 
@@ -33,9 +31,7 @@ import { DescriptionFormComponent } from './post-job/description-form/descriptio
     CandidatesComponent,
     FormRow1Component,
     FormRow2Component,
-    JobListComponent,
     CandidateListComponent,
-    JobsSectionComponent,
     SkillsFormComponent,
     DescriptionFormComponent
   ],

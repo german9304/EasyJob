@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { EmployerService } from '../employer.service';
-import { JOB } from '../../job';
+import { EmployerService } from '../../employer.service';
+import { JOB } from '../../../job';
 import { Observable } from 'rxjs';
-import { POSTEDJOBS, name } from '../mock-data';
+import { POSTEDJOBS, name } from '../../mock-data';
 
 @Component({
   selector: 'app-jobs-section',
   templateUrl: './jobs-section.component.html',
-  styleUrls: ['../shared-jobs-candidates.css', './jobs-section.component.css']
+  styleUrls: [
+    '../../shared-jobs-candidates.css',
+    './jobs-section.component.css'
+  ]
 })
 export class JobsSectionComponent implements OnInit {
   JOBS: JOB[] = [];
