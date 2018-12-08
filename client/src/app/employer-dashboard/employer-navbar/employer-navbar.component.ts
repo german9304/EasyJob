@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { USER } from '../../user';
 import { Observable } from 'rxjs';
 
@@ -11,8 +12,10 @@ import { Observable } from 'rxjs';
 export class EmployerNavbarComponent implements OnInit {
   clickedProfile = false;
   email: string;
-  constructor(private auth: AuthService) {}
-
+  searchCandidates: FormGroup = this.fb.group({
+    candidate: ''
+  });
+  constructor(private auth: AuthService, private fb: FormBuilder) {}
   ngOnInit() {
     this.User.subscribe((user: USER) => (this.email = user ? user.email : ''));
   }

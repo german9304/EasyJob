@@ -58,12 +58,12 @@ a {
   font-family: inherit;
   text-decoration: none;
   display: flex;
-  border: solid 1px #8fe2b3f6;
+  border: solid 1px #181d1b;
   /* padding: 8px; */
   border-radius: 5px;
   padding: 8px;
   justify-content: center;
-  color: #111111;
+  color: #181d1b;
 }
 a:hover {
   background-color: #e9f7eff6;
