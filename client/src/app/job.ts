@@ -1,11 +1,8 @@
 export class JOB {
-  category: {
-    _id?: string;
-    name: string;
-  };
+  category: string;
   title: string;
   company: string;
-  companyIndustry: string;
+  industry: string;
   location: string;
   skills: SKILL[];
   description: string;
