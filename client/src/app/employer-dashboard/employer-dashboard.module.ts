@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { EmployerService } from './employer.service';
 
 import { EmployerDashboardComponent } from './dashboard/dashboard.component';
 import { EmployerRoutingModule } from './employer-routing/employer-routing.module';
@@ -38,6 +39,7 @@ import { DescriptionFormComponent } from './post-job/description-form/descriptio
     SkillsFormComponent,
     DescriptionFormComponent
   ],
+  providers: [EmployerService],
   exports: [EmployerDashboardComponent]
 })
 export class EmployerDashboardModule {}

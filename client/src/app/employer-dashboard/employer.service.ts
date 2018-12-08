@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { JOB, SKILL } from '../job';
 import { observable, Observable, of } from 'rxjs';
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class EmployerService {
   JOBS: JOB[] = [];
   types: string[] = [
@@ -20,5 +18,9 @@ export class EmployerService {
   }
   updateJob(job: JOB, id: number): Observable<JOB> {
     return of(job);
+  }
+
+  getJObs(): Observable<JOB[]> {
+    return of(this.JOBS);
   }
 }
