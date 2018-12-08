@@ -5,7 +5,7 @@ import { EmployerDashboardComponent } from '../dashboard/dashboard.component';
 import { EmployerNavbarComponent } from '../employer-navbar/employer-navbar.component';
 import { PostJobComponent } from '../post-job/post-job.component';
 import { CandidatesComponent } from '../candidates/candidates.component';
-import { JobsSectionComponent } from '../jobs-section/jobs-section.component';
+// import { JobsSectionComponent } from '../jobs-section/jobs-section.component';
 
 const appRoutes: Routes = [
   {
