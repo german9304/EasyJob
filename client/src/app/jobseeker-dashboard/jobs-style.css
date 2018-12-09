@@ -18,8 +18,8 @@
 }
 
 .section-header {
-  /* border: solid 1px black; */
   font-family: 'Raleway', sans-serif;
+  margin: 0 0 10px 0;
 }
 .section-content {
   background-color: #ffff;
@@ -28,8 +28,6 @@
   padding: 20px;
 }
 .header {
-  margin: 0;
-  /* border: solid 1px red; */
   font-weight: 400;
   font-size: 2em;
 }
@@ -87,9 +85,7 @@ p {
   /* border: solid 1px green; */
   margin: 0 5px 0 0;
 }
-header {
-  margin: 0 0 2px 0;
-}
+
 header h1 {
   /* border: solid 1px black; */
   padding: 0;
