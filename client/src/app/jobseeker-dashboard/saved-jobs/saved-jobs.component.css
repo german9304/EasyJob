@@ -28,7 +28,7 @@
   margin: 0;
   /* border: solid 1px red; */
   font-weight: 400;
-  font-size: 1.5em;
+  font-size: 2em;
 }
 
 .jobseeker-jobs {
@@ -62,23 +62,6 @@ span {
   font-weight: 800;
 }
 
-a {
-  text-decoration: none;
-  padding: 0;
-  color: #0074d9;
-  /* border: solid 1px green; */
-}
-a:hover {
-  color: #46a5f8;
-}
-
 .job-list-content {
   font-family: 'Raleway', sans-serif;
-}
-p {
-  padding: 0;
-  font-weight: 400;
-  margin: 0;
-  font-size: 1.2em;
-  color: #111111;
 }
