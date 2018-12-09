@@ -17,7 +17,10 @@
         <header class="section-header"><h1>Find Your Job</h1></header>
         <div class="section-content">
           <form class="search-forms" [formGroup]="searchForm">
-            <app-search-category></app-search-category>
+            <app-search-category
+              [searchFormParent]="searchForm"
+              [categories]="CATEGORIES"
+            ></app-search-category>
             <div class="search location">
               <input
                 type="text"

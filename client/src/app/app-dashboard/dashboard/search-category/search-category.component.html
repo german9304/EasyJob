@@ -1,6 +1,4 @@
-
-
-<div class="search category">
+<div class="search category" [formGroup]="searchFormParent">
   <input
     type="text"
     name=""
@@ -11,6 +9,6 @@
   <!-- <p> {{ sts.searchForm| json}}</p> -->
   <app-categories-view
     (clickCategories)="getClickCategory($event)"
-    [categories]="CATEGORIES"
+    [categories]="categories"
   ></app-categories-view>
 </div>
