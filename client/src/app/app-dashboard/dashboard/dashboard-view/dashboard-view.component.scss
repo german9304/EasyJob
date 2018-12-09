@@ -40,7 +40,7 @@
       font-size: 3em;
       flex: 1;
       // color: #3d9970;
-      color: #bad4eb;
+      color: #9abde0;
       /* border:  solid 1px black; */
       margin: 0 0 20px 0;
     }
@@ -100,12 +100,12 @@
       }
       input:focus {
         // outline: 2px solid #0074d9;
-        box-shadow: 0 0 5px 0 #4c8fc9;
-        border-color: #0074d9;
+        box-shadow: 0 0 0 2px #4c8fc9;
+        // border-color: #0074d9;
       }
       input:hover {
-        box-shadow: 0 0 5px 0 #4c8fc9;
-        border-color: #0074d9;
+        box-shadow: 0 0 0 2px #4c8fc9;
+        // border-color: #0074d9;
       }
       .material-icons {
         // padding: 5px;
@@ -344,8 +344,9 @@
   // border: solid 1px black;
   margin: 0 0 10px 0;
   // color: #001f3f;
-  color: #bad4eb;
-  font-weight: bold;
+  color: #9abde0;
+  font-family: var(--font--fam);
+  font-weight: bolder;
   font-size: 2em;
 }
 .section-content > * {
@@ -355,6 +356,7 @@
 
 .info {
   // border: solid 1px red;
+  // line-height: 2em;
   width: 500px;
   color: #fff;
   font-size: 1.2em;
