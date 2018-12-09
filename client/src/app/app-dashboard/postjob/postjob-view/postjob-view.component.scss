@@ -14,11 +14,13 @@
     // margin: 0 0 0 80px;
     box-sizing: border-box;
     // border: solid 2px black;
-    border: solid 1px white;
+    // border: solid 1px white;
     display: flex;
     flex-direction: column;
     // align-items: center;
-    background-color: #fff;
+    background-color: rgb(255, 255, 255);
+    // background-color: #0074d990;
+    // background-color: #3d997090;
     // margin: 50px 0 0 0;
     // background-color: #11111190;
     padding: 30px;
@@ -59,7 +61,9 @@
       font-family: 'Open Sans', sans-serif;
       // font-family: "Montserrat", sans-serif;
       // color: #414957;
-      color: #000;
+      // color: #000;
+      // color: #fff;
+      columns: #111111;
       // color: white;
       /* border:  solid 1px black; */
     }
