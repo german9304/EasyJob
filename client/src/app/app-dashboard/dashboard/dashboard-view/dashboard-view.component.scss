@@ -11,9 +11,9 @@
   align-items: center;
   // margin: 0 0 40px 0;
   height: 500px;
-  background-image: url('../../../../assets/cell-phone-close-up-contemporary-905873.jpg');
-  background-size: 100%;
-  background-repeat: no-repeat;
+  // background-image: url('../../../../assets/cell-phone-close-up-contemporary-905873.jpg');
+  // background-size: 100%;
+  // background-repeat: no-repeat;
 }
 
 .search-job-form {
@@ -26,17 +26,18 @@
   font-weight: bold;
 
   // background-color: #11111190;
-  background-color: rgba(0, 0, 0, 0.6);
+  // background-color: rgba(0, 0, 0, 0.6);
   // background-color: #0074d990;
   .section-header {
     // border: solid 1px black;
     h1 {
       text-align: center;
-      font-size: 3em;
+      font-size: 2.5em;
       flex: 1;
       // color: #3d9970;
       // color: #9abde0;
-      color: #fff;
+      font-weight: 400;
+      color: #2e4a62;
       /* border:  solid 1px black; */
       margin: 0 0 20px 0;
     }
