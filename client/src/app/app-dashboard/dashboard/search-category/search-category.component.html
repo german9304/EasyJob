@@ -1,0 +1,16 @@
+
+
+<div class="search category">
+  <input
+    type="text"
+    name=""
+    id="search-input"
+    formControlName="category"
+    placeholder="Search job title"
+  />
+  <!-- <p> {{ sts.searchForm| json}}</p> -->
+  <app-categories-view
+    (clickCategories)="getClickCategory($event)"
+    [categories]="CATEGORIES"
+  ></app-categories-view>
+</div>

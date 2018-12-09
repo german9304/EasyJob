@@ -17,20 +17,7 @@
         <header class="section-header"><h1>Find Your Job</h1></header>
         <div class="section-content">
           <form class="search-forms" [formGroup]="searchForm">
-            <div class="search category">
-              <input
-                type="text"
-                name=""
-                id="search-input"
-                formControlName="category"
-                placeholder="Search job title"
-              />
-              <!-- <p> {{ sts.searchForm| json}}</p> -->
-              <app-categories-view
-                (clickCategories)="getClickCategory($event)"
-                [categories]="CATEGORIES"
-              ></app-categories-view>
-            </div>
+            <app-search-category></app-search-category>
             <div class="search location">
               <input
                 type="text"
