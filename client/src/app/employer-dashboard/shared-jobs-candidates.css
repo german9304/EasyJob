@@ -15,8 +15,8 @@
   background-color: #ffff;
   box-shadow: 0 0 5px 1px #dddddd;
   border: solid 1px #cecccc;
-  width: 800px;
-  padding: 15px;
+  width: 60%;
+  padding: 20px;
   /* flex: 1; */
 }
 .filter-content {
@@ -31,7 +31,7 @@
   margin: 0;
   /* border: solid 1px red; */
   font-weight: 400;
-  font-size: 1.1em;
+  font-size: 1.5em;
 }
 
 .filter-list {
@@ -48,7 +48,7 @@
   margin: 0 5px 0 5px;
   list-style: none;
   /* border: solid 1px blueviolet; */
-  font-size: 1.2em;
+  font-size: 1.5em;
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
 }
@@ -60,7 +60,7 @@ a {
   font-family: inherit;
   text-decoration: none;
   display: flex;
-  border: solid 1px #aaeed4;
+  /* border: solid 1px #aaeed4; */
   /* padding: 8px; */
   border-radius: 5px;
   padding: 8px;
