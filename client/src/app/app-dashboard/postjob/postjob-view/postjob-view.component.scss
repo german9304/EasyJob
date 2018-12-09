@@ -1,17 +1,17 @@
 .postjobcontainer {
   // border: solid 2px blue;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   // margin: 50px;
   background-image: url('../../../../assets/candidates5.jpg');
   background-size: 100%;
   background-repeat: no-repeat;
-  height: 600px;
+  height: 500px;
   // padding: 10px;
   .postjob-section {
     // width: 300px;
-    // margin: 0 0 0 80px;
+    margin: 0 0 0 200px;
     box-sizing: border-box;
     // border: solid 2px black;
     // border: solid 1px white;
