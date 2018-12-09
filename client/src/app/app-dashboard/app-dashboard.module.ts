@@ -20,6 +20,8 @@ import { PostjobViewComponent } from './postjob/postjob-view/postjob-view.compon
 import { CategoriesViewComponent } from './dashboard/categories-view/categories-view.component';
 import { JobSearchComponent } from './job-search/job-search.component';
 import { JobSerchListComponent } from './job-search/job-serch-list/job-serch-list.component';
+import { SearchCategoryComponent } from './dashboard/search-category/search-category.component';
+import { SearchLocationComponent } from './dashboard/search-location/search-location.component';
 
 @NgModule({
   imports: [
@@ -36,7 +38,9 @@ import { JobSerchListComponent } from './job-search/job-serch-list/job-serch-lis
     PostjobViewComponent,
     CategoriesViewComponent,
     JobSearchComponent,
-    JobSerchListComponent
+    JobSerchListComponent,
+    SearchCategoryComponent,
+    SearchLocationComponent
   ],
   providers: [JobListDataService]
 })
