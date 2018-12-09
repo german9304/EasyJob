@@ -17,7 +17,6 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { NavBarViewComponent } from './nav-bar/nav-bar-view/nav-bar-view.component';
 import { PostjobComponent } from './postjob/postjob.component';
 import { PostjobViewComponent } from './postjob/postjob-view/postjob-view.component';
-import { DashboardViewComponent } from './dashboard/dashboard-view/dashboard-view.component';
 import { CategoriesViewComponent } from './dashboard/categories-view/categories-view.component';
 import { JobSearchComponent } from './job-search/job-search.component';
 import { JobSerchListComponent } from './job-search/job-serch-list/job-serch-list.component';
@@ -35,7 +34,6 @@ import { JobSerchListComponent } from './job-search/job-serch-list/job-serch-lis
     NavBarViewComponent,
     PostjobComponent,
     PostjobViewComponent,
-    DashboardViewComponent,
     CategoriesViewComponent,
     JobSearchComponent,
     JobSerchListComponent
