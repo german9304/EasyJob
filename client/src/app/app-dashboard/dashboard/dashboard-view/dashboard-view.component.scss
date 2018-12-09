@@ -212,8 +212,7 @@
   padding: 50px;
   box-sizing: border-box;
   display: flex;
-  justify-content: center;
-  align-items: center;
+
   // flex-wrap: wrap;
 
   font-family: 'Quicksand', sans-serif;
@@ -223,7 +222,14 @@
   flex: 1;
 }
 .section-col1 {
-  border: solid 1px black;
+  border: solid 1px red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.section-col1 > * {
+  border: solid 1px green;
 }
 .job-site .information h2 {
   text-align: center;
@@ -248,13 +254,9 @@
   /* border: solid 1px #aaaaaa; */
 }
 
-// .search-jobs {
-//   background-image: url('../../../../assets/accomplishment-agreement.jpg');
-// }
-// .upload-resume {
-//   background-image: url('../../../../assets/resume.jpg');
-// }
-
+.section-col1 .section-content {
+  border: solid 1px royalblue;
+}
 .inner .section-header h1 {
   padding: 0;
   // border: solid 1px black;
@@ -266,7 +268,7 @@
   font-size: 2em;
 }
 .section-content > * {
-  // border: solid 1px black;
+  border: solid 1px black;
   margin: 0;
 }
 .img-src {
@@ -284,4 +286,11 @@
   width: 500px;
 
   font-size: 1.2em;
+}
+
+.link-to.search-link {
+  border: solid 1px goldenrod;
+  a {
+    border: solid 1px black;
+  }
 }
