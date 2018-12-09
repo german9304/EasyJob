@@ -1,3 +1,26 @@
-<div class="saved-jobs container">
-  <app-saved-jobs-view></app-saved-jobs-view>
+<div class="container-jobseeker">
+  <div class="dashboard-sections">
+    <section class="section section-filters">
+      <header class="section-header"><h1 class="header">All Jobs</h1></header>
+    </section>
+    <div class="section-content">
+      <div class="jobseeker-joblist">
+        <ul class="jobseeker-jobs">
+          <li>
+            <section class="job job-item">
+              <header class="job-title">
+                <h1 class="title-location">
+                  <a [routerLink]="[]">
+                    <span id="title"> test title </span>
+                    <span id="location"> test location </span>
+                  </a>
+                </h1>
+              </header>
+              <div class="job-list-content"><p>test company</p></div>
+            </section>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
