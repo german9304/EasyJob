@@ -1,9 +1,135 @@
 <div class="container-menu-dashboard">
-  <app-dashboard-view
-    [searchForm]="searchForm"
-    (search)="clickSearch()"
-    (catClick)="getClickCategory($event)"
-    [categories]="CATEGORIES"
-    (clickInputSearch)="clickSearch()"
-  ></app-dashboard-view>
+  <!--
+    <app-dashboard-view
+      [searchForm]="searchForm"
+      (search)="clickSearch()"
+      (catClick)="getClickCategory($event)"
+      [categories]="CATEGORIES"
+      (clickInputSearch)="clickSearch()"
+    ></app-dashboard-view>
+  -->
+  <div class="container-menu-dashboard-view">
+    <!-- - MENU BAR -->
+    <!-- - JOB SEARCH BAR -->
+    <div class="job-search">
+      <section class="search-job-form">
+        <!-- <p>Find Your Job</p> -->
+        <header class="section-header"><h1>Find Your Job</h1></header>
+        <div class="section-content">
+          <form class="search-forms" [formGroup]="searchForm">
+            <div class="search category">
+              <input
+                type="text"
+                name=""
+                id="search-input"
+                formControlName="category"
+                placeholder="Search job title"
+              />
+              <!-- <p> {{ sts.searchForm| json}}</p> -->
+              <app-categories-view
+                (clickCategories)="getClickCategory($event)"
+                [categories]="CATEGORIES"
+              ></app-categories-view>
+            </div>
+            <div class="search location">
+              <input
+                type="text"
+                name=""
+                id="search-city"
+                formControlName="location"
+                placeholder="City, State, Zip"
+              />
+            </div>
+            <div class="search icon">
+              <button type="button" (click)="searchJobs()" id="search-jobs">
+                <i class="material-icons"> search </i>
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+
+    <!--
+      <section class="section-find-right-job">
+        <header class="inner-right section-header">
+          <div class="inner-header">
+            <h1>Find</h1>
+            <h1>The right job</h1>
+            <h1 id="last-row">For you</h1>
+          </div>
+        </header>
+        <div class="inner-right section-content">
+          <p id="info-right-job">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur,
+            sapiente iusto? Mollitia, optio! Consectetur debitis quo, voluptatum
+          </p>
+        </div>
+      </section>
+    -->
+    <!-- - JOB SITE INFORMATION -->
+
+    <section class="inner upload-resume">
+      <div class="section-col1 upload-resume-col1">
+        <div class="div-section-inner">
+          <header class="section-header"><h1>Upload Your Resume</h1></header>
+          <div class="section-content">
+            <p class="info upload-resume-info">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero,
+              minus!
+            </p>
+            <div class="link-to upload-link">
+              <a routerLink="./">Upload resume</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="img-src upload-resume">
+        <img src="../../../assets/resume.jpg" alt="" />
+      </div>
+    </section>
+
+    <section class="inner search-jobs">
+      <div class="img-src search-jobs">
+        <img src="../../../assets/accomplishment-agreement.jpg" alt="" />
+      </div>
+      <div class="section-col1 search-jobs-col1">
+        <div class="div-section-inner">
+          <header class="section-header">
+            <h1>Find the right job</h1>
+            <h1>that fits you</h1>
+          </header>
+          <div class="section-content">
+            <p class="info search-job-info">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit
+              dicta rem nihil soluta sequi ut sint fugiat, temporibus quaerat
+              laborum?
+            </p>
+            <div class="link-to search-link">
+              <a routerLink="./">Search job</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--
+      <section class="explanation">
+          <h2> Lorem, ipsum dolor.</h2>
+
+      </section>
+      <section class="reviews-section">
+         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, laudantium. </p>
+      </section>
+    -->
+
+    <!-- - JOB SITE FOOTER -->
+    <!--
+      <footer class="job-footer">
+          <div class="text-history">
+              Easy job will help you to build your career by finding the right job for you.
+          </div>
+      </footer>
+    -->
+  </div>
 </div>
