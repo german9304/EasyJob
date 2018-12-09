@@ -20,6 +20,7 @@
             <app-search-category
               [searchFormParent]="searchForm"
               [categories]="CATEGORIES"
+              (category)="handleCategory($event)"
             ></app-search-category>
             <app-search-location
               [searchFormParent]="searchForm"

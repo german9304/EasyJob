@@ -70,7 +70,7 @@ export class DashboardComponent implements OnInit {
       });
   }
 
-  getClickCategory(value: string) {
+  handleCategory(value: string) {
     if (!value.trim()) {
       return;
     }

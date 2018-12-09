@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 
 @Component({
@@ -9,7 +9,12 @@ import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 export class SearchCategoryComponent implements OnInit {
   @Input() searchFormParent: FormGroup;
   @Input() categories;
+  @Output() category: EventEmitter<string> = new EventEmitter<string>();
   constructor() {}
 
   ngOnInit() {}
+  handleClick(event: string) {
+    // console.log(`event: ${event}`);
+    this.category.emit(event);
+  }
 }
