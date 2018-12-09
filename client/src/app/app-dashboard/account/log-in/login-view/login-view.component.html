@@ -6,20 +6,20 @@
     </div>
   -->
   <div class="container jobseeker">
-    <button
+    <span
       id="employer"
       (click)="clicked(0, 'employer')"
       [class.selected]="i === 0"
     >
       Employer
-    </button>
-    <button
+    </span>
+    <span
       id="jobSeeker"
       (click)="clicked(1, 'jobSeeker')"
       [class.selected]="i === 1"
     >
       Job Seeker
-    </button>
+    </span>
   </div>
   <a id="google-sigin" href="/auth/google/">
     <p id="loginGoogle">LOGIN WITH GOOGLE</p>
