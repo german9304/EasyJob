@@ -1,14 +1,15 @@
-// .container-menu-dashboard-view {
-//   padding-top: 30px;
-//   border: solid 1px black;
-// }
+.container-menu-dashboard-view {
+  // padding-top: 30px;
+  // border: solid 1px black;
+  --font--fam: 'Open Sans', sans-serif;
+}
 .job-search {
   display: flex;
   justify-content: center;
   margin: 0;
   // border: solid 2px black;
   align-items: center;
-  margin: 0 0 40px 0;
+  // margin: 0 0 40px 0;
   height: 550px;
   background-image: url('../../../../assets/desk-jobs.jpg');
   background-size: 100%;
@@ -23,11 +24,11 @@
 // }
 .search-job-form {
   // font-size: 60px;
-  padding: 50px;
+  padding: 50px 20px 50px 20px;
   margin: 0;
-  flex-basis: 80%;
-  // border: solid 1px black;
-  font-family: 'Open Sans', sans-serif;
+  flex-basis: 70%;
+  // border: solid 1px white;
+  font-family: var(--font--fam);
   font-weight: bold;
 
   background-color: #11111190;
@@ -39,7 +40,7 @@
       font-size: 3em;
       flex: 1;
       // color: #3d9970;
-      color: #fff;
+      color: #bad4eb;
       /* border:  solid 1px black; */
       margin: 0 0 20px 0;
     }
@@ -146,6 +147,10 @@
     }
   }
 }
+// .separation {
+//   background-color: #2e4a6232;
+//   height: 200px;
+// }
 
 // .search-job-form input {
 //   box-sizing: border-box;
@@ -181,7 +186,48 @@
     background-color: #477a9d32;
     color: white;
   } */
+.section-find-right-job {
+  // border: solid 1px black;
+  display: flex;
+  height: 500px;
+  background-color: #063d6d;
+  .inner-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+  }
+  .inner-header {
+    border-bottom: solid 10px #fff;
+    #last-row {
+      padding: 0 0 30px 0;
+    }
+  }
+  .section-header {
+    // border: solid 1px blue;
+    // display: flex;
+    // flex-direction: column;
 
+    flex: 1;
+    h1 {
+      font-size: 3em;
+      margin: 0;
+      // width: 400px;
+
+      // border: solid 1px red;
+      font-family: var(--font--fam);
+    }
+  }
+  .section-content {
+    flex: 1;
+    #info-right-job {
+      // border: solid 1px red;
+      width: 400px;
+      font-size: 1.5em;
+      line-height: 2em;
+    }
+  }
+}
 .job-footer {
   height: 100px;
   background-color: #556a7b;
@@ -200,10 +246,11 @@
 .job-site {
   display: flex;
   // flex-direction: column;
-  border: solid 2px black;
+  // border: solid 2px black;
+  flex-wrap: wrap;
 }
 .job-site .inner {
-  border: solid 2px blue;
+  // border: solid 2px blue;
   flex: 1;
   box-sizing: border-box;
   display: flex;
@@ -211,6 +258,9 @@
   align-items: center;
   // flex-wrap: wrap;
   font-family: 'Quicksand', sans-serif;
+  background-size: 100%;
+  height: 500px;
+  background-repeat: no-repeat;
   // border: solid 1px #2b3137;
 }
 // .job-site .inner.upload-resume {
@@ -224,6 +274,7 @@
   font-weight: bold;
   font-size: 30px;
   // color: #3d9970;
+  line-height: 2em;
   color: #111111;
   border-radius: 15px;
   font-family: 'Open Sans', sans-serif;
@@ -240,19 +291,20 @@
 
   /* border: solid 1px #aaaaaa; */
 }
+
+.search-jobs {
+  background-image: url('../../../../assets/accomplishment-agreement.jpg');
+}
 .upload-resume {
-  // background-image: url('../../assets/resume.jpg');
-  background-image: url('../../../../assets//resume.jpg');
-  background-size: 100%;
-  height: 500px;
-  background-repeat: no-repeat;
+  background-image: url('../../../../assets/resume.jpg');
 }
 .section-content-div {
-  background-color: #fff;
+  background-color: #07070795;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 20px;
 }
 // .job-site .information p {
 //   font-size: 17px;
@@ -283,16 +335,27 @@
 //   border: solid gray 1px;
 // }
 
-.inner > * {
-  border: solid 1px black;
-}
+// .inner > * {
+//   border: solid 1px black;
+// }
 
 .inner .section-header h1 {
   padding: 0;
-  border: solid 1px black;
-  margin: 0;
+  // border: solid 1px black;
+  margin: 0 0 10px 0;
+  // color: #001f3f;
+  color: #bad4eb;
+  font-weight: bold;
+  font-size: 2em;
 }
 .section-content > * {
-  border: solid 1px black;
+  // border: solid 1px black;
   margin: 0;
+}
+
+.info {
+  // border: solid 1px red;
+  width: 500px;
+  color: #fff;
+  font-size: 1.2em;
 }
