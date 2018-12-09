@@ -1,58 +1,9 @@
 <div class="container-menu-dashboard">
-    <app-dashboard-view [searchForm]="searchForm" (search)="clickSearch()" (catClick)="getClickCategory($event)" [categories]="CATEGORIES"
-        (clickInputSearch)="clickSearch()"></app-dashboard-view>
+  <app-dashboard-view
+    [searchForm]="searchForm"
+    (search)="clickSearch()"
+    (catClick)="getClickCategory($event)"
+    [categories]="CATEGORIES"
+    (clickInputSearch)="clickSearch()"
+  ></app-dashboard-view>
 </div>
-
-
-
-
-<!-- <div class="container-menu">
-   
-    <section class="job-search">
-        <div class="search-job-form">
-            <p> Find Your Job </p>
-            <div class="search-forms">
-                <input type="text" name="" id="search-input" placeholder="Search">
-                <input type="text" name="" id="" placeholder="City, State, Zip">
-                <i class="material-icons">
-                    search
-                </i>
-            </div>
-        </div>
-    </section>
-   
-    <section class="job-site">
-        <div class="inner upload-resume">
-            <div class="information">
-                <h2>Upload Your Resume</h2>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto, molestiae.</p>
-            </div>
-            <img class="myimg"src="../../assets/resume.jpg">
-        </div>
-
-        <div class="inner search-jobs">
-            <div class="information">
-                <h2>Search For Jobs</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro unde aspernatur ab magnam consequuntur eum
-                    incidunt modi dolores, soluta est!</p>
-            </div>
-            <img class="myimg" src="../../assets/searchjobs.jpg">
-        </div>
-    </section>
-
-    <section class="explanation">
-        <h2> Lorem, ipsum dolor.</h2>
-
-    </section>
-    <section class="reviews-section">
-       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, laudantium. </p>
-    </section> -->
-
-<!-- JOB SITE FOOTER
-<footer class="job-footer">
-    <div class="text-history">
-        Easy job will help you to build your career by finding the right job for you.
-    </div>
-</footer>
-
-</div>  -->
