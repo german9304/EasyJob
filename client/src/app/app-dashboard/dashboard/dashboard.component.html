@@ -21,15 +21,10 @@
               [searchFormParent]="searchForm"
               [categories]="CATEGORIES"
             ></app-search-category>
-            <div class="search location">
-              <input
-                type="text"
-                name=""
-                id="search-city"
-                formControlName="location"
-                placeholder="City, State, Zip"
-              />
-            </div>
+            <app-search-location
+              [searchFormParent]="searchForm"
+            ></app-search-location>
+
             <div class="search icon">
               <button type="button" (click)="searchJobs()" id="search-jobs">
                 <i class="material-icons"> search </i>
