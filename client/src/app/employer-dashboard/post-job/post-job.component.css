@@ -68,10 +68,11 @@ label {
   margin: 0 0 5px 0;
   display: block;
   color: #181d1b;
+  font-size: 1.2em;
 }
 .post-form-header {
   /* border: solid 1px black; */
-  font-size: 2em;
+  font-size: 2.5em;
   text-align: center;
   font-family: 'Muli', sans-serif;
   margin: 0 0 10px 0;
