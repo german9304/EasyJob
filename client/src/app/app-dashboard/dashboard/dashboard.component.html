@@ -1,13 +1,4 @@
 <div class="container-menu-dashboard">
-  <!--
-    <app-dashboard-view
-      [searchForm]="searchForm"
-      (search)="clickSearch()"
-      (catClick)="getClickCategory($event)"
-      [categories]="CATEGORIES"
-      (clickInputSearch)="clickSearch()"
-    ></app-dashboard-view>
-  -->
   <div class="container-menu-dashboard-view">
     <!-- - MENU BAR -->
     <!-- - JOB SEARCH BAR -->
@@ -15,24 +6,7 @@
       <section class="search-job-form">
         <!-- <p>Find Your Job</p> -->
         <header class="section-header"><h1>Find Your Job</h1></header>
-        <div class="section-content">
-          <form class="search-forms" [formGroup]="searchForm">
-            <app-search-category
-              [searchFormParent]="searchForm"
-              [categories]="CATEGORIES"
-              (category)="handleCategory($event)"
-            ></app-search-category>
-            <app-search-location
-              [searchFormParent]="searchForm"
-            ></app-search-location>
-
-            <div class="search icon">
-              <button type="button" (click)="searchJobs()" id="search-jobs">
-                <i class="material-icons"> search </i>
-              </button>
-            </div>
-          </form>
-        </div>
+        <div class="section-content"><app-search-form></app-search-form></div>
       </section>
     </div>
 

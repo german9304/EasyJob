@@ -22,6 +22,7 @@ import { JobSerchListComponent } from './job-search/job-serch-list/job-serch-lis
 import { SearchCategoryComponent } from './dashboard/search-category/search-category.component';
 import { SearchLocationComponent } from './dashboard/search-location/search-location.component';
 import { CategoriesComponent } from './dashboard/categories/categories.component';
+import { SearchFormComponent } from './dashboard/search-form/search-form.component';
 
 @NgModule({
   imports: [
@@ -40,7 +41,8 @@ import { CategoriesComponent } from './dashboard/categories/categories.component
     JobSerchListComponent,
     SearchCategoryComponent,
     SearchLocationComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    SearchFormComponent
   ],
   providers: [JobListDataService]
 })
