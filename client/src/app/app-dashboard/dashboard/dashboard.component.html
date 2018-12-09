@@ -6,7 +6,12 @@
       <section class="search-job-form">
         <!-- <p>Find Your Job</p> -->
         <header class="section-header"><h1>Find Your Job</h1></header>
-        <div class="section-content"><app-search-form></app-search-form></div>
+        <div class="section-content">
+          <app-search-form
+            [formParent]="searchForm"
+            [categories]="CATEGORIES"
+          ></app-search-form>
+        </div>
       </section>
     </div>
 
