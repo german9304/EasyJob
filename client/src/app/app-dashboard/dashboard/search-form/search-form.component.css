@@ -12,3 +12,22 @@
   justify-content: center;
   /* border: solid 2px black; */
 }
+
+.material-icons {
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: 35px;
+  display: flex;
+  justify-content: center;
+}
+
+#search-jobs {
+  color: white;
+  background-color: #2e4a62;
+  display: block;
+  width: 100%;
+  border: none;
+  text-decoration: none;
+  transition: all 0.5s;
+  outline: none;
+}
