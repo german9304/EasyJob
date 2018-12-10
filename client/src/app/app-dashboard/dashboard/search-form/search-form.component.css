@@ -1,9 +1,12 @@
 .search-forms {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  /* justify-content: center; */
   margin: 0;
   border: solid 1px black;
+}
+.form-inpt {
+  flex: 1;
 }
 
 .search.icon {

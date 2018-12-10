@@ -1,6 +1,6 @@
 .search {
-  flex-basis: 35%;
   padding: 0;
+  border: solid 1px brown;
 }
 
 input {
