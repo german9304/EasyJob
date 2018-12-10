@@ -7,7 +7,9 @@
       <div class="section-content">
         <div class="jobseeker-joblist">
           <ul class="jobseeker-jobs">
-            <li class="job-item"><app-dashboard-view></app-dashboard-view></li>
+            <li class="job-item" *ngFor="let job of suggested">
+              <app-dashboard-view [job]="job"></app-dashboard-view>
+            </li>
           </ul>
         </div>
       </div>
