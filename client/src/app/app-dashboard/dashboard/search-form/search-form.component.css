@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   /* justify-content: center; */
   margin: 0;
-  border: solid 1px black;
+  /* border: solid 1px black; */
 }
 .form-inpt {
   flex: 1;
