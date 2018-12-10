@@ -1,4 +1,15 @@
 .job {
   /* border: solid 1px brown; */
-  padding: 30px;
+  padding: 10px;
+}
+span {
+  /* border: solid 1px brown; */
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.9em;
+  display: block;
+  font-weight: 550;
+}
+
+#location {
+  font-weight: 500;
 }
