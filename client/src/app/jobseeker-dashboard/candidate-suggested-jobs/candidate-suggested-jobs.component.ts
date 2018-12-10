@@ -19,6 +19,6 @@ export class CandidateSuggestedJobsComponent implements OnInit {
     console.log(this.suggested);
   }
   suggestedJobs() {
-    return this.js.suggestedJobs.subscribe(jobs => (this.suggested = jobs));
+    return this.js.candidateJobs.subscribe(jobs => (this.suggested = jobs));
   }
 }

@@ -7,7 +7,7 @@ export class CandidateJobsService {
   suggested: JOB[] = JOBS;
   constructor() {}
 
-  get suggestedJobs(): Observable<JOB[]> {
+  get candidateJobs(): Observable<JOB[]> {
     return of(this.suggested);
   }
 }
