@@ -11,7 +11,7 @@
               border: solid 2px rgb(230, 40, 40);
             } */
 .dashboard-sections {
-  width: 60%;
+  flex: 1;
   background-color: #ffff;
   border: solid 1px #cecccc;
   box-shadow: 0 0 5px 1px #dddddd;
@@ -21,8 +21,8 @@
 }
 .section-header {
   font-family: 'Raleway', sans-serif;
-  padding: 0 0 10px 0;
-  margin: 0 0 20px 0;
+  padding: 0;
+  margin: 0;
   border-bottom: solid 2px #b1a9a9;
 }
 .header {
@@ -37,16 +37,17 @@ header h1 {
 
 .job-item {
   border: solid 1px #cecccc;
+  /* border: solid 1px black; */
 }
 .jobseeker-jobs li {
   /* border: solid 1px red; */
 
-  padding: 10px 0 10px 10px;
+  padding: 0;
   list-style: none;
   /* background-color: gray; */
 }
 .jobseeker-jobs {
-  border: solid 1px black;
+  /* border: solid 1px black; */
   display: flex;
   flex-wrap: wrap;
   padding: 0;
