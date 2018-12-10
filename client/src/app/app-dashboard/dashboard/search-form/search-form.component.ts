@@ -4,7 +4,7 @@ import { CATEGORY } from '../../../job';
 @Component({
   selector: 'app-search-form',
   templateUrl: './search-form.component.html',
-  styleUrls: ['./search-form.component.css']
+  styleUrls: ['../search-inpt.css', './search-form.component.css']
 })
 export class SearchFormComponent implements OnInit {
   @Input() formParent: FormGroup;
