@@ -31,33 +31,23 @@
   // border: solid 1px white;
   font-family: var(--font--fam);
   font-weight: bold;
-
   // background-color: #11111190;
   // background-color: rgba(0, 0, 0, 0.6);
   // background-color: #0074d990;
   .section-header {
-    // border: solid 1px black;
     h1 {
       text-align: center;
       font-size: 2.5em;
       flex: 1;
-      // color: #3d9970;
-      // color: #9abde0;
       font-weight: 400;
       color: #2e4a62;
-      /* border:  solid 1px black; */
       margin: 0 0 20px 0;
     }
   }
-  /* color: white;
-    background: #3d9970; */
-
-  // border: solid 2px black;
   border-radius: 10px 10px 10px 10px;
 }
 
 .section-find-right-job {
-  // border: solid 1px black;
   display: flex;
   height: 500px;
   background-color: #063d6d;
@@ -74,24 +64,16 @@
     }
   }
   .section-header {
-    // border: solid 1px blue;
-    // display: flex;
-    // flex-direction: column;
-
     flex: 1;
     h1 {
       font-size: 3em;
       margin: 0;
-      // width: 400px;
-
-      // border: solid 1px red;
       font-family: var(--font--fam);
     }
   }
   .section-content {
     flex: 1;
     #info-right-job {
-      // border: solid 1px red;
       width: 400px;
       font-size: 1.5em;
       line-height: 2em;
@@ -108,27 +90,12 @@
   padding: 10px;
   text-align: center;
 }
-/*
-  #search-input {
-    border-radius: 10px 0 0 10px;
-  }
-  */
-// .job-site {
-//   display: flex;
-//   // flex-direction: column;
-//   // border: solid 2px black;
-//   flex-wrap: wrap;
-// }
+
 .inner {
-  // border: solid 2px blue;
   padding: 10px;
   box-sizing: border-box;
   display: flex;
-
-  // flex-wrap: wrap;
-
   font-family: 'Quicksand', sans-serif;
-  // border: solid 1px #2b3137;
 }
 .search-jobs {
   background-color: #eeeaead8;
@@ -137,7 +104,6 @@
   flex: 1;
 }
 .section-col1 {
-  // border: solid 1px red;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -146,9 +112,7 @@
     margin: 0 0 10px 0;
   }
 }
-// .section-col1 > * {
-//   border: solid 1px green;
-// }
+
 .job-site .information h2 {
   text-align: center;
   font-weight: bold;
@@ -159,7 +123,6 @@
   border-radius: 15px;
   font-family: 'Open Sans', sans-serif;
   padding: 10px;
-  /* border:  solid 1px black; */
 }
 
 .job-site .information {
@@ -172,16 +135,10 @@
   /* border: solid 1px #aaaaaa; */
 }
 
-// .section-col1 .section-content {
-//   border: solid 1px royalblue;
-// }
 .inner .section-header h1 {
   padding: 0;
   // border: solid 1px black;
   margin: 0;
-  // color: #001f3f;
-  // color: #9abde0;
-
   font-family: var(--font--fam);
   font-weight: bolder;
   font-size: 2em;
