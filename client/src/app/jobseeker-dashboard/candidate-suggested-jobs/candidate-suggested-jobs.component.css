@@ -34,3 +34,18 @@ header h1 {
   padding: 0;
   margin: 0;
 }
+
+.job-item {
+  border: solid 1px #cecccc;
+}
+.jobseeker-jobs li {
+  /* border: solid 1px red; */
+
+  padding: 10px 0 10px 10px;
+  list-style: none;
+  /* background-color: gray; */
+}
+.jobseeker-jobs {
+  /* border: solid 1px black; */
+  padding: 0;
+}
