@@ -1,3 +1,18 @@
-<div class="container-dashboard">
-  <app-dashboard-view></app-dashboard-view>
+<div class="container-jobseeker">
+  <div class="dashboard-sections">
+    <section class="section section-save-jobs">
+      <header class="section-header">
+        <h1 class="header">Jobs you might be interested in</h1>
+      </header>
+      <div class="section-content">
+        <div class="jobseeker-joblist">
+          <ul class="jobseeker-jobs">
+            <li class="job-item" *ngFor="let job of suggested">
+              <app-dashboard-view [job]="job"></app-dashboard-view>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
 </div>

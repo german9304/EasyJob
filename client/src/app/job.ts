@@ -4,6 +4,7 @@ export class JOB {
     _id?: number;
     name: string;
   };
+  type: string;
   title: string;
   company: string;
   industry: string;

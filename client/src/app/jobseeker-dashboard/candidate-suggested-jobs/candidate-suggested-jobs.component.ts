@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { USER } from '../../user';
+import { CandidateJobsService } from '../services/candidate-jobs.service';
+import { JOB } from '../../job';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,13 +11,14 @@ import { USER } from '../../user';
   styleUrls: ['./candidate-suggested-jobs.component.css']
 })
 export class CandidateSuggestedJobsComponent implements OnInit {
-  constructor(private auth: AuthService) {}
+  suggested: JOB[];
+  constructor(private auth: AuthService, private js: CandidateJobsService) {}
 
   ngOnInit() {
-    /*
-    this.auth.getUSER().subscribe((user: USER) => {
-      console.log("user ", user);
-    });
-    */
+    this.suggestedJobs();
+    console.log(this.suggested);
+  }
+  suggestedJobs() {
+    return this.js.candidateJobs.subscribe(jobs => (this.suggested = jobs));
   }
 }

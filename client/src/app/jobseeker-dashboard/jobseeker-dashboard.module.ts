@@ -19,7 +19,7 @@ import { SavedJobsViewComponent } from './saved-jobs/saved-jobs-view/saved-jobs-
 Serivice
 */
 import { GetEducationFieldService } from './candidate-fields/cand-fields-exp/get-education-field.service';
-
+import { CandidateJobsService } from './services/candidate-jobs.service';
 import { GetExperienceFieldService } from './candidate-fields/cand-fields-exp/get-experience-field.service';
 import { CandidateFieldsService } from './services/candidate-fields.service';
 import { AppliedJobsComponent } from './applied-jobs/applied-jobs.component';
@@ -46,6 +46,7 @@ import { FieldsService } from './services/fields.service';
     CandidateFieldsService,
     GetExperienceFieldService,
     DataFieldsService,
+    CandidateJobsService,
     GetEducationFieldService,
     CandidateFilesService,
     FieldsService

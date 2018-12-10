@@ -1,22 +1,48 @@
 <!-- <p> {{ createaccount.value | json }} </p> -->
 <div class="form-container">
   <div class="option-container">
-    <button id="employer" (click)="clicked(0, 'employer')" [class.selected]="i === 0"> Employer </button>
-    <button id="jobSeeker" (click)="clicked(1, 'jobseeker')" [class.selected]="i === 1"> Job Seeker </button>
+    <span
+      id="employer"
+      (click)="clicked(0, 'employer')"
+      [class.selected]="i === 0"
+    >
+      Employer
+    </span>
+    <span
+      id="jobSeeker"
+      (click)="clicked(1, 'jobseeker')"
+      [class.selected]="i === 1"
+    >
+      Job Seeker
+    </span>
   </div>
-<form [formGroup]="createaccount" (ngSubmit)="onSubmit()" id="account-form">
-	<!-- <p> name </p> -->
-	<h2> Create Your Account</h2>
-	<div class="form formgroup">
-		<label for="email"> Email: </label>
-		<input id="email" formControlName="email" placeholder="email" type="text" required="">
-	</div>
-	<div class="form formgroup">
-		<label for="password"> Password: </label>
-		<input id="password" formControlName="password" placeholder="password" type="password" required="">
-	</div>
-	<div class="form form-btn">
-		<button id="btn-submit" type="submit" [disabled]="!createaccount.valid"> Create Account </button>
-	</div>
-</form>
+  <form [formGroup]="createaccount" (ngSubmit)="onSubmit()" id="account-form">
+    <!-- <p> name </p> -->
+    <h2>Create Your Account</h2>
+    <div class="form formgroup">
+      <label for="email"> Email: </label>
+      <input
+        id="email"
+        formControlName="email"
+        placeholder="email"
+        type="text"
+        required=""
+      />
+    </div>
+    <div class="form formgroup">
+      <label for="password"> Password: </label>
+      <input
+        id="password"
+        formControlName="password"
+        placeholder="password"
+        type="password"
+        required=""
+      />
+    </div>
+    <div class="form form-btn">
+      <button id="btn-submit" type="submit" [disabled]="!createaccount.valid">
+        Create Account
+      </button>
+    </div>
+  </form>
 </div>

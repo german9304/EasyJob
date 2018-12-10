@@ -1,0 +1,40 @@
+.job {
+  /* border: solid 1px brown; */
+  padding: 30px 10px 30px 10px;
+}
+span {
+  /* border: solid 1px brown; */
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.9em;
+  display: block;
+  font-weight: 550;
+}
+
+#location {
+  font-weight: 500;
+  font-size: 0.8em;
+  margin: 5px 0 0 0;
+  color: #696464;
+}
+.location-content {
+  display: flex;
+  /* border: solid 1px black; */
+}
+
+.material-icons {
+  color: #696464;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  /* border: solid 1px black; */
+}
+
+p {
+  padding: 0;
+  font-weight: 400;
+  font-size: 1em;
+  color: #111111;
+  font-family: 'Raleway', sans-serif;
+  /* border: solid 1px green; */
+  margin: 0 0 5px 0;
+}
