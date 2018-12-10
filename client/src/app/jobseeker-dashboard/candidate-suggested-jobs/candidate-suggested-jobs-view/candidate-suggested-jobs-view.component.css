@@ -12,6 +12,7 @@ span {
 
 #location {
   font-weight: 500;
+  font-size: 0.8em;
   margin: 5px 0 0 0;
   color: #696464;
 }
@@ -22,6 +23,10 @@ span {
 
 .material-icons {
   color: #696464;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  /* border: solid 1px black; */
 }
 
 p {
