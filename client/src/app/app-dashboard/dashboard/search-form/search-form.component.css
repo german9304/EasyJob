@@ -31,3 +31,8 @@
   transition: all 0.5s;
   outline: none;
 }
+
+#search-jobs:hover {
+  background-color: #0074d9;
+  color: white;
+}
