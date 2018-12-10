@@ -2,3 +2,16 @@
   flex-basis: 35%;
   padding: 0;
 }
+
+input {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  font-size: 15px;
+  margin: 0;
+  outline: 0;
+  border: solid 1px #aaaaaa;
+  border-radius: 5px;
+  transition: all ease-out 0.3s;
+}
