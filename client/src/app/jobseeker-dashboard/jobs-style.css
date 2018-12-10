@@ -37,6 +37,7 @@
   /* border: solid 1px black; */
   display: flex;
   justify-content: space-between;
+  margin: 0;
 }
 .clear-icon {
   display: flex;
@@ -62,13 +63,14 @@
 
 .jobseeker-jobs {
   /* border: solid 1px black; */
+  margin: 0;
   padding: 0;
 }
 
 .jobseeker-jobs li {
   /* border: solid 1px red; */
-  margin: 0 0 10px 0;
-  padding: 10px 0 10px 10px;
+  margin: 0 0 5px 0;
+  padding: 0 10px 0 0;
   list-style: none;
   /* background-color: gray; */
   cursor: pointer;
@@ -111,12 +113,13 @@ a:hover {
   color: #46a5f8;
 }
 p {
-  padding: 0;
+  padding: 0 10px 0 0;
   font-weight: 400;
   font-size: 1em;
   color: #111111;
   /* border: solid 1px green; */
-  margin: 0 5px 0 0;
+  font-family: 'Raleway', sans-serif;
+  margin: 0;
 }
 
 header h1 {
@@ -126,4 +129,5 @@ header h1 {
 }
 .job-list-content {
   display: flex;
+  margin: 0;
 }
