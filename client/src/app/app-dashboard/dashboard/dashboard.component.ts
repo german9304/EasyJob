@@ -80,7 +80,7 @@ export class DashboardComponent implements OnInit {
     // console.log("clicked in get click category: ", this.Category.value);
   }
 
-  searchJobs() {
+  handleSearch() {
     const { category, location } = this.searchForm.value;
     // console.log(value);
     this.router.navigate(['/jobs', { search: category, location }]);
