@@ -4,10 +4,10 @@ import { JOBS } from '../mock-data';
 import { Observable, of } from 'rxjs';
 @Injectable()
 export class CandidateJobsService {
-  suggested: JOB[] = JOBS;
+  jobs: JOB[] = JOBS;
   constructor() {}
 
   get candidateJobs(): Observable<JOB[]> {
-    return of(this.suggested);
+    return of(this.jobs);
   }
 }
