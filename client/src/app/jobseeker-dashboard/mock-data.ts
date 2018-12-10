@@ -11,6 +11,7 @@ export const POSTEDJOBS: JOB[] = [
     company: 'Local company',
     industry: 'software',
     location: 'Chico, CA',
+    type: 'Full-Time',
     skills: [
       {
         id: 1,
@@ -33,6 +34,7 @@ export const POSTEDJOBS: JOB[] = [
     company: 'Web Design',
     industry: 'web/software',
     location: 'San Diego',
+    type: 'Part-Time',
     skills: [
       {
         id: 1,
@@ -63,6 +65,7 @@ export const POSTEDJOBS: JOB[] = [
     company: 'Business Company',
     industry: 'business',
     location: 'San Diego',
+    type: 'Full-Time',
     skills: [
       {
         id: 1,
