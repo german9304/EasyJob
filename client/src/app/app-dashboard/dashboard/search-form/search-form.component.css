@@ -1,0 +1,14 @@
+.search-forms {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0;
+  border: solid 1px black;
+}
+
+.search.icon {
+  flex-basis: 80px;
+  display: flex;
+  justify-content: center;
+  /* border: solid 2px black; */
+}
