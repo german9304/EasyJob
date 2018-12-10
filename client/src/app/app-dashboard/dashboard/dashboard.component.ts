@@ -15,7 +15,7 @@ import { JobDataService } from '../../services/job-data.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
   searchForm = this.fb.group({
@@ -70,7 +70,7 @@ export class DashboardComponent implements OnInit {
       });
   }
 
-  getClickCategory(value: string) {
+  handleCategory(value: string) {
     if (!value.trim()) {
       return;
     }
@@ -80,7 +80,7 @@ export class DashboardComponent implements OnInit {
     // console.log("clicked in get click category: ", this.Category.value);
   }
 
-  clickSearch() {
+  handleSearch() {
     const { category, location } = this.searchForm.value;
     // console.log(value);
     this.router.navigate(['/jobs', { search: category, location }]);
