@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 @Component({
   selector: 'app-search-location',
   templateUrl: './search-location.component.html',
-  styleUrls: ['./search-location.component.css']
+  styleUrls: ['../search-inpt.css', './search-location.component.css']
 })
 export class SearchLocationComponent implements OnInit {
   @Input() searchFormParent: FormGroup;

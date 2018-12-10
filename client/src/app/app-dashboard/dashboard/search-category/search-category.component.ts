@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 @Component({
   selector: 'app-search-category',
   templateUrl: './search-category.component.html',
-  styleUrls: ['./search-category.component.css']
+  styleUrls: ['../search-inpt.css', './search-category.component.css']
 })
 export class SearchCategoryComponent implements OnInit {
   @Input() searchFormParent: FormGroup;
