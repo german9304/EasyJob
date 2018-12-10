@@ -57,3 +57,7 @@ header h1 {
   flex-wrap: wrap;
   padding: 0;
 }
+
+.jobseeker-jobs > * {
+  flex-basis: 20%;
+}

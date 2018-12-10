@@ -12,4 +12,14 @@ span {
 
 #location {
   font-weight: 500;
+  margin: 5px 0 0 0;
+  color: #696464;
+}
+.location-content {
+  display: flex;
+  /* border: solid 1px black; */
+}
+
+.material-icons {
+  color: #696464;
 }
