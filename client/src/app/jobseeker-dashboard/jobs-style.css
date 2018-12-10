@@ -44,7 +44,10 @@
   align-items: center;
   /* border-radius: 20px; */
   /* background-color: #3d9970; */
-  color: #39cccc;
+  color: #0e5f5f;
+}
+.clear-icon:hover {
+  color: #3d9970;
 }
 .material-icons {
   padding: 10px;
@@ -65,11 +68,16 @@
 .jobseeker-jobs li {
   /* border: solid 1px red; */
   margin: 0 0 10px 0;
-  padding: 0;
+  padding: 10px 0 10px 10px;
   list-style: none;
   /* background-color: gray; */
-  /* background-color: #01ff6329; */
+  cursor: pointer;
   /* background-color: rgb(#cc3e3e, green, #0074d9); */
+  transition: background-color 0.5s ease;
+  cursor: pointer;
+}
+li:hover {
+  background-color: #e0faeb80;
 }
 
 .job-title {
