@@ -5,8 +5,8 @@
       <div class="section-content">
         <div class="jobseeker-joblist">
           <ul class="jobseeker-jobs">
-            <li class="job-item">
-              <app-saved-jobs-view></app-saved-jobs-view>
+            <li class="job-item" *ngFor="let job of applied">
+              <app-saved-jobs-view [job]="job"></app-saved-jobs-view>
             </li>
           </ul>
         </div>

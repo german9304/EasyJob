@@ -14,7 +14,6 @@ export class AppliedJobsViewComponent implements OnInit {
 
   ngOnInit() {
     const { title, company, location } = this.job;
-    console.log(this.job);
     this.title = title;
     this.location = location;
     this.company = company;
