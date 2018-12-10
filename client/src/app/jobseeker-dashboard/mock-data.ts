@@ -1,6 +1,6 @@
 import { JOB } from '../job';
 
-export const POSTEDJOBS: JOB[] = [
+export const JOBS: JOB[] = [
   {
     _id: 1,
     category: {
