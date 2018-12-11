@@ -13,6 +13,7 @@ import { EditExperienceComponent } from '../cand-fields-exp/experience/edit-expe
 import { EditEducationComponent } from '../cand-fields-exp/education/edit-education/edit-education.component';
 
 import { CandidateResumeComponent } from '../cand-fields-exp/candidate-files/candidate-resume/candidate-resume.component';
+import { FormRow1Component } from '../candidate-info/form-row1/form-row1.component';
 
 const candidateFieldsRoutes: Routes = [
   {
@@ -29,6 +30,10 @@ const candidateFieldsRoutes: Routes = [
           {
             path: 'education',
             component: NewEducationComponent
+          },
+          {
+            path: 'profile-info-1',
+            component: FormRow1Component
           }
         ]
       },
