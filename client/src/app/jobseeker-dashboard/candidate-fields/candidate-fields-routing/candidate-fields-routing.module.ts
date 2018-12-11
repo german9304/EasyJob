@@ -14,6 +14,8 @@ import { EditEducationComponent } from '../cand-fields-exp/education/edit-educat
 
 import { CandidateResumeComponent } from '../cand-fields-exp/candidate-files/candidate-resume/candidate-resume.component';
 import { FormRow1Component } from '../candidate-info/form-row1/form-row1.component';
+import { FormRow2Component } from '../candidate-info/form-row2/form-row2.component';
+import { FormRow3Component } from '../candidate-info/form-row3/form-row3.component';
 
 const candidateFieldsRoutes: Routes = [
   {
@@ -34,6 +36,14 @@ const candidateFieldsRoutes: Routes = [
           {
             path: 'profile-info-1',
             component: FormRow1Component
+          },
+          {
+            path: 'profile-info-2',
+            component: FormRow2Component
+          },
+          {
+            path: 'profile-info-3',
+            component: FormRow3Component
           }
         ]
       },
