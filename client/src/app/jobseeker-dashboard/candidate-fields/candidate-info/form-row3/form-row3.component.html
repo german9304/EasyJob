@@ -1,3 +1,36 @@
-<p>
-  form-row3 works!
-</p>
+<div class="profile-fields">
+  <div class="fields-container">
+    <form action="" [formGroup]="profileInfo">
+      <!-- <p>{{ profileInfo.value | json }}</p> -->
+      <div class="headers">
+        <div class="addexperience">
+          <h2>Edit contact info</h2>
+          <a routerLink="../../" routerLinkActive="active">
+            <i class="material-icons"> clear </i>
+          </a>
+        </div>
+      </div>
+      <div class="frm cand-email">
+        <label for="email">Email</label>
+        <input
+          type="text"
+          formControlName="email"
+          id="email"
+          placeholder="Ex. john@mail.com"
+        />
+      </div>
+      <div class="frm phone">
+        <label for="phone">Phone</label>
+        <input
+          type="text"
+          formControlName="phone"
+          id="phone"
+          placeholder="Ex. (619)-234-345"
+        />
+      </div>
+      <div class="frm btns">
+        <button class="save" type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
