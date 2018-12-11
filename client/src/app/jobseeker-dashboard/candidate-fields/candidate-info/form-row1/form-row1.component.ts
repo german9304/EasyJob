@@ -10,8 +10,9 @@ import { FormBuilder } from '@angular/forms';
 })
 export class FormRow1Component implements OnInit {
   profileInfo = this.fb.group({
-    email: [''],
-    phone: ['']
+    name: [''],
+    headline: [''],
+    location: ['']
   });
   constructor(private fb: FormBuilder) {}
 
