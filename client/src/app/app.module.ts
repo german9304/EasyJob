@@ -21,9 +21,18 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NavbarContentComponent } from './navbar/navbar-content/navbar-content.component';
 import { SearchJobsComponent } from './search-jobs/search-jobs.component';
+import { SearchFormComponent } from './search-jobs/search-form/search-form.component';
 
 @NgModule({
-  declarations: [AppComponent, PageNotFoundComponent, TestDirective, NavbarComponent, NavbarContentComponent, SearchJobsComponent],
+  declarations: [
+    AppComponent,
+    PageNotFoundComponent,
+    TestDirective,
+    NavbarComponent,
+    NavbarContentComponent,
+    SearchJobsComponent,
+    SearchFormComponent
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,
