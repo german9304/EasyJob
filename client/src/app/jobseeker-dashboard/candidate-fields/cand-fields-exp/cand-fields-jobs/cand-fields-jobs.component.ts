@@ -22,12 +22,13 @@ import { CandidateFilesService } from '../../../services/candidate-files.service
   template: `
     <div class="candidateprofile">
       <app-cand-fields-jobs-view
-      [experience]="fsexp.EXPERIENCE"
-      [education]="fsedu.EDUCATION"
-       [trackByExp]="trackByExperience"
-       [file]="fileUpload"
-       (fileChosen)="uploadFile($event)"
-       [fileInfo]="fileService.fileInfo">
+        [experience]="fsexp.EXPERIENCE"
+        [education]="fsedu.EDUCATION"
+        [trackByExp]="trackByExperience"
+        [file]="fileUpload"
+        (fileChosen)="uploadFile($event)"
+        [fileInfo]="fileService.fileInfo"
+      >
       </app-cand-fields-jobs-view>
     </div>
   `,
@@ -50,7 +51,7 @@ export class CandExpEduResComponent implements OnInit {
   ngOnInit() {
     // console.log(this.fileService.fileInfo.toObject());
     this.route.data.subscribe((data: { CandidateFields: FIELDS }) => {
-      console.log(data);
+      //  console.log(data);
       if (data) {
         const {
           CandidateFields: { experience, education, fileInfo }
@@ -61,7 +62,7 @@ export class CandExpEduResComponent implements OnInit {
         // console.log(this.fsexp.FIELD);
         this.fsedu.EDUCATION = List<EDUCATION>(education);
         const fInfo: FILE = fileInfo;
-        console.log(`fileinfo: ${fileInfo}`);
+        //  console.log(`fileinfo: ${fileInfo}`);
         if (fileInfo) {
           const {
             originalName,
@@ -73,7 +74,7 @@ export class CandExpEduResComponent implements OnInit {
           // console.log(fi.toObject());
         }
       }
-      console.log('ng init');
+      // console.log('ng init');
     });
   }
   trackByExperience(index: number, experience: EXPERIENCE): string {
@@ -83,10 +84,10 @@ export class CandExpEduResComponent implements OnInit {
   async uploadFile(event): Promise<void> {
     const { files } = event.target;
     const [file] = files;
-    console.log(file);
+    // console.log(file);
     const fileInfo: FILE = await this.fileService.uploadResume(file);
     // const { originalName, uploadDate } = fileInfo;
     this.fileService.fileInfo = Map<string, string>(fileInfo);
-    console.log(fileInfo);
+    // console.log(fileInfo);
   }
 }

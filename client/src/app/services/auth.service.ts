@@ -71,7 +71,7 @@ export class AuthService {
     try {
       const { email, auth, jwt } = user;
       const usr = new USER('', email, auth, jwt);
-      console.log('user: ', usr);
+      // console.log('user: ', usr);
       localStorage.setItem('token', JSON.stringify(user));
       // const httpOpts = {
       //   jwt,
@@ -118,7 +118,7 @@ export class AuthService {
   }
 
   get userHeadersFiles(): { headers: HttpHeaders } {
-     const credentials: USER = this.getUserCredentials() as USER;
+    const credentials: USER = this.getUserCredentials() as USER;
     const { jwt } = credentials;
     // console.log(credentials);
     // console.log(jwt);
