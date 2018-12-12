@@ -6,6 +6,7 @@ import { EmployerDashboardComponent } from '../employer-dashboard/dashboard/dash
 import { DataResolverService } from '../services/auth-data-resolver.service';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { PostJobComponent } from '../post-job/post-job.component';
 
 const appRoutes: Routes = [
   {
@@ -15,6 +16,10 @@ const appRoutes: Routes = [
       {
         path: '',
         component: DashboardComponent
+      },
+      {
+        path: 'post-job',
+        component: PostJobComponent
       }
     ]
   },
