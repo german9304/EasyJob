@@ -4,3 +4,9 @@
   /*height: 100vh;*/
   margin: 0;
 }
+.add-picture-background {
+  height: 700px;
+
+  background-size: 100%;
+  background-image: url('../assets/business-career-confidence-776615.jpg');
+}
