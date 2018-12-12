@@ -40,11 +40,11 @@ export class CandidateFieldsService implements OnInit {
     // console.log(`credentials ${this.httpOptions.headers.get("Authorization")}`);
   }
   /*
-  *
-  * Creates experience
-  *
-  *
-  */
+   *
+   * Creates experience
+   *
+   *
+   */
   createExperience(experience: EXPERIENCE): Observable<EXPERIENCE> {
     // console.log(this.httpOptions.headers.get("Authorization"));
     return this.http
@@ -62,11 +62,11 @@ export class CandidateFieldsService implements OnInit {
       );
   }
   /*
-  *
-  * Updates Experience
-  *
-  *
-  */
+   *
+   * Updates Experience
+   *
+   *
+   */
   updateExperience(id: string, experience: EXPERIENCE): Observable<EXPERIENCE> {
     return this.http
       .put<EXPERIENCE>(
@@ -83,8 +83,8 @@ export class CandidateFieldsService implements OnInit {
       );
   }
   /*
-  * Get Experience
-  */
+   * Get Experience
+   */
   getExperience(id: string): Observable<EXPERIENCE> {
     return this.http.get<EXPERIENCE>(`/api/fields/experience/${id}`).pipe(
       tap(data => console.log(`experience: ${data}`)),
@@ -95,11 +95,11 @@ export class CandidateFieldsService implements OnInit {
     );
   }
   /*
-  *
-  * Deletes Experience
-  *
-  *
-  */
+   *
+   * Deletes Experience
+   *
+   *
+   */
   deleteExperience(id: string): Observable<{}> {
     return this.http
       .delete<{}>(`/api/fields/experience/${id}`, this.auth.UserHeaders)
@@ -124,7 +124,11 @@ export class CandidateFieldsService implements OnInit {
 
   createEducation(experience: EDUCATION): Observable<EDUCATION> {
     return this.http
-      .post<EDUCATION>(`/api/fields/education`, experience, this.auth.UserHeaders)
+      .post<EDUCATION>(
+        `/api/fields/education`,
+        experience,
+        this.auth.UserHeaders
+      )
       .pipe(
         tap(data => console.log(`education: ${data}`)),
         catchError(error => {
@@ -164,9 +168,9 @@ export class CandidateFieldsService implements OnInit {
 
   getFields(): Observable<FIELDS> {
     return this.http.get<FIELDS>(`/api/fields/candidate`).pipe(
-      tap(fields => {
-        console.log(`fields: ${fields.experience}`);
-      }),
+      // tap(fields => {
+      //   console.log(`fields: ${fields.experience}`);
+      // }),
       catchError(error => {
         console.log(`the error is ${error}`);
         return of(error);
