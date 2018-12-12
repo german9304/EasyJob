@@ -9,7 +9,7 @@ import { DataFieldsService } from '../jobseeker-dashboard/services/data-fields.r
 @Component({
   selector: 'app-search-result-jobs',
   templateUrl: './search-result-jobs.component.html',
-  styleUrls: ['./search-result-jobs.component.css']
+  styleUrls: ['./search-result-jobs.component.scss']
 })
 export class SearchResultJobsComponent implements OnInit {
   constructor(
