@@ -12,34 +12,34 @@ import { JobSearchComponent } from '../job-search/job-search.component';
 import { JobListDataService } from '../job-list-data.service';
 
 const appRoutes: Routes = [
-  {
-    path: 'nav',
-    component: NavBarComponent,
-    resolve: {
-      userData: DataResolverService
-    },
-    children: [
-      {
-        path: 'bav',
-        component: DashboardComponent
-      },
-      {
-        path: 'post/job',
-        component: PostjobComponent
-      },
-      {
-        path: 'jobs',
-        component: JobSearchComponent,
-        resolve: {
-          joblist: JobListDataService
-        }
-      },
-      {
-        path: 'account',
-        loadChildren: '../account/account.module#AccountModule'
-      }
-    ]
-  }
+  // {
+  //   path: 'nav',
+  //   component: NavBarComponent,
+  //   resolve: {
+  //     userData: DataResolverService
+  //   },
+  //   children: [
+  //     {
+  //       path: 'bav',
+  //       component: DashboardComponent
+  //     },
+  //     {
+  //       path: 'post/job',
+  //       component: PostjobComponent
+  //     },
+  //     {
+  //       path: 'jobs',
+  //       component: JobSearchComponent,
+  //       resolve: {
+  //         joblist: JobListDataService
+  //       }
+  //     },
+  //     {
+  //       path: 'account',
+  //       loadChildren: '../account/account.module#AccountModule'
+  //     }
+  //   ]
+  // }
 ];
 
 @NgModule({
