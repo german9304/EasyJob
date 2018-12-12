@@ -18,7 +18,7 @@ import { map, filter } from 'rxjs/operators';
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent implements OnInit {
-  url = '/';
+  url = ' ';
   constructor(
     private auth: AuthService,
     private router: Router,
