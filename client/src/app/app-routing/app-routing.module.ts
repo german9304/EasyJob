@@ -5,10 +5,18 @@ import { PageNotFoundComponent } from '../page-not-found/page-not-found.componen
 import { EmployerDashboardComponent } from '../employer-dashboard/dashboard/dashboard.component';
 import { DataResolverService } from '../services/auth-data-resolver.service';
 import { DashboardComponent } from '../dashboard/dashboard.component';
+import { NavbarComponent } from '../navbar/navbar.component';
+
 const appRoutes: Routes = [
   {
     path: '',
-    component: DashboardComponent
+    component: NavbarComponent
+    // children: [
+    //   {
+    //     path: '',
+    //     component: DashboardComponent
+    //   }
+    // ]
   },
   { path: '**', component: PageNotFoundComponent }
 ];
