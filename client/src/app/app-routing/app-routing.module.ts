@@ -4,11 +4,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
 import { EmployerDashboardComponent } from '../employer-dashboard/dashboard/dashboard.component';
 import { DataResolverService } from '../services/auth-data-resolver.service';
+import { DashboardComponent } from '../dashboard/dashboard.component';
 const appRoutes: Routes = [
   {
     path: '',
-    redirectTo: '/',
-    pathMatch: 'full'
+    component: DashboardComponent
   },
   { path: '**', component: PageNotFoundComponent }
 ];

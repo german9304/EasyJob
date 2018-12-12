@@ -13,14 +13,14 @@ import { JobListDataService } from '../job-list-data.service';
 
 const appRoutes: Routes = [
   {
-    path: '',
+    path: 'nav',
     component: NavBarComponent,
     resolve: {
       userData: DataResolverService
     },
     children: [
       {
-        path: '',
+        path: 'bav',
         component: DashboardComponent
       },
       {
