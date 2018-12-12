@@ -8,6 +8,7 @@ import { DashboardComponent } from '../dashboard/dashboard.component';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { PostJobComponent } from '../post-job/post-job.component';
 import { SearchResultJobsComponent } from '../search-result-jobs/search-result-jobs.component';
+import { SearchResultService } from '../services/search-result.service';
 
 const appRoutes: Routes = [
   {
@@ -24,7 +25,10 @@ const appRoutes: Routes = [
       },
       {
         path: 'jobs',
-        component: SearchResultJobsComponent
+        component: SearchResultJobsComponent,
+        resolve: {
+          joblist: SearchResultService
+        }
       },
       {
         path: 'account',
