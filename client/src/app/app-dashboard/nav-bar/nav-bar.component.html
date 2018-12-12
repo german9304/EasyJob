@@ -1,4 +1,20 @@
 <div class="nav-container">
-  <app-nav-bar-view></app-nav-bar-view>
+  <div class="div-content">
+    <app-nav-bar-view></app-nav-bar-view>
+    <div class="job-search">
+      <section class="search-job-form">
+        <header class="section-header"><h1>Find Your Job</h1></header>
+        <div class="section-content">
+          <app-search-form
+            [formParent]="searchForm"
+            [categories]="CATEGORIES"
+            (clickSearch)="handleSearch()"
+            (clickCategory)="handleCategory($event)"
+          ></app-search-form>
+        </div>
+      </section>
+    </div>
+  </div>
+
   <router-outlet></router-outlet>
 </div>

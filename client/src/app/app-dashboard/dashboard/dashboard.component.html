@@ -2,19 +2,21 @@
   <div class="container-menu-dashboard-view">
     <!-- - MENU BAR -->
     <!-- - JOB SEARCH BAR -->
-    <div class="job-search">
-      <section class="search-job-form">
-        <header class="section-header"><h1>Find Your Job</h1></header>
-        <div class="section-content">
-          <app-search-form
-            [formParent]="searchForm"
-            [categories]="CATEGORIES"
-            (clickSearch)="handleSearch()"
-            (clickCategory)="handleCategory($event)"
-          ></app-search-form>
-        </div>
-      </section>
-    </div>
+    <!--
+      <div class="job-search">
+        <section class="search-job-form">
+          <header class="section-header"><h1>Find Your Job</h1></header>
+          <div class="section-content">
+            <app-search-form
+              [formParent]="searchForm"
+              [categories]="CATEGORIES"
+              (clickSearch)="handleSearch()"
+              (clickCategory)="handleCategory($event)"
+            ></app-search-form>
+          </div>
+        </section>
+      </div>
+    -->
 
     <section class="section-find-right-job">
       <header class="inner-right section-header">
