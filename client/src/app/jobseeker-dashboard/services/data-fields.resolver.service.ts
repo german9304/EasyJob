@@ -19,6 +19,9 @@ export class DataFieldsService implements Resolve<FIELDS> {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<FIELDS> {
-    return this.cf.getFields();
+    // this.fs.getFields().subscribe(fields => {
+    //   console.log(`fields in data resolver: ${JSON.stringify(fields)}`);
+    // });
+    return this.fs.getFields();
   }
 }
