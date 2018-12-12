@@ -1,3 +1,14 @@
-<p>
-  search-category works!
-</p>
+<div class="search category" [formGroup]="searchFormParent">
+  <input
+    type="text"
+    name=""
+    id="search-input"
+    formControlName="category"
+    placeholder="Search job title"
+  />
+  <!-- <p> {{ sts.searchForm| json}}</p> -->
+  <app-categories
+    (clickCategories)="handleClick($event)"
+    [categories]="categories"
+  ></app-categories>
+</div>

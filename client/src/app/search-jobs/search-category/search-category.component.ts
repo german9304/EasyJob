@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-search-category',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search-category.component.css']
 })
 export class SearchCategoryComponent implements OnInit {
+  @Input() searchFormParent: FormGroup;
+  @Input() categories;
+  @Output() category: EventEmitter<string> = new EventEmitter<string>();
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
+  ngOnInit() {}
+  handleClick(event: string) {
+    // console.log(`event: ${event}`);
+    this.category.emit(event);
   }
-
 }
