@@ -49,6 +49,7 @@
 }
 .clear-icon:hover {
   color: #3d9970;
+  /* box-shadow: 0 0 2px #3d9970; */
 }
 .material-icons {
   padding: 10px;
@@ -70,16 +71,17 @@
 .jobseeker-jobs li {
   /* border: solid 1px red; */
   margin: 0 0 5px 0;
-  padding: 0 10px 0 0;
+  padding: 8px;
   list-style: none;
   /* background-color: gray; */
   cursor: pointer;
   /* background-color: rgb(#cc3e3e, green, #0074d9); */
-  transition: background-color 0.5s ease;
+  /* transition: all 0.5s ease; */
   cursor: pointer;
 }
 li:hover {
-  background-color: #e0faeb80;
+  /* background-color: #e0faeb80; */
+  box-shadow: 0 0 5px #3d9970;
 }
 
 .job-title {
