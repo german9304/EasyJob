@@ -24,6 +24,7 @@ import { SearchJobsComponent } from './search-jobs/search-jobs.component';
 import { SearchFormComponent } from './search-jobs/search-form/search-form.component';
 import { SearchCategoryComponent } from './search-jobs/search-category/search-category.component';
 import { SearchLocationComponent } from './search-jobs/search-location/search-location.component';
+import { CategoriesComponent } from './search-jobs/categories/categories.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { SearchLocationComponent } from './search-jobs/search-location/search-lo
     SearchJobsComponent,
     SearchFormComponent,
     SearchCategoryComponent,
-    SearchLocationComponent
+    SearchLocationComponent,
+    CategoriesComponent
   ],
   imports: [
     BrowserModule,
