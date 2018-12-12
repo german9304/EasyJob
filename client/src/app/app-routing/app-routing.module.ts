@@ -10,13 +10,13 @@ import { NavbarComponent } from '../navbar/navbar.component';
 const appRoutes: Routes = [
   {
     path: '',
-    component: NavbarComponent
-    // children: [
-    //   {
-    //     path: '',
-    //     component: DashboardComponent
-    //   }
-    // ]
+    component: NavbarComponent,
+    children: [
+      {
+        path: '',
+        component: DashboardComponent
+      }
+    ]
   },
   { path: '**', component: PageNotFoundComponent }
 ];
