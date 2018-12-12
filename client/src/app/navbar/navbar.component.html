@@ -1,5 +1,8 @@
-<div class="navbar-app-container add-picture-background">
-  <nav class="menu" [class.change-background-color]="url != '/'">
+<div
+  class="navbar-app-container"
+  [class.add-picture-background]="sts.url === '/'"
+>
+  <nav class="menu" [class.change-background-color]="sts.url != '/'">
     <ul id="menu-list">
       <li class="item item1">
         <a
