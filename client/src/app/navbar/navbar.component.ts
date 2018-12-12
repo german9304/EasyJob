@@ -7,9 +7,11 @@ import { StyleService } from '../services/style-service.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  url: string;
   constructor(private router: Router, private sts: StyleService) {}
 
   ngOnInit() {
-    this.router.events.subscribe(events => console.log(events));
+    this.url = this.sts.url;
+    console.log(this.url);
   }
 }
