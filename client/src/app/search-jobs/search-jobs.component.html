@@ -1,0 +1,13 @@
+<div class="job-search" [class.show-picture]="url === '/'">
+  <section class="search-job-form">
+    <header class="section-header"><h1>Find Your Job</h1></header>
+    <div class="section-content">
+      <app-search-form
+        [formParent]="searchForm"
+        [categories]="CATEGORIES"
+        (clickSearch)="handleSearch()"
+        (clickCategory)="handleCategory($event)"
+      ></app-search-form>
+    </div>
+  </section>
+</div>
