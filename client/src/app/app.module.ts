@@ -14,7 +14,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { Router } from '@angular/router';
 import { AuthService } from './services/auth.service';
 import { DataResolverService } from './services/auth-data-resolver.service';
-import { StyleServiceService } from './services/style-service.service';
+import { StyleService } from './services/style-service.service';
 import { JobDataService } from './services/job-data.service';
 import { TestDirective } from './test.directive';
 import { AuthGuardService } from './services/auth-guard.service';
@@ -55,7 +55,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     AuthService,
     DataResolverService,
     JobDataService,
-    StyleServiceService,
+    StyleService,
     AuthGuardService
   ],
   bootstrap: [AppComponent]
