@@ -15,7 +15,7 @@ export class SearchFormComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    console.log(this.formParent);
+    // console.log(this.formParent);
   }
   handleSearch() {
     this.clickSearch.emit(null);

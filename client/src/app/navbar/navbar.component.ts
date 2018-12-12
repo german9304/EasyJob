@@ -12,6 +12,6 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     this.url = this.sts.url;
-    console.log(this.url);
+    // console.log(this.url);
   }
 }
