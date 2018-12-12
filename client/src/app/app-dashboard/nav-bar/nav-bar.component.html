@@ -1,8 +1,10 @@
 <div class="nav-container">
   <div class="div-content">
     <app-nav-bar-view></app-nav-bar-view>
-    <div class="job-search">
+
+    <div class="job-search" [class.show-picture]="url === '/'">
       <section class="search-job-form">
+        <p style="color: white">{{ url }}</p>
         <header class="section-header"><h1>Find Your Job</h1></header>
         <div class="section-content">
           <app-search-form
