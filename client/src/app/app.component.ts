@@ -1,7 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './services/auth.service';
 import { USER } from './user';
-import { RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
+import { filter } from 'rxjs/operators';
+import {
+  RouterModule,
+  Routes,
+  Router,
+  ActivatedRoute,
+  NavigationEnd,
+  Event,
+  RouterEvent
+} from '@angular/router';
 import { StyleServiceService } from './services/style-service.service';
 @Component({
   selector: 'app-root',
@@ -17,6 +26,8 @@ export class AppComponent implements OnInit {
     private sts: StyleServiceService
   ) {}
   ngOnInit() {
-    this.router.events.subscribe(events => console.log(events));
+    this.router.events
+      .pipe(filter((ev: RouterEvent) => ev instanceof NavigationEnd))
+      .subscribe((ev: RouterEvent) => console.log(ev.url));
   }
 }

@@ -3,7 +3,12 @@ import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 
 @Injectable()
 export class StyleServiceService {
-  searchForm = false;
-  control = false;
+  url = '';
   constructor() {}
+  set Url(url: string) {
+    this.url = url;
+  }
+  get Url(): string {
+    return this.url;
+  }
 }
