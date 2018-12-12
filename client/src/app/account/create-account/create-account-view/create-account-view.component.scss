@@ -1,0 +1,48 @@
+.form-container {
+  margin: 20px 0 0 0;
+}
+#account-form {
+  width: 400px;
+  border: solid 1px rgb(236, 230, 230);
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+  // align-self: center;
+  // border: solid 1px red;
+  h2 {
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+  }
+  label {
+    font-family: 'Quicksand', sans-serif;
+  }
+  button {
+    font-family: 'Quicksand', sans-serif;
+  }
+}
+
+.option-container {
+  display: flex;
+  // border: solid 1px black;
+  justify-content: space-between;
+  background-color: #fff;
+  span {
+    cursor: pointer;
+    font-family: 'Quicksand', sans-serif;
+    padding: 10px;
+    width: 200px;
+    color: white;
+    color: #556a7b;
+    text-align: center;
+    // margin: 0 10px 0 0;
+  }
+  .selected {
+    color: #517bab;
+    border-bottom: #517bab solid 2px;
+  }
+  span:hover {
+    color: #517bab;
+    background-color: white;
+    border-bottom: #517bab solid 2px;
+  }
+}
