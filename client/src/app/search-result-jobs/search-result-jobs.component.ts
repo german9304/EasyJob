@@ -12,7 +12,46 @@ import { DataFieldsService } from '../jobseeker-dashboard/services/data-fields.r
   styleUrls: ['./search-result-jobs.component.css']
 })
 export class SearchResultJobsComponent implements OnInit {
-  constructor() {}
+  constructor(
+    private js: JobDataService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private fb: FormBuilder
+  ) {}
+  JOBS: JOB[] = [];
+  searchForm = this.fb.group({
+    field: [''],
+    location: ['']
+  });
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getJobList();
+  }
+  getJobList() {
+    this.route.paramMap.subscribe(data => {
+      const str = data.get('search');
+
+      // console.log("data: ");
+    });
+    this.route.data.subscribe((data: { joblist: JOB[] }) => {
+      const { joblist } = data;
+      this.JOBS = joblist;
+    });
+  }
+  getSearchJobs(job: JOB) {
+    // const params = this.route.paramMap.subscribe(param => console.log(param));
+    const location = this.route.snapshot.paramMap.get('location');
+    const search = this.route.snapshot.paramMap.get('search');
+    console.log(job);
+    console.log(` ${location}  ${search}`);
+    this.router.navigate(['/jobseeker/job/search', { search, location }]);
+  }
+
+  searchJobs() {
+    const { field, location } = this.searchForm.value;
+
+    this.js.goHome(field, location)
+      ? this.router.navigate(['../'])
+      : this.router.navigate(['./jobs', { search: field, location }]);
+  }
 }
