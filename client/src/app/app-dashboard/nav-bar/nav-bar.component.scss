@@ -1,0 +1,110 @@
+.nav-container {
+  /* border: solid 5px red; */
+  /* background-color: #dddddd32; */
+  /* background-color: #fff; */
+  /* margin: 0; */
+  /* background-color: green; */
+  margin: 0;
+  /* background-color: #f5f5f5; */
+  padding: 0;
+}
+.job-footer {
+  height: 80px;
+  margin: 0;
+  border: solid 1px black;
+  background-color: #556a7b;
+}
+// .div-content {
+// }
+// .add-picture-background {
+//   height: 700px;
+
+//   background-size: 100%;
+//   background-image: url('../../../assets/business-career-confidence-776615.jpg');
+// }
+
+.text-history {
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.job-search {
+  display: none;
+  justify-content: center;
+  //margin: 60px 0 0 0;
+  // border: solid 2px black;
+  align-items: center;
+  // margin: 0 0 10px 0;
+  // background-color: #845007;
+  height: 500px;
+
+  // background-repeat: no-repeat;
+}
+.show-picture {
+  display: flex;
+}
+
+.search-job-form {
+  // font-size: 60px;
+  padding: 50px;
+  // border: solid 2px black;
+  // border: solid 1px #fff;
+  margin: 0;
+  flex-basis: 50%;
+  // border: solid 1px white;
+  font-family: var(--font--fam);
+  font-weight: bold;
+  // background-color: #11111190;
+  background-color: rgba(0, 0, 0, 0.6);
+
+  // background-color: #fff;
+  // background-color: #0074d990;
+  .section-header {
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+      flex: 1;
+      font-weight: 400;
+      // color: #2e4a62;
+      color: #fff;
+      margin: 0 0 20px 0;
+    }
+  }
+  // border-radius: 10px 10px 10px 10px;
+}
+
+.section-find-right-job {
+  display: flex;
+  height: 500px;
+  background-color: #063d6d;
+  background-color: #3a4660;
+  .inner-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+  }
+  .inner-header {
+    border-bottom: solid 10px #fff;
+    #last-row {
+      padding: 0 0 30px 0;
+    }
+  }
+  .section-header {
+    flex: 1;
+    h1 {
+      font-size: 3em;
+      margin: 0;
+      font-family: var(--font--fam);
+    }
+  }
+  .section-content {
+    flex: 1;
+    #info-right-job {
+      width: 400px;
+      font-size: 1.5em;
+      line-height: 2em;
+    }
+  }
+}

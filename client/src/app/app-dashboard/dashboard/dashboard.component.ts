@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { CATEGORY } from '../../job';
-import { StyleServiceService } from '../../services/style-service.service';
+import { StyleService } from '../../services/style-service.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import {
   map,
@@ -24,7 +24,7 @@ export class DashboardComponent implements OnInit {
   });
   constructor(
     private fb: FormBuilder,
-    private sts: StyleServiceService,
+    private sts: StyleService,
     private jb: JobDataService,
     private router: Router
   ) {}

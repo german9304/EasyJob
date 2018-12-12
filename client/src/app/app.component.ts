@@ -1,8 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './services/auth.service';
 import { USER } from './user';
-import { RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
-import { StyleServiceService } from './services/style-service.service';
+import { filter } from 'rxjs/operators';
+import {
+  RouterModule,
+  Routes,
+  Router,
+  ActivatedRoute,
+  NavigationEnd,
+  Event,
+  RouterEvent
+} from '@angular/router';
+import { StyleService } from './services/style-service.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,9 +23,13 @@ export class AppComponent implements OnInit {
     private auth: AuthService,
     private router: Router,
     private route: ActivatedRoute,
-    private sts: StyleServiceService
+    private sts: StyleService
   ) {}
   ngOnInit() {
-    // this.router.events.subscribe(events => console.log(events));
+    this.router.events
+      .pipe(filter((ev: RouterEvent) => ev instanceof NavigationEnd))
+      .subscribe((ev: RouterEvent) => {
+        this.sts.Url = ev.url;
+      });
   }
 }
