@@ -5,7 +5,12 @@
       <i (click)="clickAdd(job)" class="material-icons"> add_circle_outline </i>
     </div>
     <p id="company" class="item item1">{{ job.company }}</p>
-    <p id="location" class="item item2">{{ job.location }}</p>
+    <div id="location" class="item item2">
+      <span class="icon-location">
+        <i class="material-icons"> location_on </i>
+      </span>
+      <span class="location-val"> {{ job.location }}</span>
+    </div>
     <p id="description" class="item item3">{{ job.description }}</p>
     <p id="description" class="item item3">{{ getWord(job.description) }}</p>
   </div>

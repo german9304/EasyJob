@@ -18,11 +18,27 @@
       font-weight: bolder;
     }
     #location {
+      display: flex;
       font-weight: bolder;
       font-family: 'Roboto', sans-serif;
       //   font-weight: lighter;
+      align-items: center;
       color: #111111;
+      // border: solid 1px black;
+      .icon-location {
+        display: flex;
+        align-items: center;
+        .material-icons {
+          font-size: 1.3em;
+          color: #a89b9b;
+          // border: solid 1px blue;
+        }
+      }
     }
+    // #location > * {
+    //   border: solid 1px red;
+    // }
+
     // border: solid 2px red;
     padding: 10px;
     margin: 0 0 10px 0;
