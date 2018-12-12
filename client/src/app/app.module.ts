@@ -18,9 +18,10 @@ import { StyleServiceService } from './services/style-service.service';
 import { JobDataService } from './services/job-data.service';
 import { TestDirective } from './test.directive';
 import { AuthGuardService } from './services/auth-guard.service';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
-  declarations: [AppComponent, PageNotFoundComponent, TestDirective],
+  declarations: [AppComponent, PageNotFoundComponent, TestDirective, NavbarComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
