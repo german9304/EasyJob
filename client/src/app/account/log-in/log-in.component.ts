@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-log-in',
   templateUrl: './log-in.component.html',
-  styleUrls: ['../../sharedstyle.component.scss', './log-in.component.css']
+  styleUrls: ['../sharedstyle.component.scss', './log-in.component.css']
 })
 export class LogInComponent implements OnInit {
   option: boolean;

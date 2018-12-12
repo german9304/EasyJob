@@ -20,6 +20,10 @@ const appRoutes: Routes = [
       {
         path: 'post-job',
         component: PostJobComponent
+      },
+      {
+        path: 'account',
+        loadChildren: '../account/account.module#AccountModule'
       }
     ]
   },

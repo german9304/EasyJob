@@ -5,7 +5,7 @@ import { FormGroup, FormControl } from '@angular/forms';
   selector: 'app-create-account-view',
   templateUrl: './create-account-view.component.html',
   styleUrls: [
-    '../../../sharedstyle.component.scss',
+    '../../sharedstyle.component.scss',
     './create-account-view.component.scss'
   ]
 })

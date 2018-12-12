@@ -6,7 +6,7 @@ import { RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
   selector: 'app-create-account',
   templateUrl: './create-account.component.html',
   styleUrls: [
-    '../../sharedstyle.component.scss',
+    '../sharedstyle.component.scss',
     './create-account.component.scss'
   ]
 })
