@@ -3,6 +3,14 @@ import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { CATEGORY } from '../job';
 import { Router, ActivatedRoute } from '@angular/router';
 import { JobDataService } from '../services/job-data.service';
+import {
+  map,
+  tap,
+  debounceTime,
+  switchMap,
+  distinctUntilChanged
+} from 'rxjs/operators';
+import { of } from 'rxjs';
 @Component({
   selector: 'app-search-jobs',
   templateUrl: './search-jobs.component.html',
@@ -21,7 +29,33 @@ export class SearchJobsComponent implements OnInit {
     private jb: JobDataService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getList();
+  }
+
+  getList() {
+    this.searchForm.valueChanges
+      .pipe(
+        map(data => {
+          data.category = data.category.toLowerCase();
+          return data.category;
+        }),
+        debounceTime(500),
+        distinctUntilChanged(),
+        // tap(data => console.log(data)),
+        switchMap((category: string) => {
+          if (!this.clicked) {
+            return this.jb.searchCategories(category);
+          }
+          this.clicked = false;
+          return of([]);
+          // return of(category);
+        })
+      )
+      .subscribe((categories: CATEGORY[]) => {
+        return (this.CATEGORIES = categories);
+      });
+  }
   handleCategory(value: string) {
     if (!value.trim()) {
       return;
