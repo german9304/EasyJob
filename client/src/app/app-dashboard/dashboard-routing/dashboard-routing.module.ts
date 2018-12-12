@@ -34,10 +34,6 @@ const appRoutes: Routes = [
   //         joblist: JobListDataService
   //       }
   //     },
-  //     {
-  //       path: 'account',
-  //       loadChildren: '../account/account.module#AccountModule'
-  //     }
   //   ]
   // }
 ];

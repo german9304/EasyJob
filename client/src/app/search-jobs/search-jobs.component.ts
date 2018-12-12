@@ -69,7 +69,7 @@ export class SearchJobsComponent implements OnInit {
   handleSearch() {
     const { category, location } = this.searchForm.value;
     // console.log(value);
-    this.router.navigate(['/jobs', { search: category, location }]);
+    this.router.navigate(['./jobs', { search: category, location }]);
   }
 
   get Category() {

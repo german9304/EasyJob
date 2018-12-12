@@ -44,7 +44,7 @@ export class SearchResultJobsComponent implements OnInit {
     const search = this.route.snapshot.paramMap.get('search');
     console.log(job);
     console.log(` ${location}  ${search}`);
-    this.router.navigate(['/jobseeker/job/search', { search, location }]);
+    //  this.router.navigate(['/jobseeker/job/search', { search, location }]);
   }
 
   searchJobs() {

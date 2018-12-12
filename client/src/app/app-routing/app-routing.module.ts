@@ -23,12 +23,12 @@ const appRoutes: Routes = [
         component: PostJobComponent
       },
       {
-        path: 'account',
-        loadChildren: '../account/account.module#AccountModule'
+        path: 'jobs',
+        component: SearchResultJobsComponent
       },
       {
-        path: 'job',
-        component: SearchResultJobsComponent
+        path: 'account',
+        loadChildren: '../account/account.module#AccountModule'
       }
     ]
   },
