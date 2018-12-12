@@ -1,6 +1,6 @@
 <div class="nav-container">
-  <div class="div-content">
-    <app-nav-bar-view></app-nav-bar-view>
+  <div [class.add-picture-background]="url === '/'">
+    <app-nav-bar-view [url]="url"></app-nav-bar-view>
 
     <div class="job-search" [class.show-picture]="url === '/'">
       <section class="search-job-form">

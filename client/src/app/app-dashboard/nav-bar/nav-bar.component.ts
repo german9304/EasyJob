@@ -26,7 +26,7 @@ export class NavBarComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.log('events', this.url);
+    // console.log('events', this.url);
     this.router.events
       .pipe(filter((e: RouterEvent) => e instanceof NavigationEnd))
       .subscribe((ev: NavigationEnd) => {
