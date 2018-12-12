@@ -22,6 +22,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { NavbarContentComponent } from './navbar/navbar-content/navbar-content.component';
 import { SearchJobsComponent } from './search-jobs/search-jobs.component';
 import { SearchFormComponent } from './search-jobs/search-form/search-form.component';
+import { SearchCategoryComponent } from './search-jobs/search-category/search-category.component';
+import { SearchLocationComponent } from './search-jobs/search-location/search-location.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { SearchFormComponent } from './search-jobs/search-form/search-form.compo
     NavbarComponent,
     NavbarContentComponent,
     SearchJobsComponent,
-    SearchFormComponent
+    SearchFormComponent,
+    SearchCategoryComponent,
+    SearchLocationComponent
   ],
   imports: [
     BrowserModule,
