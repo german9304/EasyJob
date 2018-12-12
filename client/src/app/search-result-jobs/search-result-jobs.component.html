@@ -22,9 +22,6 @@
     </form>
   </div>
   <div id="container-joblist">
-    <app-job-serch-list
-      (add)="getSearchJobs($event)"
-      [jobs]="JOBS"
-    ></app-job-serch-list>
+    <app-job-list (add)="getSearchJobs($event)" [jobs]="JOBS"></app-job-list>
   </div>
 </div>

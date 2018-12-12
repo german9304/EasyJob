@@ -28,6 +28,7 @@ import { CategoriesComponent } from './search-jobs/categories/categories.compone
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PostJobComponent } from './post-job/post-job.component';
 import { SearchResultJobsComponent } from './search-result-jobs/search-result-jobs.component';
+import { JobListComponent } from './search-result-jobs/job-list/job-list.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { SearchResultJobsComponent } from './search-result-jobs/search-result-jo
     CategoriesComponent,
     DashboardComponent,
     PostJobComponent,
-    SearchResultJobsComponent
+    SearchResultJobsComponent,
+    JobListComponent
   ],
   imports: [
     BrowserModule,
