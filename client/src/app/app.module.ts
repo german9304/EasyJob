@@ -19,9 +19,10 @@ import { JobDataService } from './services/job-data.service';
 import { TestDirective } from './test.directive';
 import { AuthGuardService } from './services/auth-guard.service';
 import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarContentComponent } from './navbar/navbar-content/navbar-content.component';
 
 @NgModule({
-  declarations: [AppComponent, PageNotFoundComponent, TestDirective, NavbarComponent],
+  declarations: [AppComponent, PageNotFoundComponent, TestDirective, NavbarComponent, NavbarContentComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
