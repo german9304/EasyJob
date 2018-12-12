@@ -1,5 +1,4 @@
-<nav class="menu">
-  <p style="color: white">{{ url }}</p>
+<nav class="menu" [class.change-background-color]="url != '/'">
   <ul id="menu-list">
     <li class="item item1">
       <a
