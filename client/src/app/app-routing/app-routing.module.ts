@@ -14,6 +14,9 @@ const appRoutes: Routes = [
   {
     path: '',
     component: NavbarComponent,
+    resolve: {
+      userData: DataResolverService
+    },
     children: [
       {
         path: '',
