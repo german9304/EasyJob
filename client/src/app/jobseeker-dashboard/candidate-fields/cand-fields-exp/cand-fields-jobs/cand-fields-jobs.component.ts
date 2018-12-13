@@ -68,8 +68,11 @@ export class CandExpEduResComponent implements OnInit {
             originalName,
             uploadDate
           }: { originalName: string; uploadDate: string } = fInfo;
-          const fInfoObj = { originalName, uploadDate };
-          this.fileService.fileInfo = Map<string, string>(fInfoObj);
+          const fInfoObj = {
+            originalName: originalName,
+            uploadDate: uploadDate
+          };
+          this.fileService.fileInfo = Map(fInfoObj);
           const { fileInfo: fi } = this.fileService;
           // console.log(fi.toObject());
         }
@@ -86,8 +89,12 @@ export class CandExpEduResComponent implements OnInit {
     const [file] = files;
     // console.log(file);
     const fileInfo: FILE = await this.fileService.uploadResume(file);
-    // const { originalName, uploadDate } = fileInfo;
-    this.fileService.fileInfo = Map<string, string>(fileInfo);
+    const { originalName, uploadDate } = fileInfo;
+    const fileNames = {
+      originalName,
+      uploadDate
+    };
+    this.fileService.fileInfo = Map(fileNames);
     // console.log(fileInfo);
   }
 }
