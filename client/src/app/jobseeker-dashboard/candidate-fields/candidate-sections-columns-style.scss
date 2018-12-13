@@ -82,14 +82,24 @@
     .items {
       //border: solid 1px red;
       margin: 8px 0 0 0;
+      .item {
+        margin: 3px 0 0 0;
+      }
       span {
         // border: solid 1px red;
-        color: #8c9194;
-        font-family: 'Muli', sans-serif;
-        font-weight: 400;
-        font-size: 18px;
+        // color: #8c9194;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 300;
+        font-size: 1em;
         display: block;
+        color: #111111;
         transition: all 0.5s;
+      }
+      .headline {
+        text-align: center;
+      }
+      .name {
+        font-weight: bolder;
       }
     }
   }
