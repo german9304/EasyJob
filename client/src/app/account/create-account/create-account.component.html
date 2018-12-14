@@ -8,11 +8,13 @@
 <!-- <p> {{ createaccount.value | json }} </p> -->
 <div class="container-create-account-login">
   <div class="form-container">
+    <app-invalid-form></app-invalid-form>
     <app-type-option
       [selected]="selected"
       (type)="handleType($event)"
     ></app-type-option>
     <!-- <p>{{ createAccountForm.value | json }}</p> -->
+    <!-- <p>{{ createAccountForm.valid | json }}</p> -->
     <form
       [formGroup]="createAccountForm"
       (ngSubmit)="handleSubmit()"
