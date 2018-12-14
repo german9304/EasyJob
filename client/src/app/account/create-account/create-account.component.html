@@ -8,22 +8,6 @@
 <!-- <p> {{ createaccount.value | json }} </p> -->
 <div class="container-create-account-login">
   <div class="form-container">
-    <div class="option-container">
-      <span
-        id="employer"
-        (click)="clicked(0, 'employer')"
-        [class.selected]="i === 0"
-      >
-        Employer
-      </span>
-      <span
-        id="jobSeeker"
-        (click)="clicked(1, 'jobseeker')"
-        [class.selected]="i === 1"
-      >
-        Job Seeker
-      </span>
-    </div>
     <form
       [formGroup]="createAccountForm"
       (ngSubmit)="onSubmit()"
