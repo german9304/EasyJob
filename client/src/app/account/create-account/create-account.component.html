@@ -12,7 +12,7 @@
     <!-- <p>{{ createAccountForm.value | json }}</p> -->
     <form
       [formGroup]="createAccountForm"
-      (click)="handleSubmit()"
+      (ngSubmit)="handleSubmit()"
       id="account-form"
     >
       <!-- <p> name </p> -->

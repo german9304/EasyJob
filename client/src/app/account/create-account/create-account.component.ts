@@ -38,15 +38,16 @@ export class CreateAccountComponent implements OnInit {
     //     return this.router.navigate(["/employer"]);
     //   }
     const { value } = this.createAccountForm;
-    this.auth.authenticate(value).subscribe(res => {
-      // console.log(res);
-      localStorage.setItem('option', option);
-      if (option === 'jobseeker') {
-        return this.router.navigate(['/jobseeker']);
-      } else {
-        return this.router.navigate(['/employer']);
-      }
-    });
+    console.log(`entered form: ${JSON.stringify(value)}`);
+    // this.auth.authenticate(value).subscribe(res => {
+    //   // console.log(res);
+    //   localStorage.setItem('option', option);
+    //   if (option === 'jobseeker') {
+    //     return this.router.navigate(['/jobseeker']);
+    //   } else {
+    //     return this.router.navigate(['/employer']);
+    //   }
+    // });
   }
   get Email() {
     return this.createAccountForm.get('email') as FormControl;
