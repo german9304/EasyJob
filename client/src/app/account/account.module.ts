@@ -9,6 +9,10 @@ import { LoginViewComponent } from './log-in/login-view/login-view.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { CreateAccountViewComponent } from './create-account/create-account-view/create-account-view.component';
 import { AccountRoutingModule } from './account-routing/account-routing.module';
+import { TypeOptionComponent } from './create-account/type-option/type-option.component';
+import { InptRow1Component } from './create-account/inpt-row1/inpt-row1.component';
+import { InptRow2Component } from './create-account/inpt-row2/inpt-row2.component';
+import { InvalidFormComponent } from './create-account/invalid-form/invalid-form.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -20,7 +24,11 @@ import { AccountRoutingModule } from './account-routing/account-routing.module';
     LogInComponent,
     LoginViewComponent,
     CreateAccountComponent,
-    CreateAccountViewComponent
+    CreateAccountViewComponent,
+    TypeOptionComponent,
+    InptRow1Component,
+    InptRow2Component,
+    InvalidFormComponent
   ],
   exports: []
 })
