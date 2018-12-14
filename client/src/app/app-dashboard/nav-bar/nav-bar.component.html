@@ -1,4 +1,23 @@
 <div class="nav-container">
-  <app-nav-bar-view></app-nav-bar-view>
-  <router-outlet></router-outlet>
+  <div [class.add-picture-background]="url === '/'">
+    <!-- <app-nav-bar-view [url]="url"></app-nav-bar-view> -->
+
+    <!--
+      <div class="job-search" [class.show-picture]="url === '/'">
+        <section class="search-job-form">
+          <header class="section-header"><h1>Find Your Job</h1></header>
+          <div class="section-content">
+            <app-search-form
+              [formParent]="searchForm"
+              [categories]="CATEGORIES"
+              (clickSearch)="handleSearch()"
+              (clickCategory)="handleCategory($event)"
+            ></app-search-form>
+          </div>
+        </section>
+      </div>
+    -->
+  </div>
+
+  <!-- <router-outlet></router-outlet> -->
 </div>

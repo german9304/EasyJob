@@ -1,0 +1,18 @@
+<form class="search-forms" [formGroup]="formParent">
+  <app-search-category
+    [searchFormParent]="formParent"
+    [categories]="categories"
+    (category)="handleCategory($event)"
+    class="form-inpt"
+  ></app-search-category>
+  <app-search-location
+    [searchFormParent]="formParent"
+    class="form-inpt"
+  ></app-search-location>
+
+  <div class="search icon">
+    <button type="button" (click)="handleSearch()" id="search-jobs">
+      <i class="material-icons"> search </i>
+    </button>
+  </div>
+</form>

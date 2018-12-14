@@ -14,13 +14,39 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { Router } from '@angular/router';
 import { AuthService } from './services/auth.service';
 import { DataResolverService } from './services/auth-data-resolver.service';
-import { StyleServiceService } from './services/style-service.service';
+import { StyleService } from './services/style-service.service';
 import { JobDataService } from './services/job-data.service';
 import { TestDirective } from './test.directive';
 import { AuthGuardService } from './services/auth-guard.service';
+import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarContentComponent } from './navbar/navbar-content/navbar-content.component';
+import { SearchJobsComponent } from './search-jobs/search-jobs.component';
+import { SearchFormComponent } from './search-jobs/search-form/search-form.component';
+import { SearchCategoryComponent } from './search-jobs/search-category/search-category.component';
+import { SearchLocationComponent } from './search-jobs/search-location/search-location.component';
+import { CategoriesComponent } from './search-jobs/categories/categories.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { PostJobComponent } from './post-job/post-job.component';
+import { SearchResultJobsComponent } from './search-result-jobs/search-result-jobs.component';
+import { JobListComponent } from './search-result-jobs/job-list/job-list.component';
 
 @NgModule({
-  declarations: [AppComponent, PageNotFoundComponent, TestDirective],
+  declarations: [
+    AppComponent,
+    PageNotFoundComponent,
+    TestDirective,
+    NavbarComponent,
+    NavbarContentComponent,
+    SearchJobsComponent,
+    SearchFormComponent,
+    SearchCategoryComponent,
+    SearchLocationComponent,
+    CategoriesComponent,
+    DashboardComponent,
+    PostJobComponent,
+    SearchResultJobsComponent,
+    JobListComponent
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -35,7 +61,7 @@ import { AuthGuardService } from './services/auth-guard.service';
     AuthService,
     DataResolverService,
     JobDataService,
-    StyleServiceService,
+    StyleService,
     AuthGuardService
   ],
   bootstrap: [AppComponent]

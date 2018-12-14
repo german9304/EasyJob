@@ -1,0 +1,45 @@
+<div class="profile-fields">
+  <div class="fields-container">
+    <form action="" [formGroup]="profileInfo">
+      <!-- <p>{{ profileInfo.value | json }}</p> -->
+      <div class="headers">
+        <div class="addexperience">
+          <h2>Edit Profile</h2>
+          <a routerLink="../../" routerLinkActive="active">
+            <i class="material-icons"> clear </i>
+          </a>
+        </div>
+      </div>
+      <div class="frm cand-email">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          formControlName="name"
+          id="name"
+          placeholder="Ex. john"
+        />
+      </div>
+      <div class="frm headline">
+        <label for="headline">Headline</label>
+        <input
+          type="text"
+          formControlName="headline"
+          id="headline"
+          placeholder="Ex. student at csu chico"
+        />
+      </div>
+      <div class="frm location">
+        <label for="location">Location</label>
+        <input
+          type="text"
+          formControlName="location"
+          id="location"
+          placeholder="Ex. San Diego, CA"
+        />
+      </div>
+      <div class="frm btns">
+        <button class="save" type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

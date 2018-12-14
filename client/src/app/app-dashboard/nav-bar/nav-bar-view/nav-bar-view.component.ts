@@ -10,9 +10,11 @@ import { USER } from '../../../user';
   styleUrls: ['./nav-bar-view.component.scss']
 })
 export class NavBarViewComponent implements OnInit {
+  @Input() url: string;
   constructor() {}
   clickedIcon() {}
   ngOnInit() {
+    // console.log(this.url);
     // console.log('login: ',this.auth)
     /*
    this.emailClasses = {

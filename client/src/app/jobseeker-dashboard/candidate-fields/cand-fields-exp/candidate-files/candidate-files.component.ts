@@ -17,7 +17,7 @@ export class CandidateFilesComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    console.log(`originalname: ${this.fileInfo.get('originalName')}`);
+    // console.log(`originalname: ${this.fileInfo.get('originalName')}`);
     const { fileInfo } = this;
     this.originalName = fileInfo.get('originalName');
     this.uploadDate = fileInfo.get('uploadDate');
