@@ -9,23 +9,17 @@
 <div class="container-create-account-login">
   <div class="form-container">
     <app-type-option></app-type-option>
-    <form
-      [formGroup]="createAccountForm"
-      (ngSubmit)="onSubmit()"
-      id="account-form"
-    >
+    <form [formGroup]="createAccountForm" id="account-form">
       <!-- <p> name </p> -->
       <h2>Create Your Account</h2>
-      <div class="form formgroup"><app-inpt-row1></app-inpt-row1></div>
-      <div class="form formgroup"><app-inpt-row2></app-inpt-row2></div>
+      <div class="formgroup">
+        <app-inpt-row1 [formParent]="createAccountForm"></app-inpt-row1>
+      </div>
+      <div class="formgroup">
+        <app-inpt-row2 [formParent]="createAccountForm"></app-inpt-row2>
+      </div>
       <div class="form form-btn">
-        <button
-          id="btn-submit"
-          type="submit"
-          [disabled]="!createAccountForm.valid"
-        >
-          Create Account
-        </button>
+        <button id="btn-submit" type="submit">Create Account</button>
       </div>
     </form>
   </div>

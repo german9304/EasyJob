@@ -1,10 +1,9 @@
-<div class="form-section">
+<div class="form form-section" [formGroup]="formParent">
   <label for="password"> Password: </label>
   <input
     id="password"
     formControlName="password"
     placeholder="password"
     type="password"
-    required=""
   />
 </div>

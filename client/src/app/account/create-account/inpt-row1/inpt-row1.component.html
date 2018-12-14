@@ -1,10 +1,4 @@
-<div class="form-section">
+<div class="form form-section" [formGroup]="formParent">
   <label for="email"> Email: </label>
-  <input
-    id="email"
-    formControlName="email"
-    placeholder="email"
-    type="text"
-    required=""
-  />
+  <input id="email" formControlName="email" placeholder="email" type="text" />
 </div>
