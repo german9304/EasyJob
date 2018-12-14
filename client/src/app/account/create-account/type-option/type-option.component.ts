@@ -6,10 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./type-option.component.css']
 })
 export class TypeOptionComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  constructor() {}
+  ngOnInit() {}
+  handleSelectedType() {}
 }

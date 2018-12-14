@@ -8,6 +8,7 @@
 <!-- <p> {{ createaccount.value | json }} </p> -->
 <div class="container-create-account-login">
   <div class="form-container">
+    <app-type-option></app-type-option>
     <form
       [formGroup]="createAccountForm"
       (ngSubmit)="onSubmit()"
