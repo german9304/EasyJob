@@ -11,6 +11,8 @@ import { RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
   ]
 })
 export class CreateAccountComponent implements OnInit {
+  i: boolean;
+  selected = false;
   createAccountForm = this.fb.group({
     email: [''],
     password: ['']
