@@ -26,7 +26,7 @@ export class CreateAccountComponent implements OnInit {
 
   ngOnInit() {}
 
-  onSubmit(option: string) {
+  handleSubmit(option: string) {
     // this.auth.authenticate()
     // const {value: email} = this.Email;
     // const {value: password} = this.Password;
