@@ -26,7 +26,7 @@ export class CreateAccountComponent implements OnInit {
 
   ngOnInit() {}
 
-  handleSubmit(option: string) {
+  handleSubmit() {
     // this.auth.authenticate()
     // const {value: email} = this.Email;
     // const {value: password} = this.Password;
@@ -39,7 +39,7 @@ export class CreateAccountComponent implements OnInit {
     //   }
     const { value } = this.createAccountForm;
     console.log(`entered form: ${JSON.stringify(value)}`);
-    console.log(`type: ${this.type}`);
+    console.log(`type clicked ${this.type}`);
     // this.auth.authenticate(value).subscribe(res => {
     //   // console.log(res);
     //   localStorage.setItem('option', option);
@@ -49,6 +49,10 @@ export class CreateAccountComponent implements OnInit {
     //     return this.router.navigate(['/employer']);
     //   }
     // });
+  }
+  handleType(type: number) {
+    // console.log(`type clicked ${type}`);
+    this.type = type;
   }
   get Email() {
     return this.createAccountForm.get('email') as FormControl;

@@ -8,7 +8,10 @@
 <!-- <p> {{ createaccount.value | json }} </p> -->
 <div class="container-create-account-login">
   <div class="form-container">
-    <app-type-option [selected]="selected"></app-type-option>
+    <app-type-option
+      [selected]="selected"
+      (type)="handleType($event)"
+    ></app-type-option>
     <!-- <p>{{ createAccountForm.value | json }}</p> -->
     <form
       [formGroup]="createAccountForm"
