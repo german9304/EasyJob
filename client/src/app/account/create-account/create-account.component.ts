@@ -39,6 +39,7 @@ export class CreateAccountComponent implements OnInit {
     //   }
     const { value } = this.createAccountForm;
     console.log(`entered form: ${JSON.stringify(value)}`);
+    console.log(`type: ${this.type}`);
     // this.auth.authenticate(value).subscribe(res => {
     //   // console.log(res);
     //   localStorage.setItem('option', option);

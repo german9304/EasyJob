@@ -8,5 +8,5 @@ import { Component, OnInit } from '@angular/core';
 export class TypeOptionComponent implements OnInit {
   constructor() {}
   ngOnInit() {}
-  handleSelectedField(field: number) {}
+  handleType(field: number) {}
 }
