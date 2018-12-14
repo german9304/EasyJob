@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  FormControl,
+  Validators
+} from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
 @Component({
@@ -14,8 +19,8 @@ export class CreateAccountComponent implements OnInit {
   type: number;
   selected = false;
   createAccountForm = this.fb.group({
-    email: [''],
-    password: ['']
+    email: ['', Validators.required],
+    password: ['', Validators.required]
   });
 
   constructor(
@@ -53,6 +58,7 @@ export class CreateAccountComponent implements OnInit {
   handleType(type: number) {
     // console.log(`type clicked ${type}`);
     this.type = type;
+    this.selected = true;
   }
   get Email() {
     return this.createAccountForm.get('email') as FormControl;
