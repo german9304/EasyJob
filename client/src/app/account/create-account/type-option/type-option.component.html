@@ -1,9 +1,17 @@
 <div class="option-container">
-  <p>{{ typeSelected | json }}</p>
-  <span id="employer" (click)="handleType(0)" [class.selected]="i === 0">
+  <!-- <p>{{ typeSelected | json }}</p> -->
+  <span
+    id="employer"
+    (click)="handleType(0)"
+    [class.selected]="typeSelected === 0"
+  >
     Employer
   </span>
-  <span id="jobSeeker" (click)="handleType(1)" [class.selected]="i === 1">
+  <span
+    id="jobSeeker"
+    (click)="handleType(1)"
+    [class.selected]="typeSelected === 1"
+  >
     Job Seeker
   </span>
 </div>
