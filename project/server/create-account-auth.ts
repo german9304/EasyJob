@@ -46,22 +46,25 @@ function createUserStrategy(email, password, done) {
 }
 
 function loginUserStrategy(email, password, done) {
-  userModel.findOne({ email }, async (err, user): Promise<any> => {
-    if (err) {
-      console.error(err);
-    }
-    if (!user) {
-      return done(null, false);
-    }
-    const { password: hash } = user;
-    // console.log('hash: ',hash);
-    const checkpsswrd = await user.comparePasswords(password, hash);
-    if (checkpsswrd) {
-      return done(null, user);
-    }
+  userModel.findOne(
+    { email },
+    async (err, user): Promise<any> => {
+      if (err) {
+        console.error(err);
+      }
+      if (!user) {
+        return done(null, false);
+      }
+      const { password: hash } = user;
+      // console.log('hash: ',hash);
+      const checkpsswrd = await user.comparePasswords(password, hash);
+      if (checkpsswrd) {
+        return done(null, user);
+      }
 
-    return done(null, false);
-  });
+      return done(null, false);
+    },
+  );
   //   return done(null, { username }, { message: "Username Already Exists" });
 }
 
@@ -82,6 +85,7 @@ use(
     {
       usernameField: 'email',
       passwordField: 'password',
+      passReqToCallback: true,
     },
     loginUserStrategy,
   ),
