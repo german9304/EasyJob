@@ -6,6 +6,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./type-option.component.scss']
 })
 export class TypeOptionComponent implements OnInit {
+  @Input() typeSelected: number;
   @Input() selected: boolean;
   @Output() type: EventEmitter<number> = new EventEmitter<number>();
   constructor() {}
