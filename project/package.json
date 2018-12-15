@@ -53,6 +53,6 @@
     "typescript": "^3.1.6"
   },
   "devDependencies": {
-    "nodemon": "^1.18.8"
+    "nodemon": "^1.18.9"
   }
 }
