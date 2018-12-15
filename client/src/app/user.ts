@@ -3,6 +3,8 @@ export interface Contact {
   email: string;
   auth: boolean;
   jwt: string;
+  employer?: number;
+  jobseeker?: number;
 }
 
 export class USER implements Contact {
