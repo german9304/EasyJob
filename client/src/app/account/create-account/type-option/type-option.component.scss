@@ -7,15 +7,18 @@
   span {
     cursor: pointer;
     font-family: 'Quicksand', sans-serif;
-    padding: 10px;
+    padding: 10px 8px 10px 8px;
     width: 200px;
     color: white;
-    color: #556a7b;
+
+    color: #517bab;
     text-align: center;
-    margin: 0 5px 0 5px;
+    // margin: 0 5px 0 0;
+    font-weight: bolder;
+    // border: solid 1px black;
   }
   .selected {
-    color: #517bab;
+    color: #556a7b;
     border-bottom: #517bab solid 3px;
   }
   span:hover {
@@ -24,3 +27,7 @@
     border-bottom: #517bab solid 3px;
   }
 }
+
+// #employer {
+//   margin: 0 5px 0 0;
+// }
