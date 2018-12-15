@@ -12,7 +12,8 @@ deserializeUser((id, done) => {
   userModel.findById(id).then(user => done(null, user));
 });
 
-function createUserStrategy(email, password, done) {
+function createUserStrategy(req, email, password, done) {
+  // console.log(`req body: ${JSON.stringify(req.body)}`);
   userModel.findOne({ email }, async (err, user) => {
     if (err) {
       console.error(err);
@@ -20,6 +21,7 @@ function createUserStrategy(email, password, done) {
     if (!user) {
       try {
         const jwt = '1123';
+        const { type } = req.body;
         const newUser = createUser({ email, password, jwt });
         // console.log(`new user: ${newUser.email}`);
         const newToken = JWT.sign(
@@ -27,8 +29,8 @@ function createUserStrategy(email, password, done) {
           JWT_SECRET_KEY.key,
         );
         newUser.jwt = newToken;
-        const usr = await newUser.save();
-        return done(null, usr._id);
+        // const usr = await newUser.save();
+        return done(null, newUser);
       } catch (err) {
         console.log(err);
       }
@@ -74,6 +76,7 @@ use(
     {
       usernameField: 'email',
       passwordField: 'password',
+      passReqToCallback: true,
     },
     createUserStrategy,
   ),
@@ -85,7 +88,6 @@ use(
     {
       usernameField: 'email',
       passwordField: 'password',
-      passReqToCallback: true,
     },
     loginUserStrategy,
   ),

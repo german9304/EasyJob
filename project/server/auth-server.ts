@@ -45,8 +45,9 @@ router.post(
     const { user: id } = req;
     const usr: Promise<IUser> = findUserById(id);
     usr.then((data: IUser) => {
-      const { _id, email, jwt } = data;
-      return res.json({ user: { _id, email, jwt } });
+      // const { _id, email, jwt } = data;
+      // return res.json({ user: { _id, email, jwt } });
+      res.json(data);
     });
   },
 );
