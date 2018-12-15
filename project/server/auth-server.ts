@@ -14,7 +14,11 @@ import { IUser } from './user';
 router.get(
   '/google',
   (req: Request, res: Response, next): void => {
-    // console.log(req.query);
+    console.log('req query');
+    console.log(req.query);
+    const { type } = req.query;
+    req.session.type = type;
+    console.log(`type: ${type}`);
     next();
   },
 );
@@ -32,8 +36,10 @@ router.get(
   (req: Request, res: Response, next: NextFunction): void => {
     // console.log("redirect out");
     //  console.log("req user: ", req.user);
-    res.redirect('http://localhost:4200/');
-    // res.redirect("/");
+    console.log(`session after: ${JSON.stringify(req.session)}`);
+    delete req.session.type;
+    // res.redirect('http://localhost:4200/');
+    res.redirect('/');
   },
 );
 
