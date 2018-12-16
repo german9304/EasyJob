@@ -28,6 +28,7 @@ export class AuthService {
       .pipe(
         tap(({ user }) => {
           console.log('create account: ', user);
+          this.createUserCredentials(user);
         }),
         catchError(val => {
           return of(`I caught: ${val.status}`);
