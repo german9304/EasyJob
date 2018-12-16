@@ -3,7 +3,7 @@ import { serializeUser, deserializeUser, use } from 'passport';
 import * as JWT from 'jsonwebtoken';
 import { Strategy } from 'passport-local';
 import { JWT_SECRET_KEY } from './client-auth';
-import { userModel, createUser } from './Models/user-schema';
+import { userModel, createUser, setType } from './Models/user-schema';
 
 // const localStrategy = LocalStrategy.Strategy;
 serializeUser((userId, done) => done(null, userId));
@@ -30,7 +30,8 @@ function createUserStrategy(req, email, password, done) {
         );
         newUser.jwt = newToken;
         // const usr = await newUser.save();
-        return done(null, newUser);
+        const userType = setType(type, newUser);
+        return done(null, userType);
       } catch (err) {
         console.log(err);
       }

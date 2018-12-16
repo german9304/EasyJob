@@ -86,6 +86,12 @@ const createUser = ({ email, password, jwt }: User): IUser => {
   });
 };
 
+const setType = (type: number, userModel: IUser): IUser => {
+  const option = type ? { employer: 1 } : { jobseeker: 1 };
+  userModel.set(option);
+  return userModel;
+};
+
 const findUserById = async ({ _id }: { _id: string }): Promise<IUser> => {
   const usr = await userModel.findById(_id);
   return usr;
@@ -116,4 +122,5 @@ export {
   findGoogleUser,
   createUser,
   findUserById,
+  setType,
 };

@@ -5,6 +5,7 @@ export interface User {
   password?: string;
   jwt?: string;
   auth?: boolean;
+  type?: number;
 }
 export interface GoogleUser {
   _id?: string;

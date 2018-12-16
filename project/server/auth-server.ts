@@ -55,6 +55,7 @@ router.post(
       // return res.json({ user: { _id, email, jwt } });
       res.json(data);
     });
+    res.json(req.user);
   },
 );
 
