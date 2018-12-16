@@ -18,6 +18,7 @@ export interface IUser extends Document {
   name: String;
   candidate: Boolean;
   employer: Boolean;
+  jobseeker: Boolean;
   email: String;
   googleId: String;
   password: String;
