@@ -20,7 +20,7 @@ USER SCHEMA
 const userSchema: Schema = new Schema(
   {
     name: String,
-    candidate: Boolean,
+    jobseeker: Boolean,
     employer: Boolean,
     email: String,
     googleId: String,
@@ -87,7 +87,7 @@ const createUser = ({ email, password, jwt }: User): IUser => {
 };
 
 const setType = (type: number, userModel: IUser): IUser => {
-  const option = type ? { employer: 1 } : { jobseeker: 1 };
+  const option = type === 1 ? { employer: 1 } : { jobseeker: 1 };
   userModel.set(option);
   return userModel;
 };

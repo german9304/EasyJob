@@ -54,6 +54,7 @@ router.post(
       const { _id, email, jwt, employer, jobseeker } = data;
       return res.json({ user: { _id, email, jwt, employer, jobseeker } });
     });
+    // res.json(req.user);
   },
 );
 

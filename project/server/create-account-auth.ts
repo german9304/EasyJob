@@ -30,9 +30,10 @@ function createUserStrategy(req, email, password, done) {
         );
         newUser.jwt = newToken;
         // const usr = await newUser.save();
-        const userType = setType(type, newUser);
+        const userType = setType(+type, newUser);
         const usr = await userType.save();
-        return done(null, usr);
+        // console.log(userType);
+        return done(null, userType);
       } catch (err) {
         console.log(err);
       }
