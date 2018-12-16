@@ -42,18 +42,25 @@ export class CreateAccountComponent implements OnInit {
     //   }else{
     //     return this.router.navigate(["/employer"]);
     //   }
-    const { value } = this.createAccountForm;
-    console.log(`entered form: ${JSON.stringify(value)}`);
+    const {
+      value: { email, password }
+    } = this.createAccountForm;
+    console.log(`entered form: ${email} ${password}`);
     console.log(`type clicked ${this.type}`);
-    // this.auth.authenticate(value).subscribe(res => {
-    //   // console.log(res);
-    //   localStorage.setItem('option', option);
-    //   if (option === 'jobseeker') {
-    //     return this.router.navigate(['/jobseeker']);
-    //   } else {
-    //     return this.router.navigate(['/employer']);
-    //   }
-    // });
+    const userInfo = {
+      email,
+      password,
+      type: this.type
+    };
+    this.auth.authenticate(userInfo).subscribe(res => {
+      console.log(res);
+      // localStorage.setItem('option', option);
+      // if (option === 'jobseeker') {
+      //   return this.router.navigate(['/jobseeker']);
+      // } else {
+      //   return this.router.navigate(['/employer']);
+      // }
+    });
   }
   handleType(type: number) {
     // console.log(`type clicked ${type}`);
