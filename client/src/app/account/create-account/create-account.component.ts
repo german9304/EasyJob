@@ -55,10 +55,16 @@ export class CreateAccountComponent implements OnInit {
     };
     this.auth.authenticate(userInfo).subscribe(({ user }: { user: USER }) => {
       const { jobseeker, employer } = user;
-
-      console.log(
-        `jobseeker:${jobseeker} employer:${employer} type:${this.type}`
-      );
+      // console.log(
+      //   `jobseeker:${jobseeker} employer:${employer} type:${this.type}`
+      // );
+      if (jobseeker) {
+        return this.router.navigate(['/jobseeker']);
+      } else if (employer) {
+        return this.router.navigate(['/employer']);
+      } else {
+        return this.router.navigate(['/']);
+      }
     });
   }
   handleType(type: number) {
