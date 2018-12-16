@@ -87,7 +87,8 @@ const createUser = ({ email, password, jwt }: User): IUser => {
 };
 
 const setType = (type: number, userModel: IUser): IUser => {
-  const option = type === 0 ? { employer: 1 } : { jobseeker: 1 };
+  const option =
+    type === 0 ? { employer: 1, jobseeker: 0 } : { jobseeker: 1, employer: 0 };
   userModel.set(option);
   return userModel;
 };
