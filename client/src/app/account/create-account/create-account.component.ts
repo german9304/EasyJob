@@ -5,6 +5,7 @@ import {
   FormControl,
   Validators
 } from '@angular/forms';
+import { USER } from '../../user';
 import { AuthService } from '../../services/auth.service';
 import { RouterModule, Routes, Router, ActivatedRoute } from '@angular/router';
 @Component({
@@ -52,14 +53,12 @@ export class CreateAccountComponent implements OnInit {
       password,
       type: this.type
     };
-    this.auth.authenticate(userInfo).subscribe(res => {
-      console.log(res);
-      // localStorage.setItem('option', option);
-      // if (option === 'jobseeker') {
-      //   return this.router.navigate(['/jobseeker']);
-      // } else {
-      //   return this.router.navigate(['/employer']);
-      // }
+    this.auth.authenticate(userInfo).subscribe(({ user }: { user: USER }) => {
+      const { jobseeker, employer } = user;
+
+      console.log(
+        `jobseeker:${jobseeker} employer:${employer} type:${this.type}`
+      );
     });
   }
   handleType(type: number) {

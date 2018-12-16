@@ -3,8 +3,8 @@ export interface Contact {
   email: string;
   auth: boolean;
   jwt: string;
-  employer?: number;
-  jobseeker?: number;
+  employer: number;
+  jobseeker: number;
 }
 
 export class USER implements Contact {
@@ -12,7 +12,9 @@ export class USER implements Contact {
     public username: string,
     public email: string,
     public auth: boolean,
-    public jwt: string
+    public jwt: string,
+    public employer: number,
+    public jobseeker: number
   ) {
     this.username = username;
     this.email = email;

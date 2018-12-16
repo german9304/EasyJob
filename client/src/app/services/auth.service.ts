@@ -70,8 +70,8 @@ export class AuthService {
   }
   createUserCredentials(user: USER): USER {
     try {
-      const { email, auth, jwt } = user;
-      const usr = new USER('', email, auth, jwt);
+      const { email, auth, jwt, jobseeker, employer} = user;
+      const usr = new USER('', email, auth, jwt, jobseeker, employer);
       // console.log('user: ', usr);
       localStorage.setItem('token', JSON.stringify(user));
       // const httpOpts = {
