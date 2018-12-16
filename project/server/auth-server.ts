@@ -48,14 +48,14 @@ router.post(
   passport.authenticate('createUser'),
   (req: Request, res: Response): void => {
     // console.log(req.authInfo);
-    //   const { user: id } = req;
-    //   const usr: Promise<IUser> = findUserById(id);
-    // usr.then((data: IUser) => {
-    //   const { _id, email, jwt, employer, jobseeker } = data;
-    //   console.log(employer);
-    //   return res.json({ user: { _id, email, jwt, employer, jobseeker } });
-    // });
-    res.json(req.user);
+    const { user: id } = req;
+    const usr: Promise<IUser> = findUserById(id);
+    usr.then((data: IUser) => {
+      const { _id, email, jwt, employer, jobseeker } = data;
+      console.log(employer);
+      return res.json({ user: { _id, email, jwt, employer, jobseeker } });
+    });
+    //  res.json(req.user);
   },
 );
 
